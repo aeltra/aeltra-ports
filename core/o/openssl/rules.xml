@@ -3,16 +3,16 @@
     <prepare>
     <![CDATA[
 
-export MACHINE="`echo $BONDI_HOST_TYPE | cut -d'-' -f1`"
+export MACHINE="`echo $AELTRA_HOST_TYPE | cut -d'-' -f1`"
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 sed -i 's/linux-mips64/linux64-mips64/g' config
 
-cd "$BONDI_BUILD_DIR"
-$BONDI_SOURCE_DIR/config \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --cross-compile-prefix="${BONDI_HOST_TYPE}-" \
-    --openssldir="$BONDI_INSTALL_PREFIX/lib/ssl" \
+cd "$AELTRA_BUILD_DIR"
+$AELTRA_SOURCE_DIR/config \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --cross-compile-prefix="${AELTRA_HOST_TYPE}-" \
+    --openssldir="$AELTRA_INSTALL_PREFIX/lib/ssl" \
     --libdir=lib \
     \
     no-idea no-mdc2 no-rc5 no-zlib no-ssl3 no-ssl3-method \
@@ -24,8 +24,8 @@ $BONDI_SOURCE_DIR/config \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -33,17 +33,17 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-mkdir -p "$BONDI_INSTALL_DIR/etc/ssl"
+mkdir -p "$AELTRA_INSTALL_DIR/etc/ssl"
 
 for item in certs openssl.cnf private; do
-    mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/ssl/$item" "$BONDI_INSTALL_DIR/etc/ssl/"
-    ln -s "/etc/ssl/$item" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/ssl/"
+    mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/ssl/$item" "$AELTRA_INSTALL_DIR/etc/ssl/"
+    ln -s "/etc/ssl/$item" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/ssl/"
 done
 
-chmod 0700 "$BONDI_INSTALL_DIR/etc/ssl/private"
+chmod 0700 "$AELTRA_INSTALL_DIR/etc/ssl/private"
 
     ]]>
     </install>

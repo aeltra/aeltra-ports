@@ -3,17 +3,17 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 #autoreconf -vfi || true
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 
-AWK="$BONDI_INSTALL_PREFIX/bin/awk" \
-PERL="$BONDI_INSTALL_PREFIX/bin/perl" \
+AWK="$AELTRA_INSTALL_PREFIX/bin/awk" \
+PERL="$AELTRA_INSTALL_PREFIX/bin/perl" \
 "./configure" \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --disable-nls \
     --disable-rpath
 
@@ -29,8 +29,8 @@ touch Makefile.in
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -38,8 +38,8 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
     ]]>
     </install>

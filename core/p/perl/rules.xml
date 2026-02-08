@@ -3,7 +3,7 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 
 ###############################################################################
 # Set some variables
@@ -18,10 +18,10 @@ FULL_VERSION="$MAJOR_MINOR.$PATCHLEVEL"
 # Build against system zlib
 ###############################################################################
 export BUILD_BZIP2=0
-export BZIP2_INCLUDE="$BONDI_INSTALL_PREFIX/include"
-export BZIP2_LIB="$BONDI_INSTALL_PREFIX/lib"
+export BZIP2_INCLUDE="$AELTRA_INSTALL_PREFIX/include"
+export BZIP2_LIB="$AELTRA_INSTALL_PREFIX/lib"
 
-if [ "$BONDI_BUILD_FOR" = "target" ]; then
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
     SYSROOT="/"
 else
     SYSROOT="/tools"
@@ -31,43 +31,43 @@ fi
 # Configure duplicate source trees for shared and static build
 ###############################################################################
 for variant in shared static; do
-    cp -a "$BONDI_SOURCE_DIR" "$BONDI_BUILD_DIR/$variant"
+    cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/$variant"
     OPTS="-Uuseshrplib"
     if [ "$variant" = "shared" ]; then
-        OPTS="-Duseshrplib -Dlibperl=libperl.so.$FULL_VERSION -Dplibpth=$BONDI_INSTALL_PREFIX/lib"
+        OPTS="-Duseshrplib -Dlibperl=libperl.so.$FULL_VERSION -Dplibpth=$AELTRA_INSTALL_PREFIX/lib"
     fi
 
     ###########################################################################
     # Run configuration script
     ###########################################################################
-    cd "$BONDI_BUILD_DIR/$variant"
+    cd "$AELTRA_BUILD_DIR/$variant"
     ./Configure \
         -Dusethreads                                                    \
         -Duselargefiles                                                 \
         -Dccflags=""                                                    \
         -Dcccdlflags="-fPIC"                                            \
-        -Darchname="$BONDI_HOST_TYPE"                                    \
-        -Dtargetarch="$BONDI_HOST_TYPE"                                  \
+        -Darchname="$AELTRA_HOST_TYPE"                                    \
+        -Dtargetarch="$AELTRA_HOST_TYPE"                                  \
         -Dsysroot="$SYSROOT"                                            \
-        -Dcc="${BONDI_HOST_TYPE}-gcc"                                    \
-        -Dcpp="${BONDI_HOST_TYPE}-cpp"                                   \
-        -Dld="${BONDI_HOST_TYPE}-gcc"                                    \
-        -Dprefix="$BONDI_INSTALL_PREFIX"                                 \
-        -Dprivlib="$BONDI_INSTALL_PREFIX/share/perl/$MAJOR_MINOR"        \
-        -Darchlib="$BONDI_INSTALL_PREFIX/lib/perl/$MAJOR_MINOR"          \
-        -Dvendorprefix="$BONDI_INSTALL_PREFIX"                           \
-        -Dvendorlib="$BONDI_INSTALL_PREFIX/share/perl5"                  \
-        -Dvendorarch="$BONDI_INSTALL_PREFIX/lib/perl5"                   \
-        -Dsiteprefix="$BONDI_INSTALL_PREFIX/local"                       \
-        -Dsitelib="$BONDI_INSTALL_PREFIX/local/share/perl/$FULL_VERSION" \
-        -Dsitearch="$BONDI_INSTALL_PREFIX/local/lib/perl/$FULL_VERSION"  \
-        -Dman1dir="$BONDI_INSTALL_PREFIX/share/man/man1"                 \
-        -Dman3dir="$BONDI_INSTALL_PREFIX/share/man/man3"                 \
-        -Dsiteman1dir="$BONDI_INSTALL_PREFIX/local/man/man1"             \
-        -Dsiteman3dir="$BONDI_INSTALL_PREFIX/local/man/man3"             \
+        -Dcc="${AELTRA_HOST_TYPE}-gcc"                                    \
+        -Dcpp="${AELTRA_HOST_TYPE}-cpp"                                   \
+        -Dld="${AELTRA_HOST_TYPE}-gcc"                                    \
+        -Dprefix="$AELTRA_INSTALL_PREFIX"                                 \
+        -Dprivlib="$AELTRA_INSTALL_PREFIX/share/perl/$MAJOR_MINOR"        \
+        -Darchlib="$AELTRA_INSTALL_PREFIX/lib/perl/$MAJOR_MINOR"          \
+        -Dvendorprefix="$AELTRA_INSTALL_PREFIX"                           \
+        -Dvendorlib="$AELTRA_INSTALL_PREFIX/share/perl5"                  \
+        -Dvendorarch="$AELTRA_INSTALL_PREFIX/lib/perl5"                   \
+        -Dsiteprefix="$AELTRA_INSTALL_PREFIX/local"                       \
+        -Dsitelib="$AELTRA_INSTALL_PREFIX/local/share/perl/$FULL_VERSION" \
+        -Dsitearch="$AELTRA_INSTALL_PREFIX/local/lib/perl/$FULL_VERSION"  \
+        -Dman1dir="$AELTRA_INSTALL_PREFIX/share/man/man1"                 \
+        -Dman3dir="$AELTRA_INSTALL_PREFIX/share/man/man3"                 \
+        -Dsiteman1dir="$AELTRA_INSTALL_PREFIX/local/man/man1"             \
+        -Dsiteman3dir="$AELTRA_INSTALL_PREFIX/local/man/man3"             \
         -Dman1ext=1                                                     \
         -Dman3ext=3perl                                                 \
-        -Dpager="$BONDI_INSTALL_PREFIX/bin/pager"                        \
+        -Dpager="$AELTRA_INSTALL_PREFIX/bin/pager"                        \
         -Uafs                                                           \
         -Ud_csh                                                         \
         -Ud_ualarm                                                      \
@@ -79,11 +79,11 @@ for variant in shared static; do
 done
 
 ###############################################################################
-# Disable rpath, libperl will be moved to $BONDI_INSTALL_PREFIX/lib
+# Disable rpath, libperl will be moved to $AELTRA_INSTALL_PREFIX/lib
 ###############################################################################
 
-sed -i "/^CCDLFLAGS/{s/-Wl,-rpath,\$BONDI_INSTALL_PREFIX[^ ]\+//g}" \
-	$BONDI_BUILD_DIR/shared/Makefile
+sed -i "/^CCDLFLAGS/{s/-Wl,-rpath,\$AELTRA_INSTALL_PREFIX[^ ]\+//g}" \
+	$AELTRA_BUILD_DIR/shared/Makefile
 
     ]]>
     </prepare>
@@ -91,7 +91,7 @@ sed -i "/^CCDLFLAGS/{s/-Wl,-rpath,\$BONDI_INSTALL_PREFIX[^ ]\+//g}" \
     <build>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 
 ###############################################################################
 # Set some variables
@@ -102,23 +102,23 @@ PATCHLEVEL="`echo '#include "./patchlevel.h"
 SET PERL_SUBVERSION' | gcc -E -DPERL_PATCHLEVEL_H_IMPLICIT -  | sed -n '/^SET/{s///;s/ //gp;}'`"
 FULL_VERSION="$MAJOR_MINOR.$PATCHLEVEL"
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 
 ###############################################################################
 # Run build
 ###############################################################################
 for variant in shared static; do
-    make ranlib="$BONDI_INSTALL_PREFIX/bin/${BONDI_HOST_TYPE}-ranlib" \
-        -C "$BONDI_BUILD_DIR/$variant" -j"$BONDI_PARALLEL_JOBS"
+    make ranlib="$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-ranlib" \
+        -C "$AELTRA_BUILD_DIR/$variant" -j"$AELTRA_PARALLEL_JOBS"
 done
 
 ###############################################################################
 # Regenerate shared library and add soname
 ###############################################################################
-cd "$BONDI_BUILD_DIR/shared/"
+cd "$AELTRA_BUILD_DIR/shared/"
 rm -f libperl.so.$FULL_VERSION
 make SHRPLDFLAGS="\$(LDDLFLAGS) -Wl,-soname,libperl.so.$MAJOR_MINOR" libperl.so.$FULL_VERSION
-ln -s libperl.so.$FULL_VERSION "$BONDI_BUILD_DIR/shared/libperl.so.$MAJOR_MINOR"
+ln -s libperl.so.$FULL_VERSION "$AELTRA_BUILD_DIR/shared/libperl.so.$MAJOR_MINOR"
 
     ]]>
     </build>
@@ -126,7 +126,7 @@ ln -s libperl.so.$FULL_VERSION "$BONDI_BUILD_DIR/shared/libperl.so.$MAJOR_MINOR"
     <install>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 
 ###############################################################################
 # Set some variables
@@ -137,31 +137,31 @@ PATCHLEVEL="`echo '#include "./patchlevel.h"
 SET PERL_SUBVERSION' | gcc -E -DPERL_PATCHLEVEL_H_IMPLICIT -  | sed -n '/^SET/{s///;s/ //gp;}'`"
 FULL_VERSION="$MAJOR_MINOR.$PATCHLEVEL"
 
-cd "$BONDI_BUILD_DIR/shared"
+cd "$AELTRA_BUILD_DIR/shared"
 
 ###############################################################################
 # Install the shared version
 ###############################################################################
-make DESTDIR="$BONDI_INSTALL_DIR" install
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-mv -v "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/perl/$MAJOR_MINOR/CORE/libperl.so.$FULL_VERSION" \
-	"$BONDI_INSTALL_DIR$BONDI_INSTALL_PREFIX/lib/"
+mv -v "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/perl/$MAJOR_MINOR/CORE/libperl.so.$FULL_VERSION" \
+	"$AELTRA_INSTALL_DIR$AELTRA_INSTALL_PREFIX/lib/"
 ln -sf libperl.so.$FULL_VERSION \
-	"$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libperl.so.$MAJOR_MINOR"
+	"$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libperl.so.$MAJOR_MINOR"
 ln -sf libperl.so.$FULL_VERSION \
-	"$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libperl.so"
+	"$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libperl.so"
 
-chmod 644 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libperl.so.$FULL_VERSION"
+chmod 644 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libperl.so.$FULL_VERSION"
 
 ###############################################################################
 # Copy the static library
 ###############################################################################
-cp -va "$BONDI_BUILD_DIR/static/libperl.a" "$BONDI_INSTALL_DIR$BONDI_INSTALL_PREFIX/lib/"
+cp -va "$AELTRA_BUILD_DIR/static/libperl.a" "$AELTRA_INSTALL_DIR$AELTRA_INSTALL_PREFIX/lib/"
 
 ###############################################################################
 # Fix permissions
 ###############################################################################
-find "$BONDI_INSTALL_DIR/" -exec chmod u+w '{}' ';'
+find "$AELTRA_INSTALL_DIR/" -exec chmod u+w '{}' ';'
 
     ]]>
     </install>

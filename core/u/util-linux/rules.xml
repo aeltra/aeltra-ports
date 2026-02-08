@@ -3,15 +3,15 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 autoreconf -vfi
 
-cd "$BONDI_BUILD_DIR"
-$BONDI_SOURCE_DIR/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --libdir="$BONDI_INSTALL_PREFIX/lib" \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+cd "$AELTRA_BUILD_DIR"
+$AELTRA_SOURCE_DIR/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --libdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --disable-nls \
     --disable-bash-completion \
     --disable-use-tty-group \
@@ -23,7 +23,7 @@ $BONDI_SOURCE_DIR/configure \
 # search path even when the prefix has been set to /usr. To work around that
 # we fix up all files with /tools/include inside before running the build.
 
-if [ "$BONDI_BUILD_FOR" = "target" ] && [ -d /tools/include/ncurses ]; then
+if [ "$AELTRA_BUILD_FOR" = "target" ] && [ -d /tools/include/ncurses ]; then
     sed -i "s@/tools/include@/usr/include@g" $(
         grep -r -l -F "/tools/include" * | sort -u
     )
@@ -34,12 +34,12 @@ fi
     <build>
     <![CDATA[
 
-if [ "$BONDI_BUILD_FOR" = "tools" ]; then
-    export LD_LIBRARY_PATH="$BONDI_BUILD_DIR/.libs"
+if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
+    export LD_LIBRARY_PATH="$AELTRA_BUILD_DIR/.libs"
 fi
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -47,19 +47,19 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-install -d -m 0755 $BONDI_INSTALL_DIR/usr
-install -d -m 0755 $BONDI_INSTALL_DIR/usr/bin
-install -d -m 0755 $BONDI_INSTALL_DIR/usr/sbin
-install -d -m 0755 $BONDI_INSTALL_DIR/usr/lib
+install -d -m 0755 $AELTRA_INSTALL_DIR/usr
+install -d -m 0755 $AELTRA_INSTALL_DIR/usr/bin
+install -d -m 0755 $AELTRA_INSTALL_DIR/usr/sbin
+install -d -m 0755 $AELTRA_INSTALL_DIR/usr/lib
 
-ln -sf usr/bin  "$BONDI_INSTALL_DIR/bin"
-ln -sf usr/sbin "$BONDI_INSTALL_DIR/sbin"
+ln -sf usr/bin  "$AELTRA_INSTALL_DIR/bin"
+ln -sf usr/sbin "$AELTRA_INSTALL_DIR/sbin"
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-rm -f "$BONDI_INSTALL_DIR/bin"
-rm -f "$BONDI_INSTALL_DIR/sbin"
+rm -f "$AELTRA_INSTALL_DIR/bin"
+rm -f "$AELTRA_INSTALL_DIR/sbin"
 
     ]]>
     </install>

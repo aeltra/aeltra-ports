@@ -4,25 +4,25 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 
-PF="$BONDI_INSTALL_PREFIX"
+PF="$AELTRA_INSTALL_PREFIX"
 sed -i "s@/lib:/usr/local/lib:/usr/lib@$PF/lib:$PF/local/lib@g" ldso/dynlink.c
 
-if [ "$BONDI_INSTALL_PREFIX" = "/tools" ]; then
+if [ "$AELTRA_INSTALL_PREFIX" = "/tools" ]; then
 
     # to avoid collision with the target musl linker config
     sed -i 's@/etc/ld-musl-@/etc/ld-musl-tools-@g' ldso/dynlink.c
 
     # this is the magic redirection patch
-    patch -p1 < "$BONDI_WORK_DIR/patches/bbox-redirect-bin-sh.patch"
+    patch -p1 < "$AELTRA_WORK_DIR/patches/bbox-redirect-bin-sh.patch"
 
 fi
 
 ./configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --syslibdir="$BONDI_INSTALL_PREFIX/lib" \
-    --target="$BONDI_HOST_TYPE"
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --syslibdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --target="$AELTRA_HOST_TYPE"
 
     ]]>
     </prepare>
@@ -30,8 +30,8 @@ fi
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -39,13 +39,13 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-install -d -m 0755 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share"
-install -d -m 0755 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/misc"
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share"
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/misc"
 
-echo "musl" > "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/misc/libc.name"
+echo "musl" > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/misc/libc.name"
 
     ]]>
     </install>

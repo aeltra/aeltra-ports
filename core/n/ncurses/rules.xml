@@ -3,16 +3,16 @@
     <prepare>
     <![CDATA[
 
-if [ "$BONDI_BUILD_FOR" = "tools" ]; then
-    NCURSESW_INCLUDE_DIR="$BONDI_INSTALL_PREFIX/include"
+if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
+    NCURSESW_INCLUDE_DIR="$AELTRA_INSTALL_PREFIX/include"
 else
-    NCURSESW_INCLUDE_DIR="$BONDI_INSTALL_PREFIX/include/ncursesw"
+    NCURSESW_INCLUDE_DIR="$AELTRA_INSTALL_PREFIX/include/ncursesw"
 fi
 
 CONFARGS="
-    --prefix=$BONDI_INSTALL_PREFIX \
-    --host=$BONDI_HOST_TYPE \
-    --includedir=$BONDI_INSTALL_PREFIX/include \
+    --prefix=$AELTRA_INSTALL_PREFIX \
+    --host=$AELTRA_HOST_TYPE \
+    --includedir=$AELTRA_INSTALL_PREFIX/include \
     --sysconfdir=/etc \
     --enable-echo \
     --enable-const \
@@ -21,8 +21,8 @@ CONFARGS="
     --disable-termcap \
     --disable-rpath \
     --with-default-terminfo-dir=/etc/terminfo \
-    --with-terminfo-dirs=/etc/terminfo:$BONDI_INSTALL_PREFIX/lib/terminfo:$BONDI_INSTALL_PREFIX/share/terminfo \
-    --with-pkg-config-libdir=$BONDI_INSTALL_PREFIX/lib/pkgconfig \
+    --with-terminfo-dirs=/etc/terminfo:$AELTRA_INSTALL_PREFIX/lib/terminfo:$AELTRA_INSTALL_PREFIX/share/terminfo \
+    --with-pkg-config-libdir=$AELTRA_INSTALL_PREFIX/lib/pkgconfig \
     --with-ticlib=tic \
     --with-termlib=tinfo \
     --with-versioned-syms \
@@ -55,21 +55,21 @@ CONFAGS_WCHAR="
 export cf_cv_type_of_bool=unsigned char
 export cf_cv_working_poll=yes
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir -p curses5 && cd curses5
-"$BONDI_SOURCE_DIR/configure" $CONFARGS $CONFARGS_LEGACY
+"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFARGS_LEGACY
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir -p curses5w && cd curses5w
-"$BONDI_SOURCE_DIR/configure" $CONFARGS $CONFARGS_LEGACY $CONFAGS_WCHAR
+"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFARGS_LEGACY $CONFAGS_WCHAR
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir -p curses6 && cd curses6
-"$BONDI_SOURCE_DIR/configure" $CONFARGS
+"$AELTRA_SOURCE_DIR/configure" $CONFARGS
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir -p curses6w && cd curses6w
-"$BONDI_SOURCE_DIR/configure" $CONFARGS $CONFAGS_WCHAR
+"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFAGS_WCHAR
 
     ]]>
     </prepare>
@@ -78,8 +78,8 @@ mkdir -p curses6w && cd curses6w
     <![CDATA[
 
 for VARIANT in curses5 curses5w curses6 curses6w; do
-    cd "$BONDI_BUILD_DIR/$VARIANT"
-    make -j"$BONDI_PARALLEL_JOBS"
+    cd "$AELTRA_BUILD_DIR/$VARIANT"
+    make -j"$AELTRA_PARALLEL_JOBS"
 done
 
     ]]>
@@ -101,55 +101,55 @@ LIBTERMINFOFILES="a/ansi c/cons25 c/cons25-debian c/cygwin d/dumb h/hurd l/linux
 	w/wsvt25 w/wsvt25m E/Eterm E/Eterm-color"
 
 for VARIANT in curses5 curses5w curses6 curses6w; do
-    cd "$BONDI_BUILD_DIR/$VARIANT"
-    make DESTDIR="$BONDI_INSTALL_DIR" install
+    cd "$AELTRA_BUILD_DIR/$VARIANT"
+    make DESTDIR="$AELTRA_INSTALL_DIR" install
 done
 
 # Debian uses a linker script instead of a symlink.
-rm -f "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libtermcap.so"
-echo "GROUP( libtinfo.so )" > "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libtermcap.so"
-ln -sf libtinfo.a "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libtermcap.a"
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libtermcap.so"
+echo "GROUP( libtinfo.so )" > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libtermcap.so"
+ln -sf libtinfo.a "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libtermcap.a"
 
 # Always add -ltinfo when linking with -lncurses or -lnursesw
-rm -f "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libncurses.so"
-echo "INPUT(libncurses.so.6 -ltinfo)" > "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libncurses.so"
-rm -f "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libncursesw.so"
-echo "INPUT(libncursesw.so.6 -ltinfo)" > "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libncursesw.so"
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libncurses.so"
+echo "INPUT(libncurses.so.6 -ltinfo)" > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libncurses.so"
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libncursesw.so"
+echo "INPUT(libncursesw.so.6 -ltinfo)" > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libncursesw.so"
 
 # Move terminfo files to the right place.
-mv "$BONDI_INSTALL_DIR/etc/terminfo" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/terminfo"
+mv "$AELTRA_INSTALL_DIR/etc/terminfo" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo"
 
 # Remove blacklisted terminal types and other stuff we don't install
-cd "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/terminfo" && rm -f $BADTERMINFO && cd -
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo" && rm -f $BADTERMINFO && cd -
 
 # Move ncurses-base terminfo entries to /lib/terminfo.
 for f in $LIBTERMINFOFILES; do
-    dir="$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/terminfo/$(dirname $f)"
+    dir="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/terminfo/$(dirname $f)"
     mkdir -p "$dir"
-    if [ -f "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/terminfo/$f" ]; then
-        mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/terminfo/$f" "$dir"
+    if [ -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo/$f" ]; then
+        mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo/$f" "$dir"
     fi
 done
 
 # Create an empty /etc/terminfo for the sysadmin.
-mkdir -p "$BONDI_INSTALL_DIR/etc/terminfo"
+mkdir -p "$AELTRA_INSTALL_DIR/etc/terminfo"
 
 # Symlinks libcurses.a and libcurses.so seem to be missing when prefix != /usr
-if [ ! -e "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libcurses.a" ]; then
+if [ ! -e "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libcurses.a" ]; then
     ln -sf libncurses.a \
-        "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libcurses.a"
+        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libcurses.a"
 fi
-if [ ! -e "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libcurses.so" ]; then
+if [ ! -e "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libcurses.so" ]; then
     ln -sf libncurses.so \
-        "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/libcurses.so"
+        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libcurses.so"
 fi
 
 # Build system ignores includedir directive when prefix != /usr
-if [ -d "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/include/ncurses" ]; then
-    mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/include/ncurses/"* \
-        "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/include"
-    rmdir "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/include/ncurses/"
-    sed -i 's@ncurses/@@g' "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/include/"*.h
+if [ -d "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/ncurses" ]; then
+    mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/ncurses/"* \
+        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include"
+    rmdir "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/ncurses/"
+    sed -i 's@ncurses/@@g' "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/"*.h
 fi
 
     ]]>

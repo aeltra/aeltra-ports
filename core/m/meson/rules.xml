@@ -19,8 +19,8 @@ true
     <install>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
-bh_python_install --py3 --root "$BONDI_INSTALL_DIR"
+cd "$AELTRA_SOURCE_DIR"
+bh_python_install --py3 --root "$AELTRA_INSTALL_DIR"
 
     ]]>
     </install>

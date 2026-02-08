@@ -19,8 +19,8 @@ true
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" PREFIX="$BONDI_INSTALL_PREFIX" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" PREFIX="$AELTRA_INSTALL_PREFIX" install
 
     ]]>
     </install>

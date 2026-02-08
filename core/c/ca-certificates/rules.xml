@@ -11,11 +11,11 @@ true
     <build>
     <![CDATA[
 
-if [ "$BONDI_BUILD_FOR" != "target" ]; then
+if [ "$AELTRA_BUILD_FOR" != "target" ]; then
     exit 0
 fi
 
-cd $BONDI_BUILD_DIR
+cd $AELTRA_BUILD_DIR
 make
 cat > ca-certificates.conf <<EOF
 # This file lists certificates that you wish to use or to ignore to be
@@ -39,25 +39,25 @@ sort -u >> ca-certificates.conf
     <install>
     <![CDATA[
 
-if [ "$BONDI_BUILD_FOR" != "target" ]; then
+if [ "$AELTRA_BUILD_FOR" != "target" ]; then
     exit 0
 fi
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 
-install -m 0755 -d "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin"
-install -m 0755 -d "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/ca-certificates"
-install -m 0755 -d "$BONDI_INSTALL_DIR/etc"
-install -m 0755 -d "$BONDI_INSTALL_DIR/etc/ca-certificates"
-install -m 0755 -d "$BONDI_INSTALL_DIR/etc/ca-certificates/update.d"
-install -m 0755 -d "$BONDI_INSTALL_DIR/etc/ssl"
-install -m 0755 -d "$BONDI_INSTALL_DIR/etc/ssl/certs"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/ca-certificates"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/etc"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/etc/ca-certificates"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/etc/ca-certificates/update.d"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/etc/ssl"
+install -m 0755 -d "$AELTRA_INSTALL_DIR/etc/ssl/certs"
 
-make DESTDIR="$BONDI_INSTALL_DIR" install
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-install -m 0644 ca-certificates.conf "$BONDI_INSTALL_DIR/etc/"
+install -m 0644 ca-certificates.conf "$AELTRA_INSTALL_DIR/etc/"
 install -m 0755 sbin/update-ca-certificates \
-    "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/"
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/"
 
     ]]>
     </install>

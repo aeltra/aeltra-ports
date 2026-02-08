@@ -3,19 +3,19 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 autoreconf -v -fi
 
-cd "$BONDI_BUILD_DIR"
-$BONDI_SOURCE_DIR/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
+cd "$AELTRA_BUILD_DIR"
+$AELTRA_SOURCE_DIR/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
     --enable-utf8 \
     --enable-unicode-properties \
     --enable-pcre16 \
     --enable-pcre32 \
     --disable-silent-rules \
-    --build="$BONDI_BUILD_TYPE" \
-    --host="$BONDI_HOST_TYPE"
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE"
 
     ]]>
     </prepare>
@@ -23,8 +23,8 @@ $BONDI_SOURCE_DIR/configure \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -32,8 +32,8 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
     ]]>
     </install>

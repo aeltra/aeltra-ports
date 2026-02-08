@@ -3,15 +3,15 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 autoreconf -vfi
 
-cd "$BONDI_BUILD_DIR"
-$BONDI_SOURCE_DIR/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
+cd "$AELTRA_BUILD_DIR"
+$AELTRA_SOURCE_DIR/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
     --disable-nls \
-    --build="$BONDI_BUILD_TYPE" \
-    --host="$BONDI_HOST_TYPE"
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE"
 
 # HACK: Make sure rpl_{m,re}alloc are explictly declared.
 sed -i \
@@ -25,8 +25,8 @@ sed -i \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -34,9 +34,9 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -C src DESTDIR="$BONDI_INSTALL_DIR" install
-make DESTDIR="$BONDI_INSTALL_DIR" install-exec-hook
+cd "$AELTRA_BUILD_DIR"
+make -C src DESTDIR="$AELTRA_INSTALL_DIR" install
+make DESTDIR="$AELTRA_INSTALL_DIR" install-exec-hook
 
     ]]>
     </install>

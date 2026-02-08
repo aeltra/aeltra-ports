@@ -20,16 +20,16 @@
     <maintainer-scripts>
         <postinst><![CDATA[
 
-if [ ! -e "$BONDI_INSTALL_PREFIX/bin/tclsh" ]; then
-    ln -sf "tclsh8.6" "$BONDI_INSTALL_PREFIX/bin/tclsh"
+if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/tclsh" ]; then
+    ln -sf "tclsh8.6" "$AELTRA_INSTALL_PREFIX/bin/tclsh"
 fi
 
         ]]></postinst>
 
         <postrm><![CDATA[
 
-if [ ! -e "$BONDI_INSTALL_PREFIX/bin/tclsh" ]; then
-    rm -f "$BONDI_INSTALL_PREFIX/bin/tclsh"
+if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/tclsh" ]; then
+    rm -f "$AELTRA_INSTALL_PREFIX/bin/tclsh"
 fi
 
         ]]></postrm>

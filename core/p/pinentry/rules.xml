@@ -3,13 +3,13 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-"$BONDI_SOURCE_DIR/configure" \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --host="$BONDI_HOST_TYPE" \
-    --build="$BONDI_HOST_TYPE" \
-    --with-libassuan-prefix="$BONDI_INSTALL_PREFIX" \
-    --with-libgpg-error-prefix="$BONDI_INSTALL_PREFIX" \
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --host="$AELTRA_HOST_TYPE" \
+    --build="$AELTRA_HOST_TYPE" \
+    --with-libassuan-prefix="$AELTRA_INSTALL_PREFIX" \
+    --with-libgpg-error-prefix="$AELTRA_INSTALL_PREFIX" \
     --disable-pinentry-gtk2 \
     --disable-pinentry-gnome3 \
     --disable-libsecret \
@@ -24,8 +24,8 @@ cd "$BONDI_BUILD_DIR"
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -33,8 +33,8 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
     ]]>
     </install>

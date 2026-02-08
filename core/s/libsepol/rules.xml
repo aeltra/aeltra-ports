@@ -3,7 +3,7 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 
 # Hack: busybox ln does not understand --relative
 sed -i 's@$(LN) -sf --relative $(DESTDIR)$(SHLIBDIR)/@$(LN) -sf @g' \
@@ -15,17 +15,17 @@ sed -i 's@$(LN) -sf --relative $(DESTDIR)$(SHLIBDIR)/@$(LN) -sf @g' \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS" \
-    PREFIX="$BONDI_INSTALL_PREFIX" \
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS" \
+    PREFIX="$AELTRA_INSTALL_PREFIX" \
     CFLAGS="$CFLAGS" \
     CPPFLAGS="$CPPFLAGS" \
     LDFLAGS="$LDFLAGS" \
-    CC="$BONDI_HOST_TYPE-gcc" \
-    LD="$BONDI_HOST_TYPE-ld" \
-    AS="$BONDI_HOST_TYPE-as" \
-    AR="$BONDI_HOST_TYPE-ar" \
-    RANLIB="$BONDI_HOST_TYPE-ranlib"
+    CC="$AELTRA_HOST_TYPE-gcc" \
+    LD="$AELTRA_HOST_TYPE-ld" \
+    AS="$AELTRA_HOST_TYPE-as" \
+    AR="$AELTRA_HOST_TYPE-ar" \
+    RANLIB="$AELTRA_HOST_TYPE-ranlib"
 
     ]]>
     </build>
@@ -33,11 +33,11 @@ make -j"$BONDI_PARALLEL_JOBS" \
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-mkdir -p "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX"
-make PREFIX="$BONDI_INSTALL_PREFIX" \
-    SHLIBDIR="$BONDI_INSTALL_PREFIX/lib" \
-    DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+mkdir -p "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+make PREFIX="$AELTRA_INSTALL_PREFIX" \
+    SHLIBDIR="$AELTRA_INSTALL_PREFIX/lib" \
+    DESTDIR="$AELTRA_INSTALL_DIR" install
 
     ]]>
     </install>

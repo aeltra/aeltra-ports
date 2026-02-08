@@ -4,59 +4,59 @@
     <prepare>
     <![CDATA[
 
-export PKG_CONFIG="$BONDI_INSTALL_PREFIX/bin/${BONDI_HOST_TYPE}-pkg-config"
+export PKG_CONFIG="$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
 
 # duplicate source tree
 for t in openssl gnutls nss
 do
-    cp -a "$BONDI_SOURCE_DIR" "$BONDI_BUILD_DIR/$t"
+    cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/$t"
 done
 
 # patch for non openssl builds
-patch -f -p1 -d "$BONDI_BUILD_DIR/gnutls" -i "$BONDI_WORK_DIR/patches/"??_gnutls.patch
-patch -f -p1 -d "$BONDI_BUILD_DIR/nss"    -i "$BONDI_WORK_DIR/patches/"??_gnutls.patch
-patch -f -p1 -d "$BONDI_BUILD_DIR/nss"    -i "$BONDI_WORK_DIR/patches/"??_nss.patch
+patch -f -p1 -d "$AELTRA_BUILD_DIR/gnutls" -i "$AELTRA_WORK_DIR/patches/"??_gnutls.patch
+patch -f -p1 -d "$AELTRA_BUILD_DIR/nss"    -i "$AELTRA_WORK_DIR/patches/"??_gnutls.patch
+patch -f -p1 -d "$AELTRA_BUILD_DIR/nss"    -i "$AELTRA_WORK_DIR/patches/"??_nss.patch
 
 # rebuild configuration
 for t in openssl gnutls nss
 do
-    cd "$BONDI_BUILD_DIR/$t" && autoreconf -fi
+    cd "$AELTRA_BUILD_DIR/$t" && autoreconf -fi
     # HACK: We cannot safely use LD_LIBRARY_PATH inside bbox.
     sed -i 's@export LD_LIBRARY_PATH@@g' configure
 done
 
 # run configure in all source trees
 CONFIGURE_ARGS="
-    --prefix=$BONDI_INSTALL_PREFIX 
-    --mandir=$BONDI_INSTALL_PREFIX/share/man
-    --host=$BONDI_HOST_TYPE
-    --build=$BONDI_BUILD_TYPE
+    --prefix=$AELTRA_INSTALL_PREFIX 
+    --mandir=$AELTRA_INSTALL_PREFIX/share/man
+    --host=$AELTRA_HOST_TYPE
+    --build=$AELTRA_BUILD_TYPE
     --disable-symbol-hiding
     --disable-silent-rules
     --enable-versioned-symbols
     --enable-threaded-resolver
     --enable-ipv6
     --with-lber-lib=lber
-    --with-gssapi=$BONDI_INSTALL_PREFIX
-    --with-nss=$BONDI_INSTALL_PREFIX
+    --with-gssapi=$AELTRA_INSTALL_PREFIX
+    --with-nss=$AELTRA_INSTALL_PREFIX
     --without-libidn2
 "
 
-cd "$BONDI_BUILD_DIR/openssl"
+cd "$AELTRA_BUILD_DIR/openssl"
 ./configure $CONFIGURE_ARGS \
     --with-ca-path=/etc/ssl/certs --without-nss --without-gnutls
 
-cd "$BONDI_BUILD_DIR/gnutls"
+cd "$AELTRA_BUILD_DIR/gnutls"
 ./configure $CONFIGURE_ARGS \
     --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
     --without-ssl --without-nss --with-gnutls --without-libssh2
 
-cd "$BONDI_BUILD_DIR/nss"
+cd "$AELTRA_BUILD_DIR/nss"
 
 # HACK: to avoid colliding with glibc's nss.h
 sed -i 's@#include <nss.h>@#include <nss/nss.h>@g' lib/vtls/nss.c
 
-LIBS="-lssl3 -lnspr4 -lplds4" CFLAGS="$CFLAGS -I$BONDI_INSTALL_PREFIX/include/nspr -I$BONDI_INSTALL_PREFIX/include/nss" \
+LIBS="-lssl3 -lnspr4 -lplds4" CFLAGS="$CFLAGS -I$AELTRA_INSTALL_PREFIX/include/nspr -I$AELTRA_INSTALL_PREFIX/include/nss" \
 ./configure $CONFIGURE_ARGS \
     --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
     --without-ssl --without-gnutls --with-nss --without-libssh2
@@ -69,7 +69,7 @@ LIBS="-lssl3 -lnspr4 -lplds4" CFLAGS="$CFLAGS -I$BONDI_INSTALL_PREFIX/include/ns
 
 for t in openssl gnutls nss
 do
-    make -j"$BONDI_PARALLEL_JOBS" -C "$BONDI_BUILD_DIR/$t"
+    make -j"$AELTRA_PARALLEL_JOBS" -C "$AELTRA_BUILD_DIR/$t"
 done
 
     ]]>
@@ -80,16 +80,16 @@ done
 
 for t in openssl gnutls nss
 do
-    mkdir -p "$BONDI_INSTALL_DIR/$t"
-    make -C "$BONDI_BUILD_DIR/$t" DESTDIR="$BONDI_INSTALL_DIR/$t" install
+    mkdir -p "$AELTRA_INSTALL_DIR/$t"
+    make -C "$AELTRA_BUILD_DIR/$t" DESTDIR="$AELTRA_INSTALL_DIR/$t" install
 
     # compatibility symlinks
     if [ "$t" = "openssl" ]; then
-        ln -s libcurl.so.4 "$BONDI_INSTALL_DIR/$t/$BONDI_INSTALL_PREFIX/lib/libcurl.so.3"
+        ln -s libcurl.so.4 "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl.so.3"
     else
-        ln -s "libcurl-$t.so.4" "$BONDI_INSTALL_DIR/$t/$BONDI_INSTALL_PREFIX/lib/libcurl-$t.so.3"
-        ln -s "libcurl-$t.so"   "$BONDI_INSTALL_DIR/$t/$BONDI_INSTALL_PREFIX/lib/libcurl.so"
-        ln -s "libcurl-$t.a"    "$BONDI_INSTALL_DIR/$t/$BONDI_INSTALL_PREFIX/lib/libcurl.a"
+        ln -s "libcurl-$t.so.4" "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl-$t.so.3"
+        ln -s "libcurl-$t.so"   "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl.so"
+        ln -s "libcurl-$t.a"    "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl.a"
     fi
 done
 

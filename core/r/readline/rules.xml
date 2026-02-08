@@ -3,14 +3,14 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 
-cd "$BONDI_BUILD_DIR"
-$BONDI_SOURCE_DIR/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_BUILD_TYPE" \
-    --host="$BONDI_HOST_TYPE"
+cd "$AELTRA_BUILD_DIR"
+$AELTRA_SOURCE_DIR/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE"
 
     ]]>
     </prepare>
@@ -18,24 +18,24 @@ $BONDI_SOURCE_DIR/configure \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
 rm -rf examples/rlfe
-cp -a "$BONDI_SOURCE_DIR/examples/rlfe" "$BONDI_BUILD_DIR/examples/"
-ln -sf "$BONDI_SOURCE_DIR" "$BONDI_BUILD_DIR/examples/rlfe/readline"
+cp -a "$AELTRA_SOURCE_DIR/examples/rlfe" "$AELTRA_BUILD_DIR/examples/"
+ln -sf "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/examples/rlfe/readline"
 
-ln -sf $(cd $BONDI_BUILD_DIR/shlib && ls libreadline.so.*.*) \
-    "$BONDI_BUILD_DIR/shlib/libreadline.so"
+ln -sf $(cd $AELTRA_BUILD_DIR/shlib && ls libreadline.so.*.*) \
+    "$AELTRA_BUILD_DIR/shlib/libreadline.so"
 
-cd "$BONDI_BUILD_DIR/examples/rlfe" && ./configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE"
+cd "$AELTRA_BUILD_DIR/examples/rlfe" && ./configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE"
 
-make -C "$BONDI_BUILD_DIR/examples/rlfe" \
+make -C "$AELTRA_BUILD_DIR/examples/rlfe" \
     CFLAGS="$CFLAGS -D_GNU_SOURCE" CPPFLAGS="$CPPFLAGS" \
-    LDFLAGS="$LDFLAGS -g -L$BONDI_BUILD_DIR/shlib" \
+    LDFLAGS="$LDFLAGS -g -L$AELTRA_BUILD_DIR/shlib" \
     LIBS="-lreadline -ltinfo -lutil" rlfe
 
     ]]>
@@ -44,11 +44,11 @@ make -C "$BONDI_BUILD_DIR/examples/rlfe" \
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-install -m 0755 "$BONDI_BUILD_DIR/examples/rlfe/rlfe" \
-    "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/"
+install -m 0755 "$AELTRA_BUILD_DIR/examples/rlfe/rlfe" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/"
 
     ]]>
     </install>

@@ -3,16 +3,16 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 autoreconf -vfi
 
-cd "$BONDI_BUILD_DIR"
-$BONDI_SOURCE_DIR/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_BUILD_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+cd "$AELTRA_BUILD_DIR"
+$AELTRA_SOURCE_DIR/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --disable-nls \
-    --libexecdir="$BONDI_INSTALL_PREFIX/lib/tar" \
+    --libexecdir="$AELTRA_INSTALL_PREFIX/lib/tar" \
     --enable-backup-scripts \
     --with-lzma=xz \
     --disable-silent-rules
@@ -23,8 +23,8 @@ $BONDI_SOURCE_DIR/configure \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -32,14 +32,14 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/tar/rmt" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/rmt-tar"
-mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/backup" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/tar-backup"
-mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/restore" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/tar-restore"
-mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/tar/backup.sh" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/tar/"
-mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/tar/dump-remind" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/tar/"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tar/rmt" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/rmt-tar"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/backup" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/tar-backup"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/restore" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/tar-restore"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tar/backup.sh" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tar/"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tar/dump-remind" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tar/"
 
     ]]>
     </install>

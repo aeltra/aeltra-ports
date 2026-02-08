@@ -11,8 +11,8 @@ true
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make CC="${BONDI_HOST_TYPE}-gcc" -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make CC="${AELTRA_HOST_TYPE}-gcc" -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -20,18 +20,18 @@ make CC="${BONDI_HOST_TYPE}-gcc" -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make PREFIX="$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX" install
+cd "$AELTRA_BUILD_DIR"
+make PREFIX="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX" install
 
-ln -sf bzdiff "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzcmp"
-ln -sf bzgrep "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzegrep"
-ln -sf bzgrep "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzfgrep"
-ln -sf bzmore "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzless"
+ln -sf bzdiff "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcmp"
+ln -sf bzgrep "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzegrep"
+ln -sf bzgrep "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzfgrep"
+ln -sf bzmore "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzless"
 
-rm "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzcat" "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzip2"
+rm "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcat" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzip2"
 
-ln -sf bunzip2 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzcat"
-ln -sf bunzip2 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/bzip2"
+ln -sf bunzip2 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcat"
+ln -sf bunzip2 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzip2"
 
     ]]>
     </install>

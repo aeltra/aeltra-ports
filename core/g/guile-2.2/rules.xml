@@ -3,21 +3,21 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 GUILE_VERSION="`cat NEWS |grep 'Changes in' | head -n1 | cut -d' ' -f3`"
 echo "$GUILE_VERSION" > .version
 cp -a .version .tarball-version
 ./autogen.sh
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir .mybin
-ln -sf "$BONDI_INSTALL_PREFIX/bin/${BONDI_HOST_TYPE}-pkg-config" .mybin/pkg-config
+ln -sf "$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config" .mybin/pkg-config
 export PATH="`pwd`/.mybin:$PATH"
 
-"$BONDI_SOURCE_DIR/configure" \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --disable-nls \
     --disable-error-on-warning \
     --disable-rpath \
@@ -35,9 +35,9 @@ export PATH="`pwd`/.mybin:$PATH"
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 export PATH="`pwd`/.mybin:$PATH"
-make -j"$BONDI_PARALLEL_JOBS"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -45,8 +45,8 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make DESTDIR="$BONDI_INSTALL_DIR" INSTALL='install -p' install
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" INSTALL='install -p' install
 
     ]]>
     </install>

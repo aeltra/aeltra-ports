@@ -17,7 +17,7 @@
     <maintainer-scripts>
         <postinst><![CDATA[
 
-"$BONDI_INSTALL_PREFIX/bin/opkg-key" populate
+"$AELTRA_INSTALL_PREFIX/bin/opkg-key" populate
 
         ]]></postinst>
     </maintainer-scripts>

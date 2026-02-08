@@ -3,15 +3,15 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 ./bootstrap
 autoreconf -vi
 
-cd "$BONDI_BUILD_DIR"
-"$BONDI_SOURCE_DIR/configure" \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --disable-silent-rules
 
     ]]>
@@ -20,7 +20,7 @@ cd "$BONDI_BUILD_DIR"
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 make MAKEINFO=true
 
     ]]>
@@ -29,15 +29,15 @@ make MAKEINFO=true
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR"
-make CC="${BONDI_HOST_TYPE}-gcc" MAKEINFO=true \
-    DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR"
+make CC="${AELTRA_HOST_TYPE}-gcc" MAKEINFO=true \
+    DESTDIR="$AELTRA_INSTALL_DIR" install
 
-rm -f "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/automake"
-rm -f "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/aclocal"
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/automake"
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/aclocal"
 
-ln -sf automake-1.16 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/automake"
-ln -sf aclocal-1.16 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin/aclocal"
+ln -sf automake-1.16 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/automake"
+ln -sf aclocal-1.16 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/aclocal"
 
     ]]>
     </install>

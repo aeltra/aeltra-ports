@@ -3,65 +3,65 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 autoreconf -vfi
 
-cp -a "$BONDI_SOURCE_DIR" "$BONDI_BUILD_DIR/python3"
-cp -a "$BONDI_SOURCE_DIR" "$BONDI_BUILD_DIR/libonly"
+cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/python3"
+cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/libonly"
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir .mybin
-ln -sf "$BONDI_INSTALL_PREFIX/bin/python3.9" .mybin/python3.9
-ln -sf "$BONDI_INSTALL_PREFIX/bin/${BONDI_HOST_TYPE}-pkg-config" \
+ln -sf "$AELTRA_INSTALL_PREFIX/bin/python3.9" .mybin/python3.9
+ln -sf "$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config" \
     .mybin/pkg-config
 
-export PATH="$BONDI_BUILD_DIR/.mybin:$PATH"
+export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
 
-cd "$BONDI_BUILD_DIR/python3"
+cd "$AELTRA_BUILD_DIR/python3"
 
 PYTHON_VERSION="3.9" \
 CFLAGS="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="-Wl,--as-needed $LDFLAGS" \
 ./configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
     --sysconfdir=/etc \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --disable-rpath \
     --disable-flto \
     --with-pidfile=/run/unbound.pid \
     --with-rootkey-file=/var/lib/unbound/root.key \
-    --with-libevent="$BONDI_INSTALL_PREFIX" \
-    --with-libexpat="$BONDI_INSTALL_PREFIX" \
+    --with-libevent="$AELTRA_INSTALL_PREFIX" \
+    --with-libexpat="$AELTRA_INSTALL_PREFIX" \
     --with-pythonmodule \
     --with-pyunbound \
-    --with-ssl="$BONDI_INSTALL_PREFIX" \
+    --with-ssl="$AELTRA_INSTALL_PREFIX" \
     --enable-dnstap \
     --with-dnstap-socket-path=/run/dnstap.sock \
-    --libdir="$BONDI_INSTALL_PREFIX/lib"
+    --libdir="$AELTRA_INSTALL_PREFIX/lib"
 
-cd "$BONDI_BUILD_DIR/libonly"
+cd "$AELTRA_BUILD_DIR/libonly"
 
 PYTHON_VERSION="3.9" \
 CFLAGS="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="-Wl,--as-needed $LDFLAGS" \
 ./configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
     --sysconfdir=/etc \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --with-libunbound-only \
     --disable-rpath \
     --disable-flto \
     --with-pidfile=/run/unbound.pid \
     --with-rootkey-file=/var/lib/unbound/root.key \
-    --with-libevent="$BONDI_INSTALL_PREFIX" \
-    --with-libexpat="$BONDI_INSTALL_PREFIX" \
+    --with-libevent="$AELTRA_INSTALL_PREFIX" \
+    --with-libexpat="$AELTRA_INSTALL_PREFIX" \
     --without-pythonmodule \
     --without-pyunbound \
-    --with-ssl="$BONDI_INSTALL_PREFIX" \
+    --with-ssl="$AELTRA_INSTALL_PREFIX" \
     --enable-dnstap \
     --with-dnstap-socket-path=/run/dnstap.sock \
-    --libdir="$BONDI_INSTALL_PREFIX/lib"
+    --libdir="$AELTRA_INSTALL_PREFIX/lib"
 
     ]]>
     </prepare>
@@ -69,13 +69,13 @@ CFLAGS="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="-Wl,--as-needed $LDFLAGS" \
     <build>
     <![CDATA[
 
-export PATH="$BONDI_BUILD_DIR/.mybin:$PATH"
+export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
 
-cd "$BONDI_BUILD_DIR/python3"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR/python3"
+make -j"$AELTRA_PARALLEL_JOBS"
 
-cd "$BONDI_BUILD_DIR/libonly"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR/libonly"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -83,24 +83,24 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-export PATH="$BONDI_BUILD_DIR/.mybin:$PATH"
+export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
 
-cd "$BONDI_BUILD_DIR/python3"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR/python3"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-cd "$BONDI_BUILD_DIR/libonly"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR/libonly"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-install -d -m 0755 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin"
-mv "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/sbin/unbound-host" \
-    "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin"
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/unbound-host" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
 
-PYTHON3="$BONDI_INSTALL_PREFIX/bin/python3"
+PYTHON3="$AELTRA_INSTALL_PREFIX/bin/python3"
 
-cd "$BONDI_INSTALL_DIR"
+cd "$AELTRA_INSTALL_DIR"
 find . -name "*.la" -exec rm -f '{}' ';'
 
-cd "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/lib/python3"
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/python3"
 find . -name "*.py" -exec "$PYTHON3" -c "import py_compile; py_compile.compile('{}')" \;
 
     ]]>

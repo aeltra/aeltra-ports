@@ -3,23 +3,23 @@
     <prepare>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 
-cd "$BONDI_BUILD_DIR/build_unix"
+cd "$AELTRA_BUILD_DIR/build_unix"
 
 # trick make into using the right nm
 mkdir .mybin
-ln -sf "$BONDI_INSTALL_PREFIX/bin/${BONDI_HOST_TYPE}-nm" .mybin/nm
+ln -sf "$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-nm" .mybin/nm
 export PATH="`pwd`/.mybin:$PATH"
 
 ../dist/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_HOST_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
     --localstatedir=/var \
     --sysconfdir=/etc \
-    --libexecdir="$BONDI_INSTALL_PREFIX/lib" \
+    --libexecdir="$AELTRA_INSTALL_PREFIX/lib" \
     --enable-cxx \
     --enable-compat185 \
     --enable-sql \
@@ -33,9 +33,9 @@ export PATH="`pwd`/.mybin:$PATH"
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR/build_unix"
+cd "$AELTRA_BUILD_DIR/build_unix"
 export PATH="`pwd`/.mybin:$PATH"
-make -j"$BONDI_PARALLEL_JOBS"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -43,10 +43,10 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR/build_unix"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR/build_unix"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-cd "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/bin"
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
 for prog in db_*; do
     newname=`echo $prog | sed 's/db_/db5.3_/g'`
     mv $prog $newname

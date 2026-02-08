@@ -3,15 +3,15 @@
     <prepare>
     <![CDATA[
 
-(cd "$BONDI_SOURCE_DIR/expat" && ./buildconf.sh)
+(cd "$AELTRA_SOURCE_DIR/expat" && ./buildconf.sh)
 
-mkdir -p "$BONDI_BUILD_DIR/expat"
+mkdir -p "$AELTRA_BUILD_DIR/expat"
 
-cd "$BONDI_BUILD_DIR/expat"
-$BONDI_SOURCE_DIR/expat/configure \
-    --prefix="$BONDI_INSTALL_PREFIX" \
-    --build="$BONDI_BUILD_TYPE" \
-    --host="$BONDI_HOST_TYPE"
+cd "$AELTRA_BUILD_DIR/expat"
+$AELTRA_SOURCE_DIR/expat/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE"
 
     ]]>
     </prepare>
@@ -19,8 +19,8 @@ $BONDI_SOURCE_DIR/expat/configure \
     <build>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR/expat"
-make -j"$BONDI_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR/expat"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -28,12 +28,12 @@ make -j"$BONDI_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-cd "$BONDI_BUILD_DIR/expat"
-make DESTDIR="$BONDI_INSTALL_DIR" install
+cd "$AELTRA_BUILD_DIR/expat"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-install -d -m 0755 "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/aclocal"
-install -m 0644 "$BONDI_SOURCE_DIR/expat/conftools/expat.m4" \
-    "$BONDI_INSTALL_DIR/$BONDI_INSTALL_PREFIX/share/aclocal"
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
+install -m 0644 "$AELTRA_SOURCE_DIR/expat/conftools/expat.m4" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
 
     ]]>
     </install>

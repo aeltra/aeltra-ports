@@ -11,7 +11,7 @@ true
     <build>
     <![CDATA[
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 
 for PROJECT in ffi-libarchive misc distro-info package repository; do
     (
@@ -26,24 +26,24 @@ done
     <install>
     <![CDATA[
 
-PYTHON="$BONDI_INSTALL_PREFIX/bin/python3"
+PYTHON="$AELTRA_INSTALL_PREFIX/bin/python3"
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 
 for PROJECT in ffi-libarchive misc distro-info package repository; do
-    mkdir -p "$BONDI_INSTALL_DIR/$PROJECT"
+    mkdir -p "$AELTRA_INSTALL_DIR/$PROJECT"
 
     (
         cd $PROJECT
         bh_python_install \
             --py3 \
             --install \
-            --root "$BONDI_INSTALL_DIR/$PROJECT"
+            --root "$AELTRA_INSTALL_DIR/$PROJECT"
     )
 
-    if [ `ls "$BONDI_INSTALL_DIR/$PROJECT/$BONDI_INSTALL_PREFIX/bin/" | wc -l` -gt 0 ]; then
+    if [ `ls "$AELTRA_INSTALL_DIR/$PROJECT/$AELTRA_INSTALL_PREFIX/bin/" | wc -l` -gt 0 ]; then
         sed -i "s|^#!/usr/bin/env python.*|#!$PYTHON|g" \
-            "$BONDI_INSTALL_DIR/$PROJECT/$BONDI_INSTALL_PREFIX/bin/"*
+            "$AELTRA_INSTALL_DIR/$PROJECT/$AELTRA_INSTALL_PREFIX/bin/"*
     fi
 done
 

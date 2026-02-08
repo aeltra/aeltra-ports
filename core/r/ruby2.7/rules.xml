@@ -5,45 +5,45 @@
 
 RUBY_VERSION="2.7"
 
-cd "$BONDI_SOURCE_DIR"
+cd "$AELTRA_SOURCE_DIR"
 touch config.guess config.sub tool/config.guess tool/config.sub
 bh_autotools_dev_update
 autoreconf -vfi
 
 EXTRA_OPTS=""
-MY_BUILD_TYPE="$BONDI_BUILD_TYPE"
+MY_BUILD_TYPE="$AELTRA_BUILD_TYPE"
 
 if [ -e "/tools/bin/ruby${RUBY_VERSION}" ]; then
     EXTRA_OPTS="--with-baseruby=/tools/bin/ruby${RUBY_VERSION}"
-    MY_BUILD_TYPE="$BONDI_TOOLS_TYPE"
+    MY_BUILD_TYPE="$AELTRA_TOOLS_TYPE"
 elif [ -e "/tools/bin/ruby" ]; then
     EXTRA_OPTS="--with-baseruby=/tools/bin/ruby"
-    MY_BUILD_TYPE="$BONDI_TOOLS_TYPE"
+    MY_BUILD_TYPE="$AELTRA_TOOLS_TYPE"
 fi
 
-cd "$BONDI_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR"
 mkdir .mybin
-ln -sf "$BONDI_INSTALL_PREFIX/bin/${BONDI_HOST_TYPE}-pkg-config" .mybin/pkg-config
-export PATH="$BONDI_BUILD_DIR/.mybin:$PATH"
+ln -sf "$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config" .mybin/pkg-config
+export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
 
 # the configure script does not detect isnan/isinf as macros (from Alpine Linux)
 export ac_cv_func_isnan=yes
 export ac_cv_func_isinf=yes
 
-if [ "$BONDI_LIBC_NAME" = "musl" ]; then
+if [ "$AELTRA_LIBC_NAME" = "musl" ]; then
     LIBS="-lucontext"
 fi
 
 SHELL="$(which bash)" LIBS="$LIBS" \
-"$BONDI_SOURCE_DIR/configure" \
-    --prefix="$BONDI_INSTALL_PREFIX" \
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$MY_BUILD_TYPE" \
-    --host="$BONDI_HOST_TYPE" \
-    --target="$BONDI_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --target="$AELTRA_HOST_TYPE" \
     --program-suffix="$RUBY_VERSION" \
     --with-soname=ruby-"$RUBY_VERSION" \
-    --with-sitedir="$BONDI_INSTALL_PREFIX/local/lib/site_ruby" \
-    --with-sitearchdir="$BONDI_INSTALL_PREFIX/local/lib/site_ruby" \
+    --with-sitedir="$AELTRA_INSTALL_PREFIX/local/lib/site_ruby" \
+    --with-sitearchdir="$AELTRA_INSTALL_PREFIX/local/lib/site_ruby" \
     --enable-shared \
     --enable-static \
     --enable-ipv6 \
@@ -60,12 +60,12 @@ SHELL="$(which bash)" LIBS="$LIBS" \
     <build>
     <![CDATA[
 
-export PATH="$BONDI_BUILD_DIR/.mybin:$PATH"
-cd "$BONDI_BUILD_DIR"
+export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
+cd "$AELTRA_BUILD_DIR"
 
-make V=1 SHELL="$(which bash)" -j"$BONDI_PARALLEL_JOBS"
+make V=1 SHELL="$(which bash)" -j"$AELTRA_PARALLEL_JOBS"
 
-if [ "$BONDI_BUILD_FOR" = "target" ]; then
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
     sed -i 's@/tools/bin@/usr/bin@g' rbconfig.rb
 fi
 
@@ -75,9 +75,9 @@ fi
     <install>
     <![CDATA[
 
-export PATH="$BONDI_BUILD_DIR/.mybin:$PATH"
-cd "$BONDI_BUILD_DIR"
-make V=1 SHELL="$(which bash)" DESTDIR="$BONDI_INSTALL_DIR" install
+export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
+cd "$AELTRA_BUILD_DIR"
+make V=1 SHELL="$(which bash)" DESTDIR="$AELTRA_INSTALL_DIR" install
 
     ]]>
     </install>
