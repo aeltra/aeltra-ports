@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="20260902.01" revision="1" maintainer="Tobias Koch"
+        email="tobias.koch@gmail.com" date="2026-09-02 18:23:00+03:00">
+        <changeset>
+            <li>Aeltra repo keys</li>
+        </changeset>
+    </release>
+</changelog>

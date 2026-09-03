@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <control xmlns:xi="http://www.w3.org/2001/XInclude">
-    <source name="bolt-repo-keys" repo="core" architecture-independent="true" if="target-build">
+    <source name="aeltra-repo-keys" repo="core" architecture-independent="true" if="target-build">
         <description>
             <summary>The public portion of the repo signing keys</summary>
             <p>
@@ -12,14 +12,14 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="bolt-repo-keys-20200705.01.tar.gz" subdir="sources"
-                sha256sum="74fcb36c66ec3c5569e049efe0260ae261ac9a93775501d5c3732ef177360b78"/>
+            <file src="aeltra-repo-keys-20260902.01.tar.gz" subdir="sources"
+                sha256sum="6216fd2e6d622f585ae83a4f4a1caf6b498e2923a5c09bb963340230570a4a44"/>
         </sources>
 
         <xi:include href="rules.xml"/>
     </source>
 
-    <xi:include href="bolt-repo-keys.xml"/>
+    <xi:include href="aeltra-repo-keys.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

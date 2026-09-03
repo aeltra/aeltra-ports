@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="bolt-repo-keys" section="admin" if="target-build">
+<package name="aeltra-repo-keys" section="admin" if="target-build">
     <description>
         <summary>The public portion of the repo signing keys</summary>
         <p>
@@ -9,15 +9,15 @@
     </description>
 
     <contents>
-        <dir src="/etc/opkg/usign/trustdb"/>
+        <dir src="/etc/aept/usign/trustdb"/>
         <file src="${prefix}/bin/*"/>
-        <file src="${prefix}/share/opkg/usign/bolt-repo-keys/*"/>
+        <file src="${prefix}/share/aept/usign/aeltra-repo-keys/*"/>
     </contents>
 
     <maintainer-scripts>
         <postinst><![CDATA[
 
-"$AELTRA_INSTALL_PREFIX/bin/opkg-key" populate
+"$AELTRA_INSTALL_PREFIX/bin/aept-key" populate
 
         ]]></postinst>
     </maintainer-scripts>

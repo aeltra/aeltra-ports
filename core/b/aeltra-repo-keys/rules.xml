@@ -15,12 +15,12 @@
     <install>
     <![CDATA[
 
-install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/opkg/usign/bolt-repo-keys"
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aept/usign/aeltra-repo-keys"
 install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/"
 
 install -m 0644 "$AELTRA_SOURCE_DIR/"*.pub \
-    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/opkg/usign/bolt-repo-keys/"
-install -m 0755 "$AELTRA_SOURCE_DIR/opkg-key" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aept/usign/aeltra-repo-keys/"
+install -m 0755 "$AELTRA_SOURCE_DIR/aept-key" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/"
 
     ]]>
