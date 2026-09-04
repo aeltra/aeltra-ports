@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="0.4.1" revision="1" maintainer="Tobias Koch"
+        email="tobias.koch@gmail.com" date="2026-09-04 19:59:00+03:00">
+        <changeset>
+            <li>Fixes connection keep-alive with HTTP/1.1</li>
+            <li>Supports --cache-dir parameter and AEPT_CACHE_DIR environment variable</li>
+        </changeset>
+    </release>
     <release version="0.2.0" revision="1" maintainer="Tobias Koch"
         email="tobias.koch@gmail.com" date="2026-09-03 22:00:00+03:00">
         <changeset>
