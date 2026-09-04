@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="aept" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Aeltra Package Tool</summary>
+            <p>
+                aept is a minimal package manager with dependency resolution. It uses
+                libsolv for dependency solving, libarchive for archive extraction,
+                libfetch for downloads, and usign for signature verification.
+            </p>
+            <p>
+                The core is a shared library, libaept, with a stable C ABI; the aept
+                command line tool is a thin client of that library.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file
+                subdir="sources"
+                src="aept-0.2.0.tar.gz"
+                upstream-src="https://github.com/aeltra/aept/archive/refs/tags/v0.2.0.tar.gz"
+                sha256sum="36dd7b809a8afcf5ba9dba41b560b6798979e49ef92596ff81bc5a124e82f439"/>
+        </sources>
+
+        <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="libarchive-dev"/>
+            <package name="libsolv-dev"/>
+            <package name="libsolvext-dev"/>
+            <package name="libssl-dev"/>
+            <package name="libtool"/>
+            <package name="pkg-config"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="aept.xml"/>
+    <xi:include href="libaept0.xml"/>
+    <xi:include href="libaept-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

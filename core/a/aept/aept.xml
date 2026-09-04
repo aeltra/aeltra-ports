@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="aept" section="admin">
+    <description>
+        <summary>Aeltra Package Tool</summary>
+        <p>
+            aept is a minimal package manager with dependency resolution. It uses
+            libsolv for dependency solving, libarchive for archive extraction,
+            libfetch for downloads, and usign for signature verification.
+        </p>
+        <p>
+            Supported commands: update, install, remove, upgrade, autoremove,
+            clean, triggers.
+        </p>
+    </description>
+
+    <requires>
+        <package name="usign"/>
+        <package name="aeltra-repo-keys" tools-prefix=""/>
+        <package name="libaept0" version="=="/>
+    </requires>
+
+    <contents>
+        <dir src="/etc/aept"/>
+        <dir src="/var/lib/aept/info"/>
+        <dir src="/var/lib/aept/lists"/>
+        <dir src="/var/cache/aept"/>
+        <file src="${prefix}/bin/aept"/>
+    </contents>
+</package>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libaept0" section="libs">
+    <description>
+        <summary>Package management library for .aeltra packages</summary>
+        <p>
+            libaept provides dependency resolution and package management
+            functionality using libsolv and libarchive. It can be embedded
+            into applications that need to manage .aeltra packages.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/lib/libaept.so.*"/>
+    </contents>
+</package>

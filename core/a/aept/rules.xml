@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+export PKG_CONFIG="$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
+
+cd "$AELTRA_SOURCE_DIR"
+
+# The usign path is a compile-time constant (deliberately not probed by
+# configure, since aept is cross-built). Point it at the prefix this
+# build installs into, so the tools build finds /tools/bin/usign.
+sed -i "s|^#define AEPT_USIGN_BIN .*|#define AEPT_USIGN_BIN \"$AELTRA_INSTALL_PREFIX/bin/usign\"|" \
+    include/aept/internal.h
+
+mkdir -p m4
+autoreconf -vfi
+bh_autotools_dev_update
+
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR"/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --disable-silent-rules
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+    ]]>
+    </install>
+</rules>
