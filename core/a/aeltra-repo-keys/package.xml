@@ -12,8 +12,11 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="aeltra-repo-keys-20260902.01.tar.gz" subdir="sources"
-                sha256sum="6216fd2e6d622f585ae83a4f4a1caf6b498e2923a5c09bb963340230570a4a44"/>
+            <file
+                src="aeltra-repo-keys-20260902.01.tar.gz"
+                upstream-src="https://github.com/aeltra/repo-keys/archive/refs/tags/20260902.01.tar.gz"
+                subdir="sources"
+                sha256sum="dcd7dffaa6b4af37975e3fecb726ae3bc2dd0a93f6630c3da73341c7bc651374"/>
         </sources>
 
         <xi:include href="rules.xml"/>

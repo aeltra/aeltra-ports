@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="20260902.01" revision="2" maintainer="Tobias Koch"
+        email="tobias.koch@gmail.com" date="2026-09-04 19:22:00+03:00">
+        <changeset>
+            <li>Use package upstream</li>
+        </changeset>
+    </release>
     <release version="20260902.01" revision="1" maintainer="Tobias Koch"
         email="tobias.koch@gmail.com" date="2026-09-02 18:23:00+03:00">
         <changeset>
