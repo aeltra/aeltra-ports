@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="python3-bolt-distro-info" section="python">
+<package name="python3-aeltra-distro-info" section="python">
     <description>
-        <summary>Bolt distro info tool</summary>
+        <summary>Aeltra distro info tool</summary>
         <p>
-        This package contains the bolt-distro-info tool.
+        This package contains the aeltra-distro-info tool.
         </p>
     </description>
 
     <requires>
         <package name="python3"/>
-        <package name="python3-bolt-misc"/>
+        <package name="python3-aeltra-misc"/>
     </requires>
 
     <contents subdir="distro-info">

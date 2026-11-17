@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="aeltra-distro-info" section="admin">
+    <description>
+        <summary>Aeltra distro info tool (meta package)</summary>
+        <p>
+        This pulls in python3-aeltra-distro-info package which contains the
+        aeltra-distro-info tool.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3-aeltra-distro-info"/>
+    </requires>
+</package>

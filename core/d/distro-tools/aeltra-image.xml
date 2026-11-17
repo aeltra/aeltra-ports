@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="aeltra-image" section="admin">
+    <description>
+        <summary>Aeltra OS image generator (meta package)</summary>
+        <p>
+        This pulls in the python3-aeltra-image-gen package, which contains the
+        aeltra-image tool.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3-aeltra-image-gen"/>
+    </requires>
+</package>

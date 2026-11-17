@@ -1,0 +1,16 @@
+<package name="python3-aeltra-misc" section="python">
+    <description>
+        <summary>Utilities shared among other Aeltra OS Python packages</summary>
+        <p>
+        Collection of scripts shared among other Aeltra OS Python packages.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3"/>
+    </requires>
+
+    <contents subdir="misc">
+        <file src="/"/>
+    </contents>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="aeltra-repo-index" section="admin">
+    <description>
+        <summary>Aeltra OS package repo index generator (meta package)</summary>
+        <p>
+        This pulls in the python3-aeltra-repository package, which contains the
+        aeltra-repo-index tool.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3-aeltra-repository"/>
+    </requires>
+</package>

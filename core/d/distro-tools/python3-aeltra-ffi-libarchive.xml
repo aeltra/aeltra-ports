@@ -1,4 +1,4 @@
-<package name="python3-bolt-ffi-libarchive" section="python">
+<package name="python3-aeltra-ffi-libarchive" section="python">
     <description>
         <summary>FFI bindings to libarchive (using ctypes)</summary>
         <p>

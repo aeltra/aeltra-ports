@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="python3-aeltra-image-gen" section="admin">
+    <description>
+        <summary>Aeltra OS image generator scripts</summary>
+        <p>
+        This package contains the aeltra-image tool.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3"/>
+        <package name="python3-aeltra-misc"/>
+        <package name="python3-aeltra-distro-info"/>
+    </requires>
+
+    <contents subdir="image-gen">
+        <file src="/"/>
+    </contents>
+</package>

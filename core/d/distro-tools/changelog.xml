@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.16.0" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-17 23:30:00+03:00">
+        <changeset>
+          <li>New upstream release, the first one as Aeltra OS distro tools</li>
+          <li>The bolt-* packages are now called aeltra-*</li>
+          <li>Adds aeltra-image and python3-aeltra-image-gen</li>
+          <li>Needs setuptools 61 or later</li>
+        </changeset>
+    </release>
     <release version="1.11.0" revision="0bolt1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2022-11-14 20:17:00+01:00">

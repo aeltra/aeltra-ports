@@ -6,11 +6,11 @@
 
     <source name="distro-tools" repo="core" architecture-independent="true" if="tools-build or target-build">
         <description>
-            <summary>Bolt Linux distro tools</summary>
+            <summary>Aeltra OS distro tools</summary>
             <p>
                 The distro tools are a collection of programs for building and
-                publishing Bolt packages, such as distro-info, bolt-pack and
-                bolt-repo-index.
+                publishing Aeltra packages, such as aeltra-distro-info,
+                aeltra-pack, aeltra-repo-index and aeltra-image.
             </p>
         </description>
 
@@ -19,27 +19,29 @@
         <sources>
             <file
                 subdir="sources"
-                src="distro-tools-1.11.0.tar.gz"
-                upstream-src="https://github.com/boltlinux/distro-tools/archive/refs/tags/1.11.0.tar.gz"
-                sha256sum="b126b13dea6c608d283105208253676d9cb156f21e9b2a30686194a87afdf0ba"/>
+                src="distro-tools-1.16.0.tar.gz"
+                upstream-src="https://github.com/aeltra/distro-tools/archive/refs/tags/1.16.0.tar.gz"
+                sha256sum="b207fa9ee8ef677f7f2e4a71ef7abac4eb7e7e58380ab91c06873b371200420f"/>
         </sources>
 
         <requires>
             <package name="python3-all"/>
-            <package name="python3-setuptools"/>
+            <package name="python3-setuptools" version=">= 61"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
-    <xi:include href="bolt-distro-info.xml"/>
-    <xi:include href="bolt-package.xml"/>
-    <xi:include href="bolt-repo-index.xml"/>
-    <xi:include href="python3-bolt-distro-info.xml"/>
-    <xi:include href="python3-bolt-ffi-libarchive.xml"/>
-    <xi:include href="python3-bolt-misc.xml"/>
-    <xi:include href="python3-bolt-package.xml"/>
-    <xi:include href="python3-bolt-repository.xml"/>
+    <xi:include href="aeltra-distro-info.xml"/>
+    <xi:include href="aeltra-image.xml"/>
+    <xi:include href="aeltra-package.xml"/>
+    <xi:include href="aeltra-repo-index.xml"/>
+    <xi:include href="python3-aeltra-distro-info.xml"/>
+    <xi:include href="python3-aeltra-ffi-libarchive.xml"/>
+    <xi:include href="python3-aeltra-image-gen.xml"/>
+    <xi:include href="python3-aeltra-misc.xml"/>
+    <xi:include href="python3-aeltra-package.xml"/>
+    <xi:include href="python3-aeltra-repository.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

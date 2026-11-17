@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="aeltra-package" section="devel">
+    <description>
+        <summary>Aeltra OS packaging tools (meta package)</summary>
+        <p>
+        This pulls in the python3-aeltra-package package, which contains the
+        aeltra-pack and deb2aeltra tools.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3-aeltra-package"/>
+    </requires>
+</package>
