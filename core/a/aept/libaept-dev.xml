@@ -9,7 +9,7 @@
     </description>
 
     <requires>
-        <package name="libaept0" version="=="/>
+        <package name="libaept1" version="=="/>
     </requires>
 
     <contents>

@@ -16,7 +16,7 @@
     <requires>
         <package name="usign"/>
         <package name="aeltra-repo-keys" tools-prefix=""/>
-        <package name="libaept0" version="=="/>
+        <package name="libaept1" version="=="/>
     </requires>
 
     <contents>

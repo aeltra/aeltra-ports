@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="0.10.2" revision="1" maintainer="Tobias Koch"
+        email="tobias.koch@gmail.com" date="2026-11-17 21:00:00+03:00">
+        <changeset>
+            <li>New upstream release</li>
+            <li>The library is libaept.so.1 now, libaept0 becomes libaept1</li>
+            <li>No longer needs libsolvext</li>
+        </changeset>
+    </release>
     <release version="0.4.1" revision="1" maintainer="Tobias Koch"
         email="tobias.koch@gmail.com" date="2026-09-04 19:59:00+03:00">
         <changeset>

@@ -23,9 +23,9 @@
         <sources>
             <file
                 subdir="sources"
-                src="aept-0.4.1.tar.gz"
-                upstream-src="https://github.com/aeltra/aept/archive/refs/tags/v0.4.1.tar.gz"
-                sha256sum="8d2e7e882df4bb1063fe53b7a4ab8c78fe580abae3534d383d6b2208c9bb89b8"/>
+                src="aept-0.10.2.tar.gz"
+                upstream-src="https://github.com/aeltra/aept/archive/refs/tags/v0.10.2.tar.gz"
+                sha256sum="6099f0686003f2a96d1262ef2ce2f553d29b630a0a9ad7e772f8411de27d6a77"/>
         </sources>
 
         <requires>
@@ -33,7 +33,6 @@
             <package name="automake"/>
             <package name="libarchive-dev"/>
             <package name="libsolv-dev"/>
-            <package name="libsolvext-dev"/>
             <package name="libssl-dev"/>
             <package name="libtool"/>
             <package name="pkg-config"/>
@@ -43,7 +42,7 @@
     </source>
 
     <xi:include href="aept.xml"/>
-    <xi:include href="libaept0.xml"/>
+    <xi:include href="libaept1.xml"/>
     <xi:include href="libaept-dev.xml"/>
 
     <xi:include href="changelog.xml"/>
