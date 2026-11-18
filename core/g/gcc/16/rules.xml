@@ -37,9 +37,14 @@ else
     done
 fi
 
-# run autoconf for some of the patches to take effect
-for SUBDIR in . gcc libcc1 libdecnumber libffi libgcc libgnat_util libgo libgomp libstdc++-v3; do
-    cd "$AELTRA_SOURCE_DIR/$SUBDIR" && autoconf
+# Run autoconf for some of the patches to take effect. GCC insists on
+# version 2.69.
+if command -v autoconf2.69 > /dev/null; then
+    export AUTOCONF="autoconf2.69" AUTOM4TE="autom4te2.69"
+fi
+
+for SUBDIR in . gcc libcc1 libffi libgo libstdc++-v3; do
+    cd "$AELTRA_SOURCE_DIR/$SUBDIR" && ${AUTOCONF:-autoconf}
 done
 
 cd "$AELTRA_BUILD_DIR"
@@ -60,8 +65,6 @@ unset LDFLAGS
     --disable-vtable-verify \
     --disable-bootstrap \
     --disable-libquadmath \
-    --disable-libmpx \
-    --disable-libmudflap \
     --disable-libsanitizer \
     --disable-libssp \
     --enable-shared \
@@ -99,9 +102,9 @@ make -j"$AELTRA_PARALLEL_JOBS"
 
 GCC_VERSION="`cat $AELTRA_SOURCE_DIR/gcc/BASE-VER`"
 
-for ENTRY in all cpp-10 fixincludes g++-10 gcc-10 gcc-10-base libatomic1 libcc1-0 \
-        libgcc libgcc-dev libgomp1 libitm1 libstdc++6 libstdc++-10-dev \
-        gcc-10-plugin-dev; do
+for ENTRY in all cpp-16 fixincludes g++-16 gcc-16 gcc-16-base libatomic1 libcc1-0 \
+        libgcc libgcc-dev libgomp1 libitm1 libstdc++6 libstdc++-16-dev \
+        gcc-16-plugin-dev; do
     install -d -m 0755 "$AELTRA_INSTALL_DIR/$ENTRY"
 done
 
@@ -168,7 +171,7 @@ if [ "$AELTRA_BUILD_FOR" = "cross-tools" -a -d "$FULL_INSTALL/$AELTRA_INSTALL_PR
 fi
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/cpp-10"
+PKG_PATH="$AELTRA_INSTALL_DIR/cpp-16"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
@@ -202,7 +205,7 @@ exec fixinc.sh \"\$@\"
 " > "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin/fixincludes"
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/g++-10"
+PKG_PATH="$AELTRA_INSTALL_DIR/g++-16"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
@@ -216,7 +219,7 @@ mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSIO
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/gcc-10"
+PKG_PATH="$AELTRA_INSTALL_DIR/gcc-16"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
@@ -239,7 +242,7 @@ if [ "$AELTRA_BUILD_FOR" != "cross-tools" ]; then
 fi
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/gcc-10-base"
+PKG_PATH="$AELTRA_INSTALL_DIR/gcc-16-base"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
@@ -285,7 +288,7 @@ mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/"libitm*.so.* \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib" || true
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/libstdc++-10-dev"
+PKG_PATH="$AELTRA_INSTALL_DIR/libstdc++-16-dev"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/include"
@@ -309,7 +312,7 @@ if [ "$AELTRA_BUILD_FOR" != "cross-tools" ]; then
 fi
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/gcc-10-plugin-dev"
+PKG_PATH="$AELTRA_INSTALL_DIR/gcc-16-plugin-dev"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"

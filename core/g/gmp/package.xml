@@ -21,12 +21,25 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gmp-6.2.1+dfsg.tar.xz" subdir="sources"
-                sha256sum="c6ba08e3f079260ab90ff44ab8801eae134cd62cd78f4aa56317c0e70daa40cb"/>
+            <file src="gmp-6.3.0+dfsg.tar.xz" subdir="sources"
+                sha256sum="bd2966e6d277f79328e894a5a9f3ba3fbf2ed2be81def5f48623e30c23fb1572"/>
+            <file src="debian-patches-5.tar.gz" subdir="patches"
+                sha256sum="435b0471d65f604022914a474deabb6a54a3c6c363811e3f7883e93177fb813f"/>
         </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/Exclude-doc-Makefile.patch"/>
+                <file src="patches/trust-vsprintf-return.patch"/>
+                <file src="patches/fix-acinclude-m4-for-gcc-15.patch"/>
+            </patchset>
+        </patches>
 
         <requires>
             <package name="m4"/>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="libtool"/>
         </requires>
 
         <xi:include href="rules.xml"/>

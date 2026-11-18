@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="16.2.0" revision="4aeltra1" upstream-version="16.2.0-4"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-18 22:28:18+03:00">
+        <changeset>
+            <li>Import new version from Debian Forky</li>
+        </changeset>
+    </release>
     <release version="10.2.1" revision="6bolt1" upstream-version="10.2.1-6"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-09 22:46:52+03:00">

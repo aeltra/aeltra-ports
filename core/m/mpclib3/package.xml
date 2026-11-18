@@ -26,17 +26,9 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="mpclib3-1.2.0.tar.gz" subdir="sources"
-                sha256sum="e90f2d99553a9c19911abdb4305bf8217106a957e3994436428572c8dfe8fda6"/>
-            <file src="mpclib3-1.2.0-1.debdiff.gz" subdir="patches"
-                sha256sum="9c5e1cd47ac7b5470d3a8649511ff9a8a2f528eed49e99fa4c875ba242c61ec4"/>
+            <file src="mpclib3-1.3.1.tar.gz" subdir="sources"
+                sha256sum="ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8"/>
         </sources>
-
-        <patches>
-            <patchset subdir="sources">
-                <file src="patches/mpclib3-1.2.0-1.debdiff"/>
-            </patchset>
-        </patches>
 
         <requires>
             <package name="autotools-dev" tools-prefix=""/>

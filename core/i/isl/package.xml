@@ -20,17 +20,9 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="isl-0.23.tar.xz" subdir="sources"
-                sha256sum="5efc53efaef151301f4e7dde3856b66812d8153dede24fab17673f801c8698f2"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="41553368f5772d8cb2031fc362f1fc0519fde235f4d6a54a3cb4c20d574de5e0"/>
+            <file src="isl-0.28.tar.gz" subdir="sources"
+                sha256sum="318549dd36989046da2b0feaea7fe5575c4448c28c0b97d3117403a88988e756"/>
         </sources>
-
-        <patches>
-            <patchset subdir="sources">
-                <file src="patches/python3-compat.diff"/>
-            </patchset>
-        </patches>
 
         <requires>
             <package name="libgmp-dev"/>

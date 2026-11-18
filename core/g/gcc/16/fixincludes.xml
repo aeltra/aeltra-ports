@@ -11,8 +11,8 @@
     </description>
 
     <requires>
-        <package name="gcc-10-base" version="=="/>
-        <package name="gcc-10" version="=="/>
+        <package name="gcc-16-base" version="=="/>
+        <package name="gcc-16" version="=="/>
     </requires>
 
     <contents subdir="fixincludes">
