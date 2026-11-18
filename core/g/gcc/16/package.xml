@@ -33,7 +33,8 @@
           - Algol 68 manuals, as well as
           -
           - * gcc-distro-specs.diff
-          - * g++-multiarch-incdir.diff.
+          - * g++-multiarch-incdir.diff
+          - * gcc-verbose-lto-link.diff (links through /usr/bin/time).
           -
           - Debian's musl-ssp.diff makes GCC link libssp_nonshared on musl,
           - which the musl package provides.
@@ -105,7 +106,9 @@
                 <file src="patches/sh-bootstrap-compare.diff"/>
                 <file src="patches/gdc-dynamic-link-phobos.diff"/>
                 <file src="patches/libstdc++-pythondir.diff"/>
+                <!--
                 <file src="patches/gcc-verbose-lto-link.diff"/>
+                -->
                 <file src="patches/m68k-lra-enable.diff"/>
                 <!--
                 <file src="patches/ada-armel-libatomic.diff"/>
