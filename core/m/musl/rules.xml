@@ -22,7 +22,8 @@ fi
 ./configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --syslibdir="$AELTRA_INSTALL_PREFIX/lib" \
-    --target="$AELTRA_HOST_TYPE"
+    --target="$AELTRA_HOST_TYPE" \
+    --enable-debug
 
     ]]>
     </prepare>
@@ -46,6 +47,27 @@ install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share"
 install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/misc"
 
 echo "musl" > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/misc/libc.name"
+
+# The dynamic linker lists the libraries of a program itself.
+
+LDSO="`basename "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"/lib/ld-musl-*.so.1`"
+
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
+cat > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/ldd" << EOF
+#!/bin/sh
+exec $AELTRA_INSTALL_PREFIX/lib/$LDSO --list "\$@"
+EOF
+chmod 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/ldd"
+
+# musl keeps no cache of shared libraries. This is for build systems and
+# maintainer scripts that call ldconfig regardless.
+
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin"
+cat > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/ldconfig" << EOF
+#!/bin/sh
+exit 0
+EOF
+chmod 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/ldconfig"
 
     ]]>
     </install>

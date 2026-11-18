@@ -26,7 +26,7 @@ make SHELL=/bin/sh ARCH="$KERNEL_ARCH" headers
 
 cd $AELTRA_SOURCE_DIR
 find usr/include -name '.*' -delete
-rm usr/include/Makefile
+rm -f usr/include/Makefile usr/include/headers_check.pl
 
 mkdir -p "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include"
 cp -va usr/include/* "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include"

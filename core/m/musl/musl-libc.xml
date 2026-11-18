@@ -34,5 +34,7 @@
     <contents>
         <file src="${prefix}/lib/*.so*"/>
         <file src="${prefix}/share/misc/libc.name"/>
+        <file src="${prefix}/bin/ldd"/>
+        <file src="${prefix}/sbin/ldconfig"/>
     </contents>
 </package>

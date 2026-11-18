@@ -24,17 +24,34 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="musl-1.2.2.tar.gz" subdir="sources"
-                sha256sum="9b969322012d796dc23dda27a35866034fa67d8fb67e0e2c45c913c3d43219dd"/>
-            <file src="bolt-patches-4.tar.gz" subdir="patches"
-                sha256sum="1595314c29ebc44470aaeaff49f8e1465ac12492c9c4e5f5482bc599da9ca16c"/>
+            <file src="musl-1.2.6.tar.gz" subdir="sources"
+                sha256sum="d585fd3b613c66151fc3249e8ed44f77020cb5e6c1e635a616d3f9f82460512a"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="ece6201b5cb489c2c033921dccf1ee90a3357efa7f4d51ebe5d2a7a2d5bdcc05"/>
+            <file src="alpine-patches-1.tar.gz" subdir="patches"
+                sha256sum="f2caa605fb05c4980d3fbdd8679e19c4187b73b5a30c935bace801d59210262b"/>
+            <file src="aeltra-patches-5.tar.gz" subdir="patches"
+                sha256sum="e46471eaccee59da234bc79272f3dd9255c1532d209e6b8502dcf1938d4e574a"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
+                <!-- Upstream fixes, as carried by Debian. Debian's
+                     static-pie.patch is for the musl-gcc wrapper, which we
+                     don't use. Its qsort fix is the first of three parts,
+                     Alpine has all of them. -->
+                <file src="patches/0001-fix-pathological-slowness-incorrect-mappings-in-icon.patch"/>
+                <file src="patches/cve-2026-107891.patch"/>
+                <!-- From Alpine (main/musl, 1.2.6-r6). -->
+                <file src="patches/CVE-2026-40200.patch"/>
+                <file src="patches/0001-fix-toctou-race-in-popen-children-s-closing-of-other.patch"/>
+                <file src="patches/fix-loongarch64-zero-len-extcontext.patch"/>
+                <file src="patches/fstatat-null.patch"/>
+                <file src="patches/0001-add-stub-for-pthread_mutexattr_setprioceiling.patch"/>
+                <file src="patches/handle-aux-at_base.patch"/>
+                <!-- Ours. -->
                 <file src="patches/musl-cdefs.patch"/>
                 <file src="patches/add-libssp-nonshared.patch"/>
-                <file src="patches/define-elf-nfpreg.patch"/>
                 <file src="patches/no-stack-probing-in-build-box.patch"/>
             </patchset>
         </patches>

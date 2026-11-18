@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.2.6" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-19 01:00:00+03:00">
+        <changeset>
+            <li>Import new upstream version.</li>
+            <li>Add the upstream fixes carried by Debian forky (1.2.6-2) and Alpine (1.2.6-r6).</li>
+            <li>Drop define-elf-nfpreg.patch, it is part of the release.</li>
+            <li>Build with debug information.</li>
+            <li>Add ldd and a stand-in for ldconfig to musl-libc.</li>
+        </changeset>
+    </release>
     <release version="1.2.2" revision="3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2025-02-09 10:11:00+03:00">
