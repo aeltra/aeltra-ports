@@ -26,8 +26,10 @@ cd "$AELTRA_BUILD_DIR"
     --disable-nls    \
     --disable-doc    \
     --disable-silent-rules \
+    --disable-werror \
+    --disable-gprofng \
     --with-system-zlib \
-    --with-pkgversion="GNU Binutils for Bolt Linux" \
+    --with-pkgversion="GNU Binutils for Aeltra OS" \
     --build="$AELTRA_BUILD_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --target="$AELTRA_TARGET_TYPE" \
@@ -100,6 +102,12 @@ if [ "$AELTRA_BUILD_FOR" != "cross-tools" ]; then
         "$PKG_BINUTILS/$AELTRA_INSTALL_PREFIX/lib/"
     mv -v "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"libopcodes-*.so \
         "$PKG_BINUTILS/$AELTRA_INSTALL_PREFIX/lib/"
+
+    # The programs need these at run time.
+    for LIB in libctf libctf-nobfd libsframe; do
+        mv -v "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/$LIB".so.* \
+            "$PKG_BINUTILS/$AELTRA_INSTALL_PREFIX/lib/"
+    done
 
     mv -v "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib" \
         "$PKG_BINUTILS_DEV/$AELTRA_INSTALL_PREFIX/"

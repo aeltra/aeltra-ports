@@ -18,16 +18,14 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="binutils-2.35.1.tar.xz" subdir="sources"
-                sha256sum="c43b679387b418b86683c7abded151cbf5b9f9da0b29720e3cc30b495abefc3d"/>
-            <file src="debian-patches-7.tar.gz" subdir="patches"
-                sha256sum="18dd60ed92d8ba9ed333bbbd53ebd6fb2a81418ded177f952cfa8c183d5cd69a"/>
+            <file src="binutils-2.47.50.20261021.tar.xz" subdir="sources"
+                sha256sum="7098f478836b13eeb016d6e6a0bfeb3c5b8b26e5bca65433a3fd76f0a236fe06"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="09fda974e7a766d6c07ee1fa359fbdf6665f8ccb2655a4a5cbeeb4abd658e2a8"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/branch-updates.diff"/>
-                <file src="patches/branch-no-development.diff"/>
                 <file src="patches/001_ld_makefile_patch.patch"/>
                 <file src="patches/002_gprof_profile_arcs.patch"/>
                 <file src="patches/003_gprof_see_also_monitor.patch"/>
@@ -35,23 +33,21 @@
                 <file src="patches/013_bash_in_ld_testsuite.patch"/>
                 <file src="patches/128_ppc64_powerpc_biarch.patch"/>
                 <file src="patches/129_multiarch_libpath.patch"/>
-                <file src="patches/130_gold_disable_testsuite_build.patch"/>
                 <file src="patches/131_ld_bootstrap_testsuite.patch"/>
                 <file src="patches/135_bfd_soversion.patch"/>
                 <file src="patches/136_bfd_pic.patch"/>
                 <file src="patches/157_ar_scripts_with_tilde.patch"/>
-                <file src="patches/161_gold_dummy_zoption.diff"/>
                 <file src="patches/164_ld_doc_remove_xref.diff"/>
                 <file src="patches/gprof-build.diff"/>
                 <file src="patches/aarch64-libpath.diff"/>
-                <file src="patches/mips64-default-n64.diff"/>
-                <file src="patches/gold-mips.diff"/>
-                <file src="patches/gold-no-keep-files-mapped.diff"/>
-                <file src="patches/pgo+lto-1.diff"/>
-                <file src="patches/pgo+lto-2.diff"/>
-                <file src="patches/pgo+lto-3.diff"/>
                 <file src="patches/libctf-soname.diff"/>
-                <file src="patches/pgo+lto-check-ignore.diff"/>
+                <file src="patches/mips-hack.diff"/>
+                <file src="patches/perl-shebang.diff"/>
+                <file src="patches/env-package-metadata.diff"/>
+                <file src="patches/armhf-64k-alignment.diff"/>
+                <file src="patches/gprofng-examples-tgz-deterministic.diff"/>
+                <file src="patches/gprofng-cross-build.diff"/>
+                <file src="patches/sh-disable-tests.diff"/>
             </patchset>
         </patches>
 
