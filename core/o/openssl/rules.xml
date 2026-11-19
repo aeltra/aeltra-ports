@@ -5,9 +5,6 @@
 
 export MACHINE="`echo $AELTRA_HOST_TYPE | cut -d'-' -f1`"
 
-cd "$AELTRA_SOURCE_DIR"
-sed -i 's/linux-mips64/linux64-mips64/g' config
-
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/config \
     --prefix="$AELTRA_INSTALL_PREFIX" \
@@ -16,7 +13,7 @@ $AELTRA_SOURCE_DIR/config \
     --libdir=lib \
     \
     no-idea no-mdc2 no-rc5 no-zlib no-ssl3 no-ssl3-method \
-    no-async enable-rfc3779 enable-cms
+    no-async no-capieng no-rdrand enable-rfc3779 enable-cms enable-tfo
 
     ]]>
     </prepare>
@@ -34,7 +31,7 @@ make -j"$AELTRA_PARALLEL_JOBS"
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make DESTDIR="$AELTRA_INSTALL_DIR" install
+make DESTDIR="$AELTRA_INSTALL_DIR" install_sw install_ssldirs
 
 mkdir -p "$AELTRA_INSTALL_DIR/etc/ssl"
 

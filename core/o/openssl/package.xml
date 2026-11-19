@@ -13,23 +13,17 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="openssl-1.1.1i.tar.gz" subdir="sources"
-                sha256sum="e8be6a35fe41d10603c3cc635e93289ed00bf34b79671a3a4de64fcee00d5242"/>
-            <file src="debian-patches-3.tar.gz" subdir="patches"
-                sha256sum="a716f9bdb47dc22ff416f5bbe9fde21b0589b4e8882fba25b875a304869fd348"/>
+            <file src="openssl-3.6.5.tar.gz" subdir="sources"
+                sha256sum="a2157c2830efdec3788939b00c9b0638306d3f0bbb76dc4832ee503bb397df98"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="811768c9247d409173fc9c85333a13a4e6ba0a9f5786f7c93d2441c199a6ca7e"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/debian-targets.patch"/>
                 <file src="patches/man-section.patch"/>
-                <file src="patches/no-symbolic.patch"/>
-                <file src="patches/pic.patch"/>
-                <file src="patches/c_rehash-compat.patch"/>
-                <file src="patches/Set-systemwide-default-settings-for-libssl-users.patch"/>
-                <file src="patches/x509_vfy.c-Fix-a-regression-in-find_isser.patch"/>
-                <file src="patches/X509_cmp-Fix-comparison-in-case-x509v3_cache_extensions-f.patch"/>
-                <file src="patches/check_sig_alg_match-weaken-sig-nid-comparison-to-base-alg.patch"/>
+                <file src="patches/Configure-allow-to-enable-ktls-if-target-does-not-start-w.patch"/>
             </patchset>
         </patches>
 
@@ -41,7 +35,7 @@
     </source>
 
     <xi:include href="openssl.xml"/>
-    <xi:include href="libssl1.1.xml"/>
+    <xi:include href="libssl3.xml"/>
     <xi:include href="libssl-dev.xml"/>
 
     <xi:include href="changelog.xml"/>

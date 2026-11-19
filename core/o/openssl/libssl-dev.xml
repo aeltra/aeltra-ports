@@ -14,7 +14,7 @@
     </description>
 
     <requires>
-        <package name="libssl1.1" version="=="/>
+        <package name="libssl3" version="=="/>
     </requires>
 
     <contents>

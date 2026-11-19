@@ -13,34 +13,26 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="sqlite3-3.34.1.tar.xz" subdir="sources"
-                sha256sum="082f583440c662cb484ae1c124ffe285b587bbb7837e095e693026e6df50334d"/>
-            <file src="sqlite3-www-3.34.1.tar.xz" subdir="sources/www"
-                sha256sum="c63647f3fb6c4b0620d6587e2a744021401df92c307b55e236a7eb28c5000fa7"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="c0d58960e773a78e26eafacf490a1d8016b0066de57ffa015491d4fa6d56c9bc"/>
+            <file src="sqlite3-3.54.1.tar.xz" subdir="sources"
+                sha256sum="faeff7682200b3dd58c8f0f229892a7271c73c1fdabc86e7315eb31eb7cb6e83"/>
+            <file src="sqlite3-www-3.54.1.tar.xz" subdir="sources/www"
+                sha256sum="67906ee141109bebe43cdcf197892806397dabc79f5cd7f05f1278f47b0c5e25"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="4c894d5b9c9942198537cc7d952d9c07dd0c515912e704f41919c6aef78dfd5e"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/10-520466-libsqlite3-depends-on-libdl.patch"/>
-                <file src="patches/10-520478-squash-bad-deps.patch"/>
                 <file src="patches/20-hurd-locking-style.patch"/>
-                <file src="patches/30-cross.patch"/>
-                <file src="patches/10-665363-disable-malloc-usable-size.patch"/>
                 <file src="patches/31-increase_SQLITE_MAX_DEFAULT_PAGE_SIZE_to_32k.patch"/>
                 <file src="patches/02-use-packaged-lempar.c.patch"/>
+                <file src="patches/cross.patch"/>
+                <file src="patches/dynamic-tcl-library.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="autoconf"/>
-            <package name="libtool"/>
-            <package name="automake"/>
-            <package name="autotools-dev" tools-prefix=""/>
-            <package name="chrpath"/>
             <package name="libreadline-dev"/>
-            <package name="tcl8.6-dev"/>
             <package name="zlib1g-dev"/>
         </requires>
 

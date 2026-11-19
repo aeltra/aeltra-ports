@@ -20,6 +20,11 @@ CONFARGS="
     --enable-symlinks \
     --disable-termcap \
     --disable-rpath \
+    --disable-setuid-environ \
+    --disable-root-access \
+    --disable-wattr-macros \
+    --disable-relink \
+    --disable-pkg-ldflags \
     --with-default-terminfo-dir=/etc/terminfo \
     --with-terminfo-dirs=/etc/terminfo:$AELTRA_INSTALL_PREFIX/lib/terminfo:$AELTRA_INSTALL_PREFIX/share/terminfo \
     --with-pkg-config-libdir=$AELTRA_INSTALL_PREFIX/lib/pkgconfig \
@@ -36,14 +41,9 @@ CONFARGS="
     --disable-stripping
 "
 
-CONFARGS_LEGACY="
-    --with-abi-version=5 \
-    --disable-lp64 \
-    --with-chtype=long \
-    --with-mmask-t=long \
-    --disable-overwrite \
-    --without-cxx-binding \
-    --without-normal
+# Wide characters are the default since ncurses 6.5.
+CONFARGS_NARROW="
+    --disable-widec
 "
 
 CONFAGS_WCHAR="
@@ -56,16 +56,8 @@ export cf_cv_type_of_bool=unsigned char
 export cf_cv_working_poll=yes
 
 cd "$AELTRA_BUILD_DIR"
-mkdir -p curses5 && cd curses5
-"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFARGS_LEGACY
-
-cd "$AELTRA_BUILD_DIR"
-mkdir -p curses5w && cd curses5w
-"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFARGS_LEGACY $CONFAGS_WCHAR
-
-cd "$AELTRA_BUILD_DIR"
 mkdir -p curses6 && cd curses6
-"$AELTRA_SOURCE_DIR/configure" $CONFARGS
+"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFARGS_NARROW
 
 cd "$AELTRA_BUILD_DIR"
 mkdir -p curses6w && cd curses6w
@@ -77,7 +69,7 @@ mkdir -p curses6w && cd curses6w
     <build>
     <![CDATA[
 
-for VARIANT in curses5 curses5w curses6 curses6w; do
+for VARIANT in curses6 curses6w; do
     cd "$AELTRA_BUILD_DIR/$VARIANT"
     make -j"$AELTRA_PARALLEL_JOBS"
 done
@@ -100,7 +92,7 @@ LIBTERMINFOFILES="a/ansi c/cons25 c/cons25-debian c/cygwin d/dumb h/hurd l/linux
 	x/xterm-256color s/screen-256color s/screen-256color-bce 
 	w/wsvt25 w/wsvt25m E/Eterm E/Eterm-color"
 
-for VARIANT in curses5 curses5w curses6 curses6w; do
+for VARIANT in curses6 curses6w; do
     cd "$AELTRA_BUILD_DIR/$VARIANT"
     make DESTDIR="$AELTRA_INSTALL_DIR" install
 done

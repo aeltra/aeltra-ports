@@ -16,19 +16,16 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="ncurses-6.2+20201114.tar.gz" subdir="sources"
-                sha256sum="aa3f8cfaff2a2b78f184274ec43d9da910c864e4b4d80fc47b5b48cba9154cd2"/>
+            <file src="ncurses-6.6+20260608.tar.gz" subdir="sources"
+                sha256sum="3b91eb714ba61b9ebfcfe09cf8e7c1c45cf2e8a6282f5887fb942db514ae93bd"/>
             <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="770c19c5a67ed5523046c50648c3d658dfb165ddfe064b13c0fe56d60622ba22"/>
+                sha256sum="0ce6eacfa88b9dcef3d24860ffc326ababcc8cb1f5bff5cb76bec36145735109"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/01-debian-no-ada-doc.diff"/>
                 <file src="patches/02-debian-backspace.diff"/>
-                <file src="patches/02-debian-drop-rin-from-screen-256color.diff"/>
-                <file src="patches/02-debian-xterm.diff"/>
-                <file src="patches/02-fix-mlterm.diff"/>
                 <file src="patches/03-debian-ncursesconfig-omit-L.diff"/>
             </patchset>
         </patches>
@@ -36,11 +33,8 @@
         <xi:include href="rules.xml"/>
     </source>
 
-    <xi:include href="libtinfo5.xml"/>
     <xi:include href="libtinfo6.xml"/>
-    <xi:include href="libncurses5.xml"/>
     <xi:include href="libncurses6.xml"/>
-    <xi:include href="libncursesw5.xml"/>
     <xi:include href="libncursesw6.xml"/>
     <xi:include href="libncurses-dev.xml"/>
     <xi:include href="ncurses-bin.xml"/>

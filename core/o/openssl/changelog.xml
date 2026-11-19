@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.6.5" revision="1aeltra1" upstream-version="3.6.5-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 00:30:00+03:00">
+        <changeset>
+            <li>Import new version from Debian Forky</li>
+            <li>The library package is now libssl3. It also has the legacy
+            provider, which Debian ships in a package of its own</li>
+        </changeset>
+    </release>
     <release version="1.1.1i" revision="3bolt1" upstream-version="1.1.1i-3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-15 22:15:36+03:00">

@@ -21,9 +21,7 @@
     </requires>
 
     <contents>
-        <file src="${prefix}/bin/ncurses5-config"/>
         <file src="${prefix}/bin/ncurses6-config"/>
-        <file src="${prefix}/bin/ncursesw5-config"/>
         <file src="${prefix}/bin/ncursesw6-config"/>
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libcurses.a"/>
