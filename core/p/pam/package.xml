@@ -20,12 +20,10 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="pam-1.4.0.tar.xz" subdir="sources"
-                sha256sum="cd6d928c51e64139be3bdb38692c68183a509b83d4f2c221024ccd4bcddfd034"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="1fd1ce081ab5cbb5dfd9a9681b0c0b0485e9cfa554e41661a0b4ca82848e6e9c"/>
-            <file src="bolt-patches-1.tar.gz" subdir="patches"
-                sha256sum="57e7c77cf5e9e748b3bd7a88bafb71fc5a5c27f7048d0e361e2da59faf0e29ca"/>
+            <file src="pam-1.7.0.tar.xz" subdir="sources"
+                sha256sum="57dcd7a6b966ecd5bbd95e1d11173734691e16b68692fa59661cdae9b13b1697"/>
+            <file src="debian-patches-8.tar.gz" subdir="patches"
+                sha256sum="5db515c722853781d46ab11d8004a7b35d53d8fab827c577de91e12e94b72bf9"/>
             <file src="pam-etc.tar.gz" subdir="extra"
                 sha256sum="9962c128162a72ea4432f2ec7927bfbe34414041283927ebb62204f2b7e66293"/>
         </sources>
@@ -33,46 +31,43 @@
         <patches>
             <patchset subdir="sources">
                 <!-- Debian -->
-                <file src="patches/pam_unix_fix_sgid_shadow_auth.patch"/>
-                <file src="patches/pam_unix_dont_trust_chkpwd_caller.patch"/>
                 <file src="patches/make_documentation_reproducible.patch"/>
-                <file src="patches/007_modules_pam_unix"/>
-                <file src="patches/008_modules_pam_limits_chroot"/>
-                <file src="patches/021_nis_cleanup"/>
+                <file src="patches/0003-pam_unix-obscure-checks.patch"/>
                 <file src="patches/022_pam_unix_group_time_miscfixes"/>
-                <file src="patches/026_pam_unix_passwd_unknown_user"/>
-                <file src="patches/do_not_check_nis_accidentally"/>
-                <file src="patches/027_pam_limits_better_init_allow_explicit_root"/>
                 <file src="patches/031_pam_include"/>
-                <file src="patches/032_pam_limits_EPERM_NOT_FATAL"/>
                 <file src="patches/036_pam_wheel_getlogin_considered_harmful"/>
-                <file src="patches/hurd_no_setfsuid"/>
+                <file src="patches/pam_limits_explicit_root"/>
+                <file src="patches/pam_limits_fallback_defaults"/>
+                <file src="patches/pam-limits-nofile-fd-setsize-cap"/>
+                <file src="patches/032_pam_limits_EPERM_NOT_FATAL"/>
+                <file src="patches/008_modules_pam_limits_chroot"/>
                 <file src="patches/040_pam_limits_log_failure"/>
                 <file src="patches/045_pam_dispatch_jump_is_ignore"/>
                 <file src="patches/PAM-manpage-section"/>
                 <file src="patches/update-motd"/>
-                <file src="patches/no_PATH_MAX_on_hurd"/>
                 <file src="patches/lib_security_multiarch_compat"/>
-                <file src="patches/pam-limits-nofile-fd-setsize-cap"/>
-                <file src="patches/fix-autoreconf.patch"/>
                 <file src="patches/nullok_secure-compat.patch"/>
-                <file src="patches/pam_unix_initialize_daysleft"/>
-                <file src="patches/pam_faillock_create_directory"/>
                 <file src="patches/pam_mkhomedir_stat_before_opendir"/>
-                <!-- Bolt -->
-                <file src="patches/gentoo-fix-compat.patch"/>
-                <file src="patches/upstream-fixes-1.diff"/>
+                <file src="patches/0018-Libpam-is-both-shared-and-static.patch"/>
+                <file src="patches/upstream/0019-pam_inline-introduce-pam_asprintf-pam_snprintf-and-p.patch"/>
+                <file src="patches/upstream/0020-pam_namespace-from-v1.7.1.patch"/>
+                <file src="patches/0001-pam_access-fix-group-name-match-regression.patch"/>
+                <file src="patches/upstream/0022-pam_access-rework-resolving-of-tokens-as-hostname.patch"/>
+                <file src="patches/0023-Reapply-man-page-section-changes-after-importing-1.7.patch"/>
+                <file src="patches/0024-Warn-when-usr-lib-pam.d-is-used.patch"/>
+                <file src="patches/0025-By-default-do-not-document-usr-lib-pam.d.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="autopoint"/>
-            <package name="bzip2"/>
+            <package name="bison"/>
             <package name="flex"/>
-            <package name="libdb5.3-dev"/>
+            <package name="gettext"/>
+            <package name="libfl-dev"/>
             <package name="libselinux1-dev"/>
             <package name="libaudit-dev"/>
-            <package name="libfl-dev"/>
+            <package name="meson"/>
+            <package name="ninja-build"/>
             <package name="pkg-config"/>
         </requires>
 

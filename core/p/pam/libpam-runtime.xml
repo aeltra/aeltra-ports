@@ -18,5 +18,6 @@
         <dir src="/var/lib/pam"/>
         <file src="/etc/pam.conf"/>
         <file src="/etc/pam.d/other"/>
+        <file src="${prefix}/share/locale"/>
     </contents>
 </package>

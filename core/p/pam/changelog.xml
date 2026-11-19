@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.7.0" revision="8aeltra1" upstream-version="1.7.0-8"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-19 23:00:00+03:00">
+        <changeset>
+            <li>Import new version from Debian Forky</li>
+            <li>Build with meson, upstream dropped autotools</li>
+            <li>Drop our patches for pam_lastlog (no longer built) and the
+            upstream fixes that are part of this release</li>
+            <li>No Berkeley DB, pam_userdb is not built</li>
+        </changeset>
+    </release>
     <release version="1.4.0" revision="4bolt1" upstream-version="1.4.0-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-14 11:28:31+03:00">

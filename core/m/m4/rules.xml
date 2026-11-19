@@ -3,12 +3,10 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_SOURCE_DIR"
-autoreconf -vfi
-
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
+    --disable-rpath \
     --build="$AELTRA_BUILD_TYPE" \
     --host="$AELTRA_HOST_TYPE"
 

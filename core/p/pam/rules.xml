@@ -3,26 +3,25 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_SOURCE_DIR"
-autoreconf -vfi
-
 cd "$AELTRA_BUILD_DIR"
-$AELTRA_SOURCE_DIR/configure \
+
+# Don't pass -Di18n=disabled, the build files of 1.7.0 don't cope with it.
+CC="${AELTRA_HOST_TYPE}-gcc" meson setup \
     --prefix="$AELTRA_INSTALL_PREFIX" \
-    --build="$AELTRA_BUILD_TYPE" \
-    --host="$AELTRA_HOST_TYPE" \
     --sysconfdir=/etc \
     --libdir="$AELTRA_INSTALL_PREFIX/lib" \
-    --bindir="$AELTRA_INSTALL_PREFIX/bin" \
     --sbindir="$AELTRA_INSTALL_PREFIX/sbin" \
-    --disable-nls \
-    --disable-cracklib \
-    --disable-nis \
-    --disable-rpath \
-    --enable-shared \
-    --enable-static \
-    --enable-db=no \
-    --includedir="$AELTRA_INSTALL_PREFIX/include/security"
+    --buildtype=plain \
+    --default-library=both \
+    -Daudit=enabled \
+    -Dselinux=enabled \
+    -Ddocs=disabled \
+    -Deconf=disabled \
+    -Dexamples=false \
+    -Dlogind=disabled \
+    -Dnis=disabled \
+    -Dpam_userdb=disabled \
+    . "$AELTRA_SOURCE_DIR"
 
     ]]>
     </prepare>
@@ -31,7 +30,7 @@ $AELTRA_SOURCE_DIR/configure \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make CC="${AELTRA_TARGET_TYPE}-gcc" -j"$AELTRA_PARALLEL_JOBS"
+ninja -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -40,7 +39,7 @@ make CC="${AELTRA_TARGET_TYPE}-gcc" -j"$AELTRA_PARALLEL_JOBS"
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make DESTDIR="$AELTRA_INSTALL_DIR" install
+DESTDIR="$AELTRA_INSTALL_DIR" meson install --no-rebuild
 
 install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/pam.d"
 
