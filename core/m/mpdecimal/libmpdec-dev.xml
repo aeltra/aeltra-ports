@@ -9,12 +9,13 @@
     </description>
 
     <requires>
-        <package name="libmpdec3" version="=="/>
+        <package name="libmpdec4" version="=="/>
     </requires>
 
     <contents>
-        <file src="${prefix}/include"/>
+        <file src="${prefix}/include/mpdecimal.h"/>
         <file src="${prefix}/lib/libmpdec.a"/>
         <file src="${prefix}/lib/libmpdec.so"/>
+        <file src="${prefix}/lib/pkgconfig/libmpdec.pc"/>
     </contents>
 </package>

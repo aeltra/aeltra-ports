@@ -27,8 +27,8 @@
         <sources>
             <file src="bzip2-1.0.8.tar.gz" subdir="sources"
                 sha256sum="ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="cc0b3407f7bbd228ebb76995719171d6cf993500e2e71eaeb042fc0797e149b8"/>
+            <file src="debian-patches-6.tar.gz" subdir="patches"
+                sha256sum="0b1ad014e01669747af184ffe6022ac7e7974972bfca0a09008290d931d6e74c"/>
         </sources>
 
         <patches>

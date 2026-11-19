@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libmpdec++4" section="libs">
+    <description>
+        <summary>Library for decimal floating point arithmetic (C++ runtime library)</summary>
+        <p>
+        mpdecimal is a package for correctly-rounded arbitrary precision decimal
+        floating point arithmetic.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libmpdec4" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/lib/libmpdec++.so.*"/>
+    </contents>
+</package>

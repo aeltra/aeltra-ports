@@ -12,9 +12,17 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="mpdecimal-2.5.1.tar.gz" subdir="sources"
-                sha256sum="9f9cd4c041f99b5c49ffb7b59d9f12d95b683d88585608aa56a6307667b2b21f"/>
+            <file src="mpdecimal-4.0.1.tar.gz" subdir="sources"
+                sha256sum="96d33abb4bb0070c7be0fed4246cd38416188325f820468214471938545b1ac8"/>
+            <file src="debian-patches-6.tar.gz" subdir="patches"
+                sha256sum="27a965f9ab34d46f9c18dbc9f3fce9dd1e0adb04776ff2d656f3d2c1ac0f59cb"/>
         </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0001-Add-patch-to-support-for-GNU-Hurd.patch"/>
+            </patchset>
+        </patches>
 
         <requires>
             <package name="autotools-dev" tools-prefix=""/>
@@ -25,7 +33,9 @@
     </source>
 
     <xi:include href="libmpdec-dev.xml"/>
-    <xi:include href="libmpdec3.xml"/>
+    <xi:include href="libmpdec4.xml"/>
+    <xi:include href="libmpdec++-dev.xml"/>
+    <xi:include href="libmpdec++4.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

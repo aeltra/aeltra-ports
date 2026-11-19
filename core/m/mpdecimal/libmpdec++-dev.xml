@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libmpdec++-dev" section="libdevel">
+    <description>
+        <summary>Library for decimal floating point arithmetic (C++ development files)</summary>
+        <p>
+        mpdecimal is a package for correctly-rounded arbitrary precision decimal
+        floating point arithmetic.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libmpdec++4" version="=="/>
+        <package name="libmpdec-dev" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include/decimal.hh"/>
+        <file src="${prefix}/lib/libmpdec++.a"/>
+        <file src="${prefix}/lib/libmpdec++.so"/>
+        <file src="${prefix}/lib/pkgconfig/libmpdec++.pc"/>
+    </contents>
+</package>
