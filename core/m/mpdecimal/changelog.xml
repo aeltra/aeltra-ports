@@ -2,7 +2,7 @@
 <changelog>
     <release version="4.0.1" revision="6aeltra1" upstream-version="4.0.1-6"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
-        date="2026-11-20 03:00:00+03:00">
+        date="2026-11-19 21:25:06+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>The library package is now libmpdec4, the C++ library gets

@@ -18,6 +18,7 @@ $AELTRA_SOURCE_DIR/configure \
     --enable-bsdtar=shared \
     --enable-bsdcpio=shared \
     --enable-bsdcat=shared \
+    --enable-bsdunzip=shared \
     --disable-silent-rules
 
     ]]>

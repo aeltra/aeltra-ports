@@ -2,7 +2,7 @@
 <changelog>
     <release version="3.6.5" revision="1aeltra1" upstream-version="3.6.5-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
-        date="2026-11-20 00:30:00+03:00">
+        date="2026-11-19 20:37:45+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>The library package is now libssl3. It also has the legacy

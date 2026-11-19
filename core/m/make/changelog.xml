@@ -2,7 +2,7 @@
 <changelog>
     <release version="4.4.1" revision="3aeltra1" upstream-version="4.4.1-3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
-        date="2026-11-20 04:00:00+03:00">
+        date="2026-11-19 21:31:55+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>Take Alpine's patch for the declarations that GCC 15 and

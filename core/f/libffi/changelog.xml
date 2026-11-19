@@ -2,7 +2,7 @@
 <changelog>
     <release version="3.8.0" revision="2aeltra1" upstream-version="3.8.0-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
-        date="2026-11-20 02:00:00+03:00">
+        date="2026-11-19 21:19:49+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>The library package is now libffi8</li>

@@ -2,7 +2,7 @@
 <changelog>
     <release version="2.10.0" revision="1aeltra1" upstream-version="2.10.0-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
-        date="2026-11-20 02:00:00+03:00">
+        date="2026-11-19 21:19:49+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
         </changeset>

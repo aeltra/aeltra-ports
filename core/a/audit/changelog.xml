@@ -2,7 +2,7 @@
 <changelog>
     <release epoch="1" version="4.1.2" revision="1aeltra1" upstream-version="1:4.1.2-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
-        date="2026-11-19 21:00:00+03:00">
+        date="2026-11-19 20:08:26+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>New packages libauplugin1 and libauplugin-dev</li>

@@ -19,19 +19,23 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="tar-1.32+dfsg.tar.xz" subdir="sources"
-                sha256sum="9cb89ab8997d5469b24c7a676f0f0ae5b84d730c3d44d9afeabad63431ec8d27"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="af1eb9f5416c29dd817c19dc65f0b2f9a8295b348bf7a687f24c1f8e56c427ff"/>
+            <file src="tar-1.35+dfsg.tar.xz" subdir="sources"
+                sha256sum="9ae57e981c1e73c0eebc2b26c9b0c4497fe310ef1d516ea430efb5470b71f7a8"/>
+            <file src="debian-patches-7.tar.gz" subdir="patches"
+                sha256sum="a916fa573cd46d41fe1bb8bdaffceda48b2f246d81da0d525275fdec35d11b65"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/gcc-10-warnings.diff"/>
                 <file src="patches/pristine-tar.diff"/>
                 <file src="patches/listed03-linux-only"/>
                 <file src="patches/oldgnu-unknown-mode-bits.patch"/>
                 <file src="patches/proper_it_translation.patch"/>
+                <file src="patches/exclude17.patch"/>
+                <file src="patches/exclude18.patch"/>
+                <file src="patches/tar-1.35-revert-fix-savannah-bug-633567.patch"/>
+                <file src="patches/0001-Avoid-acl_-prefix-for-functions.patch"/>
+                <file src="patches/0001-tar-make-GNUSparseFile-headers-reproducible.patch"/>
             </patchset>
         </patches>
 

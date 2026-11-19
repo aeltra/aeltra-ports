@@ -19,26 +19,9 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libarchive-3.4.3.tar.xz" subdir="sources"
-                sha256sum="0bfc3fd40491768a88af8d9b86bf04a9e95b6d41a94f9292dbc0ec342288c05f"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="ede8696e952fd86b59bfce34e550e865f39ffc5982633be6c3e9d360b8b29301"/>
+            <file src="libarchive-3.8.11.tar.xz" subdir="sources"
+                sha256sum="a3dc0872b1b39da34dc18ef1b944f0f11ffd37425d70ae04be679279f1cf43d2"/>
         </sources>
-
-        <patches>
-            <patchset subdir="sources">
-                <file src="patches/typos.patch"/>
-                <file src="patches/upstream-cpio-hardlink-type.patch"/>
-                <file src="patches/upstream-cpio-rdev.patch"/>
-                <file src="patches/upstream-isint-w.patch"/>
-                <file src="patches/upstream-unneeded-strlen.patch"/>
-                <file src="patches/upstream-hardlink-to-self.patch"/>
-                <file src="patches/upstream-set-format-error.patch"/>
-                <file src="patches/upstream-rar-read-format.patch"/>
-                <file src="patches/upstream-memory-stdlib.patch"/>
-                <file src="patches/upstream-max-comp-level.patch"/>
-            </patchset>
-        </patches>
 
         <requires>
             <package name="pkg-config"/>
