@@ -10,12 +10,14 @@ cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --sysconfdir=/etc \
+    --localstatedir=/var \
     --disable-zos-remote \
     --enable-shared=audit \
     --with-libcap-ng \
-    --with-arm --with-aarch64 \
-    --without-python \
+    --with-io_uring \
+    --with-arm --with-aarch64 --with-riscv \
     --without-python3 \
+    --without-golang \
     --build="$AELTRA_BUILD_TYPE" \
     --host="$AELTRA_HOST_TYPE"
 
@@ -37,10 +39,6 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 
 make DESTDIR="$AELTRA_INSTALL_DIR" install
-
-install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/systemd/system"
-install -m 0644 "$AELTRA_SOURCE_DIR/init.d/auditd.service" \
-    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/systemd/system"
 
 install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/audit/rules.d"
 install -m 0640 "$AELTRA_SOURCE_DIR/rules/10-base-config.rules" \

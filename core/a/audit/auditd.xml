@@ -10,20 +10,24 @@
     </description>
 
     <contents>
+        <file src="/etc/audit/audisp-filter.conf" mode="0640"/>
         <file src="/etc/audit/audit-stop.rules" mode="0640"/>
         <file src="/etc/audit/auditd.conf" mode="0640"/>
         <file src="/etc/audit/plugins.d/af_unix.conf" mode="0640"/>
+        <file src="/etc/audit/plugins.d/filter.conf" mode="0640"/>
         <file src="/etc/audit/plugins.d/syslog.conf" mode="0640"/>
         <file src="/etc/audit/rules.d"/>
 
         <file src="${prefix}/bin"/>
+        <file src="${prefix}/sbin/audisp-af_unix"/>
+        <file src="${prefix}/sbin/audisp-filter"/>
         <file src="${prefix}/sbin/audisp-syslog"/>
         <file src="${prefix}/sbin/auditctl"/>
         <file src="${prefix}/sbin/auditd"/>
         <file src="${prefix}/sbin/augenrules"/>
         <file src="${prefix}/sbin/aureport"/>
         <file src="${prefix}/sbin/ausearch"/>
-        <file src="${prefix}/sbin/autrace"/>
+        <file src="${prefix}/share/audit-rules"/>
 
         <dir src="/etc/audit" mode="0750"/>
         <dir src="/etc/audit/plugins.d" mode="0750"/>

@@ -4,11 +4,14 @@
     <![CDATA[
 
 cd "$AELTRA_SOURCE_DIR"
+# autoreconf insists on this file, the tarball does not have it.
+touch NEWS
 ./autogen.sh
 
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
+    --without-python3 \
     --build="$AELTRA_BUILD_TYPE" \
     --host="$AELTRA_HOST_TYPE"
 

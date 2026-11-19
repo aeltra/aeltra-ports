@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libauplugin-dev" section="libdevel">
+    <description>
+        <summary>Header files and static library for auditd plugins</summary>
+        <p>
+        This package contains the static libraries and header files needed for
+        developing auditd plugins.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libauplugin1" version="=="/>
+        <package name="libauparse-dev" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include/auplugin.h"/>
+        <file src="${prefix}/lib/libauplugin.a"/>
+        <file src="${prefix}/lib/libauplugin.so"/>
+    </contents>
+</package>

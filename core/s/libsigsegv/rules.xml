@@ -3,9 +3,6 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_SOURCE_DIR"
-autoreconf -vif
-
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --enable-relocatable \

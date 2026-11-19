@@ -18,24 +18,24 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="audit-3.0.tar.gz" subdir="sources"
-                sha256sum="bd31826823b912b6fe271d2d979ed879e9fc393cab1e2f7c4e1af258231765b8"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="17289ddddb7a5b23759f9b7e705192c42919c8189de60268b30b5814b19081dc"/>
+            <file src="audit-4.1.2.tar.gz" subdir="sources"
+                sha256sum="5c638bbeef9adb6c5715d3a60f0f5adb93e9b81633608af13d23c61f5e5db04d"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="468dac5b2e4892ba00936d92a4fa5dc4aedc7bbb12d84d8f0c286661e26a3a3e"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <!-- Debian -->
                 <file src="patches/01-no-refusemanualstop.patch"/>
-                <file src="patches/02-restorecon-path.patch"/>
                 <file src="patches/03-Set-log_group-adm.patch"/>
-                <file src="patches/0004-Turn-libaucommon-into-a-libtool-convenience-library-.patch"/>
+                <file src="patches/debian-tmpfiles.patch"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="libcap-ng-dev"/>
+            <package name="linux-system-headers"/>
         </requires>
 
         <xi:include href="rules.xml"/>
@@ -48,6 +48,8 @@
     <xi:include href="libaudit-common.xml"/>
     <xi:include href="libaudit-dev.xml"/>
     <xi:include href="audispd-plugins.xml"/>
+    <xi:include href="libauplugin1.xml"/>
+    <xi:include href="libauplugin-dev.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

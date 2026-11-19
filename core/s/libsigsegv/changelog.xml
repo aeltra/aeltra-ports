@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.15" revision="1aeltra1" upstream-version="2.15-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-19 21:00:00+03:00">
+        <changeset>
+            <li>Import new version from Debian Forky</li>
+            <li>Drop our two patches. Upstream knows the layout of ucontext_t
+            on musl for powerpc, and a native build finds out by itself that
+            the POSIX fault handler works</li>
+        </changeset>
+    </release>
     <release version="2.13" revision="1bolt1" upstream-version="2.13-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-13 23:46:05+03:00">
