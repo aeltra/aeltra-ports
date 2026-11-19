@@ -19,9 +19,18 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="expat-2.2.10.tar.gz" subdir="sources"
-                sha256sum="62e280f5fd29a5b70973f623e20a7412c3e3912c2684cb0e462e2c881be129e1"/>
+            <file src="expat-2.10.0.tar.gz" subdir="sources"
+                sha256sum="b3644a12f62d7762b62c444f69d169ba0234f13138d0240244bca64cbe35286f"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="8c0b62a1d8f700b9d140420281896ec50822a5df2e181f2f0f70a242b3ea78c8"/>
         </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/fix-expat-noconfig.patch"/>
+                <file src="patches/fix-expat-cmake.patch"/>
+            </patchset>
+        </patches>
 
         <xi:include href="rules.xml"/>
     </source>

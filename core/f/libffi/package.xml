@@ -17,24 +17,23 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libffi-3.3.tar.gz" subdir="sources"
-                sha256sum="72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"/>
-            <file src="debian-patches-5.tar.gz" subdir="patches"
-                sha256sum="6cba849cd77af495b6ae71b22a7600840384c07440c7ab32e2cf91800258548d"/>
+            <file src="libffi-3.8.0.tar.gz" subdir="sources"
+                sha256sum="bf40d752d8f5fd4505bcd1c7d4208ea87fd12c91f087e359651c776748352dc0"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="1b0c954b72213bd2670908df2460a5746e2feb157ee08d3e758778caf194a5c2"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/no-toolexeclibdir.diff"/>
-                <file src="patches/powerpc-fix.diff"/>
-                <file src="patches/powerpc64-fix.diff"/>
-                <file src="patches/powerpc64-fix-2.diff"/>
-                <file src="patches/powerpc-fix-2.diff"/>
             </patchset>
         </patches>
 
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="libtool"/>
             <package name="libltdl-dev"/>
             <package name="texinfo"/>
         </requires>
@@ -43,7 +42,7 @@
     </source>
 
     <xi:include href="libffi-dev.xml"/>
-    <xi:include href="libffi7.xml"/>
+    <xi:include href="libffi8.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

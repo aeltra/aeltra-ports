@@ -18,8 +18,9 @@ $AELTRA_SOURCE_DIR/configure \
     <build>
     <![CDATA[
 
+# libreadline does not link the library with the termcap functions by itself.
 cd "$AELTRA_BUILD_DIR"
-make -j"$AELTRA_PARALLEL_JOBS"
+make SHLIB_LIBS="-ltinfo" -j"$AELTRA_PARALLEL_JOBS"
 
 rm -rf examples/rlfe
 cp -a "$AELTRA_SOURCE_DIR/examples/rlfe" "$AELTRA_BUILD_DIR/examples/"
@@ -45,7 +46,7 @@ make -C "$AELTRA_BUILD_DIR/examples/rlfe" \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make DESTDIR="$AELTRA_INSTALL_DIR" install
+make SHLIB_LIBS="-ltinfo" DESTDIR="$AELTRA_INSTALL_DIR" install
 
 install -m 0755 "$AELTRA_BUILD_DIR/examples/rlfe/rlfe" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/"
