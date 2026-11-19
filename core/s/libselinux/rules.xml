@@ -5,8 +5,8 @@
 
 cd "$AELTRA_SOURCE_DIR"
 
-# Hack: prevent override of gettid        
-sed -i 's/#if OVERRIDE_GETTID/#if 0/g' src/procattr.c
+# Hack: busybox ln does not understand --relative
+sed -i 's@ln -sf --relative $(DESTDIR)$(SHLIBDIR)/@ln -sf @g' src/Makefile
 
     ]]>
     </prepare>
@@ -24,7 +24,8 @@ make -j"$AELTRA_PARALLEL_JOBS" \
     CFLAGS="$CFLAGS" \
     CPPFLAGS="$CPPFLAGS" \
     FTS_LDLIBS="$LIBFTS" \
-    PCRE_LDLIBS="-lpcre" \
+    PCRE_CFLAGS="-DUSE_PCRE2 -DPCRE2_CODE_UNIT_WIDTH=8" \
+    PCRE_LDLIBS="-lpcre2-8" \
     CC="$AELTRA_HOST_TYPE-gcc" \
     LD="$AELTRA_HOST_TYPE-ld" \
     AS="$AELTRA_HOST_TYPE-as" \

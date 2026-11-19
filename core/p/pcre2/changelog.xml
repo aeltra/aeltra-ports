@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="10.49" revision="1aeltra1" upstream-version="10.49-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-19 10:57:40+03:00">
+        <changeset>
+            <li>Import from Debian Forky, replaces pcre3</li>
+        </changeset>
+    </release>
+</changelog>

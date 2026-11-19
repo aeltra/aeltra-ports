@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+# As in Debian: prefix the names of the functions in libpcre2-posix, so that
+# they don't clash with the ones in libc.
+export CFLAGS="$CFLAGS -Dregcomp=PCRE2regcomp -Dregexec=PCRE2regexec"
+export CFLAGS="$CFLAGS -Dregerror=PCRE2regerror -Dregfree=PCRE2regfree"
+
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --enable-pcre2-16 \
+    --enable-pcre2-32 \
+    --enable-jit \
+    --disable-pcre2grep-callout \
+    --disable-silent-rules \
+    --build="$AELTRA_BUILD_TYPE" \
+    --host="$AELTRA_HOST_TYPE"
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+    ]]>
+    </install>
+</rules>

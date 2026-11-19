@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libpcre2-posix3" section="libs">
+    <description>
+        <summary>New Perl Compatible Regular Expression Library - posix-compatible runtime files</summary>
+        <p>
+        This is PCRE2, the new implementation of PCRE, a library of functions
+        to support regular expressions whose syntax and semantics are as
+        close as possible to those of the Perl 5 language. New projects
+        should use this library in preference to the older library,
+        confusingly called pcre3 in Debian.
+        </p>
+        <p>
+        This package contains the runtime library for the posix-compatible API.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libpcre2-8-0" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/lib/libpcre2-posix.so.3"/>
+        <file src="${prefix}/lib/libpcre2-posix.so.3.*"/>
+    </contents>
+</package>

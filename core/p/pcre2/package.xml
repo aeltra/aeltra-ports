@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="pcre2" repo="core" architecture-independent="false"
+            if="tools-build or target-build">
+        <description>
+            <summary>New Perl Compatible Regular Expression Library</summary>
+            <p>
+            This is PCRE2, the new implementation of PCRE, a library of functions
+            to support regular expressions whose syntax and semantics are as
+            close as possible to those of the Perl 5 language. New projects
+            should use this library in preference to the older library,
+            confusingly called pcre3 in Debian.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="pcre2-10.49.tar.gz" subdir="sources"
+                sha256sum="929f0b20e62879252a15886b06c89f1edef61a363cbd5826fb041080a5e557ae"/>
+            <file src="pcre2-10.49-1.debdiff.gz" subdir="patches"
+                sha256sum="fc71349984d3559982c813d4e1d50d8c8399319bf4134450b7107270e80efcee"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/pcre2-10.49-1.debdiff"/>
+            </patchset>
+        </patches>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="libpcre2-8-0.xml"/>
+    <xi:include href="libpcre2-16-0.xml"/>
+    <xi:include href="libpcre2-32-0.xml"/>
+    <xi:include href="libpcre2-posix3.xml"/>
+    <xi:include href="libpcre2-dev.xml"/>
+    <xi:include href="pcre2-utils.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
