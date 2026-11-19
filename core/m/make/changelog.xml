@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="4.4.1" revision="3aeltra1" upstream-version="4.4.1-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 04:00:00+03:00">
+        <changeset>
+            <li>Import new version from Debian Forky</li>
+            <li>Take Alpine's patch for the declarations that GCC 15 and
+            later reject, they are compiled on musl</li>
+        </changeset>
+    </release>
     <release version="4.3" revision="4bolt1" upstream-version="4.3-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-16 00:31:12+03:00">

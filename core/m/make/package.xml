@@ -23,15 +23,24 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="make-dfsg-4.3.tar.gz" subdir="sources"
-                sha256sum="be4c17542578824e745f83bcd2a9ba264206187247cb6a5f5df99b0a9d1f9047"/>
-            <file src="make-dfsg-4.3-4.debdiff.gz" subdir="patches"
-                sha256sum="6f4196d2d8fe593e61a58cc885b6ea8ecf9b19d6a4e64bc9a32bb966f7d9a699"/>
+            <file src="make-dfsg-4.4.1.tar.xz" subdir="sources"
+                sha256sum="3b16b00ea1079af9f8096bbc71ff7cc00c249fc6a862003da3c42308a0adb0fe"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="7d2f42e7248b6acedc623111fc49cd4756cb04fd6f999b126bb72b1aa9bf3b64"/>
+            <file src="alpine-patches-1.tar.gz" subdir="patches"
+                sha256sum="afbdd1b4b4f55a78169bbbe886b793b8d82d4a8c0cb21b464e25eb102eafd02b"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/make-dfsg-4.3-4.debdiff"/>
+                <!-- Debian -->
+                <file src="patches/0001-Remove-documentation-from-build-system.patch"/>
+                <file src="patches/0002-Fix-issues-with-ar-operating-in-deterministic-mode.patch"/>
+                <file src="patches/0003-Fix-ordering-of-include-dirs.patch"/>
+                <file src="patches/0004-Fix-directory-search-for-link-libraries.patch"/>
+                <file src="patches/0005-Fix-large-command-line-on-POSIX-systems.patch"/>
+                <!-- Alpine -->
+                <file src="patches/getopt-gcc15.patch"/>
             </patchset>
         </patches>
 

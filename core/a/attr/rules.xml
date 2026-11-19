@@ -12,7 +12,7 @@ $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_BUILD_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --enable-gettext=no
+    --disable-nls
 
     ]]>
     </prepare>

@@ -18,18 +18,20 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gzip-1.10.tar.gz" subdir="sources"
-                sha256sum="c91f74430bf7bc20402e1f657d0b252cb80aa66ba333a25704512af346633c68"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="b4548340ee3deb7b35692e89e613080f2d11a440eb92d77a38486621659b4933"/>
+            <file src="gzip-1.14.tar.xz" subdir="sources"
+                sha256sum="01a7b881bd220bfdf615f97b8718f80bdfd3f6add385b993dcf6efd14e8c0ac6"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="accff242430e871fc955211b805068007875067ca9803bfe068b3e0dc5741807"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/sigpipe.diff"/>
                 <file src="patches/gzip_reproducible_build.diff"/>
-                <file src="patches/zgrep-syntax-error.diff"/>
-                <file src="patches/disable-Werror.patch"/>
+                <file src="patches/CVE-2026-41991-a.patch"/>
+                <file src="patches/CVE-2026-41991-b.patch"/>
+                <file src="patches/CVE-2026-41992.patch"/>
+                <file src="patches/gzip-fix-uninitialized-read.patch"/>
+                <file src="patches/gzip-fix-another-uninitialized-read.patch"/>
             </patchset>
         </patches>
 

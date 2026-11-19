@@ -17,32 +17,21 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="attr-2.4.48.tar.gz" subdir="sources"
-                sha256sum="5ead72b358ec709ed00bbf7a9eaef1654baad937c001c044fe8b74c57f5324e7"/>
-            <file src="debian-patches-6.tar.gz" subdir="patches"
-                sha256sum="ec9ed2ea07555ba6b05a3c67cfb681a49723e12c455781c524dd0c255e51a690"/>
+            <file src="attr-2.6.0.tar.xz" subdir="sources"
+                sha256sum="6c8a2148a7b85043b68492bce43316b0e2e214fc4e628c7ede078e76e216330b"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="448b0ad24a48942683600b763b2ae1e3cea7da3d81156b8d0e142d9b1f6221e3"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/0001-test-escape-left-brace-in-a-regex-in-test-run.patch"/>
-                <file src="patches/0002-man-fix-bold-style-in-SEE-ALSO-section.patch"/>
-                <file src="patches/0003-man-standardize-AUTHORS-section.patch"/>
-                <file src="patches/0004-Enable-large-file-support-on-systems-that-do-not-ena.patch"/>
-                <file src="patches/0005-getfattr.1-by-default-only-user-namespace-attributes.patch"/>
-                <file src="patches/0006-attr_list.3-Fix-the-attributes.h-include-path.patch"/>
-                <file src="patches/0007-Switch-back-to-syscall.patch"/>
-                <file src="patches/0008-attr_multi-attr_multif-Don-t-set-errno-to-EINVAL.patch"/>
-                <file src="patches/0009-attr_list-attr_listf-Guard-against-unterminated-buff.patch"/>
-                <file src="patches/build-require-autoconf-version.patch"/>
-                <file src="patches/syscalls-linux.patch"/>
-                <file src="patches/compat-xattr-header.patch"/>
-                <file src="patches/l10n-update-nl.patch"/>
-                <file src="patches/l10n-update-fr.patch"/>
-                <file src="patches/man-pages-typo-fixes.patch"/>
-                <file src="patches/man-attr-no-xfs-specific.patch"/>
-                <file src="patches/man-fix-macros.patch"/>
-                <file src="patches/gettext-musl.patch"/>
+                <file src="patches/local/0001-po-Update-Dutch-translation.patch"/>
+                <file src="patches/local/0002-build-Fix-cross-compilation-on-musl-based-systems.patch"/>
+                <file src="patches/local/0003-man-Fix-formatting-markup-for-attr-1.patch"/>
+                <file src="patches/local/0004-man-Clarify-attr-1-manual-page.patch"/>
+                <file src="patches/local/0005-man-Mention-the-origins-of-ENOATTR.patch"/>
+                <file src="patches/local/0006-man-Improve-markup-and-editorial-changes-for-setfatt.patch"/>
+                <file src="patches/local/0007-man-Use-f-letter-instead-of-f-number-to-select-fonts.patch"/>
             </patchset>
         </patches>
 
