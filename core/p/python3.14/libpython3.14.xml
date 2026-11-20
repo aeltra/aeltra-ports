@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="libpython3.9" section="libs">
+<package name="libpython3.14" section="libs">
     <description>
-        <summary>Shared Python runtime library (version 3.9)</summary>
+        <summary>Shared Python runtime library (version 3.14)</summary>
         <p>
-        Python is a high-level, interactive, object-oriented language. Its 3.9 version
+        Python is a high-level, interactive, object-oriented language. Its 3.14 version
         includes an extensive class library with lots of goodies for
         network programming, system administration, sounds and graphics.
         </p>
@@ -14,10 +14,10 @@
     </description>
 
     <requires>
-        <package name="libpython3.9-stdlib" version="=="/>
+        <package name="libpython3.14-stdlib" version="=="/>
     </requires>
 
     <contents subdir="all">
-        <file src="${prefix}/lib/libpython3.9*.so.*"/>
+        <file src="${prefix}/lib/libpython3.14*.so.*"/>
     </contents>
 </package>

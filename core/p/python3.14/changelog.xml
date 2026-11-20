@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.14.10" revision="1aeltra1" upstream-version="3.14.10-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 16:31:44+03:00">
+        <changeset>
+            <li>Upgrade to version 3.14.10-1 from Debian forky.</li>
+            <li>The source package is called python3.14 now.</li>
+            <li>Build without Berkeley DB.</li>
+            <li>
+                Take the patch for ctypes.util.find_library on musl from
+                Alpine and apply it on musl only.
+            </li>
+        </changeset>
+    </release>
     <release version="3.9.1" revision="4bolt1" upstream-version="3.9.1-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-23 22:58:58+03:00">

@@ -5,14 +5,14 @@
 
 cd "$AELTRA_SOURCE_DIR"
 
-# HACK: avoid getting a multiarch/platform mismatch
-sed -i 's/^MULTIARCH=.*/MULTIARCH=""/g' configure.ac
-
+# Debian's patches change configure.ac. Its macros come from
+# autoconf-archive and pkgconf.
 autoreconf -vfi
 
-# this is necesary for ffi lib loading to work
+# The patch for musl searches the library folders itself, point it at
+# those of the tools.
 if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
-    sed -i 's@paths = \["/usr/local/lib", "/usr/lib"\]@paths = ["/tools/local/lib", "/tools/lib"]@' \
+    sed -i "s@paths = \['/lib', '/usr/local/lib', '/usr/lib'\]@paths = ['/tools/local/lib', '/tools/lib']@" \
         Lib/ctypes/util.py
 fi
 
@@ -27,9 +27,9 @@ $AELTRA_SOURCE_DIR/configure \
     --with-computed-gotos \
     --without-ensurepip \
     --with-system-expat \
-    --with-system-ffi \
     --with-system-libmpdec \
-    --with-dbmliborder=bdb:gdbm
+    --with-dbmliborder=gdbm \
+    --with-ssl-default-suites=openssl
 
     ]]>
     </prepare>
@@ -46,68 +46,69 @@ make -j"$AELTRA_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-for ENTRY in all libpython3.9-dev python3.9-venv; do
+for ENTRY in all libpython3.14-dev python3.14-venv; do
     mkdir -p "$AELTRA_INSTALL_DIR/$ENTRY"
 done
 
 FULL_INSTALL="$AELTRA_INSTALL_DIR/all"
 
 cd "$AELTRA_BUILD_DIR"
+
 make DESTDIR="$FULL_INSTALL" install
 
 rm -f  "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*idle*
-rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.9/idlelib"
-rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.9/turtledemo"
+rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/idlelib"
+rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/turtledemo"
 
 PYTHON3_CONFIG_DIR=$(
-    echo "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"/lib/python3.9/config-3.9-*
+    echo "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"/lib/python3.14/config-3.14-*
 )
 
 cp "$AELTRA_SOURCE_DIR/Tools/i18n/pygettext.py" \
-    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/pygettext3.9"
-mv "$PYTHON3_CONFIG_DIR/libpython3.9.a" \
+    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/pygettext3.14"
+mv "$PYTHON3_CONFIG_DIR/libpython3.14.a" \
     "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib"
-ln -sf ../../libpython3.9.a \
-    "$PYTHON3_CONFIG_DIR/libpython3.9.a"
-ln -sf ../../libpython3.9.so \
-    "$PYTHON3_CONFIG_DIR/libpython3.9.so"
-ln -sf libpython3.9.so.1.0 \
-    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/libpython3.9.so.1"
-ln -sf ../lib/python3.9/pdb.py \
-    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/pdb3.9"
+ln -sf ../../libpython3.14.a \
+    "$PYTHON3_CONFIG_DIR/libpython3.14.a"
+ln -sf ../../libpython3.14.so \
+    "$PYTHON3_CONFIG_DIR/libpython3.14.so"
+ln -sf libpython3.14.so.1.0 \
+    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/libpython3.14.so.1"
+ln -sf ../lib/python3.14/pdb.py \
+    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/pdb3.14"
 
 cd "$FULL_INSTALL"
 find . -type d -a \( -name "test" -o -name "tests" \) -prune -exec rm -fr '{}' ';'
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/libpython3.9-dev"
+PKG_PATH="$AELTRA_INSTALL_DIR/libpython3.14-dev"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
-install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.9"
+install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.14"
 
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"/bin/python3.9*-config \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"/bin/python3.14*-config \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/include" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/pkgconfig" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib"
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.9"/config-3.9* \
-    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.9/"
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"libpython3.9*.a \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14"/config-3.14* \
+    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.14/"
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"libpython3.14*.a \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/"
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"libpython3.9*.so \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"libpython3.14*.so \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/"
 
 # -------------------------------------------------------------------------
-PKG_PATH="$AELTRA_INSTALL_DIR/python3.9-venv"
+PKG_PATH="$AELTRA_INSTALL_DIR/python3.14-venv"
 # -------------------------------------------------------------------------
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
-install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.9"
+install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.14"
 
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.9/ensurepip" \
-    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.9"
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/ensurepip" \
+    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.14"
 
     ]]>
     </install>

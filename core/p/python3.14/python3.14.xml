@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="python3.9" section="python">
+<package name="python3.14" section="python">
     <description>
-        <summary>Interactive high-level object-oriented language (version 3.9)</summary>
+        <summary>Interactive high-level object-oriented language (version 3.14)</summary>
         <p>
-        Python is a high-level, interactive, object-oriented language. Its 3.9 version
+        Python is a high-level, interactive, object-oriented language. Its 3.14 version
         includes an extensive class library with lots of goodies for
         network programming, system administration, sounds and graphics.
         </p>
     </description>
 
     <requires>
-        <package name="libpython3.9" version="=="/>
-        <package name="libpython3.9-stdlib" version="=="/>
+        <package name="libpython3.14" version="=="/>
+        <package name="libpython3.14-stdlib" version="=="/>
     </requires>
 
     <provides>
@@ -22,25 +22,24 @@
 
     <contents subdir="all">
         <dir src="${prefix}/lib/python3"/>
-        <dir src="${prefix}/lib/python3.9"/>
-        <dir src="${prefix}/lib/python3.9/lib-dynload"/>
+        <dir src="${prefix}/lib/python3.14"/>
+        <dir src="${prefix}/lib/python3.14/lib-dynload"/>
         <dir src="${prefix}/lib/python3/dist-packages"/>
-        <file src="${prefix}/bin/2to3-3.9"/>
-        <file src="${prefix}/bin/pdb3.9"/>
-        <file src="${prefix}/bin/pydoc3.9"/>
-        <file src="${prefix}/bin/pygettext3.9"/>
-        <file src="${prefix}/bin/python3.9*"/>
+        <file src="${prefix}/bin/pdb3.14"/>
+        <file src="${prefix}/bin/pydoc3.14"/>
+        <file src="${prefix}/bin/pygettext3.14"/>
+        <file src="${prefix}/bin/python3.14*"/>
     </contents>
 
     <maintainer-scripts>
         <postinst><![CDATA[
 
 if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/python3" ]; then
-    ln -sf "python3.9" "$AELTRA_INSTALL_PREFIX/bin/python3"
+    ln -sf "python3.14" "$AELTRA_INSTALL_PREFIX/bin/python3"
 fi
 
 if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/python" ]; then
-    ln -sf "python3.9" "$AELTRA_INSTALL_PREFIX/bin/python"
+    ln -sf "python3.14" "$AELTRA_INSTALL_PREFIX/bin/python"
 fi
 
         ]]></postinst>

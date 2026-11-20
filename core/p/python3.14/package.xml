@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="python3.14" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Interactive high-level object-oriented language (version 3.14)</summary>
+            <p>
+            Python is a high-level, interactive, object-oriented language. Its 3.14 version
+            includes an extensive class library with lots of goodies for
+            network programming, system administration, sounds and graphics.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="python3.14-3.14.10.tar.xz" subdir="sources"
+                sha256sum="de414a57119abef52784d8993e341d53aed635fc2b05c2607d9f98a2c5b72032"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="4fcbb105bace5372144e295b9ad3843057d109f16ad2b0d0f4cf3b0d8394c7fd"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="13dd21254cbf4a27699888d1788e14dd0f261ca618d0294d6aecff30ad696f31"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <!-- Debian. The patches that are commented out are for
+                     its multiarch layout. -->
+                <file src="patches/deb-locations.diff"/>
+                <file src="patches/distutils-install-layout.diff"/>
+                <file src="patches/sysconfig-debian-schemes.diff"/>
+                <file src="patches/tkinter-import.diff"/>
+                <file src="patches/gdbm-import.diff"/>
+                <file src="patches/link-opt.diff"/>
+                <file src="patches/setup-modules.diff"/>
+                <file src="patches/profiled-build.diff"/>
+                <file src="patches/langpack-gettext.diff"/>
+                <file src="patches/disable-sem-check.diff"/>
+                <!--
+                <file src="patches/multiarch.diff"/>
+                -->
+                <file src="patches/ensurepip-disabled.diff"/>
+                <!--
+                <file src="patches/destshared-location.diff"/>
+                -->
+                <file src="patches/min-codeop-traceback.diff"/>
+                <file src="patches/min-difflib-argparse.diff"/>
+                <file src="patches/min-gettext-argparse.diff"/>
+                <file src="patches/min-gettext-getopt.diff"/>
+                <file src="patches/min-gettext-optparse.diff"/>
+                <file src="patches/min-multiprocessing-compileall.diff"/>
+                <file src="patches/min-concurrent-compileall.diff"/>
+                <file src="patches/min-ntpath-pathlib.diff"/>
+                <file src="patches/min-pyrepl-sitebuiltins.diff"/>
+                <file src="patches/makefile-bootstrap.diff"/>
+                <file src="patches/test-freeze-strip-libdir.diff"/>
+                <file src="patches/stable-abi-multiarch.diff"/>
+                <file src="patches/gchead-alignment.diff"/>
+                <file src="patches/man-page-fixes.diff"/>
+                <file src="patches/sphinx-no-fail-on-warning.diff"/>
+                <file src="patches/hppa-ifunc.patch"/>
+                <file src="patches/llvm-version.diff"/>
+                <file src="patches/glibc-termios.diff"/>
+                <!--
+                <file src="patches/build-info-multiarch.patch"/>
+                -->
+                <file src="patches/pyexpat-test-depth.diff"/>
+                <file src="patches/build-info-ldversion.diff"/>
+                <file src="patches/python314-openssl4-1.patch"/>
+                <file src="patches/python314-openssl4-2.patch"/>
+                <file src="patches/python314-openssl4-3.patch"/>
+                <file src="patches/python314-openssl4-4.patch"/>
+                <file src="patches/python314-openssl4-5.patch"/>
+                <!-- Aeltra OS -->
+                <file src="patches/musl-find-library.diff" if="musl"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autoconf-archive"/>
+            <package name="pkg-config"/>
+            <package name="libreadline-dev"/>
+            <package name="libncurses-dev"/>
+            <package name="zlib1g-dev"/>
+            <package name="libbz2-dev"/>
+            <package name="liblzma-dev"/>
+            <package name="libzstd-dev"/>
+            <package name="libgdbm-dev"/>
+            <package name="libssl-dev"/>
+            <package name="libexpat1-dev"/>
+            <package name="libmpdec-dev"/>
+            <package name="libsqlite3-dev"/>
+            <package name="libffi-dev"/>
+            <package name="bzip2"/>
+            <package name="python3"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="python3.14.xml"/>
+    <xi:include href="python3.14-venv.xml"/>
+    <xi:include href="libpython3.14-stdlib.xml"/>
+    <xi:include href="libpython3.14.xml"/>
+    <xi:include href="python3.14-dev.xml"/>
+    <xi:include href="libpython3.14-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
