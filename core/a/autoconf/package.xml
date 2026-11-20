@@ -32,6 +32,7 @@
         <requires>
             <package name="perl"/>
             <package name="m4"/>
+            <package name="help2man"/>
             <package name="texinfo"/>
         </requires>
 
