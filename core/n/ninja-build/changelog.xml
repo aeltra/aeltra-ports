@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.13.2" revision="1aeltra1" upstream-version="1.13.2-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 00:39:52+03:00">
+        <changeset>
+            <li>Upgrade to version 1.13.2-1 from Debian forky.</li>
+            <li>
+                Build with link time optimization, as Debian does, and
+                without the tests, for which cmake would download
+                googletest.
+            </li>
+        </changeset>
+    </release>
     <release version="1.10.1" revision="1bolt1" upstream-version="1.10.1-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-03 23:15:19+03:00">

@@ -23,14 +23,22 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="ninja-build-1.10.1.tar.gz" subdir="sources"
-                sha256sum="a6b6f7ac360d4aabd54e299cc1d8fa7b234cd81b9401693da21221c62569a23e"/>
+            <file src="ninja-build-1.13.2.tar.gz" subdir="sources"
+                sha256sum="974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="900ba2799a1711f5c3a08bc2476fbf562a205b812e1c977402b554a1beeaa998"/>
         </sources>
 
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/deps_log_test_support_big_endian_architectures.patch"/>
+            </patchset>
+        </patches>
+
         <requires>
+            <package name="cmake"/>
             <package name="python3"/>
             <package name="re2c"/>
-            <package name="xsltproc"/>
         </requires>
 
         <xi:include href="rules.xml"/>
