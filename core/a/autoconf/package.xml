@@ -17,23 +17,15 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="autoconf-2.69.tar.xz" subdir="sources"
-                sha256sum="64ebcec9f8ac5b2487125a86a7760d2591ac9e1d3dbd59489633f9de62a57684"/>
-            <file src="debian-patches-14.tar.gz" subdir="patches"
-                sha256sum="546f7bd3b2e3cdc8b40a47ec6235da309bd56d559440afde04a720037b8a3b81"/>
+            <file src="autoconf-2.73.tar.xz" subdir="sources"
+                sha256sum="9fd672b1c8425fac2fa67fa0477b990987268b90ff36d5f016dae57be0d6b52e"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="8bd773ccbfbf5139cad2a6fb796a7034711900599347b96e406a2ab154579576"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/atomic.patch"/>
-                <file src="patches/stricter-versioning.patch"/>
-                <file src="patches/texinfo.patch"/>
-                <file src="patches/avoid-undefined-behavior-for-32bit-off_t.patch"/>
-                <file src="patches/AM_PROG_LIBTOOL.patch"/>
-                <file src="patches/add-runstatedir.patch"/>
-                <file src="patches/unescaped-left-brace-warning-fix.patch"/>
-                <file src="patches/mmap-leak-fix.patch"/>
-                <file src="patches/remove-build-date-from-autoconf.texi-clo.patch"/>
+                <file src="patches/0003-fix-false-positives-cpp-style-comments.patch"/>
             </patchset>
         </patches>
 

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.73" revision="2aeltra1" upstream-version="2.73-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 17:03:44+03:00">
+        <changeset>
+            <li>Upgrade to version 2.73-2 from Debian forky.</li>
+        </changeset>
+    </release>
     <release version="2.69" revision="14bolt1" upstream-version="2.69-14"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 07:13:21+03:00">
