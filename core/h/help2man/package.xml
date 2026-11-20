@@ -21,8 +21,8 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="help2man-1.48.1.tar.xz" subdir="sources"
-                sha256sum="de8a74740bd058646567b92ab4ecdeb9da9f1a07cc7c4f607a3c14dd38d10799"/>
+            <file src="help2man-1.49.3.tar.xz" subdir="sources"
+                sha256sum="4d7e4fdef2eca6afe07a2682151cea78781e0a4e8f9622142d9f70c083a2fd4f"/>
         </sources>
 
         <requires>
