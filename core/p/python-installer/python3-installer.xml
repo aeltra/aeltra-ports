@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="python3-installer" section="python">
+    <description>
+        <summary>Python library for unpacking and installing wheels</summary>
+        <p>
+        "installer" is a low-level library for installing a Python package from a
+        wheel distribution; the wheel is the basic unit of Python module
+        distribution to end users. It provides basic functionality and abstractions
+        for handling wheels and installing packages from wheels, including:
+        </p>
+        <p>
+        * Logic for "unpacking" a wheel (i.e. installation).
+        * Abstractions for various parts of the unpacking process.
+        * Extensible simple implementations of the abstractions.
+        * Platform-independent Python script wrapper generation.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3"/>
+    </requires>
+
+    <contents subdir="python3" collect-py-cache-files="true">
+        <file src="${prefix}/lib/python3/dist-packages"/>
+    </contents>
+</package>

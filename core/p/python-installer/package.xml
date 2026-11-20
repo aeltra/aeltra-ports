@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
+    </defines>
+
+    <source name="python-installer" repo="core" architecture-independent="true" if="tools-build or target-build">
+        <description>
+            <summary>Python library for unpacking and installing wheels</summary>
+            <p>
+            "installer" is a low-level library for installing a Python package from a
+            wheel distribution; the wheel is the basic unit of Python module
+            distribution to end users. It provides basic functionality and abstractions
+            for handling wheels and installing packages from wheels.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="python-installer-1.1.0+dfsg1.tar.xz" subdir="sources"
+                sha256sum="b263f832a54ef260bcaf9951dba7232093f366d58338a7e0ffee4b176f476498"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="492baabbdb309781f07071c940bcffc049d5e03b9be0580a8909c00883f52929"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/skip-script-tests"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="python3"/>
+            <package name="python3-flit-core"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="python3-installer.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

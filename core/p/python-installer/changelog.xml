@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="1.1.0+dfsg1" revision="1aeltra1" upstream-version="1.1.0+dfsg1-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 23:08:04+03:00">
+        <changeset>
+            <li>Initial packaging, version 1.1.0+dfsg1-1 from Debian forky.</li>
+            <li>The documentation is not built.</li>
+        </changeset>
+    </release>
+</changelog>
