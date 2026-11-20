@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="python3-packaging" section="python">
+    <description>
+        <summary>Core utilities for Python packages</summary>
+        <p>
+        These core utilities currently consist of:
+        </p>
+        <p>
+        * Version Handling (PEP 440)
+        * Dependency Specification (PEP 440)
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3"/>
+    </requires>
+
+    <contents subdir="python3" collect-py-cache-files="true">
+        <file src="${prefix}/lib/python3/dist-packages"/>
+    </contents>
+</package>

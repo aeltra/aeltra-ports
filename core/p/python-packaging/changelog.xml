@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="26.3" revision="1aeltra1" upstream-version="26.3-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 01:22:11+03:00">
+        <changeset>
+            <li>Initial packaging, version 26.3-1 from Debian forky.</li>
+            <li>There is no python3-packaging-whl package.</li>
+        </changeset>
+    </release>
+</changelog>

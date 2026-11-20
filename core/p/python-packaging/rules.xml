@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+true
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_SOURCE_DIR"
+bh_python_install --build
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_SOURCE_DIR"
+mkdir -p "$AELTRA_INSTALL_DIR/python3"
+bh_python_install --install --root "$AELTRA_INSTALL_DIR/python3"
+
+    ]]>
+    </install>
+</rules>

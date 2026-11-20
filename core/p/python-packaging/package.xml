@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
+    </defines>
+
+    <source name="python-packaging" repo="core" architecture-independent="true" if="tools-build or target-build">
+        <description>
+            <summary>Core utilities for Python packages</summary>
+            <p>
+            These core utilities currently consist of:
+            </p>
+            <p>
+            * Version Handling (PEP 440)
+            * Dependency Specification (PEP 440)
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="python-packaging-26.3.tar.gz" subdir="sources"
+                sha256sum="94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"/>
+        </sources>
+
+        <requires>
+            <package name="python3"/>
+            <package name="python3-flit-core"/>
+            <package name="python3-installer"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="python3-packaging.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
