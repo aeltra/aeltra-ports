@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="6.1.3" revision="1.1aeltra1" upstream-version="6.1.3-1.1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 01:22:11+03:00">
+        <changeset>
+            <li>Update to version 6.1.3-1.1 from Debian forky.</li>
+            <li>The documentation is not built.</li>
+        </changeset>
+    </release>
     <release version="4.6.2" revision="1bolt1" upstream-version="4.6.2-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-06 22:46:12+03:00">

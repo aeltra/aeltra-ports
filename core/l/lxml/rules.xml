@@ -3,10 +3,7 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_BUILD_DIR"
-mkdir -p .mybin
-ln -sf "$AELTRA_INSTALL_PREFIX/bin/xml2-config" .mybin/xml2-config
-ln -sf "$AELTRA_INSTALL_PREFIX/bin/xslt-config" .mybin/xslt-config
+true
 
     ]]>
     </prepare>
@@ -14,13 +11,8 @@ ln -sf "$AELTRA_INSTALL_PREFIX/bin/xslt-config" .mybin/xslt-config
     <build>
     <![CDATA[
 
-export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
 cd "$AELTRA_SOURCE_DIR"
-
-bh_python_install --py3 --build \
-    -- \
-    --with-xslt-config="$AELTRA_INSTALL_PREFIX/bin/xslt-config" \
-    --with-xml2-config="$AELTRA_INSTALL_PREFIX/bin/xml2-config"
+bh_python_install --build
 
     ]]>
     </build>
@@ -28,16 +20,9 @@ bh_python_install --py3 --build \
     <install>
     <![CDATA[
 
-export PATH="$AELTRA_BUILD_DIR/.mybin:$PATH"
 cd "$AELTRA_SOURCE_DIR"
-
-install -d -m 0755 "$AELTRA_INSTALL_DIR/python3"
-
-bh_python_install --py3 --install \
-    --root "$AELTRA_INSTALL_DIR/python3" \
-    -- \
-    --with-xslt-config="$AELTRA_INSTALL_PREFIX/bin/xslt-config" \
-    --with-xml2-config="$AELTRA_INSTALL_PREFIX/bin/xml2-config"
+mkdir -p "$AELTRA_INSTALL_DIR/python3"
+bh_python_install --install --root "$AELTRA_INSTALL_DIR/python3"
 
     ]]>
     </install>
