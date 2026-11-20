@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.1.6+dfsg" revision="4aeltra1" upstream-version="3.1.6+dfsg-4"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 01:22:11+03:00">
+        <changeset>
+            <li>Update to version 3.1.6+dfsg-4 from Debian forky.</li>
+            <li>The programs are cython, cythonize and cygdb, as in Debian, the names ending in 3 are gone.</li>
+            <li>No manual pages and no documentation.</li>
+        </changeset>
+    </release>
     <release version="0.29.21" revision="3bolt1" upstream-version="0.29.21-3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-06 22:37:41+03:00">

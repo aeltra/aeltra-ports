@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <control xmlns:xi="http://www.w3.org/2001/XInclude">
     <defines>
-        <def name="AELTRA_BUILD_DIR" value="build"/>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
     </defines>
 
     <source name="cython" repo="core" architecture-independent="false" if="tools-build or target-build">
@@ -27,25 +27,30 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="cython-0.29.21.tar.xz" subdir="sources"
-                sha256sum="7720c76e5398afe6c653461e00507207c048693d916fc2552523ddb7f2aa36b3"/>
-            <file src="debian-patches-3.tar.gz" subdir="patches"
-                sha256sum="90866b5393a280949fbe4f4622fb7a28685c607b9da6e8dbab285bb333088d7e"/>
+            <file src="cython-3.1.6+dfsg.tar.xz" subdir="sources"
+                sha256sum="9de56310c9a51b1de840ae817899cd287d72e8b9a42da529044fbfd7334fa77c"/>
+            <file src="debian-patches-4.tar.gz" subdir="patches"
+                sha256sum="907faad8d7a6eaefd447dd8e06aba4f3b6e2cbc9f60bacb7e6c097a98b76f9d0"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/deb_nopngmath"/>
-                <file src="patches/deb_disable_googleanalytics"/>
                 <file src="patches/honour_SOURCE_DATE_EPOCH_for_copyright_year"/>
                 <file src="patches/debup_workaround_verify_resolution_GH1533"/>
                 <file src="patches/disable_tests.patch"/>
+                <file src="patches/46ee38dd0ed8d5fe90fb31690e6e9a39ba1e2a4b.patch"/>
+                <file src="patches/736a2c3603363b64fc7639ba050982d9609b7750.patch"/>
+                <file src="patches/42d13596c8a531e83a337e014fa7ef2f4d162ded.patch"/>
+                <file src="patches/414ef78348a6aa1f3abd310ded388a10348b67c9.patch"/>
+                <file src="patches/a470483da2274ca272e70280fa27b5f7e90c9e09.patch"/>
+                <file src="patches/42830b85c8ae7489dac9d143f521e392d966d8c8.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="help2man"/>
             <package name="python3-dev"/>
+            <package name="python3-installer"/>
+            <package name="python3-setuptools"/>
         </requires>
 
         <xi:include href="rules.xml"/>
