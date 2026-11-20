@@ -7,21 +7,12 @@ cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 autoreconf -vfi
 
-# begin hack
-sed -i \
-    -e 's@fseterr\.c@@g' \
-    -e 's@fseterr\.lo@@g' \
-    -e 's@fseterr\.h@@g' \
-    lib/Makefile.in
-
-export CFLAGS="$CFLAGS -DHAVE___FSETERR=1"
-# end hack
-
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --disable-Werror \
     --disable-rpath
 
     ]]>

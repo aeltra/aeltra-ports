@@ -18,7 +18,7 @@
     </description>
 
     <requires>
-        <package name="libunistring2" version="=="/>
+        <package name="libunistring5" version="=="/>
     </requires>
 
     <contents>

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.4.2" revision="1aeltra1" upstream-version="1.4.2-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 00:06:59+03:00">
+        <changeset>
+            <li>Upgrade to version 1.4.2-1 from Debian forky.</li>
+            <li>The library package is called libunistring5 now.</li>
+            <li>
+                Apply Debian's 0700-multiarch-libc.patch, which was left
+                out before. The workaround for fseterr is gone.
+            </li>
+        </changeset>
+    </release>
     <release version="0.9.10" revision="4bolt1" upstream-version="0.9.10-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 07:46:59+03:00">

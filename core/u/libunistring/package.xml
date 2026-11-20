@@ -16,32 +16,30 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libunistring-0.9.10.tar.xz" subdir="sources"
-                sha256sum="eb8fb2c3e4b6e2d336608377050892b54c3c983b646c561836550863003c05d7"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="d7df7ac8b7d62ecdad57cfb022fc445723bde0d3501848f8b208c3e95c0539bf"/>
+            <file src="libunistring-1.4.2.tar.xz" subdir="sources"
+                sha256sum="5b46e74377ed7409c5b75e7a96f95377b095623b689d8522620927964a41499c"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="3270118f1fe8ca2da93c71836982f4e7c76907c86a7e733e06037527af68dab1"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/0100-float-endian-detection.patch"/>
-                <!--
                 <file src="patches/0700-multiarch-libc.patch"/>
-                -->
-                <file src="patches/0705-gcc-9.patch"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="autotools-dev" tools-prefix=""/>
             <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="libtool"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
     <xi:include href="libunistring-dev.xml"/>
-    <xi:include href="libunistring2.xml"/>
+    <xi:include href="libunistring5.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>
