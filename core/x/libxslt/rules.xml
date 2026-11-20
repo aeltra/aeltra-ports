@@ -7,31 +7,23 @@ cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 autoreconf -vfi
 
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR"/configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --disable-silent-rules \
+    --disable-static \
+    --with-crypto \
+    --without-python
+
     ]]>
     </prepare>
 
     <build>
     <![CDATA[
 
-export XML_CONFIG="$AELTRA_INSTALL_PREFIX/bin/xml2-config"
-export LIBGCRYPT_CONFIG="$AELTRA_INSTALL_PREFIX/bin/libgcrypt-config"
-
 cd "$AELTRA_BUILD_DIR"
-
-"$AELTRA_SOURCE_DIR"/configure \
-    --prefix="$AELTRA_INSTALL_PREFIX" \
-    --build="$AELTRA_HOST_TYPE" \
-    --host="$AELTRA_HOST_TYPE" \
-    --disable-silent-rules \
-    --with-history \
-    --with-icu \
-    --without-python
-
-# HACK: this fixes a problem with lib path detection
-if [ "$AELTRA_INSTALL_PREFIX" != "/tools" ]; then
-    find . -name "Makefile" -exec sed -i 's@-L/tools/lib@-L/usr/lib@g' '{}' ';'
-fi
-
 make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
@@ -42,6 +34,9 @@ make -j"$AELTRA_PARALLEL_JOBS"
 
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+find "$AELTRA_INSTALL_DIR" -name '*.la' -delete
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/cmake"
 
     ]]>
     </install>

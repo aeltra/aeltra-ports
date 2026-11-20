@@ -21,12 +21,9 @@
     <contents>
         <file src="${prefix}/bin/xslt-config"/>
         <file src="${prefix}/include"/>
-        <file src="${prefix}/lib/libexslt.a"/>
         <file src="${prefix}/lib/libexslt.so"/>
-        <file src="${prefix}/lib/libxslt.a"/>
         <file src="${prefix}/lib/libxslt.so"/>
         <file src="${prefix}/lib/pkgconfig"/>
         <file src="${prefix}/lib/xsltConf.sh"/>
-        <file src="${prefix}/share/aclocal"/>
     </contents>
 </package>
