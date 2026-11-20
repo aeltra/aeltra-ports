@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="20260517" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 15:57:49+03:00">
+        <changeset>
+            <li>
+                Package config.guess and config.sub from the upstream
+                repository (commit 428664896cf9 of 2026-05-17) instead of
+                Debian's autotools-dev, which is from 2024.
+            </li>
+        </changeset>
+    </release>
     <release version="20180224.1" revision="0bolt1" upstream-version="20180224.1+nmu1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2019-08-07 23:41:11+02:00">

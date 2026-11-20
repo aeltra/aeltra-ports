@@ -20,7 +20,11 @@ true
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make DESTDIR="$AELTRA_INSTALL_DIR" PREFIX="$AELTRA_INSTALL_PREFIX" install
+
+# The Makefile has no install target.
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/misc"
+install -m 0755 config.guess config.sub \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/misc/"
 
     ]]>
     </install>

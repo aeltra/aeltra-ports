@@ -17,8 +17,12 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="autotools-dev-20180224.1.tar.xz" subdir="sources"
-                sha256sum="c9d8bacff4caa38c4d32a61b32acf5184124c1ca356a9483007bcb9bb9a913fa"/>
+            <!-- Made with "git archive" from commit 428664896cf9 of
+                 https://git.savannah.gnu.org/git/config.git, the version
+                 is the date of that commit. Debian's autotools-dev lags
+                 years behind. -->
+            <file src="config-20260517.tar.xz" subdir="sources"
+                sha256sum="6b0b08ff98ca65744c61eaf99a79291e5c706a3332e8a8bc7c78ee3fd5801ee9"/>
         </sources>
 
         <xi:include href="rules.xml"/>
