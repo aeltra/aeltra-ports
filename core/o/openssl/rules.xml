@@ -3,10 +3,34 @@
     <prepare>
     <![CDATA[
 
-export MACHINE="`echo $AELTRA_HOST_TYPE | cut -d'-' -f1`"
+# The "config" script would guess the platform from the machine we build on.
+case "$AELTRA_HOST_TYPE" in
+    aarch64*)
+        OPENSSL_TARGET="linux-aarch64"
+        ;;
+    loongarch64*)
+        OPENSSL_TARGET="linux64-loongarch64"
+        ;;
+    powerpc64le*)
+        OPENSSL_TARGET="linux-ppc64le"
+        ;;
+    riscv64*)
+        OPENSSL_TARGET="linux64-riscv64"
+        ;;
+    s390x*)
+        OPENSSL_TARGET="linux64-s390x"
+        ;;
+    x86_64*)
+        OPENSSL_TARGET="linux-x86_64"
+        ;;
+    *)
+        echo "No OpenSSL target known for $AELTRA_HOST_TYPE." >&2
+        exit 1
+        ;;
+esac
 
 cd "$AELTRA_BUILD_DIR"
-$AELTRA_SOURCE_DIR/config \
+"$AELTRA_SOURCE_DIR/Configure" "$OPENSSL_TARGET" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --cross-compile-prefix="${AELTRA_HOST_TYPE}-" \
     --openssldir="$AELTRA_INSTALL_PREFIX/lib/ssl" \
