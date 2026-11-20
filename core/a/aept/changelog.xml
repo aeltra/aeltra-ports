@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="0.11.0" revision="1" maintainer="Tobias Koch"
+        email="tobias.koch@gmail.com" date="2026-11-20 11:44:43+03:00">
+        <changeset>
+            <li>New upstream release</li>
+            <li>Runs a script with the interpreter its first line names</li>
+        </changeset>
+    </release>
     <release version="0.10.2" revision="1" maintainer="Tobias Koch"
         email="tobias.koch@gmail.com" date="2026-11-17 21:00:00+03:00">
         <changeset>

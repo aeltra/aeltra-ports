@@ -23,9 +23,9 @@
         <sources>
             <file
                 subdir="sources"
-                src="aept-0.10.2.tar.gz"
-                upstream-src="https://github.com/aeltra/aept/archive/refs/tags/v0.10.2.tar.gz"
-                sha256sum="6099f0686003f2a96d1262ef2ce2f553d29b630a0a9ad7e772f8411de27d6a77"/>
+                src="aept-0.11.0.tar.gz"
+                upstream-src="https://github.com/aeltra/aept/archive/refs/tags/v0.11.0.tar.gz"
+                sha256sum="1ea4e6f8048a49e7077d0ac216165b13b67355e0cb5ca83e2126e27baaf0957c"/>
         </sources>
 
         <requires>
