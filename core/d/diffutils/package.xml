@@ -29,19 +29,9 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="diffutils-3.7.tar.xz" subdir="sources"
-                sha256sum="b3a7a6221c3dc916085f0d205abf6b8e1ba443d4dd965118da364a1dc1cb3a26"/>
-            <file src="debian-patches-5.tar.gz" subdir="patches"
-                sha256sum="79c584d6bf8ca6562ffd2c14d73bff27b26de6ac6dcdebd9c500e0e159e3803f"/>
+            <file src="diffutils-3.12.tar.xz" subdir="sources"
+                sha256sum="7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd"/>
         </sources>
-
-        <patches>
-            <patchset subdir="sources">
-                <file src="patches/01-fix-race-condition-in-colors-test.patch"/>
-                <file src="patches/02-disable-colors-test.patch"/>
-                <file src="patches/03-translations.patch"/>
-            </patchset>
-        </patches>
 
         <requires>
             <package name="texinfo"/>
