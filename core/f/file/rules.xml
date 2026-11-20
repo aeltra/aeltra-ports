@@ -4,15 +4,26 @@
     <![CDATA[
 
 cd "$AELTRA_SOURCE_DIR"
+
+# Debian's extra-magic.patch adds this file of the Debian packaging to the
+# magic fragments. It has no entries at the moment.
+install -d -m 0755 debian
+printf '\n# sorted by Debian bug report number\n' > debian/debian-extra-magic
+
 bh_autotools_dev_update
 autoreconf -vfi
 
 cd "$AELTRA_BUILD_DIR"
+CFLAGS="$CFLAGS -DHOWMANY=0x18000" \
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --enable-fsect-man5 \
     --enable-static \
+    --disable-libseccomp \
+    --disable-zstdlib \
+    --disable-lzlib \
     --disable-silent-rules
 
     ]]>
@@ -23,6 +34,9 @@ $AELTRA_SOURCE_DIR/configure \
 
 cd "$AELTRA_BUILD_DIR"
 make -j"$AELTRA_PARALLEL_JOBS"
+
+cd python
+bh_python_install --build
 
     ]]>
     </build>
@@ -35,18 +49,34 @@ for ENTRY in magic python3; do
 done
 
 FULL_INSTALL="$AELTRA_INSTALL_DIR/magic"
+FULL_PREFIX="$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"
 
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$FULL_INSTALL" install
 
-install -d -m 0755 "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/file"
-install -d -m 0755 "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/file"
+# The compiled magic file depends on the architecture and lives in the
+# library folder. Programs look for it in share/misc and in share/file.
+install -d -m 0755 "$FULL_PREFIX/lib/file"
+install -d -m 0755 "$FULL_PREFIX/share/file/magic"
 
-ln -sf ../../share/misc/magic.mgc "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/file/magic.mgc"
-ln -sf ../../share/misc/magic.mgc "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/file/magic.mgc"
+mv "$FULL_PREFIX/share/misc/magic.mgc" "$FULL_PREFIX/lib/file/magic.mgc"
+
+ln -sf ../../lib/file/magic.mgc "$FULL_PREFIX/share/file/magic.mgc"
+ln -sf ../../lib/file/magic.mgc "$FULL_PREFIX/share/misc/magic.mgc"
+ln -sf ../file/magic "$FULL_PREFIX/share/misc/magic"
+
+install -D -m 0644 "$AELTRA_SOURCE_DIR/magic/magic.local" \
+    "$FULL_INSTALL/etc/magic"
+install -D -m 0644 "$AELTRA_SOURCE_DIR/magic/magic.local" \
+    "$FULL_INSTALL/etc/magic.mime"
+
+install -D -m 0644 "$AELTRA_SOURCE_DIR/src/file.h" \
+    "$FULL_PREFIX/include/file/file.h"
+
+rm -f "$FULL_PREFIX"/lib/*.la
 
 cd python
-bh_python_install --py3 --root "$AELTRA_INSTALL_DIR/python3"
+bh_python_install --install --root "$AELTRA_INSTALL_DIR/python3"
 
     ]]>
     </install>

@@ -12,30 +12,43 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="file-5.39.tar.gz" subdir="sources"
-                sha256sum="f05d286a76d9556243d0cb05814929c2ecf3a5ba07963f8f70bfaaa70517fad1"/>
-            <file src="debian-patches-3.tar.gz" subdir="patches"
-                sha256sum="13b71ccaced584abd3f43b5092bca90fca035e9ece037027d42369f8816e5cd5"/>
+            <file src="file-5.47.tar.gz" subdir="sources"
+                sha256sum="45672fec165cb4cc1358a2d76b5d57d22876dcb97ab169427ac385cbe1d5597a"/>
+            <file src="debian-patches-4.tar.gz" subdir="patches"
+                sha256sum="5118a1f2bfda2526681fb746909183b98d0380e7d95af5733ca8145587d61398"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="49ac43b3ad1a18ce988eb510ab57281b0b27e42cd346fdf9d4232481ad3aae48"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/cherry-pick.FILE5_39-9-g85b7ab83.include-alternate-format-to-the-list-of-uninteresting-formats.patch"/>
-                <file src="patches/upstream.disable.att3b.patch"/>
-                <file src="patches/local.support-local-definitions-in-etc-magic.patch"/>
-                <file src="patches/local.don-t-include-libs-in-build.patch"/>
-                <file src="patches/local.mention-posixly-correct-dependent-behaviour-in-usage-message.patch"/>
-                <file src="patches/local.disable-algol68-detection.patch"/>
-                <!--
-                <file src="patches/local.extra-magic.patch"/>
-                -->
-                <file src="patches/local.manpage-seccomp-is-disabled.patch"/>
+                <file src="patches/cherry-pick/FILE5_47-8-g5a42c66b.add-zxc-bertrand-lebonnois.patch"/>
+                <file src="patches/cherry-pick/FILE5_47-17-g50fc7a6b.pr-166-flanglet-add-kanzi-magic.patch"/>
+                <file src="patches/cherry-pick/FILE5_47-18-gc5460571.pr-725-inliniac-revert-previous-and-always-set-offset.patch"/>
+                <file src="patches/cherry-pick/FILE5_47-57-g797a2755.add-le-be-guid.patch"/>
+                <file src="patches/cherry-pick/FILE5_47-62-g2866af2e.fix-typo.patch"/>
+                <file src="patches/cherry-pick/FILE5_47-93-g7a2b2a4b.handle-parsing-guids-in-big-endian-machines.patch"/>
+                <file src="patches/upstream/disable.att3b.patch"/>
+                <file src="patches/upstream/stricter-postscript-magic.patch"/>
+                <file src="patches/upstream/disable-over-eagerly-msooxml-detection.patch"/>
+                <file src="patches/local/support-local-definitions-in-etc-magic.patch"/>
+                <file src="patches/local/don-t-include-libs-in-build.patch"/>
+                <file src="patches/local/extra-magic.patch"/>
+                <file src="patches/local/manpage-seccomp-is-disabled.patch"/>
+                <!-- Ours: Python 3 refuses to compile the module. -->
+                <file src="patches/python-magic-indentation.diff"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="libtool"/>
+            <package name="libbz2-dev"/>
+            <package name="liblzma-dev"/>
             <package name="zlib1g-dev"/>
-            <package name="python3-dev"/>
+            <package name="python3"/>
+            <package name="python3-installer"/>
             <package name="python3-setuptools"/>
         </requires>
 

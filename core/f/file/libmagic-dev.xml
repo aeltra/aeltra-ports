@@ -19,5 +19,6 @@
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libmagic.a"/>
         <file src="${prefix}/lib/libmagic.so"/>
+        <file src="${prefix}/lib/pkgconfig/libmagic.pc"/>
     </contents>
 </package>

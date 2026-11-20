@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release epoch="1" version="5.47" revision="4aeltra1" upstream-version="1:5.47-4"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 23:42:47+03:00">
+        <changeset>
+            <li>Upgrade to version 1:5.47-4 from Debian forky.</li>
+            <li>
+                Apply all of Debian's patches, extra-magic.patch included,
+                and configure as Debian does.
+            </li>
+            <li>
+                The compiled magic file is in lib/file, with links in
+                share/file and share/misc, as in Debian. Package /etc/magic,
+                /etc/magic.mime, file.h and libmagic.pc.
+            </li>
+            <li>
+                Build the Python module as a wheel. Fix a line in it that is
+                indented with a tab, Python 3 does not compile it otherwise.
+            </li>
+        </changeset>
+    </release>
     <release epoch="1" version="5.39" revision="3bolt1" upstream-version="1:5.39-3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 07:31:31+03:00">

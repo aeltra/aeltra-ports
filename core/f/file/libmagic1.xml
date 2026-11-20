@@ -14,5 +14,8 @@
 
     <contents subdir="magic">
         <file src="${prefix}/lib/libmagic.so.*"/>
+        <file src="${prefix}/share/misc/magic"/>
+        <file src="/etc/magic" conffile="true" if="target-build"/>
+        <file src="/etc/magic.mime" conffile="true" if="target-build"/>
     </contents>
 </package>
