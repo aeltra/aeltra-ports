@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="20260816" revision="0aeltra1" upstream-version="20260816+nmu1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 15:46:45+03:00">
+        <changeset>
+            <li>Upgrade to version 20260816+nmu1 from Debian forky.</li>
+            <li>
+                Build without the Python module cryptography, the warning
+                about trusted certificates that have expired is skipped
+                then.
+            </li>
+        </changeset>
+    </release>
     <release version="20210119" revision="0bolt3" upstream-version="20210119"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-07-19 21:43:00+03:00">

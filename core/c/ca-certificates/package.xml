@@ -19,14 +19,17 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="ca-certificates-20210119.tar.gz" subdir="sources"
-                sha256sum="db1b35e0c5085a7f863a2f08d3e84809dc32fc333056d4c98468dd150a32273c"/>
-            <file src="bolt-patches-3.tar.gz" subdir="patches"
-                sha256sum="3a61b5d9f9c8cfc48e004b79ba46560376409ab27adb5d8d6649f6ce38361b8f"/>
+            <file src="ca-certificates-20260816+nmu1.tar.xz" subdir="sources"
+                sha256sum="914416a1e44a25733aff51092fe4e27fdec1c9f6e8d1db0b8364922486153134"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="2981bb8bd6710f3e49831566ba0c692479797e30480473357101ea0b0afa35a9"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
+                <!-- The module is only used to warn about expired
+                     certificates. It needs Rust to build. -->
+                <file src="patches/certdata2pem-without-cryptography.diff"/>
                 <file src="patches/root-only-restorecon.diff"/>
             </patchset>
         </patches>
