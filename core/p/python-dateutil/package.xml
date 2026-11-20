@@ -26,22 +26,26 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="python-dateutil-2.8.1.tar.gz" subdir="sources"
-                sha256sum="73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"/>
+            <file src="python-dateutil-2.9.0.tar.gz" subdir="sources"
+                sha256sum="78e73e19c63f5b20ffa567001531680d939dc042bf7850431877645523c66709"/>
             <file src="debian-patches-5.tar.gz" subdir="patches"
-                sha256sum="abcb48fce4e7b7eb499569a63a675e9a761a94513639237f1311b716bee06f35"/>
+                sha256sum="83aa555199e1d0a03512b9d991f18940f434ea1c2bfe8f227e72b3abbd8f3fa3"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/Remove_Zoneinfo_Tarball.patch"/>
+                <file src="patches/remove-six.patch"/>
+                <file src="patches/tests-2027.patch"/>
+                <file src="patches/test-use-a-list-comprehension-in-isoparser-parametrize.patch"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="python3"/>
+            <package name="python3-installer"/>
             <package name="python3-setuptools"/>
-            <package name="python3-six"/>
+            <package name="python3-setuptools-scm"/>
         </requires>
 
         <xi:include href="rules.xml"/>
