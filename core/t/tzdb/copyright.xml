@@ -2,7 +2,7 @@
     <files license="custom">
         <file src="*"/>
         <license><![CDATA[
-This is the Bolt prepackaged version of the Time Zone and Daylight 
+This is the Aeltra prepackaged version of the Time Zone and Daylight 
 Saving Time Data. 
 
 It was downloaded from https://www.iana.org/time-zones

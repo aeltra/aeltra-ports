@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2026f" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 15:46:45+03:00">
+        <changeset>
+            <li>Upgrade to version 2026f.</li>
+            <li>
+                Install the zones without leap seconds (posix_only) instead
+                of those with them (right_only), in the fat format, as Debian
+                does.
+            </li>
+            <li>
+                Install the tables next to the zones (iso3166.tab, zone.tab,
+                zone1970.tab, zonenow.tab, tzdata.zi, leapseconds,
+                leap-seconds.list).
+            </li>
+        </changeset>
+    </release>
     <release version="2021a" revision="1bolt1" upstream-version="2021a-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-21 17:24:13+03:00">

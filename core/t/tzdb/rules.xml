@@ -16,7 +16,7 @@ cd "$AELTRA_BUILD_DIR"
 # Note: what we build here will not be installed, but is used to generate
 # the zone files in do_install below.
 make -j"$AELTRA_PARALLEL_JOBS" \
-    cc="$AELTRA_HOST_TYPE-gcc" \
+    CC="$AELTRA_HOST_TYPE-gcc" \
     AR="$AELTRA_HOST_TYPE-ar"
 
     ]]>
@@ -28,11 +28,20 @@ make -j"$AELTRA_PARALLEL_JOBS" \
 cd "$AELTRA_BUILD_DIR"
 
 install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/zoneinfo"
+
+# The zones without leap seconds, in the format that every reader knows, as
+# in Debian.
 make \
-    REDO="right_only" \
+    REDO="posix_only" \
+    ZFLAGS="-b fat" \
     TZDIR="$AELTRA_INSTALL_PREFIX/share/zoneinfo" \
     DESTDIR="$AELTRA_INSTALL_DIR" \
     zones
+
+install -m 0644 \
+    iso3166.tab zone.tab zone1970.tab zonenow.tab \
+    tzdata.zi leapseconds leap-seconds.list \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/zoneinfo/"
 
     ]]>
     </install>
