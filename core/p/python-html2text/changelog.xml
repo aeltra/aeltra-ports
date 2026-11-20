@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2025.4.15" revision="1aeltra1" upstream-version="2025.4.15-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 01:22:11+03:00">
+        <changeset>
+            <li>Update to version 2025.4.15-1 from Debian forky.</li>
+            <li>The script is html2markdown, as in Debian, html2markdown.py3 is gone.</li>
+        </changeset>
+    </release>
     <release version="2020.1.16" revision="1bolt1" upstream-version="2020.1.16-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-05 23:03:46+03:00">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <control xmlns:xi="http://www.w3.org/2001/XInclude">
     <defines>
-        <def name="AELTRA_BUILD_DIR" value="build"/>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
     </defines>
 
     <source name="python-html2text" repo="core" architecture-independent="true" if="tools-build or target-build">
@@ -21,13 +21,15 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="python-html2text-2020.1.16.tar.gz" subdir="sources"
-                sha256sum="e296318e16b059ddb97f7a8a1d6a5c1d7af4544049a01e261731d2d5cc277bbb"/>
+            <file src="python-html2text-2025.4.15.tar.gz" subdir="sources"
+                sha256sum="948a645f8f0bc3abe7fd587019a2197a12436cd73d0d4908af95bfc8da337588"/>
         </sources>
 
         <requires>
-            <package name="python3-all"/>
+            <package name="python3"/>
+            <package name="python3-installer"/>
             <package name="python3-setuptools"/>
+            <package name="python3-setuptools-scm"/>
         </requires>
 
         <xi:include href="rules.xml"/>
