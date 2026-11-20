@@ -7,39 +7,26 @@ cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 autoreconf -vfi
 
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --disable-silent-rules \
+    --enable-static \
+    --with-history \
+    --with-legacy \
+    --with-http \
+    --with-python=no
+
     ]]>
     </prepare>
 
     <build>
     <![CDATA[
 
-export ICU_CONFIG="$AELTRA_INSTALL_PREFIX/bin/icu-config"
-
-if [ -e "/tools/bin/python3" ]; then
-    export PYTHON="/tools/bin/python3"
-else
-    export PYTHON="/usr/bin/python3"
-fi
-
-cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/python3"
-cd "$AELTRA_BUILD_DIR/python3"
-
-./configure \
-    --prefix="$AELTRA_INSTALL_PREFIX" \
-    --build="$AELTRA_HOST_TYPE" \
-    --host="$AELTRA_HOST_TYPE" \
-    --disable-silent-rules \
-    --with-history \
-    --with-icu \
-    --with-python="$AELTRA_INSTALL_PREFIX/bin/python3"
-
-# HACK: this fixes a problem with lib path detection
-if [ "$AELTRA_INSTALL_PREFIX" != "/tools" ]; then
-    find . -name "Makefile" -exec sed -i 's@-L/tools/lib@-L/usr/lib@g' '{}' ';'
-fi
-
-make PYTHON_INCLUDES="$AELTRA_INSTALL_PREFIX/include/python3.9" \
-    -j"$AELTRA_PARALLEL_JOBS"
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -47,11 +34,13 @@ make PYTHON_INCLUDES="$AELTRA_INSTALL_PREFIX/include/python3.9" \
     <install>
     <![CDATA[
 
-cd "$AELTRA_BUILD_DIR/python3"
+cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
-cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/python3"*
-find . -name "*.py" -exec \
-    python3 -c "import py_compile; py_compile.compile('{}')" \;
+
+find "$AELTRA_INSTALL_DIR" -name '*.la' -delete
+
+# Not shipped by Debian either.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/cmake"
 
     ]]>
     </install>

@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.15.4+dfsg" revision="1aeltra1" upstream-version="2.15.4+dfsg-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 00:10:14+03:00">
+        <changeset>
+            <li>Upgrade to version 2.15.4+dfsg-1 from Debian forky.</li>
+            <li>The library package is called libxml2-16 now.</li>
+            <li>
+                Build without ICU, as Debian does. Support for lzma is
+                gone upstream.
+            </li>
+            <li>
+                No python3-libxml2 any more: the binding is generated from
+                the output of doxygen, which is not packaged. The
+                documentation is not built for the same reason.
+            </li>
+        </changeset>
+    </release>
     <release version="2.9.10+dfsg" revision="6.3bolt1" upstream-version="2.9.10+dfsg-6.3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 22:42:17+03:00">

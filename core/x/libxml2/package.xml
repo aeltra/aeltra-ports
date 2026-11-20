@@ -20,40 +20,36 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libxml2-2.9.10+dfsg.tar.xz" subdir="sources"
-                sha256sum="65ee7a2f5e100c64ddf7beb92297c9b2a30b994a76cd1fab67470cf22db6b7d0"/>
-            <file src="debian-patches-6.3.tar.gz" subdir="patches"
-                sha256sum="12a496784861ff2decc271c26355d43b638a805098d38295c66b036b1215d37d"/>
+            <file src="libxml2-2.15.4+dfsg.tar.xz" subdir="sources"
+                sha256sum="5868d20db42ee21e4881bc53050c7fa226286a277cb3d0543f76b81f7571e934"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="b257db50670eda54a317aa27866d5b427c783f61143acab876b0d85e620e7937"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/xml2-config-fix.patch"/>
-                <file src="patches/Fix-memory-leak-in-xmlSchemaValidateStream.patch"/>
-                <file src="patches/Fix-infinite-loop-in-xmlStringLenDecodeEntities.patch"/>
-                <file src="patches/Fix-freeing-of-nested-documents.patch"/>
-                <file src="patches/python3-unicode-errors.patch"/>
-                <file src="patches/parenthesize-type-checks.patch"/>
-                <file src="patches/Fix-out-of-bounds-read-with-xmllint-htmlout.patch"/>
+                <file src="patches/python-libadd-fix.patch"/>
+                <file src="patches/remove-version-check.diff"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="autotools-dev" tools-prefix=""/>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="libtool"/>
             <package name="pkg-config"/>
-            <package name="python3-dev"/>
             <package name="zlib1g-dev"/>
-            <package name="liblzma-dev"/>
-            <package name="libicu-dev"/>
+            <package name="libreadline-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
-    <xi:include href="libxml2.xml"/>
+    <xi:include href="libxml2-16.xml"/>
     <xi:include href="libxml2-utils.xml"/>
     <xi:include href="libxml2-dev.xml"/>
-    <xi:include href="python3-libxml2.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>
