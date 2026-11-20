@@ -14,14 +14,6 @@
         <package name="libattr1" version="=="/>
     </requires>
 
-    <conflicts>
-        <package name="busybox-attr-symlinks"/>
-    </conflicts>
-
-    <replaces>
-        <package name="busybox-attr-symlinks"/>
-    </replaces>
-
     <contents>
         <file src="${prefix}/bin"/>
     </contents>

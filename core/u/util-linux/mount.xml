@@ -8,14 +8,6 @@
         </p>
     </description>
 
-    <conflicts>
-        <package name="busybox-mount-symlinks"/>
-    </conflicts>
-
-    <replaces>
-        <package name="busybox-mount-symlinks"/>
-    </replaces>
-
     <contents>
         <file src="${prefix}/bin/findmnt"/>
         <file src="${prefix}/bin/mount"/>

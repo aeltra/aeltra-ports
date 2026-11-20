@@ -19,7 +19,6 @@
 
     <requires>
         <choice>
-            <package name="busybox-adduser-symlinks"/>
             <package name="adduser"/>
         </choice>
     </requires>
