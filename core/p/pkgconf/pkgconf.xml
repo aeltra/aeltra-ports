@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="pkgconf" section="devel">
+    <description>
+        <summary>Manage compile and link flags for libraries</summary>
+        <p>
+        pkgconf is an implementation of the pkg-config system, which helps to configure
+        compiler and linker flags for development frameworks.
+        </p>
+        <p>
+        pkgconf is a replacement for pkg-config, providing additional functionality
+        while also maintaining compatibility.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libpkgconf7" version="=="/>
+    </requires>
+
+    <provides>
+        <package name="pkg-config"/>
+        <package name="pkgconf-bin"/>
+    </provides>
+
+    <contents>
+        <file src="${prefix}/bin/pkgconf"/>
+        <file src="${prefix}/bin/*-pkg-config"/>
+        <file src="${prefix}/share/aclocal"/>
+    </contents>
+</package>

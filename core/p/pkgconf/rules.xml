@@ -5,17 +5,17 @@
 
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
-autoreconf -vfi --no-recursive
 
-export GLIB_CFLAGS="-I$AELTRA_INSTALL_PREFIX/include/glib-2.0 -I$AELTRA_INSTALL_PREFIX/lib/glib-2.0/include"
-export GLIB_LIBS="-lglib-2.0"
-
+# The folders the compiler searches anyway are those of the prefix, flags
+# for them are left out of the output.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls
+    --disable-silent-rules \
+    --with-system-libdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --with-system-includedir="$AELTRA_INSTALL_PREFIX/include"
 
     ]]>
     </prepare>
@@ -35,12 +35,12 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-if [ -e "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config" ]; then
-    rm "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/pkg-config"
-else
-    mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/pkg-config" \
-        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
-fi
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"*.la
+
+# pkg-config is only available under the name with the system type in
+# front, as it was with the pkg-config package.
+ln -s pkgconf \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
 
     ]]>
     </install>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libpkgconf7" section="libs">
+    <description>
+        <summary>Shared library for pkgconf</summary>
+        <p>
+        pkgconf is an implementation of the pkg-config system, which helps to configure
+        compiler and linker flags for development frameworks.
+        </p>
+        <p>
+        pkgconf is a replacement for pkg-config, providing additional functionality
+        while also maintaining compatibility.
+        </p>
+        <p>
+        This package contains the shared library for pkgconf.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/lib/libpkgconf.so.*"/>
+    </contents>
+</package>

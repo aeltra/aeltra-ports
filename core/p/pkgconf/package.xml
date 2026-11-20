@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="pkgconf" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Manage compile and link flags for libraries</summary>
+            <p>
+            pkgconf is an implementation of the pkg-config system, which helps to configure
+            compiler and linker flags for development frameworks.
+            </p>
+            <p>
+            pkgconf is a replacement for pkg-config, providing additional functionality
+            while also maintaining compatibility.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="pkgconf-2.5.1.tar.xz" subdir="sources"
+                sha256sum="cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243"/>
+        </sources>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="pkgconf.xml"/>
+    <xi:include href="libpkgconf7.xml"/>
+    <xi:include href="libpkgconf-dev.xml"/>
+    <xi:include href="bomtool.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

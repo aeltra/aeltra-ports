@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libpkgconf-dev" section="libdevel">
+    <description>
+        <summary>Development files for pkgconf</summary>
+        <p>
+        pkgconf is an implementation of the pkg-config system, which helps to configure
+        compiler and linker flags for development frameworks.
+        </p>
+        <p>
+        pkgconf is a replacement for pkg-config, providing additional functionality
+        while also maintaining compatibility.
+        </p>
+        <p>
+        This package contains the development files for libpkgconf.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libpkgconf7" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include"/>
+        <file src="${prefix}/lib/*.{a,so}"/>
+        <file src="${prefix}/lib/pkgconfig"/>
+    </contents>
+</package>

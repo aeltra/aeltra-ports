@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="bomtool" section="devel">
+    <description>
+        <summary>Generate a software bill of materials from pkg-config files</summary>
+        <p>
+        bomtool is a program which helps generate a Software Bill of Materials
+        manifest using data from installed .pc files.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libpkgconf7" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin/bomtool"/>
+    </contents>
+</package>
