@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="autoconf-archive" section="devel">
+    <description>
+        <summary>Autoconf Macro Archive</summary>
+        <p>
+        Autoconf Macro Archive aims to provide a central repository of
+        useful and tested Autoconf macros for software developers around the
+        world. This package contains the complete content of the Autoconf
+        Macro Archive as found at http://www.gnu.org/software/autoconf-archive/.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/share/aclocal"/>
+    </contents>
+</package>

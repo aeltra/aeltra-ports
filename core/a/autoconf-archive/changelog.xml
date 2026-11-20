@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="20241016" revision="3aeltra1" upstream-version="20241016-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 16:53:59+03:00">
+        <changeset>
+            <li>Initial packaging, version 20241016-3 from Debian forky.</li>
+            <li>Only the macros are installed, not the documentation.</li>
+        </changeset>
+    </release>
+</changelog>

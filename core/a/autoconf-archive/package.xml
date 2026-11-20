@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
+    </defines>
+
+    <source name="autoconf-archive" repo="core" architecture-independent="true" if="tools-build or target-build">
+        <description>
+            <summary>Autoconf Macro Archive</summary>
+            <p>
+            Autoconf Macro Archive aims to provide a central repository of
+            useful and tested Autoconf macros for software developers around the
+            world. This package contains the complete content of the Autoconf
+            Macro Archive as found at http://www.gnu.org/software/autoconf-archive/.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="autoconf-archive-20241016.tar.xz" subdir="sources"
+                sha256sum="7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="cb963bad1dfba6b215325ff9ee8a23787804f413dfde58049a932b95e4c774a0"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <!-- Debian's 0001-Allow-rebuild.patch is for the build of
+                     the documentation, which we don't do. -->
+                <file src="patches/1119739.patch"/>
+            </patchset>
+        </patches>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="autoconf-archive.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

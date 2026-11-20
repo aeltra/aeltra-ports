@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+true
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+true
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+
+# Only the macros are installed, there is nothing to configure or build
+# for them.
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
+install -m 0644 m4/*.m4 \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal/"
+
+    ]]>
+    </install>
+</rules>
