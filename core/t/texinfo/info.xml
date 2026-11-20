@@ -19,5 +19,6 @@
 
     <contents>
         <file src="${prefix}/bin/info"/>
+        <file src="${prefix}/share/info/info-stnd.info"/>
     </contents>
 </package>

@@ -16,6 +16,7 @@
 
     <requires>
         <package name="perl"/>
+        <package name="texinfo-lib" version="=="/>
     </requires>
 
     <contents>
@@ -26,7 +27,10 @@
         <file src="${prefix}/bin/texi2dvi"/>
         <file src="${prefix}/bin/texi2pdf"/>
         <file src="${prefix}/bin/texindex"/>
-        <file src="${prefix}/lib/texinfo"/>
+        <file src="${prefix}/share/info/texinfo.*"/>
+        <file src="${prefix}/share/info/texi2any_*"/>
+        <file src="${prefix}/share/locale"/>
         <file src="${prefix}/share/texinfo"/>
+        <file src="${prefix}/share/texi2any"/>
     </contents>
 </package>

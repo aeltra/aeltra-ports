@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="7.3" revision="2aeltra1" upstream-version="7.3-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 23:37:23+03:00">
+        <changeset>
+            <li>Upgrade to version 7.3-2 from Debian forky.</li>
+            <li>
+                Build the Perl extensions and package them as texinfo-lib,
+                as Debian does. The Perl modules that come with the sources
+                are used (libintl-perl, Text::Unidecode), the SWIG
+                interface is not built.
+            </li>
+            <li>Build with NLS and package the info files.</li>
+        </changeset>
+    </release>
     <release version="6.7.0.dfsg.2" revision="6bolt1" upstream-version="6.7.0.dfsg.2-6"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 07:25:36+03:00">

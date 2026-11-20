@@ -3,25 +3,21 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_SOURCE_DIR"
-#autoreconf -vfi || true
-
 cd "$AELTRA_BUILD_DIR"
 
-AWK="$AELTRA_INSTALL_PREFIX/bin/awk" \
-PERL="$AELTRA_INSTALL_PREFIX/bin/perl" \
+export PERL_EXT_CFLAGS="$CFLAGS"
+export PERL_EXT_CPPFLAGS="$CPPFLAGS"
+export PERL_EXT_LDFLAGS="$LDFLAGS"
+
+AWK="awk" \
 "./configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls \
+    --libdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --libexecdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --enable-perl-xs \
     --disable-rpath
-
-touch aclocal.m4
-touch Makefile.in
-
-# prevent this from being re-generated
-#touch texindex/texindex.awk
 
     ]]>
     </prepare>
@@ -40,6 +36,12 @@ make -j"$AELTRA_PARALLEL_JOBS"
 
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+find "$AELTRA_INSTALL_DIR" -type f -name dir | xargs rm -f
+
+# The .la files refer to libperl, which nothing needs.
+sed -i "/dependency_libs/ s/'.*'/''/" \
+    `find "$AELTRA_INSTALL_DIR" -name '*.la'`
 
     ]]>
     </install>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="texinfo-lib" section="text">
+    <description>
+        <summary>Libraries needed by the texinfo package</summary>
+        <p>
+        Texinfo is a documentation system that uses a single source file to
+        produce both on-line information and printed output.
+        </p>
+        <p>
+        This package contains the architecture dependent parts of the texinfo
+        package.
+        </p>
+    </description>
+
+    <requires>
+        <package name="perl"/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/lib/texi2any"/>
+    </contents>
+</package>

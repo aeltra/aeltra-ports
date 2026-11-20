@@ -18,17 +18,18 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="texinfo-6.7.0.dfsg.2.tar.xz" subdir="sources"
-                sha256sum="988403c1542d15ad044600b909997ba3079b10e03224c61188117f3676b02caa"/>
-            <file src="debian-patches-6.tar.gz" subdir="patches"
-                sha256sum="744a01045683b648c8fe8bbdaaa8dc82981b2c737d40a32cd5da7a0da0d3a7c2"/>
+            <file src="texinfo-7.3.tar.xz" subdir="sources"
+                sha256sum="51f74eb0f51cfa9873b85264dfdd5d46e8957ec95b88f0fb762f63d9e164c72e"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="d462e60a441765a80385a3bd735ecfb029a03cfd9ce10adcb0d4d295f193cc1e"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/warn_missing_tex"/>
                 <file src="patches/numerical-signal-names"/>
-                <file src="patches/upstream_patch_texi2any_pl"/>
+                <file src="patches/484740.diff"/>
+                <file src="patches/debian_1128912"/>
             </patchset>
         </patches>
 
@@ -36,15 +37,14 @@
             <package name="libncurses-dev"/>
             <package name="gettext"/>
             <package name="help2man"/>
-            <package name="autotools-dev" tools-prefix=""/>
             <package name="libperl-dev"/>
-            <package name="gawk"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
     <xi:include href="texinfo.xml"/>
+    <xi:include href="texinfo-lib.xml"/>
     <xi:include href="info.xml"/>
     <xi:include href="install-info.xml"/>
 
