@@ -11,7 +11,8 @@ true
     <build>
     <![CDATA[
 
-true
+cd "$AELTRA_SOURCE_DIR"
+bh_python_install --build
 
     ]]>
     </build>
@@ -20,7 +21,7 @@ true
     <![CDATA[
 
 cd "$AELTRA_SOURCE_DIR"
-bh_python_install --py3 --root "$AELTRA_INSTALL_DIR"
+bh_python_install --install --root "$AELTRA_INSTALL_DIR"
 
     ]]>
     </install>

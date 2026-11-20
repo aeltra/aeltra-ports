@@ -17,10 +17,10 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="meson-0.56.2.tar.gz" subdir="sources"
-                sha256sum="3cb8bdb91383f7f8da642f916e4c44066a29262caa499341e2880f010edb87f4"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="556728c997052b1735325d68921badec2b46cc023191b4e3ac0a2fd2d6afd5cb"/>
+            <file src="meson-1.12.1.tar.gz" subdir="sources"
+                sha256sum="ab0a6ca09f8ef70c564c8241fb5a23957886a0b53fb58412b5e07eaf07dba743"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="6d59ad9b1f07708acf02690dee39c94b1ae3db9fe064b6c1e5ceb58a2528f553"/>
         </sources>
 
         <patches>
@@ -32,8 +32,8 @@
 
         <requires>
             <package name="python3"/>
+            <package name="python3-installer"/>
             <package name="python3-setuptools"/>
-            <package name="python3-dev"/>
             <package name="ninja-build"/>
         </requires>
 

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.12.1" revision="2aeltra1" upstream-version="1.12.1-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 00:41:08+03:00">
+        <changeset>
+            <li>Upgrade to version 1.12.1-2 from Debian forky.</li>
+            <li>
+                Build a wheel and install it. Require python3-setuptools in
+                place of python3-pkg-resources, as Debian does.
+            </li>
+        </changeset>
+    </release>
     <release version="0.56.2" revision="1bolt1" upstream-version="0.56.2-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-28 22:43:18+03:00">

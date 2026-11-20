@@ -12,7 +12,7 @@
     <requires>
         <package name="python3"/>
         <package name="ninja-build"/>
-        <package name="python3-pkg-resources"/>
+        <package name="python3-setuptools"/>
     </requires>
 
     <contents collect-py-cache-files="true">
