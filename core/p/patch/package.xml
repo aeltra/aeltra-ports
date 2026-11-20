@@ -18,29 +18,15 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="patch-2.7.6.tar.xz" subdir="sources"
-                sha256sum="ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"/>
-            <file src="debian-patches-7.tar.gz" subdir="patches"
-                sha256sum="f902d5f0df9414252a4e018d8e01da6e91f2d8547622f07280f7c2563832b880"/>
+            <file src="patch-2.8.1.tar.xz" subdir="sources"
+                sha256sum="3240c7959c5347c8ed347e3c4201c0337bf4240d5cf09d68889e58eeaba30e17"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="a103c1854f038f18c7f2506845e23396273ffcc96bd1fbc1a4b81402fecf9ef7"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/path_max"/>
-                <file src="patches/558485-backupmode"/>
                 <file src="patches/m-merge"/>
-                <file src="patches/Fix_segfault_with_mangled_rename_patch.patch"/>
-                <file src="patches/Allow_input_files_to_be_missing_for_ed-style_patches.patch"/>
-                <file src="patches/Fix_arbitrary_command_execution_in_ed-style_patches.patch"/>
-                <file src="patches/0001-Fix-ed-style-test-failure.patch"/>
-                <file src="patches/0002-Abort_when_cleaning_up_fails.patch"/>
-                <file src="patches/0003-Do_not_crash_when_RLIMIT_NOFILE_is_set_to_RLIM_INFINITY.patch"/>
-                <file src="patches/0004-CVE-2019-13636.patch"/>
-                <file src="patches/0005-CVE-2019-13638.patch"/>
-                <file src="patches/0006-Do_not_leak_temporary_file.patch"/>
-                <file src="patches/0007-Do_not_leak_temporary_file_on_failed_multi-file.patch"/>
-                <file src="patches/0008-Avoid_invalid_memory_access_in_context_format_diffs.patch"/>
-                <file src="patches/0009-Fix_failed_assertion_outstate-after_newline.patch"/>
             </patchset>
         </patches>
 
