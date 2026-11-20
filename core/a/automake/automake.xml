@@ -26,7 +26,7 @@
     <contents>
         <file src="${prefix}/bin"/>
         <dir src="${prefix}/share/aclocal"/>
-        <file src="${prefix}/share/aclocal-1.16"/>
-        <file src="${prefix}/share/automake-1.16"/>
+        <file src="${prefix}/share/aclocal-1.19"/>
+        <file src="${prefix}/share/automake-1.19"/>
     </contents>
 </package>

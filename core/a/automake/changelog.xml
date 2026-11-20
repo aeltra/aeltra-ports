@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release epoch="1" version="1.19" revision="3aeltra1" upstream-version="1:1.19-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 17:03:44+03:00">
+        <changeset>
+            <li>Upgrade to version 1:1.19-3 from Debian forky.</li>
+            <li>The source package is called automake now, as in Debian.</li>
+            <li>
+                Build with the configure script of the release, without the
+                bootstrap script and autoreconf.
+            </li>
+        </changeset>
+    </release>
     <release epoch="1" version="1.16.3" revision="2bolt1" upstream-version="1:1.16.3-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 07:21:16+03:00">

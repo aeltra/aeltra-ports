@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <control xmlns:xi="http://www.w3.org/2001/XInclude">
-    <source name="automake-1.16" repo="core" architecture-independent="true" if="tools-build or target-build">
+    <source name="automake" repo="core" architecture-independent="true" if="tools-build or target-build">
         <description>
             <summary>Tool for generating GNU Standards-compliant Makefiles</summary>
             <p>
@@ -22,16 +22,16 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="automake-1.16-1.16.3.tar.xz" subdir="sources"
-                sha256sum="ff2bf7656c4d1c6fdda3b8bebb21f09153a736bcba169aaf65eab25fa113bf3a"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="ebd7fb028cdef05d0b91ee42cbde45ec86b39d0b5ba781228798845fd1fc6ea3"/>
+            <file src="automake-1.19.tar.xz" subdir="sources"
+                sha256sum="e3e2c2e3abf37898138db5b6c1d1dc35c9160c5978be7947d2c741705251d445"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="d086bee07200aae4490e8ec826162249234459bfe6e13b465a486581b2a6b7d3"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/0001-texi-rename.patch"/>
-                <file src="patches/0002-Drop-SHELL.patch"/>
+                <file src="patches/0001-Drop-SHELL.patch"/>
+                <file src="patches/0002-Cherrypick-fixed-upstream-texinfo.tex.patch"/>
             </patchset>
         </patches>
 
