@@ -17,15 +17,15 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="chrpath-0.16.tar.gz" subdir="sources"
-                sha256sum="bb0d4c54bac2990e1bdf8132f2c9477ae752859d523e141e72b3b11a12c26e7b"/>
-            <file src="chrpath-0.16-2.debdiff.gz" subdir="patches"
-                sha256sum="c4cf462fe0b88683ba81183bc1e6f73c58d371b2add8af163e1d432d59115669"/>
+            <file src="chrpath-0.18.tar.gz" subdir="sources"
+                sha256sum="f09c49f0618660ca11fc6d9580ddde904c7224d4c6d0f6f2d1f9bcdc9102c9aa"/>
+            <file src="chrpath-0.18-1.debdiff.gz" subdir="patches"
+                sha256sum="3b2f55a04ad8b1a7e172d7db150c115306ea2fac712fb2e1ea34532d70645346"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/chrpath-0.16-2.debdiff"/>
+                <file src="patches/chrpath-0.18-1.debdiff"/>
             </patchset>
         </patches>
 

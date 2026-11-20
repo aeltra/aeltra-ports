@@ -12,17 +12,18 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="zlib-1.2.11.dfsg.tar.gz" subdir="sources"
-                sha256sum="80c481411a4fe8463aeb8270149a0e80bb9eaf7da44132b6e16f2b5af01bc899"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="71ab98e6c1fcbc164b0141a994f7fdd456c03a4f359d5aecd27fec179ded172d"/>
+            <file src="zlib-1.3.dfsg+really1.3.2.tar.gz" subdir="sources"
+                sha256sum="7b6903eb019983987b7112eccf90f1703f1c6c0e0cede36564bf611d19ca579d"/>
+            <file src="debian-patches-4.tar.gz" subdir="patches"
+                sha256sum="c7511a910f3e647b2b28ea33c9395b0dc78b1016a955cca147b3bfe3e3db1383"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/cflags-for-minizip"/>
-                <file src="patches/use-dso"/>
-                <file src="patches/use-dso-really"/>
+                <file src="patches/minizip-headers.patch"/>
+                <file src="patches/minizip-ldadd.patch"/>
+                <file src="patches/Avoid-undefined-behavior-in-gzwrite.c.patch"/>
+                <file src="patches/Fix-buffer-overflow-bug-in-non-blocking-gzwrite.patch"/>
             </patchset>
         </patches>
 
