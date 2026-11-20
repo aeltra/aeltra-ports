@@ -28,19 +28,12 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="re2c-2.0.3.tar.xz" subdir="sources"
-                sha256sum="b2bc1eb8aaaa21ff2fcd26507b7e6e72c5e3d887e58aa515c2155fb17d744278"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="d9b5dd7480dc827e52fc1f53ad91b463246eb1ca68725cf5d54a9546ab647909"/>
+            <file src="re2c-4.6.tar.xz" subdir="sources"
+                sha256sum="75bf2696445e831d0d44e0d9f2909eeffc18c09757f222b2fb025f7e59fe130b"/>
         </sources>
 
-        <patches>
-            <patchset subdir="sources">
-                <file src="patches/02_fix_manpage_typo.diff"/>
-            </patchset>
-        </patches>
-
         <requires>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="bison"/>
         </requires>
 

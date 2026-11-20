@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="4.6" revision="1aeltra1" upstream-version="4.6-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 00:33:33+03:00">
+        <changeset>
+            <li>Upgrade to version 4.6-1 from Debian forky.</li>
+            <li>
+                Generate the parsers and the syntax files again, as Debian
+                does. The documentation is not built, it needs docutils,
+                the man pages that come with the sources are installed.
+            </li>
+        </changeset>
+    </release>
     <release version="2.0.3" revision="1bolt1" upstream-version="2.0.3-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-03 23:21:17+03:00">

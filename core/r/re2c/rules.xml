@@ -6,14 +6,13 @@
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 
-autoreconf -vfi
-
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_BUILD_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls
+    --enable-parsers \
+    --enable-syntax
 
     ]]>
     </prepare>
