@@ -4,15 +4,19 @@
     <![CDATA[
 
 cd "$AELTRA_SOURCE_DIR"
-bh_autotools_dev_update
 
-autoreconf -v
+# libtoolize must not run, it would replace the files of these sources with
+# those of the installed libtool.
+LIBTOOLIZE="true" autoreconf -vfi
+bh_autotools_dev_update
 
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
-    --host="$AELTRA_HOST_TYPE"
+    --host="$AELTRA_HOST_TYPE" \
+    GREP="grep" \
+    SED="sed"
 
     ]]>
     </prepare>

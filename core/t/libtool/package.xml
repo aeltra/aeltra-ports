@@ -23,45 +23,27 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libtool-2.4.6.tar.xz" subdir="sources"
-                sha256sum="7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"/>
-            <file src="debian-patches-15.tar.gz" subdir="patches"
-                sha256sum="ab927db5830d29ecad559f2f9fe9684a8f2bc5bbeb5d0c607195f2936ae1259f"/>
+            <file src="libtool-2.6.2.tar.xz" subdir="sources"
+                sha256sum="24298b805b633bb8c5f25d0b6f7078c85039e690fc1990a273604e5136cf67b3"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="ddcec5d5ef05f5a6f49b72bfcbfbdfce562ee3949c40ae7ce0503a64bc680e66"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/0001-libtool-fix-GCC-linking-with-specs.patch"/>
-                <file src="patches/0003-libtoolize-fix-infinite-recursion-in-m4.patch"/>
                 <file src="patches/0011-libtool-optimizing-options-parser-hooks.patch"/>
-                <file src="patches/0015-syntax-check-fix-sed-syntax-errors.patch"/>
-                <file src="patches/0020-libtool-fix-GCC-clang-linking-with-fsanitize.patch"/>
                 <file src="patches/link_all_deplibs.patch"/>
-                <file src="patches/deplib_binary.patch"/>
                 <file src="patches/netbsdelf.patch"/>
                 <file src="patches/version_type.patch"/>
                 <file src="patches/nopic.patch"/>
                 <file src="patches/deplibs_test_disable.patch"/>
                 <file src="patches/disable-link-order2.patch"/>
                 <file src="patches/deplibs-ident.patch"/>
-                <file src="patches/man-add-whatis-info.diff"/>
-                <file src="patches/no_hostname.patch"/>
                 <file src="patches/bootstrap_options.conf"/>
-                <file src="patches/version_string.patch"/>
-                <file src="patches/grep-spaces.patch"/>
-                <file src="patches/libtool-eval-nm.patch"/>
-                <file src="patches/libtool-2.4.6-am-1.16-test.patch"/>
-                <file src="patches/0025-libtool-pass-use-ld.patch"/>
                 <file src="patches/0030-flang-support.patch"/>
-                <file src="patches/0035-ac-prereq.patch"/>
                 <file src="patches/0040-unsafe-eval.patch"/>
-                <file src="patches/0050-documentation.patch"/>
-                <file src="patches/0055-pass-flags-unchanged.patch"/>
-                <file src="patches/0060-ar.patch"/>
-                <file src="patches/0065-autoconf-version.patch"/>
-                <file src="patches/0070-libtool-bigsur.patch"/>
                 <file src="patches/0075-remove-dates-from-docs.patch"/>
-                <file src="patches/0080-struct-names.patch"/>
+                <file src="patches/0090-shell-op.patch"/>
             </patchset>
         </patches>
 

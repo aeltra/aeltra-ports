@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.6.2" revision="3aeltra1" upstream-version="2.6.2-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 23:45:16+03:00">
+        <changeset>
+            <li>Upgrade to version 2.6.2-3 from Debian forky.</li>
+            <li>
+                Regenerate the whole build system, with the autoconf and
+                automake the package is built with.
+            </li>
+            <li>
+                Do not write the paths of grep and sed at build time into
+                libtool and libtoolize, they are looked up when the scripts
+                run.
+            </li>
+        </changeset>
+    </release>
     <release version="2.4.6" revision="15bolt1" upstream-version="2.4.6-15"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-25 07:38:58+03:00">

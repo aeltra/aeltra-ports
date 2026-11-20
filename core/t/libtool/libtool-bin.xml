@@ -24,5 +24,6 @@
 
     <contents>
         <file src="${prefix}/bin/libtool"/>
+        <file src="${prefix}/bin/libtool-next-version"/>
     </contents>
 </package>
