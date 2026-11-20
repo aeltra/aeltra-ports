@@ -9,6 +9,13 @@
             hardware based authentication schemes. pam-config can also
             add/adjust/remove other PAM modules and their options.
         </p>
+        <p>
+            The package also has pam-securetty. "pam-securetty enable"
+            restricts logins of root to the consoles it finds on the
+            machine, by writing /etc/securetty and adding pam_securetty to
+            the PAM configuration of login. "pam-securetty disable" takes
+            that away again. Nothing of it is active unless it is enabled.
+        </p>
     </description>
 
     <requires>

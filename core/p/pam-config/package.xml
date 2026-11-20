@@ -25,6 +25,11 @@
                 upstream-src="https://github.com/SUSE/pam-config/archive/refs/tags/v1.3.tar.gz"
                 sha256sum="5245a41ea80e5ff0434c78929024bc12c702e90ab2d8579ddde807fdf28d83e0"
             />
+            <file
+                subdir="extra"
+                src="aeltra-files-1.tar.gz"
+                sha256sum="f029cbbea5d44c31c7cbc9c2ff4dbac5260bf4b658c7cb9647de90b826335e67"
+            />
         </sources>
 
         <xi:include href="rules.xml"/>

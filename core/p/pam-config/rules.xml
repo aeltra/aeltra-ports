@@ -31,6 +31,11 @@ install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin"
 install -m 0755 "$AELTRA_BUILD_DIR/src/pam-config" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/"
 
+# Our own addition: restricts logins of root to the consoles of the machine
+# with pam_securetty, which pam-config does not know about.
+install -m 0755 "$AELTRA_WORK_DIR/extra/pam-securetty" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/sbin/"
+
     ]]>
     </install>
 </rules>
