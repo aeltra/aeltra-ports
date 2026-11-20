@@ -7,11 +7,12 @@ cd "$AELTRA_SOURCE_DIR"
 touch generic/tclStubInit.c
 
 cd unix
+autoreconf -f -i
+
 TCL_LIBRARY="$AELTRA_INSTALL_PREFIX/share/tcltk/tcl8.6" \
-TCL_PACKAGE_PATH="$AELTRA_INSTALL_PREFIX/local/lib/tcltk $AELTRA_INSTALL_PREFIX/local/share/tcltk \
-		  $AELTRA_INSTALL_PREFIX/lib/tcltk $AELTRA_INSTALL_PREFIX/share/tcltk \
-		  $AELTRA_INSTALL_PREFIX/lib/tcltk/tcl8.6 $AELTRA_INSTALL_PREFIX/lib" \
+TCL_PACKAGE_PATH="$AELTRA_INSTALL_PREFIX/local/lib/tcltk:$AELTRA_INSTALL_PREFIX/local/share/tcltk:$AELTRA_INSTALL_PREFIX/lib/tcltk:$AELTRA_INSTALL_PREFIX/share/tcltk:$AELTRA_INSTALL_PREFIX/lib/tcltk/tcl8.6:$AELTRA_INSTALL_PREFIX/lib" \
 TCL_SHLIB_LD_EXTRAS="-Wl,-soname,\${TCL_LIB_FILE}" \
+CFLAGS="$CFLAGS -fno-unit-at-a-time" \
 ./configure \
     --prefix=$AELTRA_INSTALL_PREFIX \
     --build="$AELTRA_HOST_TYPE" \
@@ -21,9 +22,8 @@ TCL_SHLIB_LD_EXTRAS="-Wl,-soname,\${TCL_LIB_FILE}" \
     --enable-threads \
     --enable-dll-unloading \
     --enable-man-symlinks \
-    --disable-nls \
     --disable-rpath \
-    --without-tzdata \
+    --without-tzdata
 
     ]]>
     </prepare>
@@ -32,6 +32,7 @@ TCL_SHLIB_LD_EXTRAS="-Wl,-soname,\${TCL_LIB_FILE}" \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR/unix"
+touch ../generic/tclStubInit.c
 make -j"$AELTRA_PARALLEL_JOBS"
 
 LC_ALL=C \
@@ -46,7 +47,9 @@ LC_ALL=C \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR/unix"
-make DESTDIR="$AELTRA_INSTALL_DIR" install
+make INSTALL_ROOT="$AELTRA_INSTALL_DIR" \
+    TCL_MODULE_PATH="$AELTRA_INSTALL_PREFIX/lib/tcltk $AELTRA_INSTALL_PREFIX/share/tcltk" \
+    install
 
 sed -i -e"s:variable paths {}:variable paths {/$AELTRA_INSTALL_PREFIX/share/tcltk/tcl8.6/tcl8}:" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"/share/tcltk/tcl8.6/tm.tcl
@@ -74,6 +77,14 @@ mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"tcl*Config.sh \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tcl8.6"
 mv "$AELTRA_SOURCE_DIR/unix/libtcl8.6.a" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/pkgconfig/tcl.pc" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/pkgconfig/tcl8.6.pc"
+
+install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
+cp "$AELTRA_SOURCE_DIR/unix/tcl.m4" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal/tcl8.6.m4"
+
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/tcltk/tcl8.6/ldAix"
 
     ]]>
     </install>

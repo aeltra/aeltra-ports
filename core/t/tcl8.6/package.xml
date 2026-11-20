@@ -12,10 +12,10 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="tcl8.6-8.6.11+dfsg.tar.gz" subdir="sources"
-                sha256sum="10bb25d492f19acb5d00bb24069b0fadd78abad1d5294e5dde141af9fc0693ce"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="ca716318f7e31816c094e611f4bdacf5642cdbfed2dcb8765a0cdc810ddc2897"/>
+            <file src="tcl8.6-8.6.18+dfsg.tar.gz" subdir="sources"
+                sha256sum="615a2c2e06d2931b4ff2b035d40d6fc51ba5b81f41ff15943c67d98e01edb201"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="e42906bd552bc7e1af21d15b060de6a92cb8fb0d1e3e15ed26a42cc391af6330"/>
         </sources>
 
         <patches>
@@ -25,6 +25,7 @@
         </patches>
 
         <requires>
+            <package name="autoconf"/>
             <package name="zlib1g-dev"/>
         </requires>
 

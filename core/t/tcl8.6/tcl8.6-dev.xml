@@ -20,5 +20,7 @@
         <file src="${prefix}/lib/libtcl8.6.a"/>
         <file src="${prefix}/lib/libtclstub8.6.a"/>
         <file src="${prefix}/lib/tcl8.6"/>
+        <file src="${prefix}/lib/pkgconfig"/>
+        <file src="${prefix}/share/aclocal"/>
     </contents>
 </package>

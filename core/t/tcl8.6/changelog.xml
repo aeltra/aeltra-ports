@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="8.6.18+dfsg" revision="2aeltra1" upstream-version="8.6.18+dfsg-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 23:35:20+03:00">
+        <changeset>
+            <li>Upgrade to version 8.6.18+dfsg-2 from Debian forky.</li>
+            <li>Regenerate the configure script, as Debian does.</li>
+            <li>Package tcl8.6.pc and tcl8.6.m4.</li>
+        </changeset>
+    </release>
     <release version="8.6.11+dfsg" revision="1bolt1" upstream-version="8.6.11+dfsg-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-24 00:36:00+03:00">
