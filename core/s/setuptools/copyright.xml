@@ -2,6 +2,12 @@
     <files license="custom">
         <file src="*"/>
         <license><![CDATA[
+This package was debianized by Matthias Klose <doko@debian.org> on
+Tue, 14 Dec 2004 12:45:14 +0100.
+
+It was downloaded from
+http://pypi.python.org/pypi/setuptools
+
 Copyright:
 
 Upstream Author: Phillip J. Eby, Tarek Ziade, Jason R Coombs and

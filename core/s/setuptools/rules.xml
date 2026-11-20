@@ -11,7 +11,10 @@ true
     <build>
     <![CDATA[
 
-true
+cd "$AELTRA_SOURCE_DIR"
+
+# setuptools is its own build backend
+bh_python_install --build
 
     ]]>
     </build>
@@ -20,13 +23,8 @@ true
     <![CDATA[
 
 cd "$AELTRA_SOURCE_DIR"
-
 mkdir -p "$AELTRA_INSTALL_DIR/python3"
-
-bh_python_install --py3 --root "$AELTRA_INSTALL_DIR/python3"
-
-mv "$AELTRA_INSTALL_DIR/python3/$AELTRA_INSTALL_PREFIX/bin/easy_install" \
-    "$AELTRA_INSTALL_DIR/python3/$AELTRA_INSTALL_PREFIX/bin/easy_install3"
+bh_python_install --install --root "$AELTRA_INSTALL_DIR/python3"
 
     ]]>
     </install>

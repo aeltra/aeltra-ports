@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
+    </defines>
+
+    <source name="setuptools" repo="core" architecture-independent="true" if="tools-build or target-build">
+        <description>
+            <summary>Python Distutils Enhancements</summary>
+            <p>
+            Extensions to the python-distutils for large or complex distributions.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="setuptools-84.2.0.tar.gz" subdir="sources"
+                sha256sum="6f445ca2ce864605f81e223f262b4c94ffcb9a4a63473bae0ed7be5aab0291da"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="c593e697fd5934269201edb36b049f3106144fe4ad75ffc9d86ef360238740be"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/intersphinx-local.diff"/>
+                <file src="patches/install-layout.diff"/>
+                <file src="patches/multiarch-extname.diff"/>
+                <file src="patches/no-sphinx-rst.linker.diff"/>
+                <file src="patches/no-SOURCES.txt-in-egg-ingo.diff"/>
+                <file src="patches/reproducible.diff"/>
+                <file src="patches/sorted-requires.diff"/>
+                <file src="patches/no-sidebar.diff"/>
+                <file src="patches/no-sphinx-towncrier.diff"/>
+                <file src="patches/no-sphinx-jaraco-tidelift.diff"/>
+                <file src="patches/dont-require-vendored-modules.diff"/>
+                <file src="patches/revert-shebang-change.diff"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="python3"/>
+            <package name="python3-installer"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="python3-setuptools.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
