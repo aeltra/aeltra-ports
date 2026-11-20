@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="python3-flit-core" section="python">
+    <description>
+        <summary>build backend of Flit for Python packages (PEP 517)</summary>
+        <p>
+        Flit is a easy way to put Python packages and modules on PyPI. This
+        package has flit_core, the part that builds wheels and source
+        distributions. It is all a package needs at build time when its
+        pyproject.toml names flit_core.buildapi as the build backend.
+        </p>
+    </description>
+
+    <requires>
+        <package name="python3"/>
+    </requires>
+
+    <contents subdir="python3" collect-py-cache-files="true">
+        <file src="${prefix}/lib/python3/dist-packages"/>
+    </contents>
+</package>

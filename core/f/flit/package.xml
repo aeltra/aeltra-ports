@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
+    </defines>
+
+    <source name="flit" repo="core" architecture-independent="true" if="tools-build or target-build">
+        <description>
+            <summary>simple way to put Python packages and modules on PyPI (PEP 517)</summary>
+            <p>
+            Flit is a easy way to put Python packages and modules on PyPI. It tries to
+            require less thought about packaging and help you avoid common mistakes.
+            </p>
+            <p>
+            Flit supports PEP 517 Python packaging and PEP 621 project metadata.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="flit-4.1.0.tar.gz" subdir="sources"
+                sha256sum="18b463c435db03b8cbecf139b6b0bb285b2dfd8a7e623558136abd66f4a04af4"/>
+            <file src="debian-patches-4.tar.gz" subdir="patches"
+                sha256sum="efe3e7f8dad67d333a4d76e927b2d8b9e3808fa114b1f42c9ad5a542c4266777"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/debian_installer_allowed_root.patch"/>
+                <file src="patches/build-with-local-flit_core.patch"/>
+                <file src="patches/skip-vendored-tomli-license.patch"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="python3"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="python3-flit-core.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
