@@ -16,5 +16,7 @@
         <file src="${prefix}/bin/gettext"/>
         <file src="${prefix}/bin/gettext.sh"/>
         <file src="${prefix}/bin/ngettext"/>
+        <file src="${prefix}/bin/printf_gettext"/>
+        <file src="${prefix}/bin/printf_ngettext"/>
     </contents>
 </package>

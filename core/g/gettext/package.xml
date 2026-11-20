@@ -12,29 +12,29 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gettext-0.21.tar.xz" subdir="sources"
-                sha256sum="d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="8fb49aaf14fdb206a1f21b630f9648e26210011f5dc299501bceee0764d60b2e"/>
+            <file src="gettext-1.0.tar.xz" subdir="sources"
+                sha256sum="71132a3fb71e68245b8f2ac4e9e97137d3e5c02f415636eb508ae607bc01add7"/>
+            <file src="debian-patches-5.tar.gz" subdir="patches"
+                sha256sum="3f59e09b193f34dde988719f0046e79dcbf980de6a78b28df312e4caec63a1f9"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/01-use-system-help2man.patch"/>
-                <file src="patches/02-library-dependencies.patch"/>
-                <file src="patches/03-disable-libtextstyle.patch"/>
-                <file src="patches/04-fix-powerpc-ftbfs.patch"/>
+                <file src="patches/skip-test-getaddrinfo.patch"/>
+                <file src="patches/po-mode.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="file"/>
-            <package name="libncurses-dev"/>
-            <package name="libxml2-dev"/>
-            <package name="libglib2.0-dev"/>
-            <package name="xz-utils"/>
-            <package name="libunistring-dev"/>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="bison"/>
+            <package name="file"/>
+            <package name="libacl1-dev"/>
+            <package name="libattr1-dev"/>
+            <package name="libncurses-dev"/>
+            <package name="libunistring-dev"/>
+            <package name="libxml2-dev"/>
+            <package name="xz-utils"/>
         </requires>
 
         <xi:include href="rules.xml"/>

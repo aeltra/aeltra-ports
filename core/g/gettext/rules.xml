@@ -6,22 +6,18 @@
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 
-autoreconf -v
-
-export CFLAGS="`echo $CFLAGS | sed 's@-Werror=format-security@@g'`"
-export CXXFLAGS="`echo $CFLAGS | sed 's@-Werror=format-security@@g'`"
-
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --enable-threads \
+    --enable-openmp \
+    --disable-native-java \
     --disable-rpath \
     --disable-nls \
-    --disable-openmp \
-    --disable-native-java \
-    --disable-silent-rules
+    --disable-silent-rules \
+    --without-emacs
 
     ]]>
     </prepare>
@@ -30,7 +26,7 @@ $AELTRA_SOURCE_DIR/configure \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make -j"$AELTRA_PARALLEL_JOBS"
+make -j"$AELTRA_PARALLEL_JOBS" USEJAVA=0
 
     ]]>
     </build>

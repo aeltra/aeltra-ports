@@ -26,18 +26,25 @@
         <file src="${prefix}/bin/msggrep"/>
         <file src="${prefix}/bin/msginit"/>
         <file src="${prefix}/bin/msgmerge"/>
+        <file src="${prefix}/bin/msgpre"/>
         <file src="${prefix}/bin/msgunfmt"/>
         <file src="${prefix}/bin/msguniq"/>
+        <file src="${prefix}/bin/po-fetch"/>
         <file src="${prefix}/bin/recode-sr-latin"/>
+        <file src="${prefix}/bin/spit"/>
         <file src="${prefix}/bin/xgettext"/>
-        <file src="${prefix}/lib/gettext"/>
+        <file src="${prefix}/libexec/gettext"/>
         <file src="${prefix}/lib/libgettextlib-*.*.so"/>
         <file src="${prefix}/lib/libgettextsrc-*.*.so"/>
+        <file src="${prefix}/lib/libtextstyle.so.*"/>
         <file src="${prefix}/share/aclocal"/>
         <file src="${prefix}/share/gettext-*.*/its/**/*"/>
         <file src="${prefix}/share/gettext/ABOUT-NLS"/>
         <file src="${prefix}/share/gettext/config.rpath" mode="0755"/>
         <file src="${prefix}/share/gettext/gettext.h"/>
+        <file src="${prefix}/share/gettext/disclaim-translations.txt"/>
+        <file src="${prefix}/share/gettext/schema"/>
+        <file src="${prefix}/share/gettext/m4"/>
         <file src="${prefix}/share/gettext/javaversion.class"/>
         <file src="${prefix}/share/gettext/msgunfmt.tcl"/>
         <file src="${prefix}/share/gettext/po"/>

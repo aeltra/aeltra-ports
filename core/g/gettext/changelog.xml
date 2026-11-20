@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.0" revision="5aeltra1" upstream-version="1.0-5"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 00:25:53+03:00">
+        <changeset>
+            <li>Upgrade to version 1.0-5 from Debian forky.</li>
+            <li>
+                The build system is no longer regenerated, Debian's patches
+                do not touch it. Build without glib and with OpenMP.
+            </li>
+        </changeset>
+    </release>
     <release version="0.21" revision="4bolt1" upstream-version="0.21-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-28 22:03:55+03:00">
