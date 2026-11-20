@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="5.44.0" revision="3aeltra1" upstream-version="5.44.0-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 12:36:29+03:00">
+        <changeset>
+            <li>Update to version from Debian Forky</li>
+            <li>libperl5.32 and perl-modules-5.32 become libperl5.44 and
+            perl-modules-5.44</li>
+            <li>Build without Berkeley DB</li>
+            <li>The Configure answers for the perl of the tools folder come
+            as a file of their own, with the script that generates
+            them</li>
+        </changeset>
+    </release>
     <release version="5.32.1" revision="2bolt1" upstream-version="5.32.1-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-20 21:45:06+03:00">

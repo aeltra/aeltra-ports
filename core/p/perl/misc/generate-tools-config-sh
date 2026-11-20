@@ -1,0 +1,146 @@
+#!/bin/sh -e
+#
+# Generates extra/config.sh-tools, the answers of Configure for the perl of
+# the tools folder. The bootstrap (scripts/2/tools-perl in aeltra-bootstrap)
+# cross-compiles that perl and cannot run Configure, because the programs
+# Configure builds ask for the loader in /tools/lib, which does not exist on
+# the bootstrap host.
+#
+# This script runs Configure anyway. The tools are built for the machine the
+# bootstrap runs on, so the test programs do start once they are linked with
+# a loader path that exists and with a run path into the sysroot. Both flags
+# are taken out of the result again.
+#
+# Run it in a perl source tree with all patches of the recipe applied, with a
+# bootstrap that has finished stage 1:
+#
+#   generate-tools-config-sh <bootstrap work dir> <musl|gnu> > config.sh-tools
+#
+# Pack the result as extra/config.sh-tools into aeltra-files-<n>.tar.gz. It
+# is measured against one C library: check it against the other one before
+# it is used there.
+#
+
+if [ $# -ne 2 ] || [ ! -x ./Configure ]; then
+    echo "usage: generate-tools-config-sh <bootstrap work dir> <musl|gnu>" >&2
+    echo "to be run in a patched perl source tree" >&2
+    exit 1
+fi
+
+WORK_DIR="`cd "$1" && pwd`"
+LIBC_VENDOR="$2"
+
+SYSROOT_DIR="$WORK_DIR/sys-root"
+HOST_TOOLS_DIR="$WORK_DIR/tools"
+MACHINE="`uname -m`"
+TRIPLET="$MACHINE-tools-linux-$LIBC_VENDOR"
+
+MAJOR_MINOR="`echo '#include "./patchlevel.h"
+SET PERL_REVISION.PERL_VERSION' | gcc -E -DPERL_PATCHLEVEL_H_IMPLICIT -  | sed -n '/^SET /{s///;s/ //gp;}'`"
+PATCHLEVEL="`echo '#include "./patchlevel.h"
+SET PERL_SUBVERSION' | gcc -E -DPERL_PATCHLEVEL_H_IMPLICIT -  | sed -n '/^SET/{s///;s/ //gp;}'`"
+FULL_VERSION="$MAJOR_MINOR.$PATCHLEVEL"
+
+export PATH="$HOST_TOOLS_DIR/bin:$PATH"
+
+# The loader in the sysroot is a link to /tools/lib, or has that folder as
+# its library path. Give the test programs one that works here.
+LOADER_DIR="`mktemp -d`"
+trap 'rm -rf "$LOADER_DIR"' EXIT
+
+case "$LIBC_VENDOR" in
+    musl)
+        LOADER="$LOADER_DIR/ld-musl-$MACHINE.so.1"
+        ln -s "$SYSROOT_DIR/tools/lib/libc.so" "$LOADER"
+        ;;
+    *)
+        LOADER="`"$TRIPLET-gcc" -print-file-name=ld.so`"
+        LOADER="`readlink -f "$LOADER"`"
+        ;;
+esac
+
+RUN_FLAGS="-Wl,--dynamic-linker=$LOADER -Wl,-rpath,$SYSROOT_DIR/tools/lib"
+
+./Configure \
+    -Dsysroot="$SYSROOT_DIR/tools" \
+    -Dusethreads \
+    -Duselargefiles \
+    -Dcc="$TRIPLET-gcc $RUN_FLAGS" \
+    -Dcpp="$TRIPLET-cpp" \
+    -Dld="$TRIPLET-gcc $RUN_FLAGS" \
+    -Dar="$TRIPLET-ar" \
+    -Dnm="$TRIPLET-nm" \
+    -Dranlib="$TRIPLET-ranlib" \
+    -Dccflags="-DDEBIAN -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security" \
+    -Dldflags="-Wl,-z,relro" \
+    -Dlddlflags="-shared -Wl,-z,relro" \
+    -Dcccdlflags="-fPIC" \
+    -Darchname="$TRIPLET" \
+    -Dprefix=/tools \
+    -Dprivlib="/tools/share/perl/$MAJOR_MINOR" \
+    -Darchlib="/tools/lib/perl/$MAJOR_MINOR" \
+    -Dvendorprefix=/tools \
+    -Dvendorlib=/tools/share/perl5 \
+    -Dvendorarch="/tools/lib/perl5/$MAJOR_MINOR" \
+    -Dsiteprefix=/tools/local \
+    -Dsitelib="/tools/local/share/perl/$FULL_VERSION" \
+    -Dsitearch="/tools/local/lib/perl/$FULL_VERSION" \
+    -Dman1dir=/tools/share/man/man1 \
+    -Dman3dir=/tools/share/man/man3 \
+    -Dsiteman1dir=/tools/local/man/man1 \
+    -Dsiteman3dir=/tools/local/man/man3 \
+    -Dusesitecustomize \
+    -Duse64bitint \
+    -Dman1ext=1 \
+    -Dman3ext=3perl \
+    -Dpager=/tools/bin/less \
+    -Uafs \
+    -Ud_csh \
+    -Ud_ualarm \
+    -Uusesfio \
+    -Uusenm \
+    -Ui_libutil \
+    -Uversiononly \
+    -DDEBUGGING="-g" \
+    -Doptimize="-O2" \
+    -Duseshrplib \
+    -Dlibperl="libperl.so.$FULL_VERSION" \
+    -dEs >&2
+
+# What is left is to take out everything that belongs to this machine and
+# this bootstrap, and to turn the result into a cross build that uses the
+# miniperl of the build host.
+set_value()
+{
+    sed -i "s|^$1='[^']*'\$|$1='$2'|" config.sh
+}
+
+sed -i \
+    -e "s| $RUN_FLAGS||g" \
+    -e "s|$SYSROOT_DIR|##AELTRA_SYSROOT_DIR##|g" \
+    -e "s|$HOST_TOOLS_DIR|##AELTRA_HOST_TOOLS_DIR##|g" \
+    -e "s|-linux-$LIBC_VENDOR|-linux-##LIBC_VENDOR##|g" \
+    -e "s|^# Configuration time: .*|# Configuration time: Thu Jan  1 00:00:00 UTC 1970|" \
+    -e "s|^# Configured by     : .*|# Configured by     : aeltra|" \
+    -e "s|^# Target system     : .*|# Target system     : linux localhost $MACHINE gnulinux |" \
+    config.sh
+
+set_value usecrosscompile "define"
+set_value hostperl        "../host/miniperl"
+set_value hostgenerate    "../host/generate_uudmap"
+set_value targetarch      "$MACHINE-tools-linux-##LIBC_VENDOR##"
+set_value cf_by           "aeltra"
+set_value cf_email        "aeltra@localhost"
+set_value perladmin       "aeltra@localhost"
+set_value mydomain        ""
+set_value myhostname      "localhost"
+set_value myuname         "linux localhost $MACHINE gnulinux "
+set_value osvers          ""
+set_value cf_time         "Thu Jan  1 00:00:00 UTC 1970"
+
+if grep -q -e "$WORK_DIR" -e "$LOADER_DIR" -e "`hostname`" config.sh; then
+    echo "generate-tools-config-sh: config.sh still names this machine." >&2
+    exit 1
+fi
+
+cat config.sh
