@@ -3,30 +3,22 @@
     <prepare>
     <![CDATA[
 
+cd "$AELTRA_SOURCE_DIR"
+
+# Debian's sources come without the manual, which is not free. The build
+# system wants the file to be there.
+echo '@setfilename bison.info' > doc/bison.texi
+
+# Debian's patches change the build system.
+autoreconf -vfi
+bh_autotools_dev_update
+
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls \
     --disable-silent-rules
-
-# Touch all files in the dependency tree of bison.info to
-# inhibit makeinfo invocation in the build process.
-install -d doc/figs
-touch -t 200001010000.01 \
-        doc/bison.info \
-        doc/bison.texi \
-        doc/bison.help \
-        doc/figs/example.txt \
-        doc/figs/example-reduce.txt \
-        doc/figs/example-shift.txt \
-        doc/*.texi \
-        build-aux/cross-options.pl \
-        src/getargs.c
-
-# Somehow this fixes sporadic build failures.
-touch Makefile.in
 
     ]]>
     </prepare>
@@ -34,8 +26,23 @@ touch Makefile.in
     <build>
     <![CDATA[
 
+cd "$AELTRA_SOURCE_DIR"
+
+# Touch all files in the dependency tree of bison.info to
+# inhibit makeinfo invocation in the build process.
+install -d doc/figs
+touch -t 200001010000.01 \
+    doc/bison.info \
+    doc/bison.help \
+    doc/figs/example.txt \
+    doc/figs/example-reduce.txt \
+    doc/figs/example-shift.txt \
+    doc/*.texi \
+    build-aux/cross-options.pl \
+    src/getargs.c
+
 cd "$AELTRA_BUILD_DIR"
-make
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -45,6 +52,8 @@ make
 
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/info"
 
     ]]>
     </install>

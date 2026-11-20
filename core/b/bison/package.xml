@@ -21,10 +21,10 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="bison-3.7.5+dfsg.tar.xz" subdir="sources"
-                sha256sum="0a251c0a6d77adde4f37bec3bf16b8effba038208a9eb303957181d7455b63be"/>
+            <file src="bison-3.8.2+dfsg.tar.xz" subdir="sources"
+                sha256sum="dff8a3c96dd34121828f62a7fa49e1f7765815b89e59f564e8d2a9e71c177be5"/>
             <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="13110e80c82fa1e40337e86113a61fe761bb60970351ba600c062071f2aaa45d"/>
+                sha256sum="c1be5fb04b2aba1606bacacfa2be83571dd16e51af68069913ce2b29c994313f"/>
         </sources>
 
         <patches>
@@ -35,9 +35,12 @@
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
             <package name="gettext"/>
             <package name="flex"/>
             <package name="m4"/>
+            <package name="help2man"/>
             <package name="autotools-dev" tools-prefix=""/>
         </requires>
 

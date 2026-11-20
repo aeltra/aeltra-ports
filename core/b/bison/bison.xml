@@ -27,5 +27,6 @@
         <file src="${prefix}/share/aclocal/bison-i18n.m4"/>
         <file src="${prefix}/share/bison/*"/>
         <file src="${prefix}/share/bison/*/*"/>
+        <file src="${prefix}/share/locale"/>
     </contents>
 </package>
