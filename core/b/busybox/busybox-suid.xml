@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="busybox-suid" section="admin" if="target-build">
+    <description>
+        <summary>BusyBox applets that need root privileges</summary>
+        <p>
+        The BusyBox binary is not installed setuid root. This package has a
+        small setuid program instead, which runs BusyBox for a fixed list of
+        applets and nothing else: mount, umount, su, crontab, passwd,
+        traceroute, traceroute6 and vlock. Without it, these only work for
+        root.
+        </p>
+    </description>
+
+    <requires>
+        <package name="busybox" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin/bbsuid" mode="4111"/>
+    </contents>
+
+    <maintainer-scripts>
+        <prerm interpreter="busybox"><![CDATA[
+# The links belong to no package. Once they are gone, the trigger of the
+# busybox package points the names back to busybox.
+if [ "$1" = "remove" ]; then
+    for DIR in /usr/bin /usr/sbin; do
+        for LINK in "$DIR"/*; do
+            if [ ! -L "$LINK" ]; then
+                continue
+            fi
+            if [ "$(/bin/busybox readlink "$LINK")" = "/bin/bbsuid" ]; then
+                /bin/busybox rm -f "$LINK"
+            fi
+        done
+    done
+fi
+        ]]></prerm>
+    </maintainer-scripts>
+</package>

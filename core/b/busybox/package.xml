@@ -21,33 +21,72 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="busybox-1.33.1.tar.bz2" subdir="sources"
-                sha256sum="12cec6bd2b16d8a9446dd16130f2b92982f1819f6e1c5f5887b6db03f5660d28"/>
-            <file src="bolt-patches-2.tar.gz" subdir="patches"
-                sha256sum="712670781b3d697f60293ec708e9eb2a89dd54c453b049d2057b61eeeb56db24"/>
-            <file src="alpine-patches-bd9fc3cc.tar.gz" subdir="patches"
-                sha256sum="f016cf0d83290d11077d6c5e631d6f8b195a2c0f9aa74a1541d8dae0c7e6add7"/>
+            <file src="busybox-1.38.0.tar.bz2" subdir="sources"
+                sha256sum="34f9ea6ff8636f2c9241153b9114eefa9e65674a45318ae1ef95bb5f31c53bb2"/>
+            <file src="alpine-patches-06463674.tar.gz" subdir="patches"
+                sha256sum="68240b59e63632c23d3974983a7993944cfd2bc948a0d04c139e93ef0028969a"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="781836c5ab65d62550c15e848127afc6cc2890908eaf824bac7817c9f839b33e"/>
+            <file src="alpine-files-06463674.tar.gz" subdir="extra"
+                sha256sum="0d96e49c506a0d61dadf6dcfeb3f46c68f81533dbcae578f37a23998ef0127e1"/>
+            <file src="aeltra-files-1.tar.gz" subdir="extra"
+                sha256sum="df243d19ed0e150def198ddde39ae3418bb8a84fb7b94ed1833ec74e44b6d2c4"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <!-- Alpine -->
-                <file src="patches/0001-adduser-default-to-sbin-nologin-as-shell-for-system-.patch"/>
-                <file src="patches/0001-ash-add-built-in-BB_ASH_VERSION-variable.patch"/>
-                <file src="patches/0001-echo-do-not-assume-that-free-leaves-errno-unmodified.patch"/>
-                <file src="patches/0001-lineedit-fix-tab-completion-with-equal-sign.patch"/>
-                <file src="patches/0001-nologin-Install-applet-to-sbin-instead-of-usr-sbin.patch"/>
-                <file src="patches/0001-properly-fix-wget-https-support.patch"/>
-                <file src="patches/0002-fsck-resolve-LABEL-.-UUID-.-spec-to-device.patch"/>
-                <file src="patches/0003-ash-exec-busybox.static.patch"/>
-                <file src="patches/0004-app-location-for-cpio-vi-and-lspci.patch"/>
-                <file src="patches/0005-udhcpc-set-default-discover-retries-to-5.patch"/>
-                <file src="patches/0006-ping-make-ping-work-without-root-privileges.patch"/>
-                <file src="patches/0007-fbsplash-support-console-switching.patch"/>
-                <file src="patches/0008-fbsplash-support-image-and-bar-alignment-and-positio.patch"/>
-                <file src="patches/0009-depmod-support-generating-kmod-binary-index-files.patch"/>
-                <file src="patches/0010-Add-flag-for-not-following-symlinks-when-recursing.patch"/>
-                <file src="patches/0012-udhcpc-Don-t-background-if-n-is-given.patch"/>
+                <file src="patches/0001-ash-exec-busybox.static.patch"/>
+                <file src="patches/0002-awk-fix-handling-of-literal-backslashes-in-replaceme.patch"/>
+                <file src="patches/0003-blkdiscard-ship-link-to-sbin-instead-of-usr-bin.patch"/>
+                <file src="patches/0004-hexdump-fix-regression-with-n4-e-u.patch"/>
+                <file src="patches/0005-init-add-support-for-separate-reboot-action.patch"/>
+                <file src="patches/0006-mount-fix-parsing-proc-mounts-with-long-lines.patch"/>
+                <file src="patches/0007-tar-fix-TOCTOU-symlink-race-condition.patch"/>
+                <file src="patches/0008-tunctl-fix-segfault-on-ioctl-failure.patch"/>
+                <file src="patches/0009-wget-add-header-Accept.patch"/>
+                <file src="patches/0010-adduser-default-to-sbin-nologin-as-shell-for-system-.patch"/>
+                <file src="patches/0011-ash-add-built-in-BB_ASH_VERSION-variable.patch"/>
+                <!-- For utmps, which replaces the utmp functions of musl. -->
+                <file src="patches/0012-Avoid-redefined-warnings-when-buiding-with-utmps.patch" if="musl"/>
+                <file src="patches/0013-libbb-sockaddr2str-ensure-only-printable-characters-.patch"/>
+                <file src="patches/0014-modinfo-add-k-option-for-kernel-version.patch"/>
+                <file src="patches/0015-nologin-Install-applet-to-sbin-instead-of-usr-sbin.patch"/>
+                <file src="patches/0016-pgrep-add-support-for-matching-against-UID-and-RUID.patch"/>
+                <file src="patches/0017-properly-fix-wget-https-support.patch"/>
+                <file src="patches/0018-fsck-resolve-LABEL-.-UUID-.-spec-to-device.patch"/>
+                <file src="patches/0019-nslookup-sanitize-all-printed-strings-with-printable.patch"/>
+                <file src="patches/0020-app-location-for-cpio-vi-and-lspci.patch"/>
+                <file src="patches/0021-udhcpc-set-default-discover-retries-to-5.patch"/>
+                <file src="patches/0022-ping-make-ping-work-without-root-privileges.patch"/>
+                <file src="patches/0023-fbsplash-support-console-switching.patch"/>
+                <file src="patches/0024-fbsplash-support-image-and-bar-alignment-and-positio.patch"/>
+                <file src="patches/0025-depmod-support-generating-kmod-binary-index-files.patch"/>
+                <file src="patches/0026-Add-flag-for-not-following-symlinks-when-recursing.patch"/>
+                <file src="patches/0027-udhcpc-Don-t-background-if-n-is-given.patch"/>
+                <file src="patches/0028-tests-fix-tarball-creation.patch"/>
+                <file src="patches/0029-tests-musl-doesn-t-seem-to-recognize-UTC0-as-a-timez.patch"/>
+                <file src="patches/0030-Hackfix-to-disable-HW-acceleration-for-MD5-SHA1-on-x.patch"/>
+                <file src="patches/0031-umount-Implement-O-option-to-unmount-by-mount-option.patch"/>
+                <file src="patches/0032-find-fix-xdev-depth-and-delete.patch"/>
+                <file src="patches/0033-awk.c-fix-CVE-2023-42366-bug-15874.patch"/>
+                <file src="patches/0034-awk-Mark-test-for-handling-of-start-of-word-pattern-.patch"/>
+                <file src="patches/0035-syslogd-fix-wrong-OPT_locallog-flag-detection.patch"/>
+                <file src="patches/0036-Fix-CVE-2024-58251-sanitize-process-names-when-calli.patch"/>
+                <file src="patches/0037-Skip-additional-hexdump-test-on-big-endian-systems.patch"/>
+                <file src="patches/0038-ash-clear-bb_got_signal-for-non-interactive-shell.patch"/>
+                <file src="patches/0039-Install-lsblk-to-bin-instead-of-usr-bin.patch"/>
+                <file src="patches/0040-ash-fix-out-of-bounds-read-in-ifsbreakup.patch"/>
+                <file src="patches/0041-less-Support-the-T-option.patch"/>
+                <file src="patches/0042-modprobe-Check-for-ELF-header-to-determine-if-module.patch"/>
+                <!-- Debian, fixes that Alpine does not have -->
+                <file src="patches/busybox-1.36.1-no-cbq.patch"/>
+                <file src="patches/wget-disallow-control-chars-in-URLs-CVE-2025-60876.patch"/>
+                <file src="patches/archival-libarchive-sanitize-filenames-on-output-CVE-2025-46394-2.patch"/>
+                <file src="patches/ash-omit-variables-with-invalid-names-in-showvars.patch"/>
+                <file src="patches/ash-fix-stack-overflow-in-evalfun-CVE-2026-38755.patch"/>
+                <file src="patches/awk-fix-stack-overflow-in-evaluate-CVE-2026-38752.patch"/>
+                <file src="patches/awk-fix-use-after-free-in-awk_sub-CVE-2026-38753.patch"/>
             </patchset>
         </patches>
 
@@ -55,122 +94,17 @@
             <package name="libselinux1-dev"/>
             <package name="libsepol1-dev"/>
             <package name="libpam0g-dev"/>
+            <package name="libssl-dev"/>
+            <package name="linux-system-headers"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
     <xi:include href="busybox.xml"/>
-
-    <xi:include href="applets/acpid.xml"/>
-    <xi:include href="applets/adduser.xml"/>
-    <xi:include href="applets/adjtimex.xml"/>
-    <xi:include href="applets/arping.xml"/>
-    <xi:include href="applets/ash.xml"/>
-    <xi:include href="applets/attr.xml"/>
-    <xi:include href="applets/bash.xml"/>
-    <xi:include href="applets/bcron.xml"/>
-    <xi:include href="applets/bc.xml"/>
-    <xi:include href="applets/beep.xml"/>
-    <xi:include href="applets/bind9-dnsutils.xml"/>
-    <xi:include href="applets/binutils.xml"/>
-    <xi:include href="applets/bridge-utils.xml"/>
-    <xi:include href="applets/bsdextrautils.xml"/>
-    <xi:include href="applets/bsdutils.xml"/>
-    <xi:include href="applets/busybox-all-symlinks.xml"/>
-    <xi:include href="applets/bzip2.xml"/>
-    <xi:include href="applets/conspy.xml"/>
-    <xi:include href="applets/coreutils.xml"/>
-    <xi:include href="applets/courier-mta.xml"/>
-    <xi:include href="applets/cpio.xml"/>
-    <xi:include href="applets/daemontools.xml"/>
-    <xi:include href="applets/dash.xml"/>
-    <xi:include href="applets/dc.xml"/>
-    <xi:include href="applets/debianutils.xml"/>
-    <xi:include href="applets/diffutils.xml"/>
-    <xi:include href="applets/dos2unix.xml"/>
-    <xi:include href="applets/ed.xml"/>
-    <xi:include href="applets/eject.xml"/>
-    <xi:include href="applets/fatattr.xml"/>
-    <xi:include href="applets/fbset.xml"/>
-    <xi:include href="applets/fdflush.xml"/>
-    <xi:include href="applets/findutils.xml"/>
-    <xi:include href="applets/gawk.xml"/>
-    <xi:include href="applets/grep.xml"/>
-    <xi:include href="applets/gzip.xml"/>
-    <xi:include href="applets/hexedit.xml"/>
-    <xi:include href="applets/hostname.xml"/>
-    <xi:include href="applets/i2c-tools.xml"/>
-    <xi:include href="applets/ifplugd.xml"/>
-    <xi:include href="applets/ifupdown.xml"/>
-    <xi:include href="applets/inetutils-ftpd.xml"/>
-    <xi:include href="applets/inetutils-ping.xml"/>
-    <xi:include href="applets/inetutils-telnetd.xml"/>
-    <xi:include href="applets/ipcalc.xml"/>
-    <xi:include href="applets/iproute2.xml"/>
-    <xi:include href="applets/ipsvd.xml"/>
-    <xi:include href="applets/kbd.xml"/>
-    <xi:include href="applets/kmod.xml"/>
-    <xi:include href="applets/less.xml"/>
-    <xi:include href="applets/libdigest-sha3-perl.xml"/>
-    <xi:include href="applets/loadlin.xml"/>
-    <xi:include href="applets/login.xml"/>
-    <xi:include href="applets/lrzsz.xml"/>
-    <xi:include href="applets/lsof.xml"/>
-    <xi:include href="applets/lsscsi.xml"/>
-    <xi:include href="applets/maildrop.xml"/>
-    <xi:include href="applets/microcom.xml"/>
-    <xi:include href="applets/miscellaneous.xml"/>
-    <xi:include href="applets/molly-guard.xml"/>
-    <xi:include href="applets/moreutils.xml"/>
-    <xi:include href="applets/mount.xml"/>
-    <xi:include href="applets/mtd-utils.xml"/>
-    <xi:include href="applets/nbd-client.xml"/>
-    <xi:include href="applets/ncal.xml"/>
-    <xi:include href="applets/ncurses-bin.xml"/>
-    <xi:include href="applets/netcat-traditional.xml"/>
-    <xi:include href="applets/net-tools.xml"/>
-    <xi:include href="applets/ntp.xml"/>
-    <xi:include href="applets/openbsd-inetd.xml"/>
-    <xi:include href="applets/parted.xml"/>
-    <xi:include href="applets/passwd.xml"/>
-    <xi:include href="applets/patch.xml"/>
-    <xi:include href="applets/pciutils.xml"/>
-    <xi:include href="applets/policycoreutils.xml"/>
-    <xi:include href="applets/powertop.xml"/>
-    <xi:include href="applets/procps.xml"/>
-    <xi:include href="applets/pscan.xml"/>
-    <xi:include href="applets/psmisc.xml"/>
-    <xi:include href="applets/rdate.xml"/>
-    <xi:include href="applets/runit-init.xml"/>
-    <xi:include href="applets/runit.xml"/>
-    <xi:include href="applets/sed.xml"/>
-    <xi:include href="applets/selinux-utils.xml"/>
-    <xi:include href="applets/setserial.xml"/>
-    <xi:include href="applets/sharutils.xml"/>
-    <xi:include href="applets/smemcap.xml"/>
-    <xi:include href="applets/syslogd.xml"/>
-    <xi:include href="applets/sysstat.xml"/>
-    <xi:include href="applets/sysvinit-utils.xml"/>
-    <xi:include href="applets/telnet.xml"/>
-    <xi:include href="applets/tftp.xml"/>
-    <xi:include href="applets/time.xml"/>
-    <xi:include href="applets/traceroute.xml"/>
-    <xi:include href="applets/udhcpc.xml"/>
-    <xi:include href="applets/udhcpd.xml"/>
-    <xi:include href="applets/uml-utilities.xml"/>
-    <xi:include href="applets/unzip.xml"/>
-    <xi:include href="applets/usbutils.xml"/>
-    <xi:include href="applets/util-linux.xml"/>
-    <xi:include href="applets/vim.xml"/>
-    <xi:include href="applets/vlan.xml"/>
-    <xi:include href="applets/vlock.xml"/>
-    <xi:include href="applets/watchdog.xml"/>
-    <xi:include href="applets/wget.xml"/>
-    <xi:include href="applets/whois.xml"/>
-    <xi:include href="applets/xterm.xml"/>
-    <xi:include href="applets/xxd.xml"/>
-    <xi:include href="applets/xz-utils.xml"/>
+    <xi:include href="busybox-binsh.xml"/>
+    <xi:include href="busybox-ssl-client.xml"/>
+    <xi:include href="busybox-suid.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

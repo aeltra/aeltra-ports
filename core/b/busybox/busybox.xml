@@ -12,8 +12,10 @@
         counterparts.
         </p>
         <p>
-        This package installs the BusyBox binary but does not install
-        symlinks for any of the supported utilities.
+        This package installs the BusyBox binary. The links for its utilities
+        are not part of the package: a trigger creates them whenever programs
+        are installed or removed, for every utility that no other installed
+        package provides.
         </p>
     </description>
 
@@ -23,7 +25,100 @@
 
     <contents>
         <dir src="/etc/network"/>
-        <dir src="${prefix}/share/udhcpc"/>
+        <file src="/etc/network/*"/>
+        <file src="/etc/udhcpc/udhcpc.conf" conffile="true" if="target-build"/>
         <file src="${prefix}/bin/busybox"/>
+        <file src="${prefix}/bin/uname"/>
+        <file src="${prefix}/share/udhcpc"/>
     </contents>
+
+    <maintainer-scripts>
+        <trigger>
+            <interest path="/usr/bin"/>
+            <interest path="/usr/sbin"/>
+            <interest path="/bin"/>
+            <interest path="/sbin"/>
+            <interest path="/tools/bin"/>
+            <interest path="/tools/sbin"/>
+            <script interpreter="busybox"><![CDATA[
+if [ "$AELTRA_INSTALL_PREFIX" = "/tools" ]; then
+    BUSYBOX="/tools/bin/busybox"
+    LINK_DIRS="/tools/bin /tools/sbin"
+else
+    BUSYBOX="/bin/busybox"
+    LINK_DIRS="/usr/bin /usr/sbin"
+fi
+
+# The script is run by the shell of busybox, not by /bin/sh, and it calls
+# the programs through busybox itself: when it runs for the first time,
+# there are no links yet.
+
+# Remove the links of applets that this version no longer has.
+APPLETS="$("$BUSYBOX" --list)"
+
+for DIR in $LINK_DIRS; do
+    for LINK in "$DIR"/*; do
+        if [ ! -L "$LINK" ]; then
+            continue
+        fi
+        if [ "$("$BUSYBOX" readlink "$LINK")" != "$BUSYBOX" ]; then
+            continue
+        fi
+
+        case "
+$APPLETS
+" in
+            *"
+${LINK##*/}
+"*)
+                ;;
+            *)
+                "$BUSYBOX" rm -f "$LINK"
+                ;;
+        esac
+    done
+done
+
+# Create the links that are missing. A name that is taken, by the program
+# of another package for example, is left alone.
+if [ "$AELTRA_INSTALL_PREFIX" = "/tools" ]; then
+    "$BUSYBOX" --install -s /tools/bin
+else
+    # The applets that need root get their links from the busybox-suid
+    # package, if it is installed. It reports the names that are taken as
+    # failures.
+    if [ -x /bin/bbsuid ]; then
+        /bin/bbsuid --install || true
+    fi
+
+    "$BUSYBOX" --install -s
+fi
+            ]]></script>
+        </trigger>
+
+        <prerm interpreter="busybox"><![CDATA[
+if [ "$AELTRA_INSTALL_PREFIX" = "/tools" ]; then
+    BUSYBOX="/tools/bin/busybox"
+    LINK_DIRS="/tools/bin /tools/sbin"
+else
+    BUSYBOX="/bin/busybox"
+    LINK_DIRS="/usr/bin /usr/sbin"
+fi
+
+# The links belong to no package, take them away with busybox. This is run
+# by the shell of busybox: the link /bin/sh may be gone already.
+if [ "$1" = "remove" ]; then
+    for DIR in $LINK_DIRS; do
+        for LINK in "$DIR"/*; do
+            if [ ! -L "$LINK" ]; then
+                continue
+            fi
+            if [ "$("$BUSYBOX" readlink "$LINK")" = "$BUSYBOX" ]; then
+                "$BUSYBOX" rm -f "$LINK"
+            fi
+        done
+    done
+fi
+        ]]></prerm>
+    </maintainer-scripts>
 </package>

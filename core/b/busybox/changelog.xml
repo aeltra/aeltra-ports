@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release epoch="1" version="1.38.0" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-20 09:14:30+03:00">
+        <changeset>
+            <li>Update to 1.38.0, the version in Debian Forky and in Alpine,
+            with Alpine's patches and those security fixes from Debian that
+            Alpine does not have</li>
+            <li>Use Alpine's configuration, with PAM and SELinux switched
+            on</li>
+            <li>Drop the busybox-*-symlinks packages. A trigger of the
+            busybox package creates the links for all applets that no other
+            installed package provides, as in Alpine</li>
+            <li>New package busybox-binsh with the link /bin/sh</li>
+            <li>New package busybox-ssl-client with Alpine's helper for wget
+            and https</li>
+            <li>New package busybox-suid with Alpine's bbsuid, the busybox
+            binary itself is not setuid</li>
+        </changeset>
+    </release>
     <release epoch="1" version="1.33.1" revision="0bolt2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-05-14 23:31:00+03:00">

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="busybox-ssl-client" section="admin">
+    <description>
+        <summary>TLS helper for the wget of BusyBox</summary>
+        <p>
+        The wget of BusyBox calls this program for https. It is a package of
+        its own, so that BusyBox does not depend on OpenSSL.
+        </p>
+    </description>
+
+    <requires>
+        <package name="busybox" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin/ssl_client"/>
+    </contents>
+</package>

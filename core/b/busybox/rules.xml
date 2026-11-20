@@ -5,14 +5,29 @@
 
 cd "$AELTRA_SOURCE_DIR"
 
-cp "$AELTRA_WORK_DIR/patches/configs/defconfig" .config
-sed -e "s@CONFIG_CROSS_COMPILER_PREFIX=\"\"@CONFIG_CROSS_COMPILER_PREFIX=\"$AELTRA_HOST_TYPE-\"@g" -i .config
+# Alpine's configuration, as it is. What we do differently is changed here.
+cp "$AELTRA_WORK_DIR/extra/busyboxconfig" .config
+
+# Unlike Alpine, we build with PAM and SELinux.
+sed -i \
+    -e 's@^# CONFIG_PAM is not set@CONFIG_PAM=y@' \
+    -e 's@^# CONFIG_SELINUX is not set@CONFIG_SELINUX=y@' \
+    -e "s@^CONFIG_CROSS_COMPILER_PREFIX=.*@CONFIG_CROSS_COMPILER_PREFIX=\"$AELTRA_HOST_TYPE-\"@" \
+    .config
 
 if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
-    sed -e "s@CONFIG_SYSROOT=\"\"@CONFIG_SYSROOT=\"/tools\"@g" -i .config
+    # The path that busybox runs itself through.
+    sed -i \
+        -e 's@^CONFIG_SYSROOT=.*@CONFIG_SYSROOT="/tools"@' \
+        -e 's@^CONFIG_BUSYBOX_EXEC_PATH=.*@CONFIG_BUSYBOX_EXEC_PATH="/tools/bin/busybox"@' \
+        .config
 else
-    sed -e "s@CONFIG_SYSROOT=\"\"@CONFIG_SYSROOT=\"/\"@g" -i .config
+    sed -i \
+        -e 's@^CONFIG_SYSROOT=.*@CONFIG_SYSROOT="/"@' \
+        .config
 fi
+
+yes "" | make oldconfig
 
     ]]>
     </prepare>
@@ -20,8 +35,20 @@ fi
     <build>
     <![CDATA[
 
-cd $AELTRA_BUILD_DIR
-make V=1 SKIP_STRIP=y -j$AELTRA_PARALLEL_JOBS
+cd "$AELTRA_BUILD_DIR"
+make V=1 SKIP_STRIP=y -j"$AELTRA_PARALLEL_JOBS"
+
+# The only program that is installed setuid root. It runs busybox for a
+# fixed list of applets, see the busybox-suid package.
+if [ "$AELTRA_BUILD_FOR" != "tools" ]; then
+    "$AELTRA_HOST_TYPE-gcc" $CPPFLAGS $CFLAGS \
+        "$AELTRA_WORK_DIR/extra/bbsuid.c" -o bbsuid $LDFLAGS
+fi
+
+# The helper that wget calls for https, see Alpine's patch for wget.
+"$AELTRA_HOST_TYPE-gcc" $CPPFLAGS $CFLAGS \
+    "$AELTRA_WORK_DIR/extra/ssl_client.c" -o ssl_client \
+    $LDFLAGS -lssl -lcrypto
 
     ]]>
     </build>
@@ -29,12 +56,32 @@ make V=1 SKIP_STRIP=y -j$AELTRA_PARALLEL_JOBS
     <install>
     <![CDATA[
 
-cd $AELTRA_BUILD_DIR
-make CONFIG_PREFIX="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX" install
+cd "$AELTRA_BUILD_DIR"
 
-rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/uname"
-cp "$AELTRA_WORK_DIR/patches/scripts/uname" \
-    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/uname"
+PREFIX_DIR="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+
+# The links to the applets are not installed here. The trigger of the
+# busybox package creates those that no other package provides.
+install -D -m 0755 busybox "$PREFIX_DIR/bin/busybox"
+install -D -m 0755 ssl_client "$PREFIX_DIR/bin/ssl_client"
+
+if [ "$AELTRA_BUILD_FOR" != "tools" ]; then
+    install -D -m 4111 bbsuid "$PREFIX_DIR/bin/bbsuid"
+fi
+ln -s busybox "$PREFIX_DIR/bin/sh"
+
+install -D -m 0755 "$AELTRA_WORK_DIR/extra/uname" "$PREFIX_DIR/bin/uname"
+
+install -D -m 0755 "$AELTRA_WORK_DIR/extra/default.script" \
+    "$PREFIX_DIR/share/udhcpc/default.script"
+install -D -m 0644 "$AELTRA_WORK_DIR/extra/udhcpc.conf" \
+    "$AELTRA_INSTALL_DIR/etc/udhcpc/udhcpc.conf"
+
+# ifupdown needs these to be there.
+for name in if-down.d if-post-down.d if-post-up.d if-pre-down.d \
+        if-pre-up.d if-up.d; do
+    install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/network/$name"
+done
 
     ]]>
     </install>

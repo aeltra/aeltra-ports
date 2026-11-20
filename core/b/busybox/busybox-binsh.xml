@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="busybox-binsh" section="admin">
+    <description>
+        <summary>BusyBox ash as /bin/sh</summary>
+        <p>
+        This package makes the shell of BusyBox the system shell. Maintainer
+        and trigger scripts of all packages are run with /bin/sh, so a system
+        needs this package or another one that provides the link.
+        </p>
+    </description>
+
+    <requires>
+        <package name="busybox" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin/sh"/>
+    </contents>
+</package>
