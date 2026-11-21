@@ -26,6 +26,7 @@
         <dir src="${prefix}/include/solv"/>
         <file src="${prefix}/include/solv/bitmap.h"/>
         <file src="${prefix}/include/solv/chksum.h"/>
+        <file src="${prefix}/include/solv/conda.h"/>
         <file src="${prefix}/include/solv/dataiterator.h"/>
         <file src="${prefix}/include/solv/dirpool.h"/>
         <file src="${prefix}/include/solv/evr.h"/>
@@ -53,6 +54,6 @@
         <file src="${prefix}/include/solv/util.h"/>
         <file src="${prefix}/lib/libsolv.{so,a}"/>
         <file src="${prefix}/lib/pkgconfig/libsolv.pc"/>
-        <file src="${prefix}/share/cmake/libsolv"/>
+        <file src="${prefix}/share/cmake/Modules/FindLibSolv.cmake"/>
     </contents>
 </package>
