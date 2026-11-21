@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_SOURCE_DIR"
+make PREFIX="$AELTRA_INSTALL_PREFIX"
+
+# Nothing is compiled, so this also works when the build is not for the
+# machine it runs on. It tries the program with the shell and the awk of
+# the build system.
+make PREFIX="$AELTRA_INSTALL_PREFIX" check
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_SOURCE_DIR"
+make PREFIX="$AELTRA_INSTALL_PREFIX" DESTDIR="$AELTRA_INSTALL_DIR" install
+
+    ]]>
+    </install>
+</rules>

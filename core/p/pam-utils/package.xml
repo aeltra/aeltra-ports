@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <source name="pam-utils" repo="core" architecture-independent="true" if="target-build">
+        <description>
+            <summary>Tools for the PAM configuration common to all services</summary>
+            <p>
+                pam-auth-update writes the files /etc/pam.d/common-*, which
+                the PAM configuration of every service includes, from
+                profiles that packages with a PAM module bring along. It is
+                a rewrite in shell of the program of the same name in
+                Debian. pam-securetty restricts logins of root to the
+                consoles of the machine.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file
+                subdir="sources"
+                src="pam-utils-1.0.0.tar.gz"
+                upstream-src="https://github.com/aeltra/pam-utils/archive/refs/tags/1.0.0.tar.gz"
+                sha256sum="a352d8ded5d021186e95f6cb000b97fc6e9b679c358c4cdd6889fa0a9baae8a9"
+            />
+        </sources>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="pam-utils.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="pam-utils" section="admin" if="target-build">
+    <description>
+        <summary>Tools for the PAM configuration common to all services</summary>
+        <p>
+            pam-auth-update writes the files /etc/pam.d/common-auth,
+            common-account, common-password, common-session and
+            common-session-noninteractive, which the PAM configuration of
+            every service includes. What goes into them comes from
+            profiles in /usr/share/pam-configs, which packages with a PAM
+            module bring along. The package has the profile for the
+            traditional Unix authentication with /etc/shadow. The program
+            is a rewrite in shell of the one in Debian and takes the
+            profiles of Debian packages as they are.
+        </p>
+        <p>
+            The package also has pam-securetty. "pam-securetty enable"
+            restricts logins of root to the consoles it finds on the
+            machine, by writing /etc/securetty and adding pam_securetty to
+            the PAM configuration of login. "pam-securetty disable" takes
+            that away again. Nothing of it is active unless it is enabled.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/sbin/"/>
+        <file src="${prefix}/share/pam/"/>
+        <file src="${prefix}/share/pam-configs/"/>
+        <file src="${prefix}/share/man/"/>
+    </contents>
+
+    <maintainer-scripts>
+        <postinst><![CDATA[
+
+# Writes /etc/pam.d/common-*. Files that were changed by hand are left
+# alone, the program says so and that is no failure.
+"$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" --package
+
+        ]]></postinst>
+    </maintainer-scripts>
+</package>
