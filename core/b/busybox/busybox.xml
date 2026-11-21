@@ -21,6 +21,9 @@
 
     <requires>
         <package name="base-files"/>
+        <!-- login, su and passwd use PAM and need its modules and its
+             configuration, which libpam0g alone does not bring along. -->
+        <package name="libpam-runtime" if="target-build"/>
     </requires>
 
     <contents>
