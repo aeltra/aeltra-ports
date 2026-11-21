@@ -30,6 +30,8 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"*.la
+
     ]]>
     </install>
 </rules>
