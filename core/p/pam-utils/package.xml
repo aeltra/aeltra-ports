@@ -18,9 +18,9 @@
         <sources>
             <file
                 subdir="sources"
-                src="pam-utils-1.0.0.tar.gz"
-                upstream-src="https://github.com/aeltra/pam-utils/archive/refs/tags/1.0.0.tar.gz"
-                sha256sum="a352d8ded5d021186e95f6cb000b97fc6e9b679c358c4cdd6889fa0a9baae8a9"
+                src="pam-utils-1.0.1.tar.gz"
+                upstream-src="https://github.com/aeltra/pam-utils/archive/refs/tags/1.0.1.tar.gz"
+                sha256sum="dcb0296bd427e66222a30f9e9050efaffc96ac5fd3d3f3ea35c113646ddf70c6"
             />
         </sources>
 

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.0.1" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 23:42:03+03:00">
+        <changeset>
+            <li>New upstream release</li>
+            <li>pam-auth-update no longer insists on being run by root,
+            packages are also installed by a user into a build root</li>
+        </changeset>
+    </release>
     <release version="1.0.0" revision="1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2026-11-21 23:25:14+03:00">
