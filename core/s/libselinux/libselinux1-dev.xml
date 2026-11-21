@@ -19,7 +19,7 @@
     <requires>
         <package name="libselinux1" version="=="/>
         <package name="libsepol1-dev" version=">= 2.6"/>
-        <package name="libpcre3-dev"/>
+        <package name="libpcre2-dev"/>
     </requires>
 
     <contents>
