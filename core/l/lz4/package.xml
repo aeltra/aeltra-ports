@@ -14,23 +14,36 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="lz4-1.9.3.tar.gz" subdir="sources"
-                sha256sum="030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="b720f6f8429ad9005bb8de6d63ba30430b22a56f80f4be900033de055efd72ad"/>
+            <file 
+                subdir="sources"
+                src="lz4-1.10.0.tar.gz"
+                upstream-src="http://ftp.debian.org/debian/pool/main/l/lz4/lz4_1.10.0.orig.tar.gz"
+                sha256sum="537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b"
+            />
+            <file 
+                subdir="patches"
+                src="debian-patches-10.tar.gz"
+                upstream-src=""
+                sha256sum="322ad6db9e23c8bdc6d6b3c1e8fcf679ecf30b3fbb57cd666c242aaf6a15d2a7"
+            />
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/0001-Show-build-info.patch"/>
-                <file src="patches/0002-Fix-static-link.patch"/>
-                <file src="patches/0003-Ignore-test.patch"/>
-                <file src="patches/0004-change-optimize.patch"/>
+                <file src="patches/use-system-xxhash.patch"/>
+                <file src="patches/Create-softlink-for-lz4c.patch"/>
+                <file src="patches/Add-license-information-to-pkgconfig.patch"/>
+                <file src="patches/CVE-2025-62813.patch"/>
+                <file src="patches/tests-test-lz4-abi.py-Drop-m32-and-m64-option-for-te.patch"/>
+                <file src="patches/tests-test-lz4-versions.py-Drop-the-building-of-32-b.patch"/>
+                <file src="patches/fix-test-lz4-list.py.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="python3"/>
+            <package name="cmake"/>
+            <package name="libxxhash-dev"/>
+            <package name="pkgconf"/>
         </requires>
 
         <xi:include href="rules.xml"/>

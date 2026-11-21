@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.10.0" revision="10aeltra1" upstream-version="1.10.0-10"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 11:17:09+03:00">
+        <changeset>
+            <li>Update to the version of Debian forky</li>
+            <li>Builds with cmake and against the xxhash of the system, as in Debian</li>
+        </changeset>
+    </release>
     <release version="1.9.3" revision="1bolt1" upstream-version="1.9.3-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-06 21:29:09+03:00">

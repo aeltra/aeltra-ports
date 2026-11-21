@@ -3,7 +3,27 @@
     <prepare>
     <![CDATA[
 
-true
+export CPPFLAGS="$CPPFLAGS -fvisibility=hidden -DLZ4F_PUBLISH_STATIC_FUNCTIONS -DLZ4IO_MULTITHREAD"
+export CFLAGS="$CFLAGS $CPPFLAGS"
+export LDFLAGS="$LDFLAGS -pthread"
+
+mkdir -p "$AELTRA_BUILD_DIR/_build"
+cd "$AELTRA_BUILD_DIR/_build"
+
+cmake \
+    -DCMAKE_SYSTEM_NAME=Linux \
+    -DCMAKE_C_COMPILER="${AELTRA_HOST_TYPE}-gcc" \
+    -DCMAKE_FIND_ROOT_PATH="$AELTRA_INSTALL_PREFIX" \
+    -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
+    -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
+    -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
+    -DCMAKE_INSTALL_PREFIX="$AELTRA_INSTALL_PREFIX" \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DBUILD_STATIC_LIBS=ON \
+    -DPKG_CONFIG_EXECUTABLE="${AELTRA_HOST_TYPE}-pkg-config" \
+    "$AELTRA_SOURCE_DIR/build/cmake"
 
     ]]>
     </prepare>
@@ -11,9 +31,7 @@ true
     <build>
     <![CDATA[
 
-export CC="$AELTRA_HOST_TYPE-gcc"
-
-cd "$AELTRA_BUILD_DIR"
+cd "$AELTRA_BUILD_DIR/_build"
 make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
@@ -22,13 +40,8 @@ make -j"$AELTRA_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-export CC="$AELTRA_HOST_TYPE-gcc"
-
-cd "$AELTRA_BUILD_DIR"
-make PREFIX="$AELTRA_INSTALL_PREFIX" \
-     DESTDIR="$AELTRA_INSTALL_DIR" \
-     LIBDIR="$AELTRA_INSTALL_PREFIX/lib" \
-     install
+cd "$AELTRA_BUILD_DIR/_build"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
     ]]>
     </install>
