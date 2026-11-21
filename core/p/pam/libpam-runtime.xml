@@ -11,6 +11,8 @@
 
     <requires>
         <package name="libpam-modules" version=">= 1.0.1-6"/>
+        <!-- Writes /etc/pam.d/common-*, which /etc/pam.d/other includes. -->
+        <package name="pam-utils" if="target-build"/>
     </requires>
 
     <contents>
