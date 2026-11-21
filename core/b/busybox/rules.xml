@@ -66,7 +66,10 @@ install -D -m 0755 busybox "$PREFIX_DIR/bin/busybox"
 install -D -m 0755 ssl_client "$PREFIX_DIR/bin/ssl_client"
 
 if [ "$AELTRA_BUILD_FOR" != "tools" ]; then
-    install -D -m 4111 bbsuid "$PREFIX_DIR/bin/bbsuid"
+    # The package gives it mode 4111 (busybox-suid.xml). Here it has to
+    # stay readable: aeltra-pack looks into the file, and it does not run
+    # as root.
+    install -D -m 0755 bbsuid "$PREFIX_DIR/bin/bbsuid"
 fi
 ln -s busybox "$PREFIX_DIR/bin/sh"
 
