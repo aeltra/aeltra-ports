@@ -39,12 +39,8 @@ fi
 
 # Run autoconf for some of the patches to take effect. GCC insists on
 # version 2.69.
-if command -v autoconf2.69 > /dev/null; then
-    export AUTOCONF="autoconf2.69" AUTOM4TE="autom4te2.69"
-fi
-
 for SUBDIR in . gcc libcc1 libffi libgo libstdc++-v3; do
-    cd "$AELTRA_SOURCE_DIR/$SUBDIR" && ${AUTOCONF:-autoconf}
+    cd "$AELTRA_SOURCE_DIR/$SUBDIR" && AUTOM4TE=autom4te2.69 autoconf2.69
 done
 
 cd "$AELTRA_BUILD_DIR"

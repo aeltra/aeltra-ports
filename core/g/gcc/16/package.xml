@@ -151,7 +151,7 @@
             <package name="libc-dev"/>
             <package name="m4"/>
             <package name="libtool"/>
-            <package name="autoconf"/>
+            <package name="autoconf2.69"/>
             <package name="gawk"/>
             <package name="xz-utils"/>
             <package name="zlib1g-dev"/>
