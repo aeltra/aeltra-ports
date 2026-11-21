@@ -18,6 +18,7 @@
     <contents>
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libzstd.{a,so}"/>
+        <file src="${prefix}/lib/cmake"/>
         <file src="${prefix}/lib/pkgconfig"/>
     </contents>
 </package>

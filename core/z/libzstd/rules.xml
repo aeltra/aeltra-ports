@@ -3,7 +3,25 @@
     <prepare>
     <![CDATA[
 
-true
+# As in Debian: the build is the one with make, cmake only writes the files
+# that tell other cmake projects about the library.
+mkdir -p "$AELTRA_BUILD_DIR/_cmake"
+cd "$AELTRA_BUILD_DIR/_cmake"
+
+cmake \
+    -DCMAKE_SYSTEM_NAME=Linux \
+    -DCMAKE_C_COMPILER="${AELTRA_HOST_TYPE}-gcc" \
+    -DCMAKE_CXX_COMPILER="${AELTRA_HOST_TYPE}-g++" \
+    -DCMAKE_FIND_ROOT_PATH="$AELTRA_INSTALL_PREFIX" \
+    -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
+    -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
+    -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
+    -DCMAKE_INSTALL_PREFIX="$AELTRA_INSTALL_PREFIX" \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DZSTD_LEGACY_SUPPORT:BOOL=ON \
+    -DBUILD_TESTING:BOOL=OFF \
+    "$AELTRA_SOURCE_DIR/build/cmake"
 
     ]]>
     </prepare>
@@ -12,9 +30,12 @@ true
     <![CDATA[
 
 export CC="$AELTRA_HOST_TYPE-gcc"
+export CXX="$AELTRA_HOST_TYPE-g++"
+export V=1
 
 cd "$AELTRA_BUILD_DIR"
 make -j"$AELTRA_PARALLEL_JOBS"
+make -j"$AELTRA_PARALLEL_JOBS" -C contrib/pzstd
 
     ]]>
     </build>
@@ -23,12 +44,23 @@ make -j"$AELTRA_PARALLEL_JOBS"
     <![CDATA[
 
 export CC="$AELTRA_HOST_TYPE-gcc"
+export CXX="$AELTRA_HOST_TYPE-g++"
 
 cd "$AELTRA_BUILD_DIR"
 make PREFIX="$AELTRA_INSTALL_PREFIX" \
      DESTDIR="$AELTRA_INSTALL_DIR" \
      LIBDIR="$AELTRA_INSTALL_PREFIX/lib" \
      install
+make PREFIX="$AELTRA_INSTALL_PREFIX" \
+     DESTDIR="$AELTRA_INSTALL_DIR" \
+     -C contrib/pzstd \
+     install
+
+CMAKE_DIR="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/cmake/zstd"
+
+mkdir -p "$CMAKE_DIR"
+cp _cmake/zstdConfig*.cmake "$CMAKE_DIR/"
+cp _cmake/CMakeFiles/Export/*/zstdTargets*.cmake "$CMAKE_DIR/"
 
     ]]>
     </install>

@@ -12,10 +12,18 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libzstd-1.4.8+dfsg.tar.xz" subdir="sources"
-                sha256sum="1e8ce5c4880a6d5bd8d3186e4186607dd19b64fc98a3877fc13aeefd566d67c5"/>
-            <file src="debian-patches-2.1.tar.gz" subdir="patches"
-                sha256sum="81ce2a5ec63f0a6774d451a5ef7da782305c085e10466d67fab35f940dc9d067"/>
+            <file 
+                subdir="sources"
+                src="libzstd-1.5.7+dfsg.tar.xz"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libz/libzstd/libzstd_1.5.7+dfsg.orig.tar.xz"
+                sha256sum="0c092ef267edce57ba7f3f2645c861f72eaf5e76273c6c3632869423464b90a5"
+            />
+            <file 
+                subdir="patches"
+                src="debian-patches-4.tar.gz"
+                upstream-src=""
+                sha256sum="d7bece54ded9056736fcfa03122107017572750bfe9d98c80d118f1d8483c050"
+            />
         </sources>
 
         <patches>
@@ -26,11 +34,15 @@
                 <file src="patches/0014-Reproducible-build.patch"/>
                 <file src="patches/0015-Skip-dev-random-tests-on-hurd.patch"/>
                 <file src="patches/0017-alpha-fbfs-st_mtime.patch"/>
-                <file src="patches/0018-fix-file-permissions-on-compression.patch"/>
+                <file src="patches/0018-kfreebsd-ftbfs-utime-now.patch"/>
+                <file src="patches/0022-tests-timeout.patch"/>
+                <file src="patches/0023-cmake-min-3.13.patch"/>
+                <file src="patches/0024-no-lessopen-test.patch"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="cmake"/>
             <package name="liblz4-dev"/>
             <package name="liblzma-dev"/>
             <package name="zlib1g-dev"/>
