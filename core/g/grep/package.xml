@@ -29,28 +29,32 @@
         <sources>
             <file 
                 subdir="sources"
-                src="grep-3.6.tar.xz"
-                upstream-src="http://ftp.debian.org/debian/pool/main/g/grep/grep_3.6.orig.tar.xz"
-                sha256sum="667e15e8afe189e93f9f21a7cd3a7b3f776202f417330b248c2ad4f997d9373e"
+                src="grep-3.12.tar.xz"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/grep/grep_3.12.orig.tar.xz"
+                sha256sum="2649b27c0e90e632eadcd757be06c6e9a4f48d941de51e7c0f83ff76408a07b9"
             />
             <file 
                 subdir="patches"
                 src="debian-patches-1.tar.gz"
                 upstream-src=""
-                sha256sum="e9a6c86c19eb44dc469670478cb2d1f5e3455cfb22925499fe8eee006a6aae74"
+                sha256sum="94d7e7bd304d68ea9e085c588c4ebe15e55956694c8574fa166a5a2970ea6bb0"
             />
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/02-man_rgrep.patch"/>
+                <file src="patches/XFAIL-test-regex.patch"/>
+                <file src="patches/01-disable-egrep-fgrep-warnings.patch"/>
+                <file src="patches/02-man_egrep_fgrep_rgrep.patch"/>
                 <file src="patches/05-grep-wrapper-sh.patch"/>
+                <file src="patches/1019724-handle-backslash-warning.patch"/>
+                <file src="patches/clean.patch"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="gettext"/>
-            <package name="libpcre3-dev"/>
+            <package name="libpcre2-dev"/>
             <package name="texinfo"/>
         </requires>
 

@@ -3,15 +3,29 @@
     <prepare>
     <![CDATA[
 
+# As in Debian: gettext's autopoint would replace m4 files of gnulib with
+# older ones.
 cd "$AELTRA_SOURCE_DIR"
-autoreconf -vfi
+AUTOPOINT=true autoreconf -vfi
+
+# As in Debian, which uses the regex code of gnulib on musl.
+if [ "$AELTRA_LIBC_NAME" = "musl" ]; then
+    USE_INCLUDED_REGEX="--with-included-regex"
+else
+    USE_INCLUDED_REGEX="--without-included-regex"
+fi
+
+export CFLAGS="$CFLAGS -O3"
+export LDFLAGS="$LDFLAGS -Wl,-z,defs"
 
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls
+    --disable-silent-rules \
+    --disable-nls \
+    $USE_INCLUDED_REGEX
 
     ]]>
     </prepare>
@@ -30,6 +44,18 @@ make -j"$AELTRA_PARALLEL_JOBS"
 
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+cat > "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/rgrep" << 'EOF'
+#!/bin/sh
+
+exec grep -r "$@"
+EOF
+chmod 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/rgrep"
+
+for NAME in egrep fgrep rgrep; do
+    ln -s grep.1 \
+        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/man/man1/$NAME.1"
+done
 
     ]]>
     </install>
