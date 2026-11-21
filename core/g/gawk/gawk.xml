@@ -18,6 +18,7 @@
     </description>
 
     <contents>
+        <file src="/etc/profile.d"/>
         <file src="${prefix}/bin"/>
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/awk"/>
