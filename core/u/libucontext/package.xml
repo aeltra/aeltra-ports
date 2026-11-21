@@ -13,14 +13,15 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libucontext-1.1.tar.gz" subdir="sources"
-                sha256sum="0c9d2d87180416ee21d802c0747e1e310e2b14097a4330299a81ad7cf6405165"/>
+            <file
+                subdir="sources"
+                src="libucontext-1.5.2.tar.xz"
+                upstream-src="https://distfiles.ariadne.space/libucontext/libucontext-1.5.2.tar.xz"
+                sha256sum="b7deadd8d3b9fdb66603e420a99fb12ca170654ee319c37a5fa8b100bf0420a5"/>
         </sources>
 
         <requires>
             <package name="musl-libc-dev"/>
-            <package name="meson"/>
-            <package name="ninja-build"/>
         </requires>
 
         <xi:include href="rules.xml"/>

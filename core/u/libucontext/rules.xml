@@ -3,91 +3,7 @@
     <prepare>
     <![CDATA[
 
-export LDFLAGS="$LDFLAGS -Wl,-z,defs -Wl,--no-as-needed -Wl,-O1"
-
-case $(uname -m) in
-    arm*)
-        MESON_CPU_FAMILY="arm"
-        ;;
-    mips64*)
-        MESON_CPU_FAMILY="mips64"
-        ;;
-    mips*)
-        MESON_CPU_FAMILY="mips"
-        ;;
-    powerpc64*|ppc64*)
-        MESON_CPU_FAMILY="ppc64"
-        ;;
-    powerpc*|ppc*)
-        MESON_CPU_FAMILY="ppc"
-        ;;
-    riscv64*)
-        MESON_CPU_FAMILY="riscv64"
-        ;;
-    i*86*)
-        MESON_CPU_FAMILY="x86"
-        ;;
-    *)
-        MESON_CPU_FAMILY="$(uname -m)"
-        ;;
-esac
-
-case $(uname -m) in
-    s390x*)
-        MESON_ENDIAN="big"
-        ;;
-    *)
-        MESON_ENDIAN="little"
-        ;;
-esac
-
-cd "$AELTRA_BUILD_DIR"
-
-cat << EOF > build.ini
-[constants]
-arch = '$AELTRA_HOST_TYPE'
-
-[binaries]
-c = arch + '-gcc'
-cpp = arch + '-g++'
-strip = arch + '-strip'
-ld = arch + '-ld'
-ar = arch + '-ar'
-objcopy = arch + '-objcopy'
-pkgconfig = arch + '-pkg-config'
-EOF
-
-cat << EOF > cross.ini
-[constants]
-arch = '$AELTRA_HOST_TYPE'
-
-[host_machine]
-system = 'linux'
-cpu_family = '$MESON_CPU_FAMILY'
-endian = '$MESON_ENDIAN'
-cpu = '$(uname -m)'
-
-[binaries]
-c = arch + '-gcc'
-cpp = arch + '-g++'
-strip = arch + '-strip'
-ld = arch + '-ld'
-ar = arch + '-ar'
-objcopy = arch + '-objcopy'
-pkgconfig = arch + '-pkg-config'
-EOF
-
-if [ "$AELTRA_BUILD_FOR" != "tools" ]; then
-    EXTRA_OPTS="--cross-file=cross.ini"
-fi
-
-meson setup \
-    --prefix="$AELTRA_INSTALL_PREFIX" \
-    --buildtype=debugoptimized \
-    --native-file=build.ini \
-    --default-library=both \
-    $EXTRA_OPTS \
-    _build
+true
 
     ]]>
     </prepare>
@@ -95,8 +11,23 @@ meson setup \
     <build>
     <![CDATA[
 
+case "$AELTRA_HOST_TYPE" in
+    powerpc64*)
+        LIBUCONTEXT_ARCH="ppc64"
+        ;;
+    *)
+        LIBUCONTEXT_ARCH="${AELTRA_HOST_TYPE%%-*}"
+        ;;
+esac
+
 cd "$AELTRA_BUILD_DIR"
-ninja -C _build
+make -j"$AELTRA_PARALLEL_JOBS" \
+    ARCH="$LIBUCONTEXT_ARCH" \
+    CC="$AELTRA_HOST_TYPE-gcc" \
+    AR="$AELTRA_HOST_TYPE-ar" \
+    CFLAGS="$CFLAGS" \
+    LDFLAGS="$LDFLAGS" \
+    prefix="$AELTRA_INSTALL_PREFIX"
 
     ]]>
     </build>
@@ -104,8 +35,25 @@ ninja -C _build
     <install>
     <![CDATA[
 
+case "$AELTRA_HOST_TYPE" in
+    powerpc64*)
+        LIBUCONTEXT_ARCH="ppc64"
+        ;;
+    *)
+        LIBUCONTEXT_ARCH="${AELTRA_HOST_TYPE%%-*}"
+        ;;
+esac
+
 cd "$AELTRA_BUILD_DIR"
-DESTDIR="$AELTRA_INSTALL_DIR" ninja -C _build install
+make \
+    ARCH="$LIBUCONTEXT_ARCH" \
+    CC="$AELTRA_HOST_TYPE-gcc" \
+    AR="$AELTRA_HOST_TYPE-ar" \
+    CFLAGS="$CFLAGS" \
+    LDFLAGS="$LDFLAGS" \
+    prefix="$AELTRA_INSTALL_PREFIX" \
+    DESTDIR="$AELTRA_INSTALL_DIR" \
+    install
 
     ]]>
     </install>
