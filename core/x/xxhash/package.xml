@@ -14,21 +14,27 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="xxhash-0.8.0.tar.gz" subdir="sources"
-                sha256sum="7054c3ebd169c97b64a92d7b994ab63c70dd53a06974f1f630ab782c28db0f4f"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="b5b641d245ca3bca8c083af15b657342c452a1fa121385e74a1eca6ffe792e7a"/>
+            <file 
+                subdir="sources"
+                src="xxhash-0.8.3.tar.gz"
+                upstream-src="http://ftp.debian.org/debian/pool/main/x/xxhash/xxhash_0.8.3.orig.tar.gz"
+                sha256sum="aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80"
+            />
+            <file 
+                subdir="patches"
+                src="debian-patches-2.tar.gz"
+                upstream-src=""
+                sha256sum="8a11f84a408b43e21bb2196aa00c2645d9d990a1f6d50d0ddabe9a3a92748c3f"
+            />
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/reproducible-build.patch"/>
-                <file src="patches/upstream-b4dbf5fefc37b8a-fix-empty-version-in-pc-file"/>
             </patchset>
         </patches>
 
         <requires>
-
         </requires>
 
         <xi:include href="rules.xml"/>

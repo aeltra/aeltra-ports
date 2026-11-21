@@ -13,6 +13,13 @@ true
 
 export CC="$AELTRA_HOST_TYPE-gcc"
 
+# As in Debian: pick the vector code at run time.
+case "$AELTRA_HOST_TYPE" in
+    x86_64*)
+        export LIBXXH_DISPATCH=1
+        ;;
+esac
+
 cd "$AELTRA_BUILD_DIR"
 make -j"$AELTRA_PARALLEL_JOBS"
 
@@ -21,6 +28,14 @@ make -j"$AELTRA_PARALLEL_JOBS"
 
     <install>
     <![CDATA[
+
+export CC="$AELTRA_HOST_TYPE-gcc"
+
+case "$AELTRA_HOST_TYPE" in
+    x86_64*)
+        export LIBXXH_DISPATCH=1
+        ;;
+esac
 
 cd "$AELTRA_BUILD_DIR"
 make PREFIX="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX" \
