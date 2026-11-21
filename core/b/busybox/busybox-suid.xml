@@ -20,6 +20,35 @@
     </contents>
 
     <maintainer-scripts>
+        <trigger>
+            <interest path="/usr/bin"/>
+            <interest path="/bin"/>
+            <script interpreter="busybox"><![CDATA[
+# The applets that need root are links to bbsuid, for the names bbsuid
+# knows. A name that is free gets one, and so does a name that the
+# trigger of the busybox package has made a link to busybox. Anything
+# else is the program of another package and is left alone.
+#
+# This does what "bbsuid --install" does, which is not used: it only
+# works for root, and packages are also installed by a user into a root
+# that is not the running system.
+BUSYBOX="/bin/busybox"
+
+for LINK in /bin/mount /bin/umount /bin/su /usr/bin/crontab \
+        /usr/bin/passwd /usr/bin/traceroute /usr/bin/traceroute6 \
+        /usr/bin/vlock; do
+    if [ -L "$LINK" ]; then
+        if [ "$("$BUSYBOX" readlink "$LINK")" != "$BUSYBOX" ]; then
+            continue
+        fi
+        "$BUSYBOX" rm -f "$LINK"
+    elif [ -e "$LINK" ]; then
+        continue
+    fi
+    "$BUSYBOX" ln -s /bin/bbsuid "$LINK"
+done
+            ]]></script>
+        </trigger>
         <prerm interpreter="busybox"><![CDATA[
 # The links belong to no package. Once they are gone, the trigger of the
 # busybox package points the names back to busybox.

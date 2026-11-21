@@ -87,13 +87,10 @@ done
 if [ "$AELTRA_INSTALL_PREFIX" = "/tools" ]; then
     "$BUSYBOX" --install -s /tools/bin
 else
-    # The applets that need root get their links from the busybox-suid
-    # package, if it is installed. It reports the names that are taken as
-    # failures.
-    if [ -x /bin/bbsuid ]; then
-        /bin/bbsuid --install || true
-    fi
-
+    # The applets that need root are links to bbsuid if busybox-suid is
+    # installed, which is the business of that package and its trigger.
+    # Whichever of the two runs first, a name that is taken stays as it is
+    # here.
     "$BUSYBOX" --install -s
 fi
             ]]></script>
