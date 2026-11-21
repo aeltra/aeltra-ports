@@ -28,10 +28,17 @@ ln -sf bzgrep "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzegrep"
 ln -sf bzgrep "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzfgrep"
 ln -sf bzmore "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzless"
 
-rm "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcat" "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzip2"
+# With Debian's makefile.diff bzip2 is the program and bunzip2 and bzcat are
+# links to it, with the install directory in them. Make them relative.
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bunzip2" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcat"
 
-ln -sf bunzip2 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcat"
-ln -sf bunzip2 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzip2"
+ln -s bzip2 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bunzip2"
+ln -s bzip2 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcat"
+
+# A link that leads nowhere would be packaged without a word.
+test -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzip2"
+test ! -L "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzip2"
 
     ]]>
     </install>
