@@ -26,8 +26,8 @@
                 sha256sum="e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"/>
             <file src="flex-2.6.4-8.2.debdiff.gz" subdir="patches"
                 sha256sum="c2ee0c631289f8a4f945a4c62ac05b7fe4abee9c72be1ab5604b9cc44a3d8678"/>
-            <file src="bolt-patches-1.tar.gz" subdir="patches"
-                sha256sum="feda52f423a783a67e39ad6f3875c2f72f990d0140b7e4bfe11c7f15bd405f73"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="3710363eb94f94fac1d2f3998d1f969ff8d348cab085b07baa87da22f7de1e3b"/>
         </sources>
 
         <patches>
@@ -36,6 +36,8 @@
                 <file src="patches/flex-2.6.4-8.2.debdiff"/>
                 <!-- Upstream -->
                 <file src="patches/rpl-malloc-realloc-decl.diff"/>
+                <!-- Aeltra -->
+                <file src="patches/malloc-declaration-c23.diff"/>
             </patchset>
         </patches>
 
