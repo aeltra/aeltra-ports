@@ -6,31 +6,35 @@
 
     <source name="libgpg-error" repo="core" architecture-independent="false" if="tools-build or target-build">
         <description>
-            <summary>Library for common error values and messages in GnuPG components</summary>
+            <summary>GnuPG development runtime library</summary>
             <p>
-            Library that defines common error values for all GnuPG
-            components. Among these are GPG, GPGSM, GPGME, GPG-Agent, libgcrypt,
-            pinentry, SmartCard Daemon and possibly more in the future.
+            Library that defines common error values, messages, and common
+            runtime functionality for all GnuPG components. Among these are GPG,
+            GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard Daemon and
+            possibly more in the future.
+            </p>
+            <p>
+            It will likely be renamed "gpgrt" in the future.
             </p>
         </description>
 
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libgpg-error-1.38.tar.bz2" subdir="sources"
-                sha256sum="d8988275aa69d7149f931c10442e9e34c0242674249e171592b430ff7b3afd02"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="39ec43024f26a641a385ed68e8051169ec0752d0e22a2a1147a509aaf32cdd8a"/>
+            <file src="libgpg-error-1.61.tar.bz2" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libg/libgpg-error/libgpg-error_1.61.orig.tar.bz2"
+                sha256sum="7a85413f2bc354f4f8aa832b718af122e48965e9e0eb9012ee659c13c6385c93"/>
+            <file src="debian-patches-5.tar.gz" subdir="patches"
+                sha256sum="758be9818d9527aadaed6fa706cb75c2fb646ac707dd0c0d8eabcf9e3db1f201"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/0001-Remove-upstream-git-fanciness.patch"/>
-                <file src="patches/0002-build-Fix-cross-compiling-into-a-separate-build-dir.patch"/>
-                <file src="patches/0003-build-On-cross-build-detect-host-s-objdump.patch"/>
-                <file src="patches/0004-build-Fix-command-line-to-make-src-dir.patch"/>
-                <file src="patches/0005-build-Fix-the-gpg-error-config-test-for-cross-build.patch"/>
-                <file src="patches/0006-include-gen-lock-obj.sh.patch"/>
+                <file src="patches/0002-build-No-use-of-awk-with-gen-lock-obj.sh.patch"/>
+                <file src="patches/0003-tests-Skip-a-test-when-HAVE_LONG_DOUBLE_WIDER.patch"/>
+                <file src="patches/0004-tests-Fix-gpgrt_bsprintf-test-for-PowerPC-64.patch"/>
+                <file src="patches/0005-tests-Fix-gpgrt_bsprintf-test-for-PowerPC-32.patch"/>
             </patchset>
         </patches>
 
@@ -45,6 +49,8 @@
 
     <xi:include href="libgpg-error-dev.xml"/>
     <xi:include href="libgpg-error0.xml"/>
+    <xi:include href="gpgrt-tools.xml"/>
+    <xi:include href="libgpg-error-l10n.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

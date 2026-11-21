@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="gpgrt-tools" section="devel">
+    <description>
+        <summary>GnuPG development runtime library (executable tools)</summary>
+        <p>
+        gpgrt (also known as libgpg-error) defines common error values,
+        messages, and common runtime functionality for all GnuPG components.
+        Among these are GPG, GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry,
+        SmartCard Daemon and possibly more in the future.
+        </p>
+        <p>
+        This package contains gpg-error, a program for deciphering the error
+        codes of GnuPG and libgcrypt.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libgpg-error0" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin/gpg-error"/>
+    </contents>
+</package>

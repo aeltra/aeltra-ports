@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package name="libgpg-error-dev" section="libdevel">
     <description>
-        <summary>Library for common error values and messages in GnuPG components (development)</summary>
+        <summary>GnuPG development runtime library (developer tools)</summary>
         <p>
-        Library that defines common error values for all GnuPG
-        components. Among these are GPG, GPGSM, GPGME, GPG-Agent, libgcrypt,
-        pinentry, SmartCard Daemon and possibly more in the future.
+        Library that defines common error values, messages, and common
+        runtime functionality for all GnuPG components. Among these are GPG,
+        GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard Daemon and
+        possibly more in the future.
+        </p>
+        <p>
+        It will likely be renamed "gpgrt" in the future.
         </p>
         <p>
         This package contains the headers and other files needed to compile
@@ -18,10 +22,11 @@
     </requires>
 
     <contents>
-        <file src="${prefix}/bin"/>
+        <file src="${prefix}/bin/gpgrt-config"/>
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libgpg-error.a"/>
         <file src="${prefix}/lib/libgpg-error.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
         <file src="${prefix}/share/aclocal"/>
     </contents>
 </package>

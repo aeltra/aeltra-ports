@@ -3,6 +3,9 @@
     <prepare>
     <![CDATA[
 
+# Debian's patches change configure.ac.
+(cd "$AELTRA_SOURCE_DIR" && autoreconf -fi)
+
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
