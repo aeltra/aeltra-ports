@@ -3,7 +3,9 @@
     <prepare>
     <![CDATA[
 
-(cd "$AELTRA_SOURCE_DIR/expat" && ./buildconf.sh)
+# What buildconf.sh does. The script itself asks for bash, which is not
+# there when expat is built for the first time.
+(cd "$AELTRA_SOURCE_DIR/expat" && autoreconf --warnings=all --install --verbose)
 
 mkdir -p "$AELTRA_BUILD_DIR/expat"
 
