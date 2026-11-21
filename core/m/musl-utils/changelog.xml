@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.2.6-r6" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 01:44:07+03:00">
+        <changeset>
+            <li>Update to the files of Alpine's musl 1.2.6-r6: getent knows the
+                shadow database and prints groups without members correctly.</li>
+        </changeset>
+    </release>
     <release version="1.1.12-r7" revision="1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2017-04-24 22:31:00+03:00">

@@ -20,9 +20,14 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="musl-utils-1.1.12-r7.tar.gz" subdir="sources"
-                sha256sum="1894dce87a729139f629c00deb1e9a1dea3e4520fef5f7fbb7122707243e5e0b"/>
+            <file src="musl-utils-1.2.6-r6.tar.gz" subdir="sources"
+                sha256sum="e78e5b3527972d2ffcdd29bb5ead09682e803658b7be382063eaa0eaa0e884ef"/>
         </sources>
+
+        <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+        </requires>
 
         <xi:include href="rules.xml"/>
     </source>
