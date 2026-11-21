@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="4.3.4" revision="1aeltra1" upstream-version="4.3.4-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 01:51:38+03:00">
+        <changeset>
+            <li>Update to version 4.3.4-1 from Debian forky.</li>
+            <li>Built as with Debian's build profile pkg.cmake.bootstrap: with
+                the libraries that come with CMake (curl, libarchive, libuv,
+                rhash, jsoncpp, cppdap and others) and OpenSSL.</li>
+            <li>cmake-data is part of cmake, as in Debian.</li>
+            <li>No documentation and no manual pages, they need Sphinx.</li>
+        </changeset>
+    </release>
     <release version="3.18.4" revision="2bolt1" upstream-version="3.18.4-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-07 23:07:59+03:00">

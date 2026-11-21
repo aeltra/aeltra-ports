@@ -23,6 +23,13 @@ cmake \
     -DHAVE_POSIX_STRERROR_R:STRING="0" \
     -DHAVE_POSIX_STRERROR_R__TRYRUN_OUTPUT="" \
     -DCMAKE_BUILD_TYPE="RelWithDebInfo" \
+    -DCMAKE_SKIP_RPATH="ON" \
+    -DCMAKE_SKIP_BOOTSTRAP_TEST="ON" \
+    -DCMAKE_USE_OPENSSL="ON" \
+    -DBUILD_CursesDialog="ON" \
+    -DBUILD_TESTING="OFF" \
+    -DCMAKE_DOC_DIR="share/doc/cmake" \
+    -DCMAKE_MAN_DIR="share/man" \
     "$AELTRA_SOURCE_DIR"
 
     ]]>

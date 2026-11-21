@@ -13,13 +13,11 @@
         </p>
     </description>
 
-    <requires>
-        <package name="cmake-data" version="=="/>
-    </requires>
-
     <contents>
         <file src="${prefix}/bin/cmake"/>
         <file src="${prefix}/bin/cpack"/>
         <file src="${prefix}/bin/ctest"/>
+        <file src="${prefix}/share/aclocal"/>
+        <file src="${prefix}/share/cmake-*"/>
     </contents>
 </package>
