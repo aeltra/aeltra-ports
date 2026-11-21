@@ -5,8 +5,12 @@
 
 cd "$AELTRA_BUILD_DIR"
 
+# pkg-config is only there under the name with the system type in front,
+# which meson does not look for in a build without a cross file.
+#
 # Don't pass -Di18n=disabled, the build files of 1.7.0 don't cope with it.
-CC="${AELTRA_HOST_TYPE}-gcc" meson setup \
+CC="${AELTRA_HOST_TYPE}-gcc" PKG_CONFIG="${AELTRA_HOST_TYPE}-pkg-config" \
+meson setup \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --sysconfdir=/etc \
     --libdir="$AELTRA_INSTALL_PREFIX/lib" \
