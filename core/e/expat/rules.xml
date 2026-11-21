@@ -33,10 +33,6 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR/expat"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
-install -m 0644 "$AELTRA_SOURCE_DIR/expat/conftools/expat.m4" \
-    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
-
     ]]>
     </install>
 </rules>

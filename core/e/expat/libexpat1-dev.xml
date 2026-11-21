@@ -21,7 +21,7 @@
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libexpat.a"/>
         <file src="${prefix}/lib/libexpat.so"/>
+        <file src="${prefix}/lib/cmake"/>
         <file src="${prefix}/lib/pkgconfig"/>
-        <file src="${prefix}/share/aclocal"/>
     </contents>
 </package>
