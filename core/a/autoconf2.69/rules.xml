@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+cd "$AELTRA_SOURCE_DIR"
+bh_autotools_dev_update
+
+echo "\
+ac_cv_path_EGREP='$AELTRA_INSTALL_PREFIX/bin/grep -E'
+ac_cv_path_EXPR=$AELTRA_INSTALL_PREFIX/bin/expr
+ac_cv_path_GREP=$AELTRA_INSTALL_PREFIX/bin/grep
+ac_cv_path_M4=$AELTRA_INSTALL_PREFIX/bin/m4
+ac_cv_path_PERL=$AELTRA_INSTALL_PREFIX/bin/perl
+ac_cv_path_SED=$AELTRA_INSTALL_PREFIX/bin/sed
+ac_cv_path_install='$AELTRA_INSTALL_PREFIX/bin/install -c'
+ac_cv_path_mkdir=$AELTRA_INSTALL_PREFIX/bin/mkdir
+" > config.site
+
+export CONFIG_SITE="config.site"
+
+# The programs and the data folder carry the version, so that the package
+# can be installed next to the current autoconf.
+./configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --program-suffix=2.69
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS" \
+    pkgdatadir="$AELTRA_INSTALL_PREFIX/share/autoconf2.69"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make pkgdatadir="$AELTRA_INSTALL_PREFIX/share/autoconf2.69" \
+    DESTDIR="$AELTRA_INSTALL_DIR" install
+
+# The manual would overwrite the one of the current autoconf.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/info"
+
+    ]]>
+    </install>
+</rules>
