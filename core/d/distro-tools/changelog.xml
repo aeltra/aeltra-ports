@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.18.1" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 23:36:00+03:00">
+        <changeset>
+          <li>New upstream release</li>
+          <li>The image specs no longer name pam-config, busybox brings
+              the PAM packages along</li>
+        </changeset>
+    </release>
     <release version="1.18.0" revision="1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2026-11-21 10:46:18+03:00">
