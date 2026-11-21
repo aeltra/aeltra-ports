@@ -19,13 +19,14 @@
         <sources>
             <file
                 subdir="sources"
-                src="distro-tools-1.17.0.tar.gz"
-                upstream-src="https://github.com/aeltra/distro-tools/archive/refs/tags/1.17.0.tar.gz"
-                sha256sum="2e1f1756cef836c4f4af73749f27fbe82aea93186ac8761cf23281a1fe5600fe"/>
+                src="distro-tools-1.18.0.tar.gz"
+                upstream-src="https://github.com/aeltra/distro-tools/archive/refs/tags/1.18.0.tar.gz"
+                sha256sum="ff57ecd5310ad170ccbd45741455d9042985673d0d15bae3d47b82076d040afb"/>
         </sources>
 
         <requires>
             <package name="python3-all"/>
+            <package name="python3-installer"/>
             <package name="python3-setuptools" version=">= 61"/>
         </requires>
 

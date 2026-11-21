@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.18.0" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-21 10:46:18+03:00">
+        <changeset>
+          <li>New upstream release</li>
+          <li>bh_python_install builds a wheel and installs it with the
+              installer module</li>
+        </changeset>
+    </release>
     <release version="1.17.0" revision="1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2026-11-20 11:44:43+03:00">

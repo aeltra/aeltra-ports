@@ -12,14 +12,14 @@ true
     <![CDATA[
 
 # The setup.py files take the version from the environment.
-export AELTRA_DISTRO_TOOLS_VERSION="1.16.0"
+export AELTRA_DISTRO_TOOLS_VERSION="1.18.0"
 
 cd "$AELTRA_SOURCE_DIR"
 
 for PROJECT in ffi-libarchive misc distro-info package repository image-gen; do
     (
         cd $PROJECT
-        bh_python_install --py3 --build
+        bh_python_install --build
     )
 done
 
@@ -32,7 +32,7 @@ done
 PYTHON="$AELTRA_INSTALL_PREFIX/bin/python3"
 
 # The setup.py files take the version from the environment.
-export AELTRA_DISTRO_TOOLS_VERSION="1.16.0"
+export AELTRA_DISTRO_TOOLS_VERSION="1.18.0"
 
 cd "$AELTRA_SOURCE_DIR"
 
@@ -42,7 +42,6 @@ for PROJECT in ffi-libarchive misc distro-info package repository image-gen; do
     (
         cd $PROJECT
         bh_python_install \
-            --py3 \
             --install \
             --root "$AELTRA_INSTALL_DIR/$PROJECT"
     )
