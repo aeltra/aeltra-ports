@@ -16,7 +16,6 @@
 
     <requires>
         <package name="dirmngr" version="=="/>
-        <package name="gnupg-l10n" version="=="/>
         <package name="gpg" version="=="/>
         <package name="gpg-agent" version="=="/>
         <package name="gpgsm" version="=="/>

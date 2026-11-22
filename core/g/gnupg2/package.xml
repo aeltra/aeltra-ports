@@ -124,7 +124,6 @@
     <xi:include href="gpg-agent.xml"/>
     <xi:include href="gpgconf.xml"/>
     <xi:include href="gnupg-utils.xml"/>
-    <xi:include href="gnupg-l10n.xml"/>
     <xi:include href="gpgsm.xml"/>
     <xi:include href="gpgv.xml"/>
     <xi:include href="dirmngr.xml"/>

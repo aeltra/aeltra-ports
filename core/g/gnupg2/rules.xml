@@ -25,6 +25,7 @@ cd "$AELTRA_BUILD_DIR"
     --enable-wks-tools \
     --enable-large-secmem \
     --disable-doc \
+    --disable-nls \
     --disable-rpath
 
     ]]>
