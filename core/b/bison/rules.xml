@@ -18,6 +18,7 @@ cd "$AELTRA_BUILD_DIR"
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --disable-nls \
     --disable-silent-rules
 
     ]]>
