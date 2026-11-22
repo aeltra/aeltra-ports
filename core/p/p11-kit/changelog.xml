@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="0.26.6" revision="2aeltra1" upstream-version="0.26.6-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-22 23:36:58+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky. Debian's
+            patch is listed but not applied: it switches the translations
+            on, which are not built</li>
+            <li>p11-kit has p11-kit-remote and p11-kit-server, as in
+            Debian</li>
+            <li>The configuration is looked for in /etc/pkcs11 and no
+            longer in /usr/etc/pkcs11</li>
+        </changeset>
+    </release>
     <release version="0.23.22" revision="1bolt1" upstream-version="0.23.22-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-23 00:10:32+03:00">

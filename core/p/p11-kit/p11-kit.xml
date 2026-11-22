@@ -20,6 +20,8 @@
 
     <contents>
         <file src="${prefix}/bin"/>
+        <file src="${prefix}/libexec/p11-kit/p11-kit-remote"/>
+        <file src="${prefix}/libexec/p11-kit/p11-kit-server"/>
         <file src="${prefix}/share/p11-kit/modules"/>
     </contents>
 </package>

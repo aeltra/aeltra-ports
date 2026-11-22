@@ -15,25 +15,29 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="p11-kit-0.23.22.tar.xz" subdir="sources"
-                sha256sum="8a8f40153dd5a3f8e7c03e641f8db400133fb2a6a9ab2aee1b6d0cb0495ec6b6"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="f46b81797dba9f9424d9422dc82a5b704053d52bd17ffb31c64f5e8767628d4a"/>
+            <file src="p11-kit-0.26.6.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/p/p11-kit/p11-kit_0.26.6.orig.tar.xz"
+                sha256sum="5fda95dc89964af32dbd8e01b139c166717cf96c4fee3d601bcd60bdb23d23c6"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="020ab79400e7e8e450e12a720e3cc744742804142a3b95d075efe82bb0066e56"/>
         </sources>
 
+        <!-- Debian's patch is not applied. It switches the translations
+             on, which are not built here (see rules.xml), and it needs
+             configure to be made again. -->
+        <!--
         <patches>
             <patchset subdir="sources">
-                <file src="patches/30_nogetauxvalonbsd.diff"/>
-                <file src="patches/35_hurd_enable_secure.diff"/>
-                <file src="patches/41_kfreebsd_LOCAL_PEERCRED.diff"/>
-                <file src="patches/enable_locale.diff"/>
+                <file src="patches/36_enable_locale.diff"/>
             </patchset>
         </patches>
+        -->
 
         <requires>
             <package name="libffi-dev"/>
             <package name="libtasn1-6-dev"/>
             <package name="pkg-config"/>
+            <package name="autotools-dev" tools-prefix=""/>
         </requires>
 
         <xi:include href="rules.xml"/>

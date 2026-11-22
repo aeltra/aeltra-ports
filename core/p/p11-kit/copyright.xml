@@ -1,185 +1,633 @@
 <copyright>
-    <files license="BSD-3-Clause">
+    <files license="BSD-3-clause">
         <file src="*"/>
         <copyright-notice><![CDATA[
-2011 Collabora Ltd.
-2004, 2005, 2007, 2008, 2012, 2013 Stefan Walter
-2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Red Hat, Inc.
-2012, 2013 Redhat Inc.
+2012-2023, Red Hat Inc.
         ]]></copyright-notice>
     </files>
-    <files license="permissive-like-automake-output">
+    <files license="FSFULLR">
+        <file src="build/*"/>
+        <copyright-notice><![CDATA[
+1995-2025, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+ with Autoconf-data exception">
+        <file src="build/litter/*"/>
+        <copyright-notice><![CDATA[
+1996-2025, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+ with Autoconf-data exception">
+        <file src="build/litter/config.guess"/>
+        <file src="build/litter/config.sub"/>
+        <copyright-notice><![CDATA[
+1992-2025, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="build/litter/config.rpath"/>
+        <copyright-notice><![CDATA[
+1995-2025, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="X11">
+        <file src="build/litter/install-sh"/>
+        <copyright-notice><![CDATA[
+1994, X Consortium
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="build/m4/iconv.m4"/>
+        <file src="build/m4/ltversion.m4"/>
+        <copyright-notice><![CDATA[
+2000-2002, 2004, 2007-2025, Free Software Foundation
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="build/m4/libtool.m4"/>
+        <file src="build/m4/ltsugar.m4"/>
+        <copyright-notice><![CDATA[
+1996-2001, 2003-2019, 2021-2024, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="build/m4/ltoptions.m4"/>
+        <file src="build/m4/lt~obsolete.m4"/>
+        <copyright-notice><![CDATA[
+2004, 2005, 2007-2009, 2011-2019, 2021-2024, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/*"/>
+        <copyright-notice><![CDATA[
+2012-2024, Red Hat Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/array.c"/>
+        <file src="common/array.h"/>
+        <file src="common/compat.c"/>
+        <file src="common/compat.h"/>
+        <file src="common/debug.c"/>
+        <file src="common/debug.h"/>
+        <file src="common/options.c"/>
+        <file src="common/test-array.c"/>
+        <file src="common/test-dict.c"/>
+        <copyright-notice><![CDATA[
+2011, 2026, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/attrs.c"/>
+        <file src="common/attrs.h"/>
+        <file src="common/constants.h"/>
+        <copyright-notice><![CDATA[
+2012, Redhat Inc.
+2011, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="ISC">
+        <file src="common/base64.c"/>
+        <file src="common/base64.h"/>
+        <copyright-notice><![CDATA[
+1996, 1998, Internet Software Consortium.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/buffer.c"/>
+        <copyright-notice><![CDATA[
+2013, Red Hat Inc.
+2007, 2012, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/buffer.h"/>
+        <copyright-notice><![CDATA[
+2012-2023, Red Hat Inc.
+2007, 2008, 2012, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/constants.c"/>
+        <copyright-notice><![CDATA[
+2013, Redhat Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/dict.c"/>
+        <file src="common/dict.h"/>
+        <copyright-notice><![CDATA[
+2011, Collabora Ltd.
+2004, 2005, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="ISC">
+        <file src="common/hash.c"/>
+        <copyright-notice><![CDATA[
+2004, 2005, 2007, 2011, Internet Systems Consortium, Inc. ("ISC")
+2000, 2001, 2003, Internet Software Consortium.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/hex.c"/>
+        <file src="common/hex.h"/>
+        <file src="common/url.c"/>
+        <file src="common/url.h"/>
+        <copyright-notice><![CDATA[
+2013, 2018, 2019, 2023, Red Hat Inc.
+2011, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/init.h"/>
+        <file src="common/library.c"/>
+        <file src="common/message.c"/>
+        <copyright-notice><![CDATA[
+2012, Stef Walter
+2011, Collabora Ltd
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/lexer.c"/>
+        <file src="common/lexer.h"/>
+        <file src="common/path.c"/>
+        <copyright-notice><![CDATA[
+2013, 2021-2023, Red Hat Inc.
+2011, Collabora Ltd.
+2005, 2008, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/library.h"/>
+        <file src="common/message.h"/>
+        <copyright-notice><![CDATA[
+2011, Collabora Ltd
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/mock.c"/>
+        <copyright-notice><![CDATA[
+2021-2023, Red Hat, Inc.
+2011, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="customFSFULLRWD">
         <file src="common/pkcs11.h"/>
         <copyright-notice><![CDATA[
-2006, 2007 g10 Code GmbH
-2006 Andreas Jellinghaus
-Copyright 2017 Red Hat, Inc.
+2017, 2021-2025, Red Hat, Inc.
+2006, Andreas Jellinghaus
+2006, 2007, g10 Code GmbH
         ]]></copyright-notice>
-        <license><![CDATA[
-This file is free software; as a special exception the author gives
-  unlimited permission to copy and/or distribute it, with or without
-  modifications, as long as this notice is preserved.
-
-  This file is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY, to the extent permitted by law; without even
-  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-  PURPOSE.  */
-        ]]></license>
     </files>
-    <files license="BSD-3-Clause">
+    <files license="ISC">
+        <file src="common/readpassphrase.c"/>
+        <copyright-notice><![CDATA[
+2000-2002, 2007, 2010, Todd C. Miller <Todd.Miller@courtesan.com>
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/runtime.c"/>
+        <file src="common/runtime.h"/>
+        <file src="common/test-runtime.c"/>
+        <copyright-notice><![CDATA[
+2012-2023, Red Hat Inc
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="common/unix-peer.c"/>
+        <copyright-notice><![CDATA[
+2013, Nikos Mavrogiannopoulos
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
         <file src="common/vsock.c"/>
         <file src="common/vsock.h"/>
         <copyright-notice><![CDATA[
-2020 Amazon.com, Inc. or its affiliates.
+2020, Amazon.com, Inc. or its affiliates.
         ]]></copyright-notice>
     </files>
-    <files license="BSD-3-Clause">
-        <file src="p11-kit/server.c"/>
-        <file src="common/unix-peer.h"/>
+    <files license="BSD-3-clause">
+        <file src="fuzz/conf_fuzzer.c"/>
+        <file src="fuzz/persist_fuzzer.c"/>
+        <file src="fuzz/uri_fuzzer.c"/>
         <copyright-notice><![CDATA[
-2014 Red Hat Inc.
+2026, David Korczynski.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="fuzz/main.c"/>
+        <copyright-notice><![CDATA[
+2017, Nikos Mavrogiannopoulos
+        ]]></copyright-notice>
+    </files>
+    <files license="Apache-2.0">
+        <file src="fuzz/rpc_fuzzer.c"/>
+        <copyright-notice><![CDATA[
+2016, Google Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/add-profile.c"/>
+        <file src="p11-kit/client.c"/>
+        <file src="p11-kit/client.h"/>
+        <file src="p11-kit/delete-object.c"/>
+        <file src="p11-kit/delete-profile.c"/>
+        <file src="p11-kit/deprecated.h"/>
+        <file src="p11-kit/docs.h"/>
+        <file src="p11-kit/export-object.c"/>
+        <file src="p11-kit/filter.c"/>
+        <file src="p11-kit/filter.h"/>
+        <file src="p11-kit/generate-keypair.c"/>
+        <file src="p11-kit/import-object.c"/>
+        <file src="p11-kit/iter.c"/>
+        <file src="p11-kit/list-mechanisms.c"/>
+        <file src="p11-kit/list-objects.c"/>
+        <file src="p11-kit/list-profiles.c"/>
+        <file src="p11-kit/log.h"/>
+        <file src="p11-kit/mock-module-ep11.c"/>
+        <file src="p11-kit/mock-module-ep12.c"/>
+        <file src="p11-kit/mock-module-ep9.c"/>
+        <file src="p11-kit/modules.h"/>
+        <file src="p11-kit/print-config.c"/>
+        <file src="p11-kit/proxy.h"/>
+        <file src="p11-kit/remote.c"/>
+        <file src="p11-kit/remote.h"/>
+        <file src="p11-kit/server.c"/>
+        <file src="p11-kit/test-iter.c"/>
+        <file src="p11-kit/test-util.c"/>
+        <file src="p11-kit/test-version.c"/>
+        <file src="p11-kit/tool.c"/>
+        <file src="p11-kit/tool.h"/>
+        <file src="p11-kit/tty.c"/>
+        <file src="p11-kit/tty.h"/>
+        <copyright-notice><![CDATA[
+2012-2024, Red Hat Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/client-init.c"/>
+        <file src="p11-kit/proxy-init.c"/>
+        <file src="p11-kit/util.c"/>
+        <copyright-notice><![CDATA[
+2012, Stef Walter
+2011, Collabora Ltd
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/conf.c"/>
+        <file src="p11-kit/conf.h"/>
+        <copyright-notice><![CDATA[
+2011, Collabora Ltd.
+2004, 2005, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/frob-setuid.c"/>
+        <file src="p11-kit/test-filter.c"/>
+        <file src="p11-kit/test-log.c"/>
+        <file src="p11-kit/test-log3.c"/>
+        <file src="p11-kit/test-managed.c"/>
+        <file src="p11-kit/test-modules.c"/>
+        <file src="p11-kit/test-proxy.c"/>
+        <file src="p11-kit/test-proxy3.c"/>
+        <file src="p11-kit/test-server.c"/>
+        <copyright-notice><![CDATA[
+2012-2023, Red Hat Inc
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/iter.gnu.c"/>
+        <file src="p11-kit/iter.h"/>
+        <file src="p11-kit/pkcs11.h"/>
+        <file src="p11-kit/virtual.h"/>
+        <copyright-notice><![CDATA[
+2012, 2013, 2016, Red Hat, Inc
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/list-tokens.c"/>
+        <file src="p11-kit/version.h.in"/>
+        <copyright-notice><![CDATA[
+2023, 2024, Red Hat, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/lists.c"/>
+        <file src="p11-kit/messages.c"/>
+        <file src="p11-kit/p11-kit.c"/>
+        <file src="p11-kit/p11-kit.h"/>
+        <file src="p11-kit/pin.c"/>
+        <file src="p11-kit/pin.gnu.c"/>
+        <file src="p11-kit/pin.h"/>
+        <file src="p11-kit/print-messages.c"/>
+        <file src="p11-kit/private.h"/>
+        <file src="p11-kit/test-conf.c"/>
+        <file src="p11-kit/test-init.c"/>
+        <file src="p11-kit/test-pin.c"/>
+        <file src="p11-kit/test-uri.c"/>
+        <file src="p11-kit/uri.c"/>
+        <file src="p11-kit/uri.gnu.c"/>
+        <file src="p11-kit/uri.h"/>
+        <copyright-notice><![CDATA[
+2011, 2026, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/log.c"/>
+        <file src="p11-kit/rpc-attribute.c"/>
+        <file src="p11-kit/rpc-attribute.h"/>
+        <file src="p11-kit/rpc-client.c"/>
+        <file src="p11-kit/rpc-mechanism.c"/>
+        <file src="p11-kit/rpc-mechanism.h"/>
+        <file src="p11-kit/rpc-message.c"/>
+        <file src="p11-kit/rpc-message.h"/>
+        <file src="p11-kit/rpc-server.c"/>
+        <file src="p11-kit/rpc-transport.c"/>
+        <file src="p11-kit/test-mock.c"/>
+        <file src="p11-kit/test-rpc-message.c"/>
+        <file src="p11-kit/test-rpc.c"/>
+        <file src="p11-kit/test-transport-base.c"/>
+        <file src="p11-kit/test-transport.c"/>
+        <file src="p11-kit/test-transport3.c"/>
+        <file src="p11-kit/test-virtual.c"/>
+        <file src="p11-kit/virtual.c"/>
+        <copyright-notice><![CDATA[
+2012-2023, Red Hat Inc.
+2007, 2008, 2012, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/mock-module-ep.c"/>
+        <file src="p11-kit/mock-module-ep2.c"/>
+        <file src="p11-kit/mock-module-ep3.c"/>
+        <file src="p11-kit/mock-module-ep4.c"/>
+        <file src="p11-kit/mock-module-v3-ep2.c"/>
+        <file src="p11-kit/rpc.h"/>
+        <file src="p11-kit/test-progname.c"/>
+        <copyright-notice><![CDATA[
+2012, 2013, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/mock-module-ep10.c"/>
+        <file src="p11-kit/mock-module-ep5.c"/>
+        <file src="p11-kit/mock-module-ep6.c"/>
+        <file src="p11-kit/mock-module-ep7.c"/>
+        <file src="p11-kit/mock-module-ep8.c"/>
+        <file src="p11-kit/mock-module-v3-ep.c"/>
+        <copyright-notice><![CDATA[
+2018-2023, Red Hat, Inc.
+2012, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/modules.c"/>
+        <copyright-notice><![CDATA[
+2017-2023, Red Hat, Inc.
+2011, Collabora Ltd.
+2008, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/proxy.c"/>
+        <copyright-notice><![CDATA[
+2013, 2021-2023, Red Hat Inc.
+2011, Collabora Ltd.
+2005, 2008, Stefan Walter
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="p11-kit/test-deprecated.c"/>
+        <copyright-notice><![CDATA[
+2012, Red Hat Inc
+2011, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="po/Rules-quot"/>
+        <file src="po/boldquot.sed"/>
+        <file src="po/en@boldquot.header"/>
+        <file src="po/en@quot.header"/>
+        <file src="po/insert-header.sed"/>
+        <file src="po/quot.sed"/>
+        <copyright-notice><![CDATA[
+1995-2025, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="po/hu.po"/>
+        <copyright-notice><![CDATA[
+2012, 2014, 2022
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="po/ka.po"/>
+        <copyright-notice><![CDATA[
+2011, 2026, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="UNKNOWN">
+        <file src="po/kk.po"/>
+        <copyright-notice><![CDATA[
+2026, Collabora Ltd.
+        ]]></copyright-notice>
+        <license><![CDATA[
+Please fill license UNKNOWN from header of po/kk.po
+        ]]></license>
+    </files>
+    <files license="FSFAP">
+        <file src="po/remove-potcdate.sed"/>
+        <copyright-notice><![CDATA[
+2002, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="trust/*"/>
+        <copyright-notice><![CDATA[
+2012-2024, Red Hat Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="trust/check-format.c"/>
+        <copyright-notice><![CDATA[
+2012-2023, Red Hat Inc
         ]]></copyright-notice>
     </files>
     <files license="ISC">
         <file src="trust/digest.c"/>
-        <file src="common/hash.c"/>
         <copyright-notice><![CDATA[
-2004, 2005, 2007, 2011  Internet Systems Consortium, Inc. ("ISC")
-2000, 2001, 2003  Internet Software Consortium.
+2004, 2005, 2007, 2011, Internet Systems Consortium, Inc. ("ISC")
+2000, 2001, 2003, Internet Software Consortium.
         ]]></copyright-notice>
-        <license><![CDATA[
+    </files>
+    <files license="BSD-3-clause">
+        <file src="trust/test-bundle.c"/>
+        <file src="trust/test-cer.c"/>
+        <file src="trust/test-enumerate.c"/>
+        <file src="trust/test-openssl.c"/>
+        <file src="trust/trust.c"/>
+        <copyright-notice><![CDATA[
+2011, 2026, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="trust/test-edk2.c"/>
+        <file src="trust/test-jks.c"/>
+        <copyright-notice><![CDATA[
+2013, 2018, 2019, 2023, Red Hat Inc.
+2011, Collabora Ltd.
+        ]]></copyright-notice>
+    </files>
+    <license handle="Apache-2.0"><![CDATA[
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS"BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+On Debian systems, the complete text of the Apache License,
+Version 2.0 can be found in '/usr/share/common-licenses/Apache-2.0'.
+    ]]></license>
+    <license handle="BSD-3-clause"><![CDATA[
+The BSD License
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+  * Neither the name of the copyright holder nor the names of its
+    contributors may be used to endorse or promote products derived from
+    this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    ]]></license>
+    <license handle="FSFAP"><![CDATA[
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.  This file is offered as-is,
+without any warranty.
+    ]]></license>
+    <license handle="FSFULLR"><![CDATA[
+This file is free software; the Free Software Foundation gives
+unlimited permission to copy and/or distribute it, with or without
+modifications, as long as this notice is preserved.
+    ]]></license>
+    <license handle="GPL-2+ with Autoconf-data exception"><![CDATA[
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+As a special exception to the GNU General Public License, if you
+distribute this file as part of a program that contains a
+configuration script generated by Autoconf, you may include it under
+the same distribution terms that you use for the rest of that program.
+    ]]></license>
+    <license handle="GPL-3+ with Autoconf-data exception"><![CDATA[
+This file is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+As a special exception to the GNU General Public License, if you
+distribute this file as part of a program that contains a
+configuration script generated by Autoconf, you may include it under
+the same distribution terms that you use for the rest of that
+program.  This Exception is an additional permission under section 7
+of the GNU General Public License, version 3 ("GPLv3").
+    ]]></license>
+    <license handle="ISC"><![CDATA[
+The ISC License
+
+Copyright (c) 2023 by the copyright holder
+
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
 copyright notice and this permission notice appear in all copies.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND ISC DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS.  IN NO EVENT SHALL ISC BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-        ]]></license>
-    </files>
-    <files license="ISC+IBM">
-        <file src="trust/base64.c"/>
-        <file src="trust/base64.h"/>
-        <copyright-notice><![CDATA[
-1996, 1998 by Internet Software Consortium
-Portions Copyright (c) 1995 by International Business Machines, Inc.
-        ]]></copyright-notice>
-        <license><![CDATA[
-Copyright (c) 1996, 1998 by Internet Software Consortium.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+    ]]></license>
+    <license handle="LGPL-2.1+"><![CDATA[
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; version 2.1 of the License, or (at
+your option) any later version.
+On Debian systems, the complete text of version 2.1 of the GNU Lesser
+General Public License can be found in '/usr/share/common-licenses/LGPL-2.1'.
+    ]]></license>
+    <license handle="X11"><![CDATA[
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Permission to use, copy, modify, and distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND INTERNET SOFTWARE CONSORTIUM DISCLAIMS
-ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES
-OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL INTERNET SOFTWARE
-CONSORTIUM BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
-DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
-PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
-ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNEC-
+TION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+Except as contained in this notice, the name of the X Consortium shall not
+be used in advertising or otherwise to promote the sale, use or other deal-
+ings in this Software without prior written authorization from the X Consor-
+tium.
+    ]]></license>
+    <license handle="customFSFULLRWD"><![CDATA[
+This file is free software; as a special exception the author gives
+unlimited permission to copy and/or distribute it, with or without
+modifications, as long as this notice is preserved.
 
-Portions Copyright (c) 1995 by International Business Machines, Inc.
-
-International Business Machines, Inc. (hereinafter called IBM) grants
-permission under its copyrights to use, copy, modify, and distribute this
-Software with or without fee, provided that the above copyright notice and
-all paragraphs of this notice appear in all copies, and that the name of IBM
-not be used in connection with the marketing of any product incorporating
-the Software or modifications thereof, without specific, written prior
-permission.
-
-To the extent it has a right to do so, IBM grants an immunity from suit
-under its patents, if any, for the use, sale or manufacture of products to
-the extent that such products are used for performing Domain Name System
-dynamic updates in TCP/IP networks by means of the Software.  No immunity is
-granted for any product per se or for any other function of any product.
-
-THE SOFTWARE IS PROVIDED "AS IS", AND IBM DISCLAIMS ALL WARRANTIES,
-INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-PARTICULAR PURPOSE.  IN NO EVENT SHALL IBM BE LIABLE FOR ANY SPECIAL,
-DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER ARISING
-OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE, EVEN
-IF IBM IS APPRISED OF THE POSSIBILITY OF SUCH DAMAGES.
-        ]]></license>
-    </files>
-    <files license="BSD-3-Clause">
-        <file src="common/compat.c"/>
-        <copyright-notice><![CDATA[
-Copyright (c) 2011 Collabora Ltd.
-Portions of this file are covered by the following copyright:
-Copyright (c) 2001 Mike Barcroft <mike@FreeBSD.org>
-Copyright (c) 1990, 1993
-Copyright (c) 1987, 1993
-The Regents of the University of California.
-        ]]></copyright-notice>
-    </files>
-    <files license="BSD-3-Clause">
-        <file src="common/unix-peer.c"/>
-        <copyright-notice><![CDATA[
-2013 Nikos Mavrogiannopoulos
-        ]]></copyright-notice>
-    </files>
-    <files license="BSD-3-Clause">
-        <file src="common/frob-getprogname.c"/>
-        <copyright-notice><![CDATA[
-2020 Red Hat Inc.
-        ]]></copyright-notice>
-    </files>
-    <files license="BSD-3-Clause">
-        <file src="p11-kit/mock-module-ep8.c"/>
-        <copyright-notice><![CDATA[
-2012 Stefan Walter
-2020 Red Hat, Inc.
-        ]]></copyright-notice>
-    </files>
-    <files license="BSD-3-Clause">
-        <file src="po/de.po"/>
-        <copyright-notice><![CDATA[
-2011 Chris Leick
-        ]]></copyright-notice>
-    </files>
-    <files license="same-as-rest-of-p11kit">
-        <file src="po/fi.po"/>
-        <copyright-notice><![CDATA[
-2012 Rosetta Contributors and Canonical Ltd 2012
-Eerik Uusi-Illikainen https://launchpad.net/~ekiuusi-4, 2012
-Timo Jyrinki <timo.jyrinki@iki.fi>, 2012
-        ]]></copyright-notice>
-        <license><![CDATA[
-This file is distributed under the same license as the p11-kit
-package.
-        ]]></license>
-    </files>
-    <license handle="BSD-3-Clause"><![CDATA[
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-3. Neither the name of the University nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-SUCH DAMAGE.
+This file is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY, to the extent permitted by law; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.
     ]]></license>
 </copyright>
