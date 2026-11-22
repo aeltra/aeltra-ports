@@ -17,29 +17,33 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libassuan-2.5.3.tar.bz2" subdir="sources"
-                sha256sum="91bcb0403866b4e7c4bc1cc52ed4c364a9b5414b3994f718c70303f7f765e702"/>
-            <file src="debian-patches-7.1.tar.gz" subdir="patches"
-                sha256sum="6f292e5a5061cf417b903013ed70638d8fc6d4447d6f9456e9615b37c486699f"/>
+            <file src="libassuan-3.0.2.tar.bz2" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/liba/libassuan/libassuan_3.0.2.orig.tar.bz2"
+                sha256sum="d2931cdad266e633510f9970e1a2f346055e351bb19f9b78912475b8074c36f6"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="09261a66d8d1d11bb9efb1e48872ca1c24db9334d151dc444c9f1e31a15afbb8"/>
         </sources>
 
+        <!-- Debian's patches are not applied. The first one is for
+             Windows, the second one is for its own packaging and needs
+             configure to be made again. See the comment in rules.xml. -->
+        <!--
         <patches>
             <patchset subdir="sources">
                 <file src="patches/0001-avoid-linker-errors-when-cross-building-for-win32.patch"/>
                 <file src="patches/0002-avoid-self-describing-as-a-beta.patch"/>
-                <file src="patches/0003-pass-through-CFLAGS-CPPFLAGS-LDFLAGS-_FOR_BUILD-when.patch"/>
             </patchset>
         </patches>
+        -->
 
         <requires>
-            <package name="autoconf"/>
-            <package name="libgpg-error-dev" version=">= 1.17"/>
+            <package name="libgpg-error-dev" version=">= 1.33"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
-    <xi:include href="libassuan0.xml"/>
+    <xi:include href="libassuan9.xml"/>
     <xi:include href="libassuan-dev.xml"/>
 
     <xi:include href="changelog.xml"/>

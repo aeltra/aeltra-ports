@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="libassuan0" section="libs">
+<package name="libassuan9" section="libs">
     <description>
         <summary>IPC library for the GnuPG components</summary>
         <p>
@@ -11,9 +11,6 @@
         This package contains the runtime shared library.
         </p>
     </description>
-
-    <requires>
-    </requires>
 
     <contents>
         <file src="${prefix}/lib/libassuan.so.*"/>

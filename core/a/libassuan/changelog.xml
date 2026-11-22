@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.0.2" revision="2aeltra1" upstream-version="3.0.2-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-22 13:39:03+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky. Debian's
+            patches are listed but not applied: they are for Windows and
+            for its own packaging</li>
+            <li>The library package is libassuan9 now, after the new
+            soname</li>
+            <li>libassuan-dev has libassuan.pc and requires
+            libgpg-error-dev</li>
+        </changeset>
+    </release>
     <release version="2.5.3" revision="7.1bolt1" upstream-version="2.5.3-7.1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-20 21:23:19+03:00">

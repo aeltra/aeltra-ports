@@ -13,7 +13,8 @@
     </description>
 
     <requires>
-        <package name="libassuan0" version="=="/>
+        <package name="libassuan9" version="=="/>
+        <package name="libgpg-error-dev" version=">= 1.33"/>
     </requires>
 
     <contents>
@@ -21,6 +22,7 @@
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libassuan.a"/>
         <file src="${prefix}/lib/libassuan.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
         <file src="${prefix}/share/aclocal"/>
     </contents>
 </package>
