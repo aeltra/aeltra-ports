@@ -11,8 +11,7 @@ cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
-    --host="$AELTRA_HOST_TYPE" \
-    --disable-nls
+    --host="$AELTRA_HOST_TYPE"
 
     ]]>
     </prepare>

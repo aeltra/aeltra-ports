@@ -19,6 +19,7 @@
 
         <sources>
             <file src="gengetopt-2.23+dfsg1.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/gengetopt/gengetopt_2.23+dfsg1.orig.tar.xz"
                 sha256sum="7e59a92a6dbc3f7c3e6a52c41d14d8dd83249ddcfee753d0956839b24a74b0a8"/>
             <file src="debian-patches-1.tar.gz" subdir="patches"
                 sha256sum="541c15180ff09150e6df1fcf46c1d0987da84fa9b8ce5e9f60e7f0c0fd4ec32b"/>
@@ -32,6 +33,8 @@
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
             <package name="flex"/>
         </requires>
 
