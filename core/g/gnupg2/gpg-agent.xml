@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="gnupg-agent" section="utils">
+<package name="gpg-agent" section="utils">
     <description>
         <summary>GNU privacy guard - cryptographic agent</summary>
         <p>
@@ -12,18 +12,19 @@
         This package contains the agent program gpg-agent which handles all
         secret key material for OpenPGP and S/MIME use. The agent also
         provides a passphrase cache, which is used by pre-2.1 versions of
-        GnuPG for OpenPGP operations.
+        GnuPG for OpenPGP operations. Without this package, trying to do
+        secret-key operations with any part of the modern GnuPG suite will
+        fail.
         </p>
     </description>
 
     <requires>
+        <package name="gpgconf" version="=="/>
         <package name="pinentry-curses"/>
     </requires>
 
     <contents>
         <file src="${prefix}/bin/gpg-agent"/>
-        <file src="${prefix}/bin/gpg-connect-agent"/>
-        <dir src="${prefix}/lib/gnupg"/>
         <file src="${prefix}/lib/gnupg/gpg-check-pattern" mode="0755"/>
         <file src="${prefix}/lib/gnupg/gpg-preset-passphrase" mode="0755"/>
         <file src="${prefix}/lib/gnupg/gpg-protect-tool" mode="0755"/>

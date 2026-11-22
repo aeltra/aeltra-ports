@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="gnupg-utils" section="utils">
+    <description>
+        <summary>GNU privacy guard - utility programs</summary>
+        <p>
+        GnuPG is GNU's tool for secure communication and data storage.
+        </p>
+        <p>
+        This package contains several useful utilities for manipulating
+        OpenPGP data and other related cryptographic elements. It includes:
+        </p>
+        <p>
+        * addgnupghome -- create .gnupg home directories
+        * applygnupgdefaults -- run gpgconf --apply-defaults for all users
+        * gpgparsemail -- parse an e-mail message into annotated format
+        * gpgsplit -- split a sequence of OpenPGP packets into files
+        * gpgtar -- encrypt or sign files in an archive
+        * kbxutil -- list, export, import Keybox data
+        * lspgpot -- convert PGP ownertrust values to GnuPG
+        * migrate-pubring-from-classic-gpg -- use only "modern" formats
+        * symcryptrun -- use simple symmetric encryption tool in GnuPG framework
+        * watchgnupg -- watch socket-based logs
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/gpg-mail-tube"/>
+        <file src="${prefix}/bin/gpgparsemail"/>
+        <file src="${prefix}/bin/gpgsplit"/>
+        <file src="${prefix}/bin/gpgtar"/>
+        <file src="${prefix}/bin/kbxutil"/>
+        <file src="${prefix}/bin/watchgnupg"/>
+        <file src="${prefix}/lib/gnupg/gpg-pair-tool" mode="0755"/>
+        <file src="${prefix}/sbin/addgnupghome"/>
+        <file src="${prefix}/sbin/applygnupgdefaults"/>
+    </contents>
+</package>

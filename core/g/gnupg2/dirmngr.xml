@@ -8,26 +8,22 @@
         certificates. For OpenPGP, this means pulling from the public
         HKP/HKPS keyservers, or from LDAP servers. For X.509 this includes
         Certificate Revocation Lists (CRLs) and Online Certificate Status
-        Protocol updates (OCSP). It is capable of using tor for network
+        Protocol updates (OCSP). It is capable of using Tor for network
         access.
         </p>
         <p>
         dirmngr is used for network access by gpg, gpgsm, and dirmngr-client,
-        among other tools.
+        among other tools. Unless this package is installed, the parts of
+        the GnuPG suite that try to interact with the network will fail.
         </p>
     </description>
 
     <requires>
-        <choice>
-            <package name="adduser"/>
-        </choice>
+        <package name="gpgconf" version="=="/>
     </requires>
 
     <contents>
         <file src="${prefix}/bin/dirmngr"/>
         <file src="${prefix}/bin/dirmngr-client"/>
-        <dir src="${prefix}/lib/gnupg"/>
-        <dir src="${prefix}/share/gnupg"/>
-        <file src="${prefix}/share/gnupg/sks-keyservers.netCA.pem"/>
     </contents>
 </package>

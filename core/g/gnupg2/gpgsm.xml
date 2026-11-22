@@ -16,7 +16,7 @@
     </description>
 
     <requires>
-        <package name="gnupg-agent" version="=="/>
+        <package name="gpgconf" version="=="/>
     </requires>
 
     <contents>

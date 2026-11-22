@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.4.9" revision="8aeltra1" upstream-version="2.4.9-8"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-22 13:55:12+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patches except the one that needs its package
+            unicode-data</li>
+            <li>Packages as in Debian: gpg, gpg-agent, gpgconf,
+            gnupg-utils, gnupg-l10n, scdaemon, gpg-wks-client and
+            gpg-wks-server are new, gnupg only requires gpg, gpg-agent,
+            gpgsm, dirmngr and gnupg-l10n</li>
+            <li>The transitional packages gnupg-agent and gpgv2 are
+            gone</li>
+            <li>gpg-agent calls pinentry-curses unless it is configured
+            otherwise</li>
+        </changeset>
+    </release>
     <release version="2.2.20" revision="1bolt1" upstream-version="2.2.20-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-20 21:39:15+03:00">

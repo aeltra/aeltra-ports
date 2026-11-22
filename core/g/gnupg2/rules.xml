@@ -3,17 +3,27 @@
     <prepare>
     <![CDATA[
 
+# Debian's patches change configure.ac and some Makefile.am. One of them
+# (avoid-beta-warning) keeps autogen.sh from calling the version
+# "2.4.9-unknown" and a beta outside of upstream's git repository.
+(cd "$AELTRA_SOURCE_DIR" && autoreconf -fi)
+
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --libexecdir="$AELTRA_INSTALL_PREFIX/lib/gnupg" \
     --host="$AELTRA_HOST_TYPE" \
     --build="$AELTRA_HOST_TYPE" \
-    --with-gpg-error-prefix="$AELTRA_INSTALL_PREFIX" \
+    --with-libgpg-error-prefix="$AELTRA_INSTALL_PREFIX" \
     --with-libgcrypt-prefix="$AELTRA_INSTALL_PREFIX" \
     --with-libassuan-prefix="$AELTRA_INSTALL_PREFIX" \
-    --with-ksba-prefix="$AELTRA_INSTALL_PREFIX" \
+    --with-libksba-prefix="$AELTRA_INSTALL_PREFIX" \
     --with-npth-prefix="$AELTRA_INSTALL_PREFIX" \
+    --with-pinentry-pgm="$AELTRA_INSTALL_PREFIX/bin/pinentry-curses" \
+    --with-agent-s2k-calibration=300 \
+    --with-mailprog=/usr/sbin/sendmail \
+    --enable-wks-tools \
+    --enable-large-secmem \
     --disable-doc \
     --disable-rpath
 
@@ -35,6 +45,9 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
+# Only the tests use it.
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gpgscm"
+
 install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/gnupg2"
 ln -sf ../gnupg/gpg-preset-passphrase \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/gnupg2/gpg-preset-passphrase"
@@ -42,9 +55,7 @@ ln -sf ../gnupg/gpg-protect-tool \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/gnupg2/gpg-protect-tool"
 
 ln -sf "gpg" \
-        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gpg2"
-ln -sf "gpgv" \
-    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gpgv2"
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gpg2"
 
     ]]>
     </install>

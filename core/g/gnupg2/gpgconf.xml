@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="gpgconf" section="utils">
+    <description>
+        <summary>GNU privacy guard - core configuration utilities</summary>
+        <p>
+        GnuPG is GNU's tool for secure communication and data storage.
+        </p>
+        <p>
+        This package contains core utilities used by different tools in the
+        suite offered by GnuPG. It can be used to programmatically edit
+        config files for tools in the GnuPG suite, to launch or terminate
+        per-user daemons (if installed), etc.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/gpg-connect-agent"/>
+        <file src="${prefix}/bin/gpgconf"/>
+        <file src="${prefix}/share/gnupg/distsigkey.gpg"/>
+    </contents>
+</package>

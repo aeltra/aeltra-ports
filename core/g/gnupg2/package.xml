@@ -18,67 +18,120 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gnupg2-2.2.20.tar.bz2" subdir="sources"
-                sha256sum="04a7c9d48b74c399168ee8270e548588ddbe52218c337703d7f06373d326ca30"/>
-            <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="f74eaadd3f0166d0df03724a34c781674c981588fd81de2650c8454461450b24"/>
+            <file src="gnupg2-2.4.9.tar.bz2" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/gnupg2/gnupg2_2.4.9.orig.tar.bz2"
+                sha256sum="dd17ab2e9a04fd79d39d853f599cbc852062ddb9ab52a4ddeb4176fd8b302964"/>
+            <file src="debian-patches-8.tar.gz" subdir="patches"
+                sha256sum="0752aefd79a07965a992f7bd7c43a3612a350ab4c7ce1a6472cf41fd0a5ce6fe"/>
         </sources>
 
+        <!-- Debian's patches are applied: they have fixes that came after
+             the release, and they make gpg write OpenPGP as other programs
+             read it (FreePG). -->
         <patches>
             <patchset subdir="sources">
+                <file src="patches/freepg/0002-gpg-accept-subkeys-with-a-good-revocation-but-no-sel.patch"/>
+                <file src="patches/freepg/0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"/>
+                <file src="patches/freepg/0004-tests-add-test-cases-for-import-without-uid.patch"/>
+                <file src="patches/freepg/0005-gpg-drop-import-clean-from-default-keyserver-import-.patch"/>
+                <file src="patches/freepg/0008-avoid-systemd-deprecation-warning.patch"/>
+                <file src="patches/freepg/0009-Add-systemd-support-for-keyboxd.patch"/>
+                <file src="patches/freepg/0010-Ship-sample-systemd-unit-files.patch"/>
+                <file src="patches/freepg/0011-el-gamal-default-to-3072-bits.patch"/>
+                <file src="patches/freepg/0012-gpg-default-digest-algorithm-SHA512.patch"/>
+                <file src="patches/freepg/0013-gpg-Prefer-SHA-512-and-SHA-384-in-personal-digest.patch"/>
+                <file src="patches/freepg/0018-Avoid-simple-memory-dumps-via-ptrace.patch"/>
+                <file src="patches/freepg/0019-Disallow-compressed-signatures-and-certificates.patch"/>
+                <file src="patches/freepg/0020-ssh-agent-emulation-under-systemd-inject-SSH_AUTH_SO.patch"/>
+                <file src="patches/freepg/0021-gpg-Sync-compliance-mode-cleanup-with-master.patch"/>
+                <file src="patches/freepg/0022-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch"/>
+                <file src="patches/freepg/0023-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch"/>
+                <file src="patches/freepg/0024-gpg-Emit-LibrePGP-material-only-in-compliance-gnupg.patch"/>
+                <file src="patches/freepg/0025-gpg-gpgconf-list-report-actual-compliance-mode.patch"/>
+                <file src="patches/freepg/0026-gpg-Default-to-compliance-openpgp.patch"/>
+                <file src="patches/freepg/0029-Add-keyboxd-systemd-support.patch"/>
+                <file src="patches/freepg/0033-Support-large-RSA-keygen-in-non-batch-mode.patch"/>
+                <file src="patches/freepg/0034-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch"/>
+                <file src="patches/freepg/0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"/>
+                <file src="patches/freepg/0040-Add-missing-test-files-to-EXTRA_DIST.patch"/>
+                <file src="patches/freepg/0045-gpg-Fix-edge-case-in-refresh-keys.patch"/>
+                <file src="patches/freepg/0046-gpgsm-Require-a-minimum-tag-length-for-GCM-decryptio.patch"/>
+                <file src="patches/freepg/0047-gpg-Fix-handling-with-no-CRC-armor.patch"/>
+                <file src="patches/freepg/0048-gpg-Fix-armored-input-parsing.patch"/>
+                <file src="patches/freepg/0049-gpg-Fix-armor-parsing-when-no-CRC-is-found.patch"/>
+                <file src="patches/freepg/0050-tpm-Fix-possible-buffer-overflow-in-PKDECRYPT.patch"/>
+                <file src="patches/freepg/0051-agent-Fix-the-regression-in-pkdecrypt-with-TPM-RSA.patch"/>
+                <file src="patches/freepg/0052-dirmngr-Fix-a-call-of-calloc.patch"/>
                 <file src="patches/debian-packaging/avoid-beta-warning.patch"/>
                 <file src="patches/debian-packaging/avoid-regenerating-defsincdate-use-shipped-file.patch"/>
-                <file src="patches/block-ptrace-on-secret-daemons/Avoid-simple-memory-dumps-via-ptrace.patch"/>
                 <file src="patches/dirmngr-idling/dirmngr-hkp-Avoid-potential-race-condition-when-some.patch"/>
                 <file src="patches/dirmngr-idling/dirmngr-Avoid-need-for-hkp-housekeeping.patch"/>
                 <file src="patches/dirmngr-idling/dirmngr-Avoid-automatically-checking-upstream-swdb.patch"/>
-                <file src="patches/gpg-agent-idling/agent-Create-framework-of-scheduled-timers.patch"/>
-                <file src="patches/gpg-agent-idling/agent-Allow-threads-to-interrupt-main-select-loop-wi.patch"/>
-                <file src="patches/gpg-agent-idling/agent-Avoid-tight-timer-tick-when-possible.patch"/>
-                <file src="patches/gpg-agent-idling/agent-Avoid-scheduled-checks-on-socket-when-inotify-.patch"/>
-                <file src="patches/from-master/gpg-default-to-3072-bit-RSA-keys.patch"/>
-                <file src="patches/from-master/gpg-default-to-AES-256.patch"/>
-                <file src="patches/update-defaults/gpg-Default-to-SHA-512-for-all-signature-types-on-RS.patch"/>
-                <file src="patches/update-defaults/gpg-Prefer-SHA-512-and-SHA-384-in-personal-digest.patch"/>
-                <file src="patches/import-merge-without-userid/tests-add-test-cases-for-import-without-uid.patch"/>
-                <file src="patches/import-merge-without-userid/gpg-allow-import-of-previously-known-keys-even-without-UI.patch"/>
-                <file src="patches/import-merge-without-userid/gpg-accept-subkeys-with-a-good-revocation-but-no-self-sig.patch"/>
-                <file src="patches/dirmngr-Only-use-SKS-pool-CA-for-SKS-pool.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0001-agent-Add-agent_kick_the_loop-function.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0001-agent-Use-a-thread-to-monitor-socket-takeover.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0002-agent-Fix-the-handling-of-socket-takeover.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0003-agent-Recover-support-CHECK_OWN_SOCKET_INTERVAL-0.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0004-agent-Have-a-thread-monitoring-parent-PID-and-homedi.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0005-agent-Better-interaction-between-main-loop-and-cache.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0006-agent-Introduce-management-of-timer-to-expire-cache-.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0007-agent-Fix-the-previous-commit.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0008-agent-Fix-timer-list-management.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0009-agent-Fix-sock_inotify_fd-handling.patch"/>
+                <file src="patches/from-master/gpg-agent-idling/0010-agent-Fix-timer-round-up-check-when-inserting-an-ent.patch"/>
+                <file src="patches/from-master/0001-agent-Add-accelerator-keys-for-Wrong-and-Correct.patch"/>
                 <file src="patches/Use-hkps-keys.openpgp.org-as-the-default-keyserver.patch"/>
-                <file src="patches/Make-gpg-zip-use-tar-from-PATH.patch"/>
-                <file src="patches/gpg-drop-import-clean-from-default-keyserver-import-optio.patch"/>
+                <!-- Not applied: it makes the build read the Unicode tables
+                     from Debian's package unicode-data. The file that the
+                     release has is used.
+                <file src="patches/debian-packaging/Build-regexp-against-debian-s-unicode-data-package.patch"/>
+                -->
+                <file src="patches/debian-packaging/Always-build-common-status-codes.h-and-common-audit-event.patch"/>
+                <file src="patches/gpg-agent.socket-Set-GPG_AGENT_INFO-in-systemd-for-g.patch"/>
+                <file src="patches/debian-packaging/no-keyboxd.patch"/>
+                <file src="patches/gpgv-Avoid-Assuan-and-NPth-dependencies.patch"/>
+                <file src="patches/from-master/0002-agent-Fix-not-using-cache-for-pinentry-loopback.patch"/>
+                <file src="patches/from-master/0003-agent-Fix-cmd_put_secret-for-saving-input-line.patch"/>
+                <file src="patches/from-master/0009-tests-openpgp-With-gpgtar-extract-tarball-into-an-em.patch"/>
+                <file src="patches/from-master/0010-tool-gpgtar-Check-the-output-directory-with-director.patch"/>
+                <file src="patches/from-master/0011-gpgtar-Add-compatibility-flag-no-dir-check.patch"/>
+                <file src="patches/from-master/0012-tools-gpgtar-Fix-for-a-case-of-non-existing-dir-with.patch"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="autoconf"/>
             <package name="automake"/>
             <package name="autopoint"/>
-            <package name="file"/>
             <package name="gettext"/>
-            <package name="libassuan-dev" version=">= 2.4.3"/>
+            <package name="libassuan-dev" version=">= 2.5.0"/>
             <package name="libbz2-dev"/>
-            <package name="libcurl4-gnutls-dev"/>
-            <package name="libgcrypt20-dev" version=">= 1.7.0"/>
-            <package name="libgnutls28-dev" version=">= 3.0"/>
-            <package name="libgpg-error-dev" version=">= 1.26-2~"/>
-            <package name="libksba-dev" version=">= 1.3.4"/>
+            <package name="libgcrypt20-dev" version=">= 1.9.1"/>
+            <package name="libgnutls28-dev" version=">= 3.2"/>
+            <package name="libgpg-error-dev" version=">= 1.46"/>
+            <package name="libksba-dev" version=">= 1.6.3"/>
             <package name="libnpth0-dev" version=">= 1.2"/>
             <package name="libreadline-dev"/>
             <package name="libsqlite3-dev"/>
-            <package name="texinfo"/>
+            <package name="pkg-config"/>
             <package name="zlib1g-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
-    <xi:include href="gnupg-agent.xml"/>
-    <xi:include href="gpgsm.xml"/>
     <xi:include href="gnupg.xml"/>
-    <xi:include href="gnupg2.xml"/>
+    <xi:include href="gpg.xml"/>
+    <xi:include href="gpg-agent.xml"/>
+    <xi:include href="gpgconf.xml"/>
+    <xi:include href="gnupg-utils.xml"/>
+    <xi:include href="gnupg-l10n.xml"/>
+    <xi:include href="gpgsm.xml"/>
     <xi:include href="gpgv.xml"/>
-    <xi:include href="gpgv2.xml"/>
     <xi:include href="dirmngr.xml"/>
+    <xi:include href="scdaemon.xml"/>
+    <xi:include href="gpg-wks-client.xml"/>
+    <xi:include href="gpg-wks-server.xml"/>
+    <xi:include href="gnupg2.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>
