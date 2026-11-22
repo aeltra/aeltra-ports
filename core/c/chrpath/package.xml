@@ -30,6 +30,8 @@
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
             <package name="autotools-dev" tools-prefix=""/>
         </requires>
 

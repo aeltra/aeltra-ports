@@ -3,7 +3,9 @@
     <prepare>
     <![CDATA[
 
+# The tarball of 0.18 comes without a configure script.
 cd "$AELTRA_SOURCE_DIR"
+autoreconf -i --force
 bh_autotools_dev_update
 
 cd "$AELTRA_BUILD_DIR"
