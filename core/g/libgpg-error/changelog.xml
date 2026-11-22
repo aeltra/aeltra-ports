@@ -8,8 +8,8 @@
             patches are listed but not applied: they are for its own
             packaging, for cross builds and for the tests, none of which
             concerns this recipe</li>
-            <li>New packages gpgrt-tools with gpg-error and
-            libgpg-error-l10n with the translations, as in Debian</li>
+            <li>New package gpgrt-tools with gpg-error, as in Debian</li>
+            <li>Built without NLS, there is no libgpg-error-l10n</li>
             <li>gpg-error-config is no longer installed, gpgrt-config and
             gpg-error.pc take its place</li>
         </changeset>

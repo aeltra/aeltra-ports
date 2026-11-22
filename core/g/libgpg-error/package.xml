@@ -54,7 +54,6 @@
     <xi:include href="libgpg-error-dev.xml"/>
     <xi:include href="libgpg-error0.xml"/>
     <xi:include href="gpgrt-tools.xml"/>
-    <xi:include href="libgpg-error-l10n.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

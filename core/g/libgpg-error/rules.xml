@@ -13,6 +13,7 @@ $AELTRA_SOURCE_DIR/configure \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --disable-languages \
+    --disable-nls \
     --disable-doc \
     --disable-tests \
     --disable-rpath \
