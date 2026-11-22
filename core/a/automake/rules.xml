@@ -3,8 +3,12 @@
     <prepare>
     <![CDATA[
 
+# The Perl of the prefix: configure takes the first one in the path
+# otherwise, which is the one of the tools folder also when building for
+# the target, and its path ends up in the scripts.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
+    PERL="$AELTRA_INSTALL_PREFIX/bin/perl" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
