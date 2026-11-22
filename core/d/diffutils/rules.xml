@@ -6,10 +6,13 @@
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 
+# Build and host are the same on purpose: configure runs a test program
+# for strcasecmp and has no answer for a cross build. The programs of the
+# tools folder run in the build box.
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
-    --build="$AELTRA_BUILD_TYPE" \
+    --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --disable-nls \
     --disable-silent-rules
