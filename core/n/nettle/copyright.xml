@@ -2,7 +2,7 @@
     <files license="LGPL-3+ or GPL-2+">
         <file src="*"/>
         <copyright-notice><![CDATA[
-2001-2020 Niels Möller
+2001-2023 Niels Möller
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
@@ -54,10 +54,107 @@
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
+        <file src="arm64/chacha-2core.asm"/>
+        <file src="arm64/chacha-4core.asm"/>
+        <file src="arm64/chacha-core-internal.asm"/>
+        <file src="s390x/vf/chacha-2core.asm"/>
+        <file src="s390x/vf/chacha-4core.asm"/>
+        <file src="s390x/vf/chacha-core-internal.asm"/>
+        <copyright-notice><![CDATA[
+2020 Niels Möller and Torbjörn Granlund
+2022 Mamone Tarsha
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="arm64/crypto/aes128-decrypt.asm"/>
+        <file src="arm64/crypto/aes128-encrypt.asm"/>
+        <file src="arm64/crypto/aes192-decrypt.asm"/>
+        <file src="arm64/crypto/aes192-encrypt.asm"/>
+        <file src="arm64/crypto/aes256-decrypt.asm"/>
+        <file src="arm64/crypto/aes256-encrypt.asm"/>
+        <file src="arm64/crypto/sha1-compress.asm"/>
+        <file src="arm64/crypto/sha256-compress-n.asm"/>
+        <file src="arm64/fat/aes128-decrypt-2.asm"/>
+        <file src="arm64/fat/aes128-encrypt-2.asm"/>
+        <file src="arm64/fat/aes192-decrypt-2.asm"/>
+        <file src="arm64/fat/aes192-encrypt-2.asm"/>
+        <file src="arm64/fat/aes256-decrypt-2.asm"/>
+        <file src="arm64/fat/aes256-encrypt-2.asm"/>
+        <file src="arm64/fat/ghash-set-key-2.asm"/>
+        <file src="arm64/fat/ghash-update-2.asm"/>
+        <file src="arm64/fat/sha1-compress-2.asm"/>
+        <file src="arm64/fat/sha256-compress-n-2.asm"/>
+        <file src="fat-arm64.c"/>
+        <file src="fat-s390x.c"/>
+        <file src="powerpc64/fat/ghash-set-key-2.asm"/>
+        <file src="powerpc64/fat/ghash-update-2.asm"/>
+        <file src="s390x/fat/aes128-decrypt-2.asm"/>
+        <file src="s390x/fat/aes128-encrypt-2.asm"/>
+        <file src="s390x/fat/aes128-set-decrypt-key-2.asm"/>
+        <file src="s390x/fat/aes128-set-encrypt-key-2.asm"/>
+        <file src="s390x/fat/aes192-decrypt-2.asm"/>
+        <file src="s390x/fat/aes192-encrypt-2.asm"/>
+        <file src="s390x/fat/aes192-set-decrypt-key-2.asm"/>
+        <file src="s390x/fat/aes192-set-encrypt-key-2.asm"/>
+        <file src="s390x/fat/aes256-decrypt-2.asm"/>
+        <file src="s390x/fat/aes256-encrypt-2.asm"/>
+        <file src="s390x/fat/aes256-set-decrypt-key-2.asm"/>
+        <file src="s390x/fat/aes256-set-encrypt-key-2.asm"/>
+        <file src="s390x/fat/chacha-2core.asm"/>
+        <file src="s390x/fat/chacha-4core.asm"/>
+        <file src="s390x/fat/chacha-core-internal-2.asm"/>
+        <file src="s390x/fat/cpu-facility.asm"/>
+        <file src="s390x/fat/ghash-set-key-2.asm"/>
+        <file src="s390x/fat/ghash-update-2.asm"/>
+        <file src="s390x/fat/memxor3-2.asm"/>
+        <file src="s390x/fat/sha1-compress-2.asm"/>
+        <file src="s390x/fat/sha256-compress-n-2.asm"/>
+        <file src="s390x/fat/sha3-permute-2.asm"/>
+        <file src="s390x/fat/sha512-compress-2.asm"/>
+        <file src="s390x/memxor.asm"/>
+        <file src="s390x/msa/sha1-compress.asm"/>
+        <file src="s390x/msa_x1/aes128-decrypt.asm"/>
+        <file src="s390x/msa_x1/aes128-encrypt.asm"/>
+        <file src="s390x/msa_x1/aes128-set-decrypt-key.asm"/>
+        <file src="s390x/msa_x1/aes128-set-encrypt-key.asm"/>
+        <file src="s390x/msa_x1/sha256-compress-n.asm"/>
+        <file src="s390x/msa_x2/aes192-decrypt.asm"/>
+        <file src="s390x/msa_x2/aes192-encrypt.asm"/>
+        <file src="s390x/msa_x2/aes192-set-decrypt-key.asm"/>
+        <file src="s390x/msa_x2/aes192-set-encrypt-key.asm"/>
+        <file src="s390x/msa_x2/aes256-decrypt.asm"/>
+        <file src="s390x/msa_x2/aes256-encrypt.asm"/>
+        <file src="s390x/msa_x2/aes256-set-decrypt-key.asm"/>
+        <file src="s390x/msa_x2/aes256-set-encrypt-key.asm"/>
+        <file src="s390x/msa_x2/sha512-compress.asm"/>
+        <file src="s390x/msa_x4/ghash-set-key.asm"/>
+        <file src="s390x/msa_x4/ghash-update.asm"/>
+        <file src="s390x/vf/memxor3.asm"/>
+        <copyright-notice><![CDATA[
+2020, 2021 Mamone Tarsha
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="arm64/crypto/ghash-set-key.asm"/>
+        <file src="arm64/crypto/ghash-update.asm"/>
+        <file src="powerpc64/p8/ghash-set-key.asm"/>
+        <file src="powerpc64/p8/ghash-update.asm"/>
+        <copyright-notice><![CDATA[
+2020 Niels Möller and Mamone Tarsha
+2021 Michael Weiser
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
         <file src="base64.h"/>
         <file src="base64-meta.c"/>
         <copyright-notice><![CDATA[
 2002 Dan Egnor, Niels Möller
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="balloon*.*"/>
+        <copyright-notice><![CDATA[
+2022, Zoltan Fridrich, Red Hat, Inc.
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
@@ -214,9 +311,8 @@
     </files>
     <files license="LGPL-2+">
         <file src="desCode.h"/>
-        <file src="descode.README"/>
+        <file src="descore.README"/>
         <file src="desdata.c"/>
-        <file src="desinfo.c"/>
         <copyright-notice><![CDATA[
 © 2002 Dana L. How
         ]]></copyright-notice>
@@ -235,11 +331,9 @@ You should have received a copy of the GNU Library General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
-If you cannot locate the license in the source package, please visit
-
-    https://www.gnu.org/licenses/lgpl-2.0.txt
-
-to view the full license text.
+On Debian GNU/Linux systems, the complete text of the GNU Library
+General Public License, version 2, can be found in
+/usr/share/common-licenses/LGPL-2.
         ]]></license>
     </files>
     <files license="LGPL-3+ or GPL-2+">
@@ -267,6 +361,13 @@ to view the full license text.
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
+        <file src="ecc-secp192r1.c"/>
+        <copyright-notice><![CDATA[
+2013, 2014, 2019, 2021 Niels Möller
+2019 Wim Lewis
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
         <file src="examples/base16dec.c"/>
         <file src="examples/base16enc.c"/>
         <file src="examples/base64dec.c"/>
@@ -285,9 +386,13 @@ to view the full license text.
     <files license="LGPL-3+ or GPL-2+">
         <file src="gcm.c"/>
         <file src="gcm.h"/>
+        <file src="ghash-set-key.c"/>
+        <file src="ghash-update.c"/>
+        <file src="siv-ghash-set-key.c"/>
+        <file src="siv-ghash-update.c"/>
         <copyright-notice><![CDATA[
 2011 Katholieke Universiteit Leuven
-2011, 2013, 2018 Niels Möller
+2011, 2013, 2018, 2022 Niels Möller
 2018 Red Hat, Inc.
         ]]></copyright-notice>
     </files>
@@ -347,6 +452,13 @@ to view the full license text.
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
+        <file src="hmac-sm3.c"/>
+        <file src="hmac-sm3-meta.c"/>
+        <copyright-notice><![CDATA[
+2021 Tianjia Zhang
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
         <file src="md2.c"/>
         <copyright-notice><![CDATA[
 ? Andrew Kuchling
@@ -363,7 +475,6 @@ to view the full license text.
     </files>
     <files license="LGPL-3+ or GPL-2+">
         <file src="md5.c"/>
-        <file src="md5-compress.c"/>
         <copyright-notice><![CDATA[
 Colin Plumb, Andrew Kuchling
 2001 Niels Möller
@@ -385,12 +496,28 @@ Colin Plumb, Andrew Kuchling
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
+        <file src="nist-keywrap.c"/>
+        <file src="nist-keywrap.h"/>
+        <copyright-notice><![CDATA[
+2021 Nicolas Mora
+2021 Niels Möller
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
         <file src="pbkdf2-hmac-sha1.c"/>
         <file src="pbkdf2-hmac-sha256.c"/>
         <file src="pbkdf2.h"/>
         <file src="salsa20-crypt.c"/>
         <copyright-notice><![CDATA[
 2012, Simon Josefsson
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="pbkdf2-hmac-sha384.c"/>
+        <file src="pbkdf2-hmac-sha512.c"/>
+        <copyright-notice><![CDATA[
+2012 Simon Josefsson
+2021 Nicolas Mora
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
@@ -414,6 +541,33 @@ Colin Plumb, Andrew Kuchling
         <copyright-notice><![CDATA[
 2013, Nikos Mavrogiannopoulos
 2013, 2014, Niels Möller
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="powerpc64/ecc-curve25519-modp.asm"/>
+        <file src="powerpc64/ecc-curve448-modp.asm"/>
+        <file src="powerpc64/ecc-secp521r1-modp.asm"/>
+        <copyright-notice><![CDATA[
+2021 Martin Schwenke & Alastair D´Silva, IBM Corporation
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="powerpc64/ecc-secp192r1-modp.asm"/>
+        <file src="powerpc64/ecc-secp224r1-modp.asm"/>
+        <copyright-notice><![CDATA[
+2021 Amitay Isaacs, IBM Corporation
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="powerpc64/ecc-secp256r1-redc.asm"/>
+        <copyright-notice><![CDATA[
+2021 Amitay Isaacs & Martin Schwenke, IBM Corporation
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="powerpc64/ecc-secp384r1-modp.asm"/>
+        <copyright-notice><![CDATA[
+2021 Martin Schwenke, Amitay Isaacs & Alastair D´Silva, IBM Corporation
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
@@ -472,6 +626,13 @@ Colin Plumb, Andrew Kuchling
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
+        <file src="s390x/vf/sha3-permute.asm"/>
+        <copyright-notice><![CDATA[
+2012 Niels Möller
+2021 Mamone Tarsha
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
         <file src="serpent-encrypt.c"/>
         <file src="serpent-decrypt.c"/>
         <file src="serpent-set-key.c"/>
@@ -494,6 +655,15 @@ Colin Plumb, Andrew Kuchling
         <copyright-notice><![CDATA[
 2013, 2014 Joachim Strömbergson
 2001, 2010, 2012, 2014 Niels Möller
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="sm3.c"/>
+        <file src="sm3.h"/>
+        <file src="sm3-meta.c"/>
+        <copyright-notice><![CDATA[
+2017 Jia Zhang
+2021 Tianjia Zhang
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
@@ -527,34 +697,16 @@ Colin Plumb, Andrew Kuchling
         ]]></copyright-notice>
     </files>
     <files license="LGPL-3+ or GPL-2+">
-        <file src="testsuite/siv-test.c"/>
+        <file src="testsuite/siv-cmac-test.c"/>
         <copyright-notice><![CDATA[
 2012, 2013, 2017, 2018 Nikos Mavrogiannopoulos
         ]]></copyright-notice>
     </files>
-    <files license="GPL-3+">
-        <file src="texinfo.tex"/>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="testsuite/siv-gcm-test.c"/>
         <copyright-notice><![CDATA[
-1985, 1986, 1988, 1990-2009, Free Software Foundation, Inc.
+2022, Red Hat, Inc.
         ]]></copyright-notice>
-        <license><![CDATA[
-This texinfo.tex file is free software: you can redistribute it and/or
-modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This texinfo.tex file is distributed in the hope that it will be
-useful, but WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-As a special exception, when this file is read by TeX when processing
-a Texinfo source document, you may use the result without
-restriction.  (This has been our intent since Texinfo was invented.)
-        ]]></license>
     </files>
     <files license="LGPL-3+ or GPL-2+">
         <file src="twofish*"/>
@@ -604,11 +756,9 @@ License for more details.
 You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, see http://www.gnu.org/licenses/.
 
-If you cannot locate the license in the source package, please visit
-
-    https://www.gnu.org/licenses/lgpl-3.0.txt
-
-to view the full license text.
+On Debian GNU/Linux systems, the complete text of the newest version
+of the GNU Lesser General Public License can be found in
+/usr/share/common-licenses/LGPL.
     ]]></license>
     <license handle="GPL-2+"><![CDATA[
 This program is free software; you can redistribute it and/or modify
@@ -626,11 +776,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 02110-1301 USA.
 
-If you cannot locate the license in the source package, please visit
-
-    https://www.gnu.org/licenses/gpl-2.0.txt
-
-to view the full license text.
+On Debian GNU/Linux systems, the complete text of the newest version
+of the GNU General Public License can be found in
+/usr/share/common-licenses/GPL.
     ]]></license>
     <license handle="Expat"><![CDATA[
 Permission is hereby granted, free of charge, to any person obtaining a

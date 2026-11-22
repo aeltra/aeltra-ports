@@ -26,17 +26,16 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="nettle-3.7.tar.gz" subdir="sources"
-                sha256sum="f001f64eb444bf13dd91bceccbc20acbc60c4311d6e2b20878452eb9a9cec75a"/>
-            <file src="debian-patches-2.1.tar.gz" subdir="patches"
-                sha256sum="147bc69f5c3c2d008b0a40d8b318396d959ea9fe8af0926832c7be238eb8315b"/>
+            <file src="nettle-3.10.2.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/n/nettle/nettle_3.10.2.orig.tar.gz"
+                sha256sum="fe9ff51cb1f2abb5e65a6b8c10a92da0ab5ab6eaf26e7fc2b675c45f1fb519b5"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="4e4763554a61198a9fb5a3c22a89f1850264e589d569bc49092680ab728ee01b"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/fPIC.patch"/>
-                <file src="patches/0001-Improve-chacha-test-coverage.patch"/>
-                <file src="patches/0002-Fix-chacha-counter-update-for-_4core-variants.patch"/>
             </patchset>
         </patches>
 

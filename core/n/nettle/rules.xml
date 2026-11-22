@@ -6,9 +6,6 @@
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 
-# HACK: fix incorrect preprocessor usage
-sed -i 's/&& __GLIBC_PREREQ\(.*\)//g' fat-ppc.c
-
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
