@@ -38,6 +38,7 @@
             <package name="gettext"/>
             <package name="help2man"/>
             <package name="libperl-dev"/>
+            <package name="libunistring-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>
