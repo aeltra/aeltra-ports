@@ -26,10 +26,11 @@
     </requires>
 
     <contents>
-        <file src="${prefix}/bin"/>
+        <file src="${prefix}/bin/libgcrypt-config"/>
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libgcrypt.a"/>
         <file src="${prefix}/lib/libgcrypt.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
         <file src="${prefix}/share/aclocal"/>
     </contents>
 </package>

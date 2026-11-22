@@ -3,12 +3,16 @@
     <prepare>
     <![CDATA[
 
+# The configure script of the release is used as it is. One that is made
+# again outside of upstream's git repository calls the version
+# "1.12.4-unknown" and a beta (autogen.sh --find-version), which Debian
+# patches away.
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --host="$AELTRA_HOST_TYPE" \
     --build="$AELTRA_HOST_TYPE" \
-    --with-gpg-error-prefix="$AELTRA_INSTALL_PREFIX" \
+    --with-libgpg-error-prefix="$AELTRA_INSTALL_PREFIX" \
     --enable-noexecstack \
     --disable-asm \
     --disable-doc \

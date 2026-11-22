@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.12.4" revision="2aeltra1" upstream-version="1.12.4-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-22 13:39:03+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky. Debian's
+            patches are listed but not applied: they are for what
+            libgcrypt-config prints on Debian and for its own
+            packaging</li>
+            <li>New package libgcrypt-bin with dumpsexp, hmac256 and
+            mpicalc, as in Debian. They were in libgcrypt20-dev</li>
+            <li>libgcrypt20-dev has libgcrypt.pc</li>
+            <li>The transitional package libgcrypt11-dev is gone</li>
+        </changeset>
+    </release>
     <release version="1.8.7" revision="2bolt1" upstream-version="1.8.7-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-20 21:26:43+03:00">

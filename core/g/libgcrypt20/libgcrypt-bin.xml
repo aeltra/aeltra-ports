@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libgcrypt-bin" section="devel">
+    <description>
+        <summary>LGPL Crypto library - utility binaries</summary>
+        <p>
+        libgcrypt contains cryptographic functions. Many important free
+        ciphers, hash algorithms and public key signing algorithms have been
+        implemented.
+        </p>
+        <p>
+        This package contains some utilities which are mainly useful when
+        developing programs using libgcrypt.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libgcrypt20" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin/dumpsexp"/>
+        <file src="${prefix}/bin/hmac256"/>
+        <file src="${prefix}/bin/mpicalc"/>
+    </contents>
+</package>
