@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.8" revision="4aeltra1" upstream-version="1.8-4"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-22 13:47:56+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky. Debian's
+            patch is listed but not applied: it is for its own
+            packaging</li>
+            <li>npth-config is no longer installed, libnpth0-dev has
+            npth.pc in its place</li>
+        </changeset>
+    </release>
     <release version="1.6" revision="3bolt1" upstream-version="1.6-3"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-02-20 21:34:46+03:00">

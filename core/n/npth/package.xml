@@ -20,9 +20,23 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="npth-1.6.tar.bz2" subdir="sources"
-                sha256sum="1393abd9adcf0762d34798dc34fdcf4d0d22a8410721e76f1e3afcd1daa4e2d1"/>
+            <file src="npth-1.8.tar.bz2" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/n/npth/npth_1.8.orig.tar.bz2"
+                sha256sum="8bd24b4f23a3065d6e5b26e98aba9ce783ea4fd781069c1b35d149694e90ca3e"/>
+            <file src="debian-patches-4.tar.gz" subdir="patches"
+                sha256sum="55ad38e4b07f8f69af7ad5e4adeb635d01bad681fd1c36d71496a7b93f326a6d"/>
         </sources>
+
+        <!-- Debian's patch is not applied. It is for its own packaging
+             and needs configure to be made again. See the comment in
+             rules.xml. -->
+        <!--
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0001-Remove-upstream-git-fanciness.patch"/>
+            </patchset>
+        </patches>
+        -->
 
         <xi:include href="rules.xml"/>
     </source>

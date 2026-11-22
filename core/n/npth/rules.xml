@@ -3,6 +3,10 @@
     <prepare>
     <![CDATA[
 
+# The configure script of the release is used as it is. One that is made
+# again outside of upstream's git repository calls the version
+# "1.8-unknown" and a beta (autogen.sh --find-version), which Debian
+# patches away.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
