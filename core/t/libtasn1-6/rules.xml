@@ -5,7 +5,6 @@
 
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
-autoreconf -vi
 
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
@@ -14,7 +13,8 @@ $AELTRA_SOURCE_DIR/configure \
     --host="$AELTRA_HOST_TYPE" \
     --disable-silent-rules \
     --enable-ld-version-script \
-    --with-packager=Bolt \
+    --with-packager=Aeltra \
+    --disable-doc \
     --disable-gtk-doc \
     --disable-gtk-doc-pdf
 

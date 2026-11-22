@@ -24,12 +24,22 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libtasn1-6-4.16.0.tar.gz" subdir="sources"
-                sha256sum="0e0fb0903839117cb6e3b56e68222771bebf22ad7fc2295a0ed7d576e8d4329d"/>
+            <file src="libtasn1-6-4.21.0.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.21.0.orig.tar.gz"
+                sha256sum="1d8a444a223cc5464240777346e125de51d8e6abf0b8bac742ac84609167dc87"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="0a818e55e886c1ebb7c62d7977aa23d40e1035331888ea8a77bf732bb09d7efc"/>
         </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0001-Fix-likely-off-by-one-error-in-_asn1_expand_object_i.patch"/>
+            </patchset>
+        </patches>
 
         <requires>
             <package name="bison"/>
+            <package name="autotools-dev" tools-prefix=""/>
         </requires>
 
         <xi:include href="rules.xml"/>
