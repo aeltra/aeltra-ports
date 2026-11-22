@@ -21,23 +21,27 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libksba-1.5.0.tar.bz2" subdir="sources"
-                sha256sum="ae4af129216b2d7fdea0b5bf2a788cd458a79c983bb09a43f4d525cc87aba0ba"/>
-            <file src="debian-patches-3.tar.gz" subdir="patches"
-                sha256sum="c5550e428048ea3dd6ac086920152d0f07c32e0848ca6f2859a19d67373d4da9"/>
+            <file src="libksba-1.8.1.tar.bz2" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libk/libksba/libksba_1.8.1.orig.tar.bz2"
+                sha256sum="c2f84393011827219ae117131dba8e7684c2bed0961eed11b0642c2acba440b5"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="98b039ee5f61dfe72e2fc9112ad8feacc2d3fa00ac1a0e095778498cacdb5022"/>
         </sources>
 
+        <!-- Debian's patches are not applied. The first one is for
+             Windows, the second one is for its own packaging and needs
+             configure to be made again. See the comment in rules.xml. -->
+        <!--
         <patches>
             <patchset subdir="sources">
                 <file src="patches/0001-fix-win32-linker.patch"/>
-                <file src="patches/10_Fix-a-possible-segv-in-case-of-an-unknown-CMS-object.patch"/>
+                <file src="patches/25_norevisionfromgit.diff"/>
             </patchset>
         </patches>
+        -->
 
         <requires>
-            <package name="libgpg-error-dev" version=">= 1.8"/>
-            <package name="autoconf"/>
-            <package name="automake" version=">= 1:1.12"/>
+            <package name="libgpg-error-dev" version=">= 1.46"/>
         </requires>
 
         <xi:include href="rules.xml"/>
