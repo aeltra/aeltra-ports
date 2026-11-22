@@ -9,6 +9,7 @@
             <li>Drop our patches for pam_lastlog (no longer built) and the
             upstream fixes that are part of this release</li>
             <li>No Berkeley DB, pam_userdb is not built</li>
+            <li>Built without NLS</li>
         </changeset>
     </release>
     <release version="1.4.0" revision="4bolt1" upstream-version="1.4.0-4"
