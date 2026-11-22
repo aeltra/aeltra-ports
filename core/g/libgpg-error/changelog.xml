@@ -4,7 +4,10 @@
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2026-11-22 01:05:27+03:00">
         <changeset>
-            <li>Import new version from Debian Forky</li>
+            <li>New upstream version, the one of Debian Forky. Debian's
+            patches are listed but not applied: they are for its own
+            packaging, for cross builds and for the tests, none of which
+            concerns this recipe</li>
             <li>New packages gpgrt-tools with gpg-error and
             libgpg-error-l10n with the translations, as in Debian</li>
             <li>gpg-error-config is no longer installed, gpgrt-config and

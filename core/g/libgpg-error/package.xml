@@ -28,6 +28,11 @@
                 sha256sum="758be9818d9527aadaed6fa706cb75c2fb646ac707dd0c0d8eabcf9e3db1f201"/>
         </sources>
 
+        <!-- Debian's patches are not applied. The first one is for its own
+             packaging and needs configure to be made again, the second
+             one is for cross builds, the others are for the tests, which
+             are not built. See the comment in rules.xml. -->
+        <!--
         <patches>
             <patchset subdir="sources">
                 <file src="patches/0001-Remove-upstream-git-fanciness.patch"/>
@@ -37,10 +42,9 @@
                 <file src="patches/0005-tests-Fix-gpgrt_bsprintf-test-for-PowerPC-32.patch"/>
             </patchset>
         </patches>
+        -->
 
         <requires>
-            <package name="automake" version=">= 1.14"/>
-            <package name="autoconf"/>
             <package name="gettext" version=">= 0.19.3"/>
         </requires>
 
