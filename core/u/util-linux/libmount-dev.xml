@@ -18,7 +18,6 @@
 
     <contents>
         <file src="${prefix}/include/libmount"/>
-        <file src="${prefix}/lib/libmount.a"/>
         <file src="${prefix}/lib/libmount.so"/>
         <file src="${prefix}/lib/pkgconfig/mount.pc"/>
     </contents>

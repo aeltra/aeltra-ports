@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.42.4" revision="1aeltra1" upstream-version="2.42.4-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-23 21:53:25+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patches and the options of Debian's rules, without
+            systemd, udev and cryptsetup</li>
+            <li>Packages as in Debian: util-linux, util-linux-extra,
+            bsdutils, bsdextrautils, eject, fdisk, login, rfkill,
+            lastlog2, liblastlog2-2, liblastlog2-dev and libpam-lastlog2
+            are new, with Debian's PAM files for login, su and runuser.
+            setpriv and findmnt are in util-linux</li>
+            <li>su, mount, umount and newgrp are setuid, as in Debian</li>
+            <li>uuid-runtime has uuidparse and no systemd units</li>
+        </changeset>
+    </release>
     <release version="2.36.1" revision="7bolt1" upstream-version="2.36.1-7"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-24 23:30:48+03:00">

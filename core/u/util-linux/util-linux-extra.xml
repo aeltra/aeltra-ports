@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="util-linux-extra" section="utils">
+    <description>
+        <summary>interactive login tools</summary>
+        <p>
+        Tools commonly found on systems where humans login interactively,
+        are needed with non-standard system configurations, or to interact
+        with certain hardware, for example:
+        * fadvise, a program to use the posix_fadvise system call,
+        * lsfd, a program to list file descriptors (think lsof),
+        * newgrp, a program to change the effective group IDs.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/addpart"/>
+        <file src="${prefix}/bin/bits"/>
+        <file src="${prefix}/bin/blkzone"/>
+        <file src="${prefix}/bin/chcpu"/>
+        <file src="${prefix}/bin/chmem"/>
+        <file src="${prefix}/bin/copyfilerange"/>
+        <file src="${prefix}/bin/coresched"/>
+        <file src="${prefix}/bin/delpart"/>
+        <file src="${prefix}/bin/enosys"/>
+        <file src="${prefix}/bin/exch"/>
+        <file src="${prefix}/bin/fadvise"/>
+        <file src="${prefix}/bin/fincore"/>
+        <file src="${prefix}/bin/getino"/>
+        <file src="${prefix}/bin/isosize"/>
+        <file src="${prefix}/bin/ldattach"/>
+        <file src="${prefix}/bin/lsclocks"/>
+        <file src="${prefix}/bin/lsfd"/>
+        <file src="${prefix}/bin/lsirq"/>
+        <file src="${prefix}/bin/lslogins"/>
+        <file src="${prefix}/bin/lsmem"/>
+        <file src="${prefix}/bin/newgrp" mode="4755"/>
+        <file src="${prefix}/bin/pipesz"/>
+        <file src="${prefix}/bin/pivot_root"/>
+        <file src="${prefix}/bin/rename.ul"/>
+        <file src="${prefix}/bin/resizepart"/>
+        <file src="${prefix}/bin/sg"/>
+        <file src="${prefix}/bin/switch_root"/>
+        <file src="${prefix}/bin/waitpid"/>
+        <file src="${prefix}/bin/wdctl"/>
+        <file src="${prefix}/sbin/blkpr"/>
+        <file src="${prefix}/sbin/ctrlaltdel"/>
+        <file src="${prefix}/sbin/fsck.cramfs"/>
+        <file src="${prefix}/sbin/fsck.minix"/>
+        <file src="${prefix}/sbin/hwclock"/>
+        <file src="${prefix}/sbin/mkfs.bfs"/>
+        <file src="${prefix}/sbin/mkfs.cramfs"/>
+        <file src="${prefix}/sbin/mkfs.minix"/>
+    </contents>
+</package>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="bsdextrautils" section="utils">
+    <description>
+        <summary>extra utilities from 4.4BSD-Lite</summary>
+        <p>
+        This package contains some extra BSD utilities: col, colcrt, colrm, column,
+        hd, hexdump, look, rev, ul.
+        Other BSD utilities are provided by bsdutils and calendar.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/colcrt"/>
+        <file src="${prefix}/bin/colrm"/>
+        <file src="${prefix}/bin/column"/>
+        <file src="${prefix}/bin/hd"/>
+        <file src="${prefix}/bin/hexdump"/>
+        <file src="${prefix}/bin/look"/>
+        <file src="${prefix}/bin/rev"/>
+        <file src="${prefix}/bin/ul"/>
+    </contents>
+</package>

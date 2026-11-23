@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="bsdutils" section="utils">
+    <description>
+        <summary>basic utilities from 4.4BSD-Lite</summary>
+        <p>
+        This package contains the bare minimum of BSD utilities needed for a Debian
+        system: renice, script, scriptlive, scriptreplay and wall. The
+        remaining standard BSD utilities are provided by bsdextrautils.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/renice"/>
+        <file src="${prefix}/bin/script"/>
+        <file src="${prefix}/bin/scriptlive"/>
+        <file src="${prefix}/bin/scriptreplay"/>
+        <file src="${prefix}/bin/wall"/>
+    </contents>
+</package>

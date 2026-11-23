@@ -20,7 +20,6 @@
 
     <contents>
         <file src="${prefix}/include/libfdisk"/>
-        <file src="${prefix}/lib/libfdisk.a"/>
         <file src="${prefix}/lib/libfdisk.so"/>
         <file src="${prefix}/lib/pkgconfig/fdisk.pc"/>
     </contents>

@@ -17,7 +17,6 @@
 
     <contents>
         <file src="${prefix}/include/libsmartcols"/>
-        <file src="${prefix}/lib/libsmartcols.a"/>
         <file src="${prefix}/lib/libsmartcols.so"/>
         <file src="${prefix}/lib/pkgconfig/smartcols.pc"/>
     </contents>

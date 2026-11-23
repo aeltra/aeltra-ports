@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libpam-lastlog2" section="admin">
+    <description>
+        <summary>lastlog2 database PAM module</summary>
+        <p>
+        Y2038 safe lastlog database implementation, PAM module.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libpam-runtime"/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/lib/security/pam_lastlog2.so"/>
+        <file src="${prefix}/share/pam-configs/lastlog2"/>
+    </contents>
+
+    <maintainer-scripts>
+        <postinst><![CDATA[
+
+# Adds pam_lastlog2 to /etc/pam.d/common-session. libpam-runtime only
+# brings pam-auth-update along on the target system.
+if [ -x "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" ]; then
+    "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" --package
+fi
+
+        ]]></postinst>
+        <prerm><![CDATA[
+
+if [ -x "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" ]; then
+    "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" --package \
+        --remove lastlog2
+fi
+
+        ]]></prerm>
+    </maintainer-scripts>
+</package>

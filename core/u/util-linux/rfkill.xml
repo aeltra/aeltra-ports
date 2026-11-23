@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="rfkill" section="utils">
+    <description>
+        <summary>tool for enabling and disabling wireless devices</summary>
+        <p>
+        rfkill is a simple tool for accessing the Linux rfkill device interface,
+        which is used to enable and disable wireless networking devices, typically
+        WLAN, Bluetooth and mobile broadband.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/sbin/rfkill"/>
+    </contents>
+</package>

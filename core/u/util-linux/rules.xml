@@ -3,20 +3,43 @@
     <prepare>
     <![CDATA[
 
+# As in Debian's rules.
 cd "$AELTRA_SOURCE_DIR"
-autoreconf -vfi
+AM_OPTS=--copy LT_OPTS=--copy ./autogen.sh
 
+# The options of Debian's rules, with these differences: no systemd, no
+# udev and no cryptsetup, which are not there, and at the end the options
+# that Debian does not have (no NLS, no bash completion).
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --libdir="$AELTRA_INSTALL_PREFIX/lib" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls \
-    --disable-bash-completion \
-    --disable-use-tty-group \
+    --enable-usrdir-path \
+    --with-ntfs-mounttype=ntfs \
     --disable-makeinstall-chown \
-    --disable-makeinstall-setuid
+    --with-selinux \
+    --with-smack \
+    --enable-partx \
+    --without-systemd \
+    --without-udev \
+    --with-audit \
+    --without-cryptsetup \
+    --enable-newgrp \
+    --enable-login \
+    --enable-nologin \
+    --disable-mesg \
+    --disable-write \
+    --without-python \
+    --disable-kill \
+    --disable-chfn-chsh \
+    --disable-cal \
+    --disable-last \
+    --disable-utmpdump \
+    --disable-hwclock-gplv3 \
+    --disable-nls \
+    --disable-bash-completion
 
 # During the first phase of package builds during bootstrapping, the build
 # system finds /tools/include/ncurses and adds /tools/include to the header
@@ -60,6 +83,49 @@ make DESTDIR="$AELTRA_INSTALL_DIR" install
 
 rm -f "$AELTRA_INSTALL_DIR/bin"
 rm -f "$AELTRA_INSTALL_DIR/sbin"
+
+# What follows is what Debian's packaging does with the installed files
+# (rules, *.install, *.links, not-installed, debputy.manifest).
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+
+# Not installed: libtool files, the static libraries other than libuuid
+# and libblkid, and three programs.
+rm -f lib/*.la lib/security/*.la
+rm -f lib/libfdisk.a lib/liblastlog2.a lib/libmount.a lib/libsmartcols.a
+rm -f bin/irqtop bin/setpgid bin/uname26
+
+# These are in the program folder of users in Debian.
+for PROG in addpart blkzone chcpu delpart ldattach partx pivot_root \
+        resizepart switch_root; do
+    mv "sbin/$PROG" bin/
+done
+
+# rename is the one of Perl in Debian.
+mv bin/rename bin/rename.ul
+
+ln -s agetty  sbin/getty
+ln -s hexdump bin/hd
+ln -s newgrp  bin/sg
+
+# su, mount, umount and newgrp are setuid root in Debian. The package files
+# say so (mode="4755"), whatever the makefile does here.
+
+# Debian's PAM files, see package.xml.
+install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/pam.d" share/pam-configs
+for NAME in login remote; do
+    case "$NAME" in
+        login)  SRC="login.pam" ;;
+        *)      SRC="login.$NAME.pam" ;;
+    esac
+    install -m 644 "$AELTRA_WORK_DIR/extra/$SRC" \
+        "$AELTRA_INSTALL_DIR/etc/pam.d/$NAME"
+done
+for NAME in runuser runuser-l su su-l; do
+    install -m 644 "$AELTRA_WORK_DIR/extra/util-linux.$NAME.pam" \
+        "$AELTRA_INSTALL_DIR/etc/pam.d/$NAME"
+done
+install -m 644 "$AELTRA_WORK_DIR/extra/pam-configs/lastlog2" \
+    share/pam-configs/
 
     ]]>
     </install>

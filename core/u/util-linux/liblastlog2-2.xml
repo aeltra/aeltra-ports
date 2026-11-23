@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="liblastlog2-2" section="libs">
+    <description>
+        <summary>lastlog2 database shared library</summary>
+        <p>
+        Y2038 safe lastlog database implementation, library files.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/lib/liblastlog2.so.2"/>
+        <file src="${prefix}/lib/liblastlog2.so.2.0.0"/>
+    </contents>
+</package>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package name="mount" section="admin">
     <description>
-        <summary>Tools for mounting and manipulating filesystems</summary>
+        <summary>tools for mounting and manipulating filesystems</summary>
         <p>
-            This package provides the mount, umount, swapon, swapoff, and losetup
-            commands.
+        This package provides the mount(8), umount(8), swapon(8),
+        swapoff(8), and losetup(8) commands.
         </p>
     </description>
 
     <contents>
-        <file src="${prefix}/bin/findmnt"/>
-        <file src="${prefix}/bin/mount"/>
-        <file src="${prefix}/bin/umount"/>
+        <file src="${prefix}/bin/mount" mode="4755"/>
+        <file src="${prefix}/bin/umount" mode="4755"/>
         <file src="${prefix}/sbin/losetup"/>
         <file src="${prefix}/sbin/swapoff"/>
         <file src="${prefix}/sbin/swapon"/>

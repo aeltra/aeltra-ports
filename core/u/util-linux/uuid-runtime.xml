@@ -29,7 +29,7 @@
 
     <contents>
         <file src="${prefix}/bin/uuidgen"/>
-        <file src="${prefix}/lib/systemd/system/uuidd.*"/>
+        <file src="${prefix}/bin/uuidparse"/>
         <file src="${prefix}/sbin/uuidd"/>
     </contents>
 </package>

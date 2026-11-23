@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="liblastlog2-dev" section="libdevel">
+    <description>
+        <summary>liblastlog2 development files</summary>
+        <p>
+        Y2038 safe lastlog database implementation, development files.
+        </p>
+    </description>
+
+    <requires>
+        <package name="liblastlog2-2" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include/liblastlog2/lastlog2.h"/>
+        <file src="${prefix}/lib/liblastlog2.so"/>
+        <file src="${prefix}/lib/pkgconfig/lastlog2.pc"/>
+    </contents>
+</package>

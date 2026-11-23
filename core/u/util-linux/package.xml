@@ -18,42 +18,68 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="util-linux-2.36.1.tar.xz" subdir="sources"
-                sha256sum="09fac242172cd8ec27f0739d8d192402c69417617091d8c6e974841568f37eed"/>
-            <file src="debian-patches-7.tar.gz" subdir="patches"
-                sha256sum="46683350e0f2b55b391df64478535a6c7b0f1d360d2980e784e52f167f83ecf7"/>
+            <file src="util-linux-2.42.4.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/u/util-linux/util-linux_2.42.4.orig.tar.xz"
+                sha256sum="fbd62a100ab7bb8746ba0661255c3c48185b1e9021507c624da01fbc696330ec"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="2b1b5f52c0b3a5eab39fc2b0ad26648a322ea8fbacbc3e44528bbaf3cdd50ffc"/>
+            <!-- The PAM files of Debian's packaging and its profile for
+                 pam-auth-update, unchanged. -->
+            <file src="debian-files-1.tar.gz" subdir="extra"
+                sha256sum="2f312ddb7b225ea192d443e43cdaf637e214f43472b1bba6acd1c098efb63493"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/upstream/upstream_build-sys-do-not-build-plymouth-ctrl.c-w-disabled-pl.patch"/>
-                <file src="patches/upstream/upstream_hwclock-do-not-assume-__NR_settimeofday_time32.patch"/>
-                <file src="patches/upstream/0001-libmount-don-t-use-symfollow-for-helpers-on-user-mou.patch"/>
-                <file src="patches/upstream/Manual-pages-document-the-resize-command.patch"/>
                 <file src="patches/debian/man-getopt-examples.patch"/>
                 <file src="patches/debian/verbose-tests.patch"/>
-                <file src="patches/upstream/libmount-do-not-canonicalize-ZFS-source-dataset.patch"/>
-                <file src="patches/upstream/libmount-allow-read-only-for-not-root-users.patch"/>
+                <file src="patches/debian/hardlink-tests-known-failed.patch"/>
+                <file src="patches/debian/lsfd-usrbin.patch"/>
+                <file src="patches/debian/sensible-pager.patch"/>
+                <file src="patches/debian/login-support-LOG_OK_LOGINS.patch"/>
+                <file src="patches/debian/login-do-not-print-motd-done-by-PAM.patch"/>
+                <file src="patches/debian/login-turn-off-btmp-utmp-lastlog-writing.patch"/>
+                <file src="patches/debian/salsa-ci-skip-tests.patch"/>
+                <file src="patches/Stop-using-Linux-crypto-API-in-hardlink.patch"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autopoint"/>
+            <package name="bash"/>
+            <package name="bison"/>
+            <package name="flex"/>
             <package name="gettext"/>
             <package name="libaudit-dev"/>
             <package name="libcap-ng-dev"/>
             <package name="libncurses-dev"/>
             <package name="libpam0g-dev"/>
+            <package name="libreadline-dev"/>
             <package name="libselinux1-dev"/>
+            <package name="libsqlite3-dev"/>
             <package name="libtool"/>
             <package name="pkg-config"/>
-            <package name="bison"/>
             <package name="zlib1g-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>
     </source>
 
+    <xi:include href="util-linux.xml"/>
+    <xi:include href="util-linux-extra.xml"/>
+    <xi:include href="bsdutils.xml"/>
+    <xi:include href="bsdextrautils.xml"/>
+    <xi:include href="eject.xml"/>
+    <xi:include href="fdisk.xml"/>
+    <xi:include href="login.xml"/>
     <xi:include href="mount.xml"/>
+    <xi:include href="rfkill.xml"/>
+    <xi:include href="lastlog2.xml"/>
+    <xi:include href="liblastlog2-2.xml"/>
+    <xi:include href="liblastlog2-dev.xml"/>
+    <xi:include href="libpam-lastlog2.xml"/>
     <xi:include href="libblkid1.xml"/>
     <xi:include href="libblkid-dev.xml"/>
     <xi:include href="libfdisk1.xml"/>
@@ -65,7 +91,6 @@
     <xi:include href="libuuid1.xml"/>
     <xi:include href="uuid-runtime.xml"/>
     <xi:include href="uuid-dev.xml"/>
-    <xi:include href="setpriv.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>
