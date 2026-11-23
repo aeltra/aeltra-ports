@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release epoch="1" version="2.53.0" revision="1aeltra1" upstream-version="1:2.53.0-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-23 11:45:16+03:00">
+        <changeset>
+            <li>New package, the version of Debian Forky. Only the package
+            git, built without curl</li>
+        </changeset>
+    </release>
+</changelog>

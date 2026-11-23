@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <source name="git" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Fast, scalable, distributed revision control system</summary>
+            <p>
+            Git is popular version control system designed to handle very large
+            projects with speed and efficiency; it is used for many high profile
+            open source projects, most notably the Linux kernel.
+            </p>
+            <p>
+            Git falls in the category of distributed source code management tools.
+            Every Git working directory is a full-fledged repository with full
+            revision tracking capabilities, not dependent on network access or a
+            central server.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="git-2.53.0.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/git/git_2.53.0.orig.tar.xz"
+                sha256sum="5818bd7d80b061bbbdfec8a433d609dc8818a05991f731ffc4a561e2ca18c653"/>
+        </sources>
+
+        <requires>
+            <package name="zlib1g-dev"/>
+            <package name="libpcre2-dev"/>
+            <package name="perl"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="git.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

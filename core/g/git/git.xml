@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="git" section="vcs">
+    <description>
+        <summary>Fast, scalable, distributed revision control system</summary>
+        <p>
+        Git is popular version control system designed to handle very large
+        projects with speed and efficiency; it is used for many high profile
+        open source projects, most notably the Linux kernel.
+        </p>
+        <p>
+        Git falls in the category of distributed source code management tools.
+        Every Git working directory is a full-fledged repository with full
+        revision tracking capabilities, not dependent on network access or a
+        central server.
+        </p>
+        <p>
+        This package provides the git main components. It is built without
+        curl and cannot fetch from or push to http and https remotes.
+        </p>
+    </description>
+
+    <requires>
+        <package name="perl"/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin"/>
+        <file src="${prefix}/lib/git-core"/>
+        <file src="${prefix}/share/bash-completion"/>
+        <file src="${prefix}/share/git-core"/>
+        <file src="${prefix}/share/perl5"/>
+    </contents>
+</package>

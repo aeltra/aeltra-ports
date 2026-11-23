@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+# The options of Debian's rules, without the ones for its alternatives
+# (pager, editor) and with these differences:
+#
+# * NO_CURL, NO_EXPAT: curl is built after git. Without them git has no
+#   helpers for http and https remotes.
+# * NO_GETTEXT: no translations.
+# * NO_TCLTK, NO_PYTHON: no gitk, git-gui and git-p4.
+# * NO_PERL_CPAN_FALLBACKS is not set: there is no package of the Perl
+#   module Error, git installs its own copy.
+cd "$AELTRA_BUILD_DIR"
+cat > config.mak << EOF
+prefix = $AELTRA_INSTALL_PREFIX
+gitexecdir = $AELTRA_INSTALL_PREFIX/lib/git-core
+INSTALLDIRS = vendor
+CC = ${AELTRA_HOST_TYPE}-gcc
+AR = ${AELTRA_HOST_TYPE}-ar
+PERL_PATH = $AELTRA_INSTALL_PREFIX/bin/perl
+NO_OPENSSL = 1
+NO_CURL = 1
+NO_EXPAT = 1
+NO_GETTEXT = 1
+NO_TCLTK = 1
+NO_PYTHON = 1
+NO_CROSS_DIRECTORY_HARDLINKS = 1
+NO_INSTALL_HARDLINKS = 1
+USE_LIBPCRE2 = 1
+V = 1
+EOF
+
+# As in Alpine: musl has no REG_STARTEND, and its iconv writes no byte
+# order mark.
+if [ "$AELTRA_LIBC_NAME" = "musl" ]; then
+    cat >> config.mak << EOF
+NO_REGEX = YesPlease
+NO_SYS_POLL_H = 1
+ICONV_OMITS_BOM = Yes
+EOF
+fi
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS" all
+make -C contrib/subtree all
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
+make -C contrib/subtree DESTDIR="$AELTRA_INSTALL_DIR" install
+
+install -d -m 0755 \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/bash-completion/completions"
+install -m 644 contrib/completion/git-completion.bash \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/bash-completion/completions/git"
+install -m 644 contrib/completion/git-prompt.sh \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/git-core/git-sh-prompt"
+
+# As in Debian, which has these in packages of their own: the tools for
+# arch, cvs, svn and email, and gitweb.
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+for i in git-archimport git-cvs git-p4 git-svn git-send-email; do
+    rm -f lib/git-core/$i*
+done
+rm -f bin/git-cvsserver
+rm -rf share/perl5/Git/SVN* share/gitweb
+
+    ]]>
+    </install>
+</rules>
