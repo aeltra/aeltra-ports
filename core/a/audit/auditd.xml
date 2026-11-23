@@ -16,7 +16,7 @@
         <file src="/etc/audit/plugins.d/af_unix.conf" mode="0640"/>
         <file src="/etc/audit/plugins.d/filter.conf" mode="0640"/>
         <file src="/etc/audit/plugins.d/syslog.conf" mode="0640"/>
-        <file src="/etc/audit/rules.d"/>
+        <file src="/etc/audit/rules.d/audit.rules" mode="0640"/>
 
         <file src="${prefix}/bin"/>
         <file src="${prefix}/sbin/audisp-af_unix"/>

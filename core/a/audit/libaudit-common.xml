@@ -13,6 +13,6 @@
     </description>
 
     <contents>
-        <file src="/etc/libaudit.conf"/>
+        <file src="/etc/libaudit.conf" mode="0640"/>
     </contents>
 </package>
