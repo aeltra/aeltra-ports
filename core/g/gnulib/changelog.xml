@@ -6,6 +6,8 @@
         <changeset>
             <li>New package, the version of Debian Forky. Debian's patch is
             listed but not applied</li>
+            <li>Only the git bundle of the repository is installed, not
+            the source tree with gnulib-tool</li>
             <li>gnulib-patch takes the place of Debian's
             dh_gnulib_patch</li>
         </changeset>

@@ -3,23 +3,17 @@
     <install>
     <![CDATA[
 
-# Nothing is compiled. The files are the ones Debian's rules install, with
-# gnulib.bundle, the repository that packages clone to get at the commit of
-# gnulib they pin. Left out: Debian's helpers for debhelper
-# (dh_gnulib_patch, gnulib-dpkg.mk) and the manual.
+# Nothing is compiled. Of the files Debian's package has, only
+# gnulib.bundle is installed, the repository of gnulib: packages clone it
+# to get at the commit of gnulib they pin, or use its newest commit, which
+# is the tree Debian installs next to it. Left out with that tree:
+# gnulib-tool and check-module in the program folder, Debian's helpers for
+# debhelper (dh_gnulib_patch, gnulib-dpkg.mk) and the manual.
 GNULIB_DIR="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/gnulib"
 BIN_DIR="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
 
 install -d -m 0755 "$GNULIB_DIR" "$BIN_DIR"
-
-cd "$AELTRA_SOURCE_DIR"
-cp -a build-aux posix-modules config doc lib m4 modules top tests \
-    MODULES.html.sh Makefile cfg.mk check-copyright \
-    gnulib-tool* .gnulib-tool.py pygnulib gnulib.bundle \
-    "$GNULIB_DIR"
-
-cp -a check-module "$BIN_DIR"
-ln -s ../share/gnulib/gnulib-tool "$BIN_DIR/gnulib-tool"
+install -m 644 "$AELTRA_SOURCE_DIR/gnulib.bundle" "$GNULIB_DIR/"
 
 # Our stand-in for dh_gnulib_patch and the folder with its patches, which
 # is empty until gnulib code has to be fixed.
@@ -28,27 +22,6 @@ sed "s|@DATADIR@|$AELTRA_INSTALL_PREFIX/share|g" \
     > "$BIN_DIR/gnulib-patch"
 chmod 0755 "$BIN_DIR/gnulib-patch"
 install -d -m 0755 "$GNULIB_DIR/aeltra/patches.d"
-
-# As in Debian: permissions.
-chmod 0755 \
-    "$GNULIB_DIR/build-aux/config.guess" \
-    "$GNULIB_DIR/build-aux/config.sub" \
-    "$GNULIB_DIR/build-aux/gendocs.sh" \
-    "$GNULIB_DIR/tests/test-closein.sh" \
-    "$GNULIB_DIR/tests/test-posix_spawn-dup2-stdout.in.sh" \
-    "$GNULIB_DIR/tests/test-posix_spawn-dup2-stdin.in.sh"
-chmod 0644 \
-    "$GNULIB_DIR/doc/gendocs_template" \
-    "$GNULIB_DIR/m4/fflush.m4" \
-    "$GNULIB_DIR/modules/canonicalize-lgpl" \
-    "$GNULIB_DIR/modules/fflush" \
-    "$GNULIB_DIR/modules/fflush-tests" \
-    "$GNULIB_DIR/tests/test-base64.c" \
-    "$GNULIB_DIR/tests/test-fflush.c"
-
-# As in Debian: files that are of no use.
-rm -f "$GNULIB_DIR"/*/.cvsignore "$GNULIB_DIR"/*/.gitignore \
-    "$GNULIB_DIR"/*/.gitattributes
 
     ]]>
     </install>
