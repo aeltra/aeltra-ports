@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rules>
-    <prepare>
-    <![CDATA[
-
-cd "$AELTRA_SOURCE_DIR"
-sed -i "s@/usr/include@$AELTRA_INSTALL_PREFIX/include@g" Make.Rules
-
-    ]]>
-    </prepare>
-
     <build>
     <![CDATA[
 
+# PAM_CAP: the makefile only builds the module when it finds the header of
+# PAM in /usr/include, which is not where the tools folder has it.
+# FORCELINKPAM: link pam_cap.so with libpam, as Debian does.
 cd "$AELTRA_BUILD_DIR"
 make \
-    CC="${AELTRA_HOST_TYPE}-gcc" \
-    AR="${AELTRA_HOST_TYPE}-ar" \
-    RANLIB="${AELTRA_HOST_TYPE}-ranlib" \
+    prefix="$AELTRA_INSTALL_PREFIX" \
+    lib=lib \
+    CROSS_COMPILE="${AELTRA_HOST_TYPE}-" \
+    DYNAMIC=yes \
+    FORCELINKPAM=yes \
+    GOLANG=no \
+    PAM_CAP=yes \
     -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
@@ -26,7 +24,26 @@ make \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make DESTDIR="$AELTRA_INSTALL_DIR" prefix="$AELTRA_INSTALL_PREFIX" lib=lib install 
+make \
+    DESTDIR="$AELTRA_INSTALL_DIR" \
+    prefix="$AELTRA_INSTALL_PREFIX" \
+    lib=lib \
+    PKGCONFIGDIR="$AELTRA_INSTALL_PREFIX/lib/pkgconfig" \
+    CROSS_COMPILE="${AELTRA_HOST_TYPE}-" \
+    DYNAMIC=yes \
+    FORCELINKPAM=yes \
+    GOLANG=no \
+    PAM_CAP=yes \
+    RAISE_SETFCAP=no \
+    install
+
+install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/security"
+install -m 644 pam_cap/capability.conf "$AELTRA_INSTALL_DIR/etc/security/"
+
+install -d -m 0755 \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/pam-configs"
+install -m 644 "$AELTRA_WORK_DIR/extra/pam-configs/capability" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/pam-configs/"
 
     ]]>
     </install>

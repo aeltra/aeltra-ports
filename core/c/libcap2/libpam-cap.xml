@@ -18,6 +18,28 @@
     </requires>
 
     <contents>
+        <file src="/etc/security/capability.conf"/>
         <file src="${prefix}/lib/security"/>
+        <file src="${prefix}/share/pam-configs/capability"/>
     </contents>
+
+    <maintainer-scripts>
+        <postinst><![CDATA[
+
+# Adds pam_cap to /etc/pam.d/common-auth. libpam-runtime only brings
+# pam-auth-update along on the target system.
+if [ -x "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" ]; then
+    "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" --package
+fi
+
+        ]]></postinst>
+        <prerm><![CDATA[
+
+if [ -x "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" ]; then
+    "$AELTRA_INSTALL_PREFIX/sbin/pam-auth-update" --package \
+        --remove capability
+fi
+
+        ]]></prerm>
+    </maintainer-scripts>
 </package>

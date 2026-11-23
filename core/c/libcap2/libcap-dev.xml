@@ -19,6 +19,7 @@
     <contents>
         <file src="${prefix}/include/sys"/>
         <file src="${prefix}/lib/libcap.{a,so}"/>
+        <file src="${prefix}/lib/libpsx.{a,so}"/>
         <file src="${prefix}/lib/pkgconfig"/>
     </contents>
 </package>

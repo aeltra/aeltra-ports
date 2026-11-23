@@ -13,35 +13,32 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file 
-                subdir="sources"
-                src="libcap2-2.44.tar.xz"
-                upstream-src="http://ftp.debian.org/debian/pool/main/libc/libcap2/libcap2_2.44.orig.tar.xz"
-                sha256sum="92188359cd5be86e8e5bd3f6483ac6ce582264f912398937ef763def2205c8e1"
-            />
-            <file 
-                subdir="patches"
-                src="debian-patches-1.tar.gz"
-                upstream-src=""
-                sha256sum="3273985b55ceb89939febf968916813ee6f400ac872a0670d0b92e3f8b62c2f6"
-            />
+            <file src="libcap2-2.78.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libc/libcap2/libcap2_2.78.orig.tar.xz"
+                sha256sum="0d621e562fd932ccf67b9660fb018e468a683d7b827541df27813228c996bb11"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="9cd64941ce13dbe4594ee40019889646cbbb30f3d0c94494d662c88ee84b5b97"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="0595982e53ba7b2622ed3664299ececb3ee91a359a8587635e1acaa8dc0f80f9"/>
+            <!-- Debian's profile for pam-auth-update. -->
+            <file src="pam-configs.tar.gz" subdir="extra"
+                sha256sum="67092cd30b9ab902dfe7d389c3e74022e9f621a58aa43b205e148f6ff93fb0a8"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/ldlibs.patch"/>
-                <file src="patches/setcap-error-message.patch"/>
-                <file src="patches/Don-t-hardcode-build-flags.patch"/>
+                <!-- Debian -->
                 <file src="patches/Hide-private-symbols.patch"/>
                 <file src="patches/Filter-out-PIE-flags-when-building-shared-objects.patch"/>
-                <file src="patches/Use-DEB_GAIN_ROOT_CMD-for-make-test.patch"/>
-                <file src="patches/Make.Rules-Allow-overriding-DYNAMIC.patch"/>
+                <file src="patches/Skip-git-if-not-installed.patch"/>
+                <!-- Ours: there is no bash yet when libcap is built. -->
+                <file src="patches/mkcapshdoc-posix-shell.diff"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="libpam0g-dev"/>
-            <package name="gperf"/>
+            <package name="gperf" version=">= 3.1"/>
         </requires>
 
         <xi:include href="rules.xml"/>

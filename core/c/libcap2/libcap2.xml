@@ -14,5 +14,6 @@
 
     <contents>
         <file src="${prefix}/lib/libcap.so.*"/>
+        <file src="${prefix}/lib/libpsx.so.*"/>
     </contents>
 </package>
