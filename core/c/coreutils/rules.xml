@@ -3,9 +3,11 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_SOURCE_DIR"
-autoreconf -v -fi
-
+# As in Debian's rules, the configure script of the release is used:
+# Debian's patches do not change the build system. Not as in Debian:
+# no systemd (--enable-systemd), no NLS, and libstdbuf.so is in
+# lib/coreutils, not in libexec. Debian's -DSYSLOG_... are left out, nothing
+# in the sources looks at them any more.
 if [ "`bh_os_bits $AELTRA_HOST_TYPE`" = "32" ]; then
     export TIME_T_32_BIT_OK=yes
 fi
@@ -16,6 +18,9 @@ cd "$AELTRA_BUILD_DIR"
     --libexecdir="$AELTRA_INSTALL_PREFIX/lib" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --enable-install-program=arch \
+    --with-openssl=auto-gpl-compat \
+    --with-packager=Aeltra \
     --disable-nls
 
     ]]>

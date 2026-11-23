@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="9.12" revision="0.3aeltra1" upstream-version="9.12-0.3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-23 17:32:41+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patches</li>
+            <li>As in Debian: the configure script of the release is
+            used, arch is installed, the checksum programs use OpenSSL,
+            ls is linked with libcap and factor with GMP</li>
+        </changeset>
+    </release>
     <release version="8.32" revision="4bolt1" upstream-version="8.32-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-24 23:12:28+03:00">

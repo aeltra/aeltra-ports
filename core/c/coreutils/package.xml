@@ -114,32 +114,30 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="coreutils-8.32.tar.xz" subdir="sources"
-                sha256sum="4458d8de7849df44ccab15e16b1548b285224dbba5f08fac070c1c0e0bcc4cfa"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="eef08f55b6358fbb51821f852ace57d00ec308c8e2af540bffb6601606653e35"/>
+            <file src="coreutils-9.12.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/c/coreutils/coreutils_9.12.orig.tar.xz"
+                sha256sum="a480198559733e9b3da999e90543ac6f888a2caa544d8d664c5a1f17e528e210"/>
+            <file src="debian-patches-0.3.tar.gz" subdir="patches"
+                sha256sum="e9f1f616b35b7e2039543280fb4b077032f4101e7ecb61911f9feb4f3fea1a51"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/61_whoips.patch"/>
-                <file src="patches/63_dd-appenderrors.patch"/>
                 <file src="patches/72_id_checkngroups.patch"/>
-                <file src="patches/85_timer_settime.patch"/>
-                <file src="patches/99_kfbsd_fstat_patch.patch"/>
-                <file src="patches/restore-ls-behavior-8.31.patch"/>
+                <file src="patches/env-printenv-only-quote-when-outputting-to-terminals.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="gettext"/>
-            <package name="autotools-dev" tools-prefix=""/>
             <package name="texinfo"/>
             <package name="libattr1-dev"/>
             <package name="libacl1-dev"/>
             <package name="libselinux1-dev"/>
             <package name="gperf"/>
             <package name="bison"/>
+            <package name="libcap-dev"/>
+            <package name="libgmp-dev"/>
+            <package name="libssl-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>
