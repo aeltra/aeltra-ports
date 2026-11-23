@@ -42,7 +42,7 @@ install -m 644 pam_cap/capability.conf "$AELTRA_INSTALL_DIR/etc/security/"
 
 install -d -m 0755 \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/pam-configs"
-install -m 644 "$AELTRA_WORK_DIR/extra/pam-configs/capability" \
+install -m 644 "$AELTRA_WORK_DIR/extra/capability" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/pam-configs/"
 
     ]]>
