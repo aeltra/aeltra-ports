@@ -32,6 +32,10 @@
     </requires>
 
     <contents>
+        <!-- libc.so is also the dynamic loader (ld-musl-*.so.1 is a link
+             to it) and the kernel only runs it when it is executable.
+             aeltra-pack gives other shared libraries mode 0644. -->
+        <file src="${prefix}/lib/libc.so" mode="0755"/>
         <file src="${prefix}/lib/*.so*"/>
         <file src="${prefix}/share/misc/libc.name"/>
         <file src="${prefix}/bin/ldd"/>
