@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="gnulib" section="devel">
+    <description>
+        <summary>GNU Portability Library</summary>
+        <p>
+        The GNU portability library is a macro system and C declarations and
+        definitions for commonly-used API elements and abstracted system behaviors. It
+        can be used to improve portability and other functionality in your programs.
+        </p>
+        <p>
+        Besides the source tree, this package has the repository of gnulib
+        as a git bundle. Packages whose sources pin a commit of gnulib clone
+        it, and gnulib-patch applies the fixes of this package to the clone.
+        </p>
+    </description>
+
+    <requires>
+        <package name="perl"/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/bin"/>
+        <file src="${prefix}/share/gnulib"/>
+        <dir src="${prefix}/share/gnulib/aeltra/patches.d"/>
+    </contents>
+</package>

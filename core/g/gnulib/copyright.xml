@@ -1,0 +1,2132 @@
+<copyright>
+    <files license="GPL-3+">
+        <file src="*"/>
+        <copyright-notice><![CDATA[
+1985-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GFDL-NIV-1.3+">
+        <file src="doc/*"/>
+        <copyright-notice><![CDATA[
+1992-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="public-domain">
+        <file src="examples/*"/>
+        <copyright-notice><![CDATA[
+Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="m4/*"/>
+        <copyright-notice><![CDATA[
+1992-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="modules/*"/>
+        <copyright-notice><![CDATA[
+2002-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="lib/glthread/*"/>
+        <copyright-notice><![CDATA[
+2005-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="lib/malloc/*"/>
+        <copyright-notice><![CDATA[
+2015-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/unicase/*"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/uniconv/*"/>
+        <copyright-notice><![CDATA[
+2002, 2006-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/unictype/*"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/unigbrk/*"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/unilbrk/*"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/uniname/*"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/uninorm/*"/>
+        <copyright-notice><![CDATA[
+2009-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/unistdio/*"/>
+        <copyright-notice><![CDATA[
+1999-2000, 2002, 2004-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/unistr/*"/>
+        <copyright-notice><![CDATA[
+1999-2002, 2005-2007, 2009-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/uniwbrk/*"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="lib/uniwidth/*"/>
+        <copyright-notice><![CDATA[
+2001-2002, 2006-2007, 2009-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="tests/from-glibc/*"/>
+        <copyright-notice><![CDATA[
+2024-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+">
+        <file src="tests/unigbrk/*"/>
+        <copyright-notice><![CDATA[
+2010-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="ChangeLog"/>
+        <file src="Makefile"/>
+        <file src="build-aux/po/remove-potcdate.sed"/>
+        <file src="doc/INSTALL"/>
+        <file src="doc/INSTALL.ISO"/>
+        <file src="doc/INSTALL.UTF-8"/>
+        <file src="doc/Makefile"/>
+        <file src="doc/gendocs_template"/>
+        <file src="doc/gendocs_template_min"/>
+        <file src="doc/gnu-oids.texi"/>
+        <file src="doc/solaris-versions"/>
+        <copyright-notice><![CDATA[
+1994-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="build-aux/po/Makefile.in.in"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+1995-2000 Ulrich Drepper <drepper@gnu.ai.mit.edu>
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFUL">
+        <file src="po/Makevars"/>
+        <copyright-notice><![CDATA[
+2003-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="HACKING"/>
+        <file src="build-aux/config.rpath"/>
+        <file src="build-aux/prefix-gnulib-mk"/>
+        <file src="etc/license-notices/unlimited"/>
+        <file src="modules/COPYING"/>
+        <file src="users.txt"/>
+        <copyright-notice><![CDATA[
+1996-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="m4/libgcrypt.m4"/>
+        <copyright-notice><![CDATA[
+2002-2004, 2011, 2014, 2018, 2020, 2024 g10 Code GmbH
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+">
+        <file src="build-aux/gnupload"/>
+        <file src="build-aux/increment-serial"/>
+        <file src="build-aux/relocatable.sh.in"/>
+        <file src="config/argz.mk"/>
+        <file src="etc/license-notices/GPLv2+"/>
+        <file src="lib/sigsegv.in.h"/>
+        <file src="lib/vma-iter.c"/>
+        <file src="lib/vma-iter.h"/>
+        <file src="lib/vma-prot.c"/>
+        <file src="lib/vma-prot.h"/>
+        <file src="tests/altstack-util.h"/>
+        <file src="tests/mmap-anon-util.h"/>
+        <file src="tests/test-dynarray.c"/>
+        <file src="tests/test-sf-istream.c"/>
+        <file src="tests/test-sfl-istream.c"/>
+        <file src="tests/test-sigsegv-catch-segv1.c"/>
+        <file src="tests/test-sigsegv-catch-segv2.c"/>
+        <file src="tests/test-sigsegv-catch-stackoverflow1.c"/>
+        <file src="tests/test-sigsegv-catch-stackoverflow2.c"/>
+        <file src="tests/test-string-buffer-reversed.c"/>
+        <file src="tests/test-string-buffer.c"/>
+        <copyright-notice><![CDATA[
+1995-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+">
+        <file src="lib/sigsegv.c"/>
+        <copyright-notice><![CDATA[
+1993-2026 Free Software Foundation, Inc.
+2018 Nylon Chen <nylon7@andestech.com>
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+">
+        <file src="lib/stackvma.c"/>
+        <file src="lib/stackvma.h"/>
+        <copyright-notice><![CDATA[
+2002-2026 Free Software Foundation, Inc.
+2003-2006 Paolo Bonzini <bonzini@gnu.org>
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+ with Autoconf exception">
+        <file src="build-aux/ar-lib"/>
+        <file src="build-aux/compile"/>
+        <file src="build-aux/depcomp"/>
+        <file src="build-aux/mdate-sh"/>
+        <file src="m4/mprotect.m4"/>
+        <file src="m4/sigaltstack.m4"/>
+        <file src="m4/stack-direction.m4"/>
+        <copyright-notice><![CDATA[
+1993-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+">
+        <file src="examples/README"/>
+        <file src="examples/hello-c-gnulib-automakesubdir-withtests/INSTALL"/>
+        <file src="examples/hello-c-gnulib-automakesubdir-withtests/m4/Makefile.am"/>
+        <file src="examples/hello-c-gnulib-automakesubdir-withtests/src/local.mk"/>
+        <file src="examples/hello-c-gnulib-automakesubdir/INSTALL"/>
+        <file src="examples/hello-c-gnulib-automakesubdir/m4/Makefile.am"/>
+        <file src="examples/hello-c-gnulib-automakesubdir/src/local.mk"/>
+        <file src="examples/hello-c-gnulib-conddeps/INSTALL"/>
+        <file src="examples/hello-c-gnulib-conddeps/m4/Makefile.am"/>
+        <file src="examples/hello-c-gnulib-nonrecursive/INSTALL"/>
+        <file src="examples/hello-c-gnulib-nonrecursive/m4/Makefile.am"/>
+        <file src="examples/hello-c-gnulib-nonrecursive/src/local.mk"/>
+        <file src="examples/hello-c-gnulib/INSTALL"/>
+        <file src="examples/hello-c-gnulib/m4/Makefile.am"/>
+        <file src="examples/hello-c-nognulib/INSTALL"/>
+        <file src="examples/hello-c-nognulib/m4/Makefile.am"/>
+        <file src="lib/unictype/3level.h"/>
+        <file src="lib/unictype/3levelbit.h"/>
+        <file src="lib/unictype/Makefile"/>
+        <file src="m4/std-gnu11.m4"/>
+        <file src="m4/std-gnu23.m4"/>
+        <file src="tests/from-glibc/support/test-driver.c"/>
+        <file src="tests/unigbrk/test-uc-gbrk-prop.c"/>
+        <file src="tests/unigbrk/test-uc-gbrk-prop.h"/>
+        <file src="tests/unigbrk/test-uc-grapheme-breaks.sh"/>
+        <file src="tests/unigbrk/test-uc-is-grapheme-break.sh"/>
+        <file src="tests/unigbrk/test-ulc-grapheme-breaks.c"/>
+        <file src="tests/unigbrk/test-ulc-grapheme-breaks.sh"/>
+        <file src="tests/unigbrk/test-unigbrk-h-c++.cc"/>
+        <file src="tests/unigbrk/test-unigbrk-h.c"/>
+        <copyright-notice><![CDATA[
+2000-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+ with Autoconf exception">
+        <file src="build-aux/config.guess"/>
+        <file src="build-aux/config.libpath"/>
+        <file src="build-aux/config.sub"/>
+        <file src="build-aux/reloc-ldflags"/>
+        <copyright-notice><![CDATA[
+1992-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+ with Texinfo exception">
+        <file src="build-aux/texinfo.tex"/>
+        <copyright-notice><![CDATA[
+1985-1986, 1988, 1990-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2+">
+        <file src="build-aux/snippet/link-warning.h"/>
+        <file src="lib/_Noreturn.h"/>
+        <file src="lib/arg-nonnull.h"/>
+        <file src="lib/c++defs.h"/>
+        <file src="lib/unused-parameter.h"/>
+        <file src="lib/warn-on-use.h"/>
+        <copyright-notice><![CDATA[
+1995, 1997, 2000, 2002-2003, 2007-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="doc/relocatable.texi"/>
+        <file src="etc/license-notices/LGPLv2+"/>
+        <file src="lib/abort-debug.c"/>
+        <file src="lib/accept.c"/>
+        <file src="lib/access.c"/>
+        <file src="lib/af_alg.c"/>
+        <file src="lib/af_alg.h"/>
+        <file src="lib/alignalloc.c"/>
+        <file src="lib/alignalloc.h"/>
+        <file src="lib/aligned-malloc.h"/>
+        <file src="lib/aligned_alloc.c"/>
+        <file src="lib/alignof.h"/>
+        <file src="lib/alloca.in.h"/>
+        <file src="lib/allocator.c"/>
+        <file src="lib/allocator.h"/>
+        <file src="lib/amemxfrm.c"/>
+        <file src="lib/amemxfrm.h"/>
+        <file src="lib/anytostr.c"/>
+        <file src="lib/aprintf.c"/>
+        <file src="lib/arcfour.c"/>
+        <file src="lib/arcfour.h"/>
+        <file src="lib/arctwo.c"/>
+        <file src="lib/arctwo.h"/>
+        <file src="lib/areadlink-with-size.c"/>
+        <file src="lib/areadlink.c"/>
+        <file src="lib/areadlink.h"/>
+        <file src="lib/argz.c"/>
+        <file src="lib/argz.in.h"/>
+        <file src="lib/arpa_inet.c"/>
+        <file src="lib/arpa_inet.in.h"/>
+        <file src="lib/array-mergesort.h"/>
+        <file src="lib/asnprintf.c"/>
+        <file src="lib/asnwprintf.c"/>
+        <file src="lib/asprintf.c"/>
+        <file src="lib/assert.in.h"/>
+        <file src="lib/assure.h"/>
+        <file src="lib/asyncsafe-spin.c"/>
+        <file src="lib/asyncsafe-spin.h"/>
+        <file src="lib/aszprintf.c"/>
+        <file src="lib/at-init.c"/>
+        <file src="lib/attribute.h"/>
+        <file src="lib/base32.c"/>
+        <file src="lib/base32.h"/>
+        <file src="lib/base64.c"/>
+        <file src="lib/base64.h"/>
+        <file src="lib/basename-lgpl.c"/>
+        <file src="lib/basename-lgpl.h"/>
+        <file src="lib/bcp47.c"/>
+        <file src="lib/bcp47.h"/>
+        <file src="lib/binary-io.c"/>
+        <file src="lib/binary-io.h"/>
+        <file src="lib/bind.c"/>
+        <file src="lib/bitrotate.c"/>
+        <file src="lib/bitrotate.h"/>
+        <file src="lib/btoc32.c"/>
+        <file src="lib/btowc.c"/>
+        <file src="lib/byteswap.c"/>
+        <file src="lib/byteswap.in.h"/>
+        <file src="lib/c-asprintf.c"/>
+        <file src="lib/c-aszprintf.c"/>
+        <file src="lib/c-ctype.c"/>
+        <file src="lib/c-ctype.h"/>
+        <file src="lib/c-snprintf.c"/>
+        <file src="lib/c-snprintf.h"/>
+        <file src="lib/c-snzprintf.c"/>
+        <file src="lib/c-strcase.h"/>
+        <file src="lib/c-strcasecmp.c"/>
+        <file src="lib/c-strcaseeq.h"/>
+        <file src="lib/c-strcasestr.c"/>
+        <file src="lib/c-strcasestr.h"/>
+        <file src="lib/c-strncasecmp.c"/>
+        <file src="lib/c-vasnprintf.c"/>
+        <file src="lib/c-vasnprintf.h"/>
+        <file src="lib/c-vasprintf.c"/>
+        <file src="lib/c-vasprintf.h"/>
+        <file src="lib/c-vaszprintf.c"/>
+        <file src="lib/c-vsnprintf.c"/>
+        <file src="lib/c-vsnprintf.h"/>
+        <file src="lib/c-vsnzprintf.c"/>
+        <file src="lib/c32_apply_mapping.c"/>
+        <file src="lib/c32_apply_type_test.c"/>
+        <file src="lib/c32_get_mapping.c"/>
+        <file src="lib/c32_get_type_test.c"/>
+        <file src="lib/c32is-impl.h"/>
+        <file src="lib/c32isalnum.c"/>
+        <file src="lib/c32isalpha.c"/>
+        <file src="lib/c32isblank.c"/>
+        <file src="lib/c32iscntrl.c"/>
+        <file src="lib/c32isdigit.c"/>
+        <file src="lib/c32isgraph.c"/>
+        <file src="lib/c32islower.c"/>
+        <file src="lib/c32isprint.c"/>
+        <file src="lib/c32ispunct.c"/>
+        <file src="lib/c32isspace.c"/>
+        <file src="lib/c32isupper.c"/>
+        <file src="lib/c32isxdigit.c"/>
+        <file src="lib/c32rtomb.c"/>
+        <file src="lib/c32swidth.c"/>
+        <file src="lib/c32to-impl.h"/>
+        <file src="lib/c32tolower.c"/>
+        <file src="lib/c32toupper.c"/>
+        <file src="lib/c32width.c"/>
+        <file src="lib/call_once.c"/>
+        <file src="lib/calloc.c"/>
+        <file src="lib/canonicalize-lgpl.c"/>
+        <file src="lib/careadlinkat.c"/>
+        <file src="lib/careadlinkat.h"/>
+        <file src="lib/cdefs.h"/>
+        <file src="lib/check-version.c"/>
+        <file src="lib/check-version.h"/>
+        <file src="lib/chown.c"/>
+        <file src="lib/clean-temp-private.h"/>
+        <file src="lib/clean-temp-simple.c"/>
+        <file src="lib/clean-temp-simple.h"/>
+        <file src="lib/cloexec.c"/>
+        <file src="lib/cloexec.h"/>
+        <file src="lib/close.c"/>
+        <file src="lib/closedir.c"/>
+        <file src="lib/cnd.c"/>
+        <file src="lib/concat-filename.c"/>
+        <file src="lib/concat-filename.h"/>
+        <file src="lib/connect.c"/>
+        <file src="lib/copy-file-range.c"/>
+        <file src="lib/count-leading-zeros.c"/>
+        <file src="lib/count-leading-zeros.h"/>
+        <file src="lib/count-one-bits.c"/>
+        <file src="lib/count-one-bits.h"/>
+        <file src="lib/count-trailing-zeros.c"/>
+        <file src="lib/count-trailing-zeros.h"/>
+        <file src="lib/creat.c"/>
+        <file src="lib/ctime.c"/>
+        <file src="lib/ctype.in.h"/>
+        <file src="lib/cycle-check.c"/>
+        <file src="lib/cycle-check.h"/>
+        <file src="lib/des.c"/>
+        <file src="lib/des.h"/>
+        <file src="lib/dev-ino.h"/>
+        <file src="lib/dirent-private.h"/>
+        <file src="lib/dirent.in.h"/>
+        <file src="lib/dirfd.c"/>
+        <file src="lib/dirname-lgpl.c"/>
+        <file src="lib/dirname.h"/>
+        <file src="lib/dosname.h"/>
+        <file src="lib/dup.c"/>
+        <file src="lib/dup2.c"/>
+        <file src="lib/duplocale.c"/>
+        <file src="lib/dynarray.h"/>
+        <file src="lib/eealloc.c"/>
+        <file src="lib/eealloc.h"/>
+        <file src="lib/eloop-threshold.h"/>
+        <file src="lib/endian.c"/>
+        <file src="lib/endian.in.h"/>
+        <file src="lib/errno-iter.c"/>
+        <file src="lib/errno-iter.h"/>
+        <file src="lib/errno.in.h"/>
+        <file src="lib/error.c"/>
+        <file src="lib/error.in.h"/>
+        <file src="lib/euidaccess.c"/>
+        <file src="lib/execinfo.c"/>
+        <file src="lib/execinfo.in.h"/>
+        <file src="lib/execl.c"/>
+        <file src="lib/execle.c"/>
+        <file src="lib/execlp.c"/>
+        <file src="lib/execv.c"/>
+        <file src="lib/execve.c"/>
+        <file src="lib/execvp.c"/>
+        <file src="lib/execvpe.c"/>
+        <file src="lib/exitfail.c"/>
+        <file src="lib/exitfail.h"/>
+        <file src="lib/explicit_bzero.c"/>
+        <file src="lib/fatal-signal.c"/>
+        <file src="lib/fatal-signal.h"/>
+        <file src="lib/fchown-stub.c"/>
+        <file src="lib/fclose.c"/>
+        <file src="lib/fcntl.c"/>
+        <file src="lib/fcntl.in.h"/>
+        <file src="lib/fd-hook.c"/>
+        <file src="lib/fd-hook.h"/>
+        <file src="lib/fdatasync.c"/>
+        <file src="lib/fdopen.c"/>
+        <file src="lib/fenv-env-hold.c"/>
+        <file src="lib/fenv-env-update.c"/>
+        <file src="lib/fenv-env.c"/>
+        <file src="lib/fenv-except-state-get.c"/>
+        <file src="lib/fenv-except-state-set.c"/>
+        <file src="lib/fenv-except-state-test.c"/>
+        <file src="lib/fenv-except-tracking-clear.c"/>
+        <file src="lib/fenv-except-tracking-raise.c"/>
+        <file src="lib/fenv-except-tracking-set.c"/>
+        <file src="lib/fenv-except-tracking-test.c"/>
+        <file src="lib/fenv-except-trapping.c"/>
+        <file src="lib/fenv-private.h"/>
+        <file src="lib/fenv-round.c"/>
+        <file src="lib/fenv.in.h"/>
+        <file src="lib/fflush.c"/>
+        <file src="lib/ffs.c"/>
+        <file src="lib/ffsl.c"/>
+        <file src="lib/ffsl.h"/>
+        <file src="lib/ffsll.c"/>
+        <file src="lib/filename.h"/>
+        <file src="lib/filenamecat-lgpl.c"/>
+        <file src="lib/filenamecat.h"/>
+        <file src="lib/findprog-in.c"/>
+        <file src="lib/findprog-lgpl.c"/>
+        <file src="lib/findprog.c"/>
+        <file src="lib/findprog.h"/>
+        <file src="lib/flexmember.h"/>
+        <file src="lib/float+.h"/>
+        <file src="lib/float.c"/>
+        <file src="lib/float.in.h"/>
+        <file src="lib/flock.c"/>
+        <file src="lib/fnmatch.c"/>
+        <file src="lib/fnmatch.in.h"/>
+        <file src="lib/fnmatch_loop.c"/>
+        <file src="lib/fopen.c"/>
+        <file src="lib/fpucw.h"/>
+        <file src="lib/fpurge.c"/>
+        <file src="lib/freadahead.c"/>
+        <file src="lib/freadahead.h"/>
+        <file src="lib/freading.c"/>
+        <file src="lib/freading.h"/>
+        <file src="lib/freadptr.c"/>
+        <file src="lib/freadptr.h"/>
+        <file src="lib/freadseek.c"/>
+        <file src="lib/freadseek.h"/>
+        <file src="lib/free.c"/>
+        <file src="lib/freelocale.c"/>
+        <file src="lib/frexp.c"/>
+        <file src="lib/frexpl.c"/>
+        <file src="lib/fseek.c"/>
+        <file src="lib/fseeko.c"/>
+        <file src="lib/fseterr.c"/>
+        <file src="lib/fseterr.h"/>
+        <file src="lib/fstat.c"/>
+        <file src="lib/fsync.c"/>
+        <file src="lib/ftell.c"/>
+        <file src="lib/ftello.c"/>
+        <file src="lib/fts-cycle.c"/>
+        <file src="lib/full-read.c"/>
+        <file src="lib/full-read.h"/>
+        <file src="lib/full-write.c"/>
+        <file src="lib/full-write.h"/>
+        <file src="lib/gai_strerror.c"/>
+        <file src="lib/gc-gnulib.c"/>
+        <file src="lib/gc-libgcrypt.c"/>
+        <file src="lib/gc-pbkdf2-sha1.c"/>
+        <file src="lib/gc-pbkdf2.c"/>
+        <file src="lib/gc.h"/>
+        <file src="lib/getaddrinfo.c"/>
+        <file src="lib/getcwd-lgpl.c"/>
+        <file src="lib/getdelim.c"/>
+        <file src="lib/getdtablesize.c"/>
+        <file src="lib/getfilecon.c"/>
+        <file src="lib/getgroups.c"/>
+        <file src="lib/gethostname.c"/>
+        <file src="lib/getline.c"/>
+        <file src="lib/getlocalename_l-unsafe.c"/>
+        <file src="lib/getlocalename_l-unsafe.h"/>
+        <file src="lib/getlocalename_l.c"/>
+        <file src="lib/getlogin_r.c"/>
+        <file src="lib/getndelim2.c"/>
+        <file src="lib/getndelim2.h"/>
+        <file src="lib/getopt-cdefs.in.h"/>
+        <file src="lib/getopt-core.h"/>
+        <file src="lib/getopt-ext.h"/>
+        <file src="lib/getopt-pfx-core.h"/>
+        <file src="lib/getopt-pfx-ext.h"/>
+        <file src="lib/getopt.c"/>
+        <file src="lib/getopt.in.h"/>
+        <file src="lib/getopt1.c"/>
+        <file src="lib/getopt_int.h"/>
+        <file src="lib/getpagesize.c"/>
+        <file src="lib/getpass.c"/>
+        <file src="lib/getpass.h"/>
+        <file src="lib/getpeername.c"/>
+        <file src="lib/getprogname.c"/>
+        <file src="lib/getprogname.h"/>
+        <file src="lib/getrandom.c"/>
+        <file src="lib/getsockname.c"/>
+        <file src="lib/getsockopt.c"/>
+        <file src="lib/gettext.h"/>
+        <file src="lib/gettimeofday.c"/>
+        <file src="lib/getugroups.c"/>
+        <file src="lib/getugroups.h"/>
+        <file src="lib/gl_anyavltree_list1.h"/>
+        <file src="lib/gl_anyavltree_list2.h"/>
+        <file src="lib/gl_anyhash1.h"/>
+        <file src="lib/gl_anyhash2.h"/>
+        <file src="lib/gl_anyhash_primes.h"/>
+        <file src="lib/gl_anylinked_list1.h"/>
+        <file src="lib/gl_anylinked_list2.h"/>
+        <file src="lib/gl_anyrbtree_list1.h"/>
+        <file src="lib/gl_anyrbtree_list2.h"/>
+        <file src="lib/gl_anytree_list1.h"/>
+        <file src="lib/gl_anytree_list2.h"/>
+        <file src="lib/gl_anytree_omap.h"/>
+        <file src="lib/gl_anytree_oset.h"/>
+        <file src="lib/gl_array_list.c"/>
+        <file src="lib/gl_array_list.h"/>
+        <file src="lib/gl_array_omap.c"/>
+        <file src="lib/gl_array_omap.h"/>
+        <file src="lib/gl_array_oset.c"/>
+        <file src="lib/gl_array_oset.h"/>
+        <file src="lib/gl_avltree_list.c"/>
+        <file src="lib/gl_avltree_list.h"/>
+        <file src="lib/gl_avltree_omap.c"/>
+        <file src="lib/gl_avltree_omap.h"/>
+        <file src="lib/gl_avltree_ordered.h"/>
+        <file src="lib/gl_avltree_oset.c"/>
+        <file src="lib/gl_avltree_oset.h"/>
+        <file src="lib/gl_carray_list.c"/>
+        <file src="lib/gl_carray_list.h"/>
+        <file src="lib/gl_linked_list.c"/>
+        <file src="lib/gl_linked_list.h"/>
+        <file src="lib/gl_linkedhash_list.c"/>
+        <file src="lib/gl_linkedhash_list.h"/>
+        <file src="lib/gl_list.c"/>
+        <file src="lib/gl_list.h"/>
+        <file src="lib/gl_omap.c"/>
+        <file src="lib/gl_omap.h"/>
+        <file src="lib/gl_openssl.h"/>
+        <file src="lib/gl_oset.c"/>
+        <file src="lib/gl_oset.h"/>
+        <file src="lib/gl_rbtree_list.c"/>
+        <file src="lib/gl_rbtree_list.h"/>
+        <file src="lib/gl_rbtree_omap.c"/>
+        <file src="lib/gl_rbtree_omap.h"/>
+        <file src="lib/gl_rbtree_ordered.h"/>
+        <file src="lib/gl_rbtree_oset.c"/>
+        <file src="lib/gl_rbtree_oset.h"/>
+        <file src="lib/glob-libc.h"/>
+        <file src="lib/glob.c"/>
+        <file src="lib/glob.in.h"/>
+        <file src="lib/glob_internal.h"/>
+        <file src="lib/glob_pattern_p.c"/>
+        <file src="lib/globfree.c"/>
+        <file src="lib/grantpt.c"/>
+        <file src="lib/group-member.c"/>
+        <file src="lib/hard-locale.c"/>
+        <file src="lib/hard-locale.h"/>
+        <file src="lib/hash-pjw-bare.h"/>
+        <file src="lib/hash-pjw.h"/>
+        <file src="lib/hash.c"/>
+        <file src="lib/hash.h"/>
+        <file src="lib/hashcode-mem.c"/>
+        <file src="lib/hashcode-mem.h"/>
+        <file src="lib/hashcode-string1.c"/>
+        <file src="lib/hashcode-string1.h"/>
+        <file src="lib/hashcode-string2.c"/>
+        <file src="lib/hashcode-string2.h"/>
+        <file src="lib/hashkey-string.c"/>
+        <file src="lib/hashkey-string.h"/>
+        <file src="lib/hasmntopt.c"/>
+        <file src="lib/hmac-md5.c"/>
+        <file src="lib/hmac-sha1.c"/>
+        <file src="lib/hmac-sha256.c"/>
+        <file src="lib/hmac-sha512.c"/>
+        <file src="lib/hmac.c"/>
+        <file src="lib/hmac.h"/>
+        <file src="lib/i-ring.c"/>
+        <file src="lib/i-ring.h"/>
+        <file src="lib/ialloc.c"/>
+        <file src="lib/ialloc.h"/>
+        <file src="lib/iconv.c"/>
+        <file src="lib/iconv.in.h"/>
+        <file src="lib/iconv_close.c"/>
+        <file src="lib/iconv_open-aix.gperf"/>
+        <file src="lib/iconv_open-hpux.gperf"/>
+        <file src="lib/iconv_open-solaris.gperf"/>
+        <file src="lib/iconv_open-zos.gperf"/>
+        <file src="lib/iconv_open.c"/>
+        <file src="lib/iconveh.h"/>
+        <file src="lib/idx.h"/>
+        <file src="lib/ieee754.in.h"/>
+        <file src="lib/ignore-value.h"/>
+        <file src="lib/imaxtostr.c"/>
+        <file src="lib/immutable.c"/>
+        <file src="lib/immutable.h"/>
+        <file src="lib/integer_length.c"/>
+        <file src="lib/integer_length.h"/>
+        <file src="lib/integer_length_l.c"/>
+        <file src="lib/integer_length_ll.c"/>
+        <file src="lib/intprops-internal.h"/>
+        <file src="lib/intprops.h"/>
+        <file src="lib/inttostr.c"/>
+        <file src="lib/inttostr.h"/>
+        <file src="lib/inttypes.in.h"/>
+        <file src="lib/ioctl.c"/>
+        <file src="lib/is_l-impl.h"/>
+        <file src="lib/isalnum_l.c"/>
+        <file src="lib/isalpha_l.c"/>
+        <file src="lib/isatty.c"/>
+        <file src="lib/isblank.c"/>
+        <file src="lib/isblank_l.c"/>
+        <file src="lib/iscntrl_l.c"/>
+        <file src="lib/isdigit_l.c"/>
+        <file src="lib/isgraph_l.c"/>
+        <file src="lib/islower_l.c"/>
+        <file src="lib/isnan.c"/>
+        <file src="lib/isnand-nolibm.h"/>
+        <file src="lib/isnand.c"/>
+        <file src="lib/isnanf-nolibm.h"/>
+        <file src="lib/isnanf.c"/>
+        <file src="lib/isnanl-nolibm.h"/>
+        <file src="lib/isnanl.c"/>
+        <file src="lib/isprint_l.c"/>
+        <file src="lib/ispunct_l.c"/>
+        <file src="lib/isspace_l.c"/>
+        <file src="lib/issymlink.c"/>
+        <file src="lib/issymlink.h"/>
+        <file src="lib/issymlinkat.h"/>
+        <file src="lib/isupper_l.c"/>
+        <file src="lib/iswblank.c"/>
+        <file src="lib/iswctype-impl.h"/>
+        <file src="lib/iswctype.c"/>
+        <file src="lib/iswdigit.c"/>
+        <file src="lib/iswpunct.c"/>
+        <file src="lib/iswxdigit.c"/>
+        <file src="lib/isxdigit_l.c"/>
+        <file src="lib/itold.c"/>
+        <file src="lib/jit/cache.h"/>
+        <file src="lib/langinfo.in.h"/>
+        <file src="lib/lc-charset-dispatch.c"/>
+        <file src="lib/lc-charset-dispatch.h"/>
+        <file src="lib/lc-charset-unicode.c"/>
+        <file src="lib/lc-charset-unicode.h"/>
+        <file src="lib/lchown.c"/>
+        <file src="lib/ldexp.c"/>
+        <file src="lib/ldexpl.c"/>
+        <file src="lib/libc-config.h"/>
+        <file src="lib/limits.in.h"/>
+        <file src="lib/link.c"/>
+        <file src="lib/listen.c"/>
+        <file src="lib/localcharset.c"/>
+        <file src="lib/localcharset.h"/>
+        <file src="lib/locale.in.h"/>
+        <file src="lib/localeconv.c"/>
+        <file src="lib/localeinfo.c"/>
+        <file src="lib/localeinfo.h"/>
+        <file src="lib/localename-environ.c"/>
+        <file src="lib/localename-table.c"/>
+        <file src="lib/localename-table.h"/>
+        <file src="lib/localename-unsafe.c"/>
+        <file src="lib/localename.c"/>
+        <file src="lib/localename.h"/>
+        <file src="lib/localtime.c"/>
+        <file src="lib/lseek.c"/>
+        <file src="lib/lstat.c"/>
+        <file src="lib/malloc.c"/>
+        <file src="lib/malloc.in.h"/>
+        <file src="lib/malloca.c"/>
+        <file src="lib/malloca.h"/>
+        <file src="lib/math.c"/>
+        <file src="lib/math.in.h"/>
+        <file src="lib/mbchar.c"/>
+        <file src="lib/mbchar.h"/>
+        <file src="lib/mbiter-aux.c"/>
+        <file src="lib/mbiter-aux.h"/>
+        <file src="lib/mbiter.c"/>
+        <file src="lib/mbiter.h"/>
+        <file src="lib/mbiterf.c"/>
+        <file src="lib/mbiterf.h"/>
+        <file src="lib/mbrtoc16.c"/>
+        <file src="lib/mbrtoc32.c"/>
+        <file src="lib/mbrtowc-impl-utf8.h"/>
+        <file src="lib/mbrtowc-impl.h"/>
+        <file src="lib/mbrtowc.c"/>
+        <file src="lib/mbsinit.c"/>
+        <file src="lib/mbsnlen.c"/>
+        <file src="lib/mbsrtoc32s-state.c"/>
+        <file src="lib/mbsrtoc32s.c"/>
+        <file src="lib/mbsrtowcs-impl.h"/>
+        <file src="lib/mbsrtowcs-state.c"/>
+        <file src="lib/mbsrtowcs.c"/>
+        <file src="lib/mbstoc32s.c"/>
+        <file src="lib/mbstowcs.c"/>
+        <file src="lib/mbszero.c"/>
+        <file src="lib/mbtowc-impl.h"/>
+        <file src="lib/mbtowc-lock.c"/>
+        <file src="lib/mbtowc-lock.h"/>
+        <file src="lib/mbtowc.c"/>
+        <file src="lib/mcel.c"/>
+        <file src="lib/mcel.h"/>
+        <file src="lib/md2-stream.c"/>
+        <file src="lib/md2.c"/>
+        <file src="lib/md2.h"/>
+        <file src="lib/md4-stream.c"/>
+        <file src="lib/md4.c"/>
+        <file src="lib/md4.h"/>
+        <file src="lib/md5-stream.c"/>
+        <file src="lib/md5.c"/>
+        <file src="lib/md5.h"/>
+        <file src="lib/memalign.c"/>
+        <file src="lib/memchr.c"/>
+        <file src="lib/memchr.valgrind"/>
+        <file src="lib/memchr2.c"/>
+        <file src="lib/memchr2.h"/>
+        <file src="lib/memchr2.valgrind"/>
+        <file src="lib/memcmp.c"/>
+        <file src="lib/memcmp2.c"/>
+        <file src="lib/memcmp2.h"/>
+        <file src="lib/memeq.c"/>
+        <file src="lib/memmem.c"/>
+        <file src="lib/mempcpy.c"/>
+        <file src="lib/memset.c"/>
+        <file src="lib/memset_explicit.c"/>
+        <file src="lib/memxor.c"/>
+        <file src="lib/memxor.h"/>
+        <file src="lib/mgetgroups.c"/>
+        <file src="lib/mgetgroups.h"/>
+        <file src="lib/minmax.h"/>
+        <file src="lib/mkdir.c"/>
+        <file src="lib/mkdtemp.c"/>
+        <file src="lib/mkostemp.c"/>
+        <file src="lib/mkostemps.c"/>
+        <file src="lib/mkstemp.c"/>
+        <file src="lib/mkstemps.c"/>
+        <file src="lib/mktime-internal.h"/>
+        <file src="lib/mktime.c"/>
+        <file src="lib/mntent.in.h"/>
+        <file src="lib/monetary.in.h"/>
+        <file src="lib/msvc-inval.c"/>
+        <file src="lib/msvc-inval.h"/>
+        <file src="lib/msvc-nothrow.c"/>
+        <file src="lib/msvc-nothrow.h"/>
+        <file src="lib/mtx.c"/>
+        <file src="lib/nan.h"/>
+        <file src="lib/nanosleep.c"/>
+        <file src="lib/net_if.in.h"/>
+        <file src="lib/netdb.in.h"/>
+        <file src="lib/netinet_in.in.h"/>
+        <file src="lib/newlocale.c"/>
+        <file src="lib/next-prime.c"/>
+        <file src="lib/next-prime.h"/>
+        <file src="lib/nl_langinfo-lock.c"/>
+        <file src="lib/nl_langinfo.c"/>
+        <file src="lib/nonblocking.c"/>
+        <file src="lib/nonblocking.h"/>
+        <file src="lib/noreturn.h"/>
+        <file src="lib/nproc.c"/>
+        <file src="lib/nproc.h"/>
+        <file src="lib/obstack.c"/>
+        <file src="lib/obstack.in.h"/>
+        <file src="lib/offtostr.c"/>
+        <file src="lib/open.c"/>
+        <file src="lib/openat2.c"/>
+        <file src="lib/opendir.c"/>
+        <file src="lib/openpty.c"/>
+        <file src="lib/parse-duration.c"/>
+        <file src="lib/parse-duration.h"/>
+        <file src="lib/passfd.c"/>
+        <file src="lib/passfd.h"/>
+        <file src="lib/pathmax.h"/>
+        <file src="lib/perror.c"/>
+        <file src="lib/physmem.c"/>
+        <file src="lib/physmem.h"/>
+        <file src="lib/pipe.c"/>
+        <file src="lib/pipe2.c"/>
+        <file src="lib/poll.c"/>
+        <file src="lib/poll.in.h"/>
+        <file src="lib/posix_memalign.c"/>
+        <file src="lib/posix_openpt.c"/>
+        <file src="lib/pread.c"/>
+        <file src="lib/printf-args.c"/>
+        <file src="lib/printf-args.h"/>
+        <file src="lib/printf-frexp.c"/>
+        <file src="lib/printf-frexp.h"/>
+        <file src="lib/printf-frexpl.c"/>
+        <file src="lib/printf-frexpl.h"/>
+        <file src="lib/printf-parse.c"/>
+        <file src="lib/printf-parse.h"/>
+        <file src="lib/pselect.c"/>
+        <file src="lib/pt_chown.c"/>
+        <file src="lib/pthread-cond.c"/>
+        <file src="lib/pthread-mutex.c"/>
+        <file src="lib/pthread-once.c"/>
+        <file src="lib/pthread-rwlock.c"/>
+        <file src="lib/pthread-spin.c"/>
+        <file src="lib/pthread-thread.c"/>
+        <file src="lib/pthread-tss.c"/>
+        <file src="lib/pthread.in.h"/>
+        <file src="lib/pthread_mutex_timedlock.c"/>
+        <file src="lib/pthread_sigmask.c"/>
+        <file src="lib/ptsname.c"/>
+        <file src="lib/ptsname_r.c"/>
+        <file src="lib/pty-private.h"/>
+        <file src="lib/pty.in.h"/>
+        <file src="lib/pwrite.c"/>
+        <file src="lib/qsort.c"/>
+        <file src="lib/qsort_r.c"/>
+        <file src="lib/raise.c"/>
+        <file src="lib/rawmemchr.c"/>
+        <file src="lib/rawmemchr.valgrind"/>
+        <file src="lib/read-file.c"/>
+        <file src="lib/read-file.h"/>
+        <file src="lib/read.c"/>
+        <file src="lib/readdir.c"/>
+        <file src="lib/readlink.c"/>
+        <file src="lib/realloc.c"/>
+        <file src="lib/reallocarray.c"/>
+        <file src="lib/recv.c"/>
+        <file src="lib/recvfrom.c"/>
+        <file src="lib/regcomp.c"/>
+        <file src="lib/regex.c"/>
+        <file src="lib/regex.h"/>
+        <file src="lib/regex_internal.c"/>
+        <file src="lib/regex_internal.h"/>
+        <file src="lib/regexec.c"/>
+        <file src="lib/relocatable.c"/>
+        <file src="lib/relocatable.h"/>
+        <file src="lib/relocatable.valgrind"/>
+        <file src="lib/rename.c"/>
+        <file src="lib/rmdir.c"/>
+        <file src="lib/root-uid.h"/>
+        <file src="lib/safe-alloc.c"/>
+        <file src="lib/safe-alloc.h"/>
+        <file src="lib/safe-read.c"/>
+        <file src="lib/safe-read.h"/>
+        <file src="lib/safe-write.c"/>
+        <file src="lib/safe-write.h"/>
+        <file src="lib/same-inode.c"/>
+        <file src="lib/same-inode.h"/>
+        <file src="lib/sched.in.h"/>
+        <file src="lib/sched_yield.c"/>
+        <file src="lib/scratch_buffer.h"/>
+        <file src="lib/se-context.c"/>
+        <file src="lib/se-context.in.h"/>
+        <file src="lib/se-label.c"/>
+        <file src="lib/se-label.in.h"/>
+        <file src="lib/se-selinux.c"/>
+        <file src="lib/se-selinux.in.h"/>
+        <file src="lib/search.in.h"/>
+        <file src="lib/secure_getenv.c"/>
+        <file src="lib/select.c"/>
+        <file src="lib/send.c"/>
+        <file src="lib/sendto.c"/>
+        <file src="lib/setenv.c"/>
+        <file src="lib/sethostname.c"/>
+        <file src="lib/setlocale-fixes.c"/>
+        <file src="lib/setlocale-fixes.h"/>
+        <file src="lib/setlocale-lock.c"/>
+        <file src="lib/setlocale.c"/>
+        <file src="lib/setlocale_null-unlocked.c"/>
+        <file src="lib/setlocale_null.c"/>
+        <file src="lib/setlocale_null.h"/>
+        <file src="lib/setsockopt.c"/>
+        <file src="lib/sha1-stream.c"/>
+        <file src="lib/sha1.c"/>
+        <file src="lib/sha1.h"/>
+        <file src="lib/sha256-stream.c"/>
+        <file src="lib/sha256.c"/>
+        <file src="lib/sha256.h"/>
+        <file src="lib/sha3-stream.c"/>
+        <file src="lib/sha3.c"/>
+        <file src="lib/sha3.h"/>
+        <file src="lib/sha512-stream.c"/>
+        <file src="lib/sha512.c"/>
+        <file src="lib/sha512.h"/>
+        <file src="lib/shutdown.c"/>
+        <file src="lib/sig-handler.c"/>
+        <file src="lib/sig-handler.h"/>
+        <file src="lib/sigabbrev_np.c"/>
+        <file src="lib/sigaction.c"/>
+        <file src="lib/sigdelay.c"/>
+        <file src="lib/sigdelay.h"/>
+        <file src="lib/sigdescr_np.c"/>
+        <file src="lib/siglist.h"/>
+        <file src="lib/signal.in.h"/>
+        <file src="lib/signbitd.c"/>
+        <file src="lib/signbitf.c"/>
+        <file src="lib/signbitl.c"/>
+        <file src="lib/signed-nan.h"/>
+        <file src="lib/signed-snan.h"/>
+        <file src="lib/sigprocmask.c"/>
+        <file src="lib/simple-atomic.c"/>
+        <file src="lib/simple-atomic.h"/>
+        <file src="lib/size_max.h"/>
+        <file src="lib/sleep.c"/>
+        <file src="lib/sm3-stream.c"/>
+        <file src="lib/sm3.c"/>
+        <file src="lib/sm3.h"/>
+        <file src="lib/snan.h"/>
+        <file src="lib/snprintf.c"/>
+        <file src="lib/snzprintf.c"/>
+        <file src="lib/socket.c"/>
+        <file src="lib/sockets.c"/>
+        <file src="lib/sockets.h"/>
+        <file src="lib/spawn.c"/>
+        <file src="lib/spawn.in.h"/>
+        <file src="lib/spawn_faction_addchdir.c"/>
+        <file src="lib/spawn_faction_addclose.c"/>
+        <file src="lib/spawn_faction_adddup2.c"/>
+        <file src="lib/spawn_faction_addfchdir.c"/>
+        <file src="lib/spawn_faction_addopen.c"/>
+        <file src="lib/spawn_faction_destroy.c"/>
+        <file src="lib/spawn_faction_init.c"/>
+        <file src="lib/spawn_int.h"/>
+        <file src="lib/spawnattr_destroy.c"/>
+        <file src="lib/spawnattr_getdefault.c"/>
+        <file src="lib/spawnattr_getflags.c"/>
+        <file src="lib/spawnattr_getpgroup.c"/>
+        <file src="lib/spawnattr_getschedparam.c"/>
+        <file src="lib/spawnattr_getschedpolicy.c"/>
+        <file src="lib/spawnattr_getsigmask.c"/>
+        <file src="lib/spawnattr_init.c"/>
+        <file src="lib/spawnattr_setdefault.c"/>
+        <file src="lib/spawnattr_setflags.c"/>
+        <file src="lib/spawnattr_setpgroup.c"/>
+        <file src="lib/spawnattr_setschedparam.c"/>
+        <file src="lib/spawnattr_setschedpolicy.c"/>
+        <file src="lib/spawnattr_setsigmask.c"/>
+        <file src="lib/spawni.c"/>
+        <file src="lib/spawnp.c"/>
+        <file src="lib/ssfmalloc-bitmap.h"/>
+        <file src="lib/ssfmalloc.h"/>
+        <file src="lib/stack-trace-impl.h"/>
+        <file src="lib/stack-trace.c"/>
+        <file src="lib/stat-time.c"/>
+        <file src="lib/stat-time.h"/>
+        <file src="lib/stat-w32.c"/>
+        <file src="lib/stat-w32.h"/>
+        <file src="lib/stat.c"/>
+        <file src="lib/stdalign.in.h"/>
+        <file src="lib/stdarg.in.h"/>
+        <file src="lib/stdbit.in.h"/>
+        <file src="lib/stdbool.in.h"/>
+        <file src="lib/stdc_bit_ceil.c"/>
+        <file src="lib/stdc_bit_floor.c"/>
+        <file src="lib/stdc_bit_width.c"/>
+        <file src="lib/stdc_count_ones.c"/>
+        <file src="lib/stdc_count_zeros.c"/>
+        <file src="lib/stdc_first_leading_one.c"/>
+        <file src="lib/stdc_first_leading_zero.c"/>
+        <file src="lib/stdc_first_trailing_one.c"/>
+        <file src="lib/stdc_first_trailing_zero.c"/>
+        <file src="lib/stdc_has_single_bit.c"/>
+        <file src="lib/stdc_leading_ones.c"/>
+        <file src="lib/stdc_leading_zeros.c"/>
+        <file src="lib/stdc_load8.c"/>
+        <file src="lib/stdc_load8_aligned.c"/>
+        <file src="lib/stdc_memreverse8.c"/>
+        <file src="lib/stdc_memreverse8u.c"/>
+        <file src="lib/stdc_rotate_left.c"/>
+        <file src="lib/stdc_rotate_right.c"/>
+        <file src="lib/stdc_store8.c"/>
+        <file src="lib/stdc_store8_aligned.c"/>
+        <file src="lib/stdc_trailing_ones.c"/>
+        <file src="lib/stdc_trailing_zeros.c"/>
+        <file src="lib/stdckdint.in.h"/>
+        <file src="lib/stdcountof.in.h"/>
+        <file src="lib/stddef.in.h"/>
+        <file src="lib/stdint.in.h"/>
+        <file src="lib/stdio-consolesafe.c"/>
+        <file src="lib/stdio-impl.h"/>
+        <file src="lib/stdio-read.c"/>
+        <file src="lib/stdio-write.c"/>
+        <file src="lib/stdio.in.h"/>
+        <file src="lib/stdlib.c"/>
+        <file src="lib/stdlib.in.h"/>
+        <file src="lib/stdnoreturn.in.h"/>
+        <file src="lib/stpcpy.c"/>
+        <file src="lib/stpncpy.c"/>
+        <file src="lib/str-two-way.h"/>
+        <file src="lib/str_endswith.c"/>
+        <file src="lib/str_startswith.c"/>
+        <file src="lib/strcasecmp.c"/>
+        <file src="lib/strcasecmp_l.c"/>
+        <file src="lib/strcasestr.c"/>
+        <file src="lib/strchrnul.c"/>
+        <file src="lib/strchrnul.valgrind"/>
+        <file src="lib/strdup.c"/>
+        <file src="lib/streq-opt.h"/>
+        <file src="lib/streq.c"/>
+        <file src="lib/strerror-override.c"/>
+        <file src="lib/strerror-override.h"/>
+        <file src="lib/strerror.c"/>
+        <file src="lib/strerror_l.c"/>
+        <file src="lib/strerror_r.c"/>
+        <file src="lib/strerrorname_np.c"/>
+        <file src="lib/strfmon_l.c"/>
+        <file src="lib/strftime-fixes.c"/>
+        <file src="lib/striconv.c"/>
+        <file src="lib/striconv.h"/>
+        <file src="lib/striconveh.c"/>
+        <file src="lib/striconveh.h"/>
+        <file src="lib/striconveha.c"/>
+        <file src="lib/striconveha.h"/>
+        <file src="lib/string.in.h"/>
+        <file src="lib/strings.in.h"/>
+        <file src="lib/stripslash.c"/>
+        <file src="lib/strncasecmp.c"/>
+        <file src="lib/strncasecmp_l.c"/>
+        <file src="lib/strncat.c"/>
+        <file src="lib/strncpy.c"/>
+        <file src="lib/strndup.c"/>
+        <file src="lib/strnlen.c"/>
+        <file src="lib/strnlen1.c"/>
+        <file src="lib/strnlen1.h"/>
+        <file src="lib/strnul.c"/>
+        <file src="lib/strpbrk.c"/>
+        <file src="lib/strptime.c"/>
+        <file src="lib/strsep.c"/>
+        <file src="lib/strsignal.c"/>
+        <file src="lib/strstr.c"/>
+        <file src="lib/strtok_r.c"/>
+        <file src="lib/struniq.h"/>
+        <file src="lib/strverscmp.c"/>
+        <file src="lib/sys-limits.h"/>
+        <file src="lib/sys_file.in.h"/>
+        <file src="lib/sys_ioctl.in.h"/>
+        <file src="lib/sys_msg.in.h"/>
+        <file src="lib/sys_random.in.h"/>
+        <file src="lib/sys_resource.in.h"/>
+        <file src="lib/sys_select.in.h"/>
+        <file src="lib/sys_sem.in.h"/>
+        <file src="lib/sys_shm.in.h"/>
+        <file src="lib/sys_socket.c"/>
+        <file src="lib/sys_socket.in.h"/>
+        <file src="lib/sys_stat.in.h"/>
+        <file src="lib/sys_time.in.h"/>
+        <file src="lib/sys_times.in.h"/>
+        <file src="lib/sys_types.in.h"/>
+        <file src="lib/sys_uio.in.h"/>
+        <file src="lib/sys_un.in.h"/>
+        <file src="lib/sys_utsname.in.h"/>
+        <file src="lib/sys_wait.in.h"/>
+        <file src="lib/sysexits.in.h"/>
+        <file src="lib/tempname.c"/>
+        <file src="lib/tempname.h"/>
+        <file src="lib/termios.in.h"/>
+        <file src="lib/thrd.c"/>
+        <file src="lib/thread-creators.gperf"/>
+        <file src="lib/thread-optim-proto.c"/>
+        <file src="lib/thread-optim.c"/>
+        <file src="lib/thread-optim.h"/>
+        <file src="lib/threads.in.h"/>
+        <file src="lib/time.c"/>
+        <file src="lib/time.in.h"/>
+        <file src="lib/time_r.c"/>
+        <file src="lib/timegm.c"/>
+        <file src="lib/times.c"/>
+        <file src="lib/to_l-impl.h"/>
+        <file src="lib/tolower_l.c"/>
+        <file src="lib/toupper_l.c"/>
+        <file src="lib/towctrans-impl.h"/>
+        <file src="lib/towctrans.c"/>
+        <file src="lib/tsearch.c"/>
+        <file src="lib/tss.c"/>
+        <file src="lib/ttyname_r.c"/>
+        <file src="lib/u64.c"/>
+        <file src="lib/u64.h"/>
+        <file src="lib/uchar.in.h"/>
+        <file src="lib/uinttostr.c"/>
+        <file src="lib/umaxtostr.c"/>
+        <file src="lib/uname.c"/>
+        <file src="lib/unicase.in.h"/>
+        <file src="lib/unicase/simple-mapping.h"/>
+        <file src="lib/unicase/tolower.c"/>
+        <file src="lib/unicase/tolower.h"/>
+        <file src="lib/unicase/toupper.c"/>
+        <file src="lib/unicase/toupper.h"/>
+        <file src="lib/uniconv.in.h"/>
+        <file src="lib/uniconv/u-strconv-from-enc.h"/>
+        <file src="lib/uniconv/u8-conv-from-enc.c"/>
+        <file src="lib/uniconv/u8-strconv-from-enc.c"/>
+        <file src="lib/uniconv/u8-strconv-from-locale.c"/>
+        <file src="lib/unictype.in.h"/>
+        <file src="lib/unictype/bidi_of.c"/>
+        <file src="lib/unictype/bidi_of.h"/>
+        <file src="lib/unictype/bitmap.h"/>
+        <file src="lib/unictype/categ_M.c"/>
+        <file src="lib/unictype/categ_M.h"/>
+        <file src="lib/unictype/categ_none.c"/>
+        <file src="lib/unictype/categ_of.c"/>
+        <file src="lib/unictype/categ_of.h"/>
+        <file src="lib/unictype/categ_test.c"/>
+        <file src="lib/unictype/combiningclass.c"/>
+        <file src="lib/unictype/combiningclass.h"/>
+        <file src="lib/unictype/ctype_alnum.c"/>
+        <file src="lib/unictype/ctype_alnum.h"/>
+        <file src="lib/unictype/ctype_alpha.c"/>
+        <file src="lib/unictype/ctype_alpha.h"/>
+        <file src="lib/unictype/ctype_blank.c"/>
+        <file src="lib/unictype/ctype_blank.h"/>
+        <file src="lib/unictype/ctype_cntrl.c"/>
+        <file src="lib/unictype/ctype_cntrl.h"/>
+        <file src="lib/unictype/ctype_digit.c"/>
+        <file src="lib/unictype/ctype_digit.h"/>
+        <file src="lib/unictype/ctype_graph.c"/>
+        <file src="lib/unictype/ctype_graph.h"/>
+        <file src="lib/unictype/ctype_lower.c"/>
+        <file src="lib/unictype/ctype_lower.h"/>
+        <file src="lib/unictype/ctype_print.c"/>
+        <file src="lib/unictype/ctype_print.h"/>
+        <file src="lib/unictype/ctype_punct.c"/>
+        <file src="lib/unictype/ctype_punct.h"/>
+        <file src="lib/unictype/ctype_space.c"/>
+        <file src="lib/unictype/ctype_space.h"/>
+        <file src="lib/unictype/ctype_upper.c"/>
+        <file src="lib/unictype/ctype_upper.h"/>
+        <file src="lib/unictype/ctype_xdigit.c"/>
+        <file src="lib/unictype/ctype_xdigit.h"/>
+        <file src="lib/unictype/joiningtype_of.c"/>
+        <file src="lib/unictype/joiningtype_of.h"/>
+        <file src="lib/unictype/scripts.c"/>
+        <file src="lib/unictype/scripts.h"/>
+        <file src="lib/unictype/scripts_byname.gperf"/>
+        <file src="lib/unimetadata.in.h"/>
+        <file src="lib/uninorm.in.h"/>
+        <file src="lib/uninorm/canonical-decomposition.c"/>
+        <file src="lib/uninorm/composition-table-bounds.h"/>
+        <file src="lib/uninorm/composition-table.gperf"/>
+        <file src="lib/uninorm/composition.c"/>
+        <file src="lib/uninorm/decompose-internal.c"/>
+        <file src="lib/uninorm/decompose-internal.h"/>
+        <file src="lib/uninorm/decomposition-table.c"/>
+        <file src="lib/uninorm/decomposition-table.h"/>
+        <file src="lib/uninorm/decomposition-table1.h"/>
+        <file src="lib/uninorm/decomposition-table2.h"/>
+        <file src="lib/uninorm/nfc.c"/>
+        <file src="lib/uninorm/nfd.c"/>
+        <file src="lib/uninorm/normalize-internal.h"/>
+        <file src="lib/uninorm/u-normalize-internal.h"/>
+        <file src="lib/uninorm/u32-normalize.c"/>
+        <file src="lib/unistd.c"/>
+        <file src="lib/unistd.in.h"/>
+        <file src="lib/unistr.in.h"/>
+        <file src="lib/unistr/u-cpy.h"/>
+        <file src="lib/unistr/u-pcpy.h"/>
+        <file src="lib/unistr/u-strcat.h"/>
+        <file src="lib/unistr/u-strlen.h"/>
+        <file src="lib/unistr/u16-mbtoucr.c"/>
+        <file src="lib/unistr/u16-strlen.c"/>
+        <file src="lib/unistr/u16-to-u32.c"/>
+        <file src="lib/unistr/u32-chr.c"/>
+        <file src="lib/unistr/u32-cpy.c"/>
+        <file src="lib/unistr/u32-mbtouc-unsafe.c"/>
+        <file src="lib/unistr/u32-pcpy.c"/>
+        <file src="lib/unistr/u32-strcat.c"/>
+        <file src="lib/unistr/u32-strlen.c"/>
+        <file src="lib/unistr/u32-to-u8.c"/>
+        <file src="lib/unistr/u32-uctomb.c"/>
+        <file src="lib/unistr/u8-check.c"/>
+        <file src="lib/unistr/u8-mblen.c"/>
+        <file src="lib/unistr/u8-mbtouc-aux.c"/>
+        <file src="lib/unistr/u8-mbtouc-unsafe-aux.c"/>
+        <file src="lib/unistr/u8-mbtouc-unsafe.c"/>
+        <file src="lib/unistr/u8-mbtouc.c"/>
+        <file src="lib/unistr/u8-mbtoucr.c"/>
+        <file src="lib/unistr/u8-prev.c"/>
+        <file src="lib/unistr/u8-strlen.c"/>
+        <file src="lib/unistr/u8-to-u32.c"/>
+        <file src="lib/unistr/u8-uctomb-aux.c"/>
+        <file src="lib/unistr/u8-uctomb.c"/>
+        <file src="lib/unitypes.in.h"/>
+        <file src="lib/uniwidth.in.h"/>
+        <file src="lib/uniwidth/cjk.h"/>
+        <file src="lib/uniwidth/width.c"/>
+        <file src="lib/uniwidth/width0.h"/>
+        <file src="lib/uniwidth/width2.h"/>
+        <file src="lib/unlink.c"/>
+        <file src="lib/unlockpt.c"/>
+        <file src="lib/unsetenv.c"/>
+        <file src="lib/usleep.c"/>
+        <file src="lib/utime.in.h"/>
+        <file src="lib/utmp.in.h"/>
+        <file src="lib/vaprintf.c"/>
+        <file src="lib/vasnprintf.c"/>
+        <file src="lib/vasnprintf.h"/>
+        <file src="lib/vasnwprintf.c"/>
+        <file src="lib/vasnwprintf.h"/>
+        <file src="lib/vasprintf.c"/>
+        <file src="lib/vaszprintf.c"/>
+        <file src="lib/verify.h"/>
+        <file src="lib/vsnprintf.c"/>
+        <file src="lib/vsnzprintf.c"/>
+        <file src="lib/w32sock.h"/>
+        <file src="lib/waitpid.c"/>
+        <file src="lib/wchar.in.h"/>
+        <file src="lib/wcrtomb.c"/>
+        <file src="lib/wcs-two-way.h"/>
+        <file src="lib/wcschr-impl.h"/>
+        <file src="lib/wcschr.c"/>
+        <file src="lib/wcsftime.c"/>
+        <file src="lib/wcsstr-impl.h"/>
+        <file src="lib/wcsstr.c"/>
+        <file src="lib/wcswidth-impl.h"/>
+        <file src="lib/wcswidth.c"/>
+        <file src="lib/wctomb-impl.h"/>
+        <file src="lib/wctomb.c"/>
+        <file src="lib/wctrans-impl.h"/>
+        <file src="lib/wctrans.c"/>
+        <file src="lib/wctype-h.c"/>
+        <file src="lib/wctype-impl.h"/>
+        <file src="lib/wctype.c"/>
+        <file src="lib/wctype.in.h"/>
+        <file src="lib/wcwidth.c"/>
+        <file src="lib/wgetcwd-lgpl.c"/>
+        <file src="lib/windows-cond.c"/>
+        <file src="lib/windows-cond.h"/>
+        <file src="lib/windows-initguard.h"/>
+        <file src="lib/windows-mutex.c"/>
+        <file src="lib/windows-mutex.h"/>
+        <file src="lib/windows-once.c"/>
+        <file src="lib/windows-once.h"/>
+        <file src="lib/windows-path.c"/>
+        <file src="lib/windows-path.h"/>
+        <file src="lib/windows-recmutex.c"/>
+        <file src="lib/windows-recmutex.h"/>
+        <file src="lib/windows-rwlock.c"/>
+        <file src="lib/windows-rwlock.h"/>
+        <file src="lib/windows-spawn.c"/>
+        <file src="lib/windows-spawn.h"/>
+        <file src="lib/windows-spin.c"/>
+        <file src="lib/windows-spin.h"/>
+        <file src="lib/windows-thread.c"/>
+        <file src="lib/windows-thread.h"/>
+        <file src="lib/windows-timedmutex.c"/>
+        <file src="lib/windows-timedmutex.h"/>
+        <file src="lib/windows-timedrecmutex.c"/>
+        <file src="lib/windows-timedrecmutex.h"/>
+        <file src="lib/windows-timedrwlock.c"/>
+        <file src="lib/windows-timedrwlock.h"/>
+        <file src="lib/windows-tls.c"/>
+        <file src="lib/windows-tls.h"/>
+        <file src="lib/wmemchr-impl.h"/>
+        <file src="lib/wmemchr.c"/>
+        <file src="lib/wmemcmp-impl.h"/>
+        <file src="lib/wmemcmp.c"/>
+        <file src="lib/wmemcpy-impl.h"/>
+        <file src="lib/wmemcpy.c"/>
+        <file src="lib/wmempcpy.c"/>
+        <file src="lib/wmemset-impl.h"/>
+        <file src="lib/wmemset.c"/>
+        <file src="lib/wprintf-parse.c"/>
+        <file src="lib/wprintf-parse.h"/>
+        <file src="lib/write.c"/>
+        <file src="lib/xalloc-oversized.h"/>
+        <file src="lib/xsize.c"/>
+        <file src="lib/xsize.h"/>
+        <file src="tests/qemu.h"/>
+        <file src="tests/test-safe-alloc.c"/>
+        <file src="tests/virtualbox.h"/>
+        <copyright-notice><![CDATA[
+1985, 1987-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="lib/at-init.h"/>
+        <copyright-notice><![CDATA[
+2025-2026 Free Software Foundation, Inc.
+1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+ and BSD-3-clause">
+        <file src="lib/random_r.c"/>
+        <copyright-notice><![CDATA[
+1995-2026 Free Software Foundation, Inc.
+1983 Regents of the University of California
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+ and BSD-3-clause">
+        <file src="lib/fts.c"/>
+        <file src="lib/fts.in.h"/>
+        <copyright-notice><![CDATA[
+2004-2026 Free Software Foundation, Inc.
+1989-1990, 1993-1994 The Regents of the University of California
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+ and ISC">
+        <file src="lib/inet_ntop.c"/>
+        <file src="lib/inet_pton.c"/>
+        <copyright-notice><![CDATA[
+2005-2006, 2008-2026 Free Software Foundation, Inc.
+1996-1999 Internet Software Consortium
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+ and public-domain">
+        <file src="lib/rijndael-alg-fst.c"/>
+        <file src="lib/rijndael-alg-fst.h"/>
+        <file src="lib/rijndael-api-fst.c"/>
+        <file src="lib/rijndael-api-fst.h"/>
+        <copyright-notice><![CDATA[
+2005-2006, 2009-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+">
+        <file src="etc/license-notices/LGPLv3+"/>
+        <file src="lib/_Exit.c"/>
+        <file src="lib/accept4.c"/>
+        <file src="lib/acosf.c"/>
+        <file src="lib/alphasort.c"/>
+        <file src="lib/argp-ba.c"/>
+        <file src="lib/argp-eexst.c"/>
+        <file src="lib/argp-fmtstream.c"/>
+        <file src="lib/argp-fmtstream.h"/>
+        <file src="lib/argp-fs-xinl.c"/>
+        <file src="lib/argp-help.c"/>
+        <file src="lib/argp-namefrob.h"/>
+        <file src="lib/argp-parse.c"/>
+        <file src="lib/argp-pin.c"/>
+        <file src="lib/argp-pv.c"/>
+        <file src="lib/argp-pvh.c"/>
+        <file src="lib/argp-xinl.c"/>
+        <file src="lib/argp.h"/>
+        <file src="lib/asinf.c"/>
+        <file src="lib/astrxfrm.c"/>
+        <file src="lib/astrxfrm.h"/>
+        <file src="lib/atan2f.c"/>
+        <file src="lib/atanf.c"/>
+        <file src="lib/atoll.c"/>
+        <file src="lib/c-nstrftime.c"/>
+        <file src="lib/c-strstr.c"/>
+        <file src="lib/c-strstr.h"/>
+        <file src="lib/c32snrtombs.c"/>
+        <file src="lib/c32srtombs-state.c"/>
+        <file src="lib/c32srtombs.c"/>
+        <file src="lib/c32stombs.c"/>
+        <file src="lib/c32tob.c"/>
+        <file src="lib/calendar-ethiopian.h"/>
+        <file src="lib/calendar-persian.h"/>
+        <file src="lib/calendar-thai.h"/>
+        <file src="lib/calendars.h"/>
+        <file src="lib/canon-host.c"/>
+        <file src="lib/canon-host.h"/>
+        <file src="lib/cbrt.c"/>
+        <file src="lib/cbrtf.c"/>
+        <file src="lib/ceil.c"/>
+        <file src="lib/ceilf.c"/>
+        <file src="lib/ceill.c"/>
+        <file src="lib/copysign.c"/>
+        <file src="lib/copysignf.c"/>
+        <file src="lib/copysignl.c"/>
+        <file src="lib/cosf.c"/>
+        <file src="lib/coshf.c"/>
+        <file src="lib/cpu-supports.c"/>
+        <file src="lib/cpu-supports.h"/>
+        <file src="lib/crc-generate-table.c"/>
+        <file src="lib/crc-x86_64-pclmul.c"/>
+        <file src="lib/crc-x86_64.h"/>
+        <file src="lib/crc.c"/>
+        <file src="lib/crc.h"/>
+        <file src="lib/dprintf.c"/>
+        <file src="lib/dup3.c"/>
+        <file src="lib/dzprintf.c"/>
+        <file src="lib/exp2.c"/>
+        <file src="lib/exp2f.c"/>
+        <file src="lib/exp2l.c"/>
+        <file src="lib/expf.c"/>
+        <file src="lib/expl-table.c"/>
+        <file src="lib/expl.c"/>
+        <file src="lib/expm1.c"/>
+        <file src="lib/expm1f.c"/>
+        <file src="lib/expm1l.c"/>
+        <file src="lib/fabsf.c"/>
+        <file src="lib/fabsl.c"/>
+        <file src="lib/fbufmode.c"/>
+        <file src="lib/fbufmode.h"/>
+        <file src="lib/fchdir.c"/>
+        <file src="lib/floor.c"/>
+        <file src="lib/floorf.c"/>
+        <file src="lib/floorl.c"/>
+        <file src="lib/fma.c"/>
+        <file src="lib/fmaf.c"/>
+        <file src="lib/fmal.c"/>
+        <file src="lib/fmod.c"/>
+        <file src="lib/fmodf.c"/>
+        <file src="lib/fmodl.c"/>
+        <file src="lib/forkpty.c"/>
+        <file src="lib/fprintf.c"/>
+        <file src="lib/freadable.c"/>
+        <file src="lib/freadable.h"/>
+        <file src="lib/freopen.c"/>
+        <file src="lib/frexpf.c"/>
+        <file src="lib/fsusage.c"/>
+        <file src="lib/fsusage.h"/>
+        <file src="lib/futimens.c"/>
+        <file src="lib/fwritable.c"/>
+        <file src="lib/fwritable.h"/>
+        <file src="lib/fwriting.c"/>
+        <file src="lib/fwriting.h"/>
+        <file src="lib/fzprintf.c"/>
+        <file src="lib/get_ppid_of.c"/>
+        <file src="lib/get_ppid_of.h"/>
+        <file src="lib/get_progname_of.c"/>
+        <file src="lib/get_progname_of.h"/>
+        <file src="lib/getentropy.c"/>
+        <file src="lib/getpayload.c"/>
+        <file src="lib/getpayloadf.c"/>
+        <file src="lib/getpayloadl.c"/>
+        <file src="lib/getrusage.c"/>
+        <file src="lib/getsubopt.c"/>
+        <file src="lib/gettime-res.c"/>
+        <file src="lib/gettime.c"/>
+        <file src="lib/hypot.c"/>
+        <file src="lib/hypotf.c"/>
+        <file src="lib/hypotl.c"/>
+        <file src="lib/ilogb.c"/>
+        <file src="lib/ilogbf.c"/>
+        <file src="lib/ilogbl.c"/>
+        <file src="lib/imaxabs.c"/>
+        <file src="lib/imaxdiv.c"/>
+        <file src="lib/isapipe.c"/>
+        <file src="lib/isapipe.h"/>
+        <file src="lib/isfinite.c"/>
+        <file src="lib/isinf.c"/>
+        <file src="lib/ldexpf.c"/>
+        <file src="lib/log.c"/>
+        <file src="lib/log10.c"/>
+        <file src="lib/log10f.c"/>
+        <file src="lib/log10l.c"/>
+        <file src="lib/log1p.c"/>
+        <file src="lib/log1pf.c"/>
+        <file src="lib/log1pl.c"/>
+        <file src="lib/log2.c"/>
+        <file src="lib/log2f.c"/>
+        <file src="lib/log2l.c"/>
+        <file src="lib/logb.c"/>
+        <file src="lib/logbf.c"/>
+        <file src="lib/logbl.c"/>
+        <file src="lib/logf.c"/>
+        <file src="lib/login_tty.c"/>
+        <file src="lib/logp1.c"/>
+        <file src="lib/logp1f.c"/>
+        <file src="lib/logp1l.c"/>
+        <file src="lib/mbfile.c"/>
+        <file src="lib/mbfile.h"/>
+        <file src="lib/mbmemcasecmp.c"/>
+        <file src="lib/mbmemcasecmp.h"/>
+        <file src="lib/mbrlen.c"/>
+        <file src="lib/mbs_endswith.c"/>
+        <file src="lib/mbs_startswith.c"/>
+        <file src="lib/mbscasecmp.c"/>
+        <file src="lib/mbscasestr.c"/>
+        <file src="lib/mbschr.c"/>
+        <file src="lib/mbscspn.c"/>
+        <file src="lib/mbslen.c"/>
+        <file src="lib/mbsncasecmp.c"/>
+        <file src="lib/mbsnrtoc32s.c"/>
+        <file src="lib/mbsnrtowcs-impl.h"/>
+        <file src="lib/mbsnrtowcs.c"/>
+        <file src="lib/mbspbrk.c"/>
+        <file src="lib/mbspcasecmp.c"/>
+        <file src="lib/mbsrchr.c"/>
+        <file src="lib/mbssep.c"/>
+        <file src="lib/mbsspn.c"/>
+        <file src="lib/mbsstr.c"/>
+        <file src="lib/mbstok_r.c"/>
+        <file src="lib/mbuiter.c"/>
+        <file src="lib/mbuiter.h"/>
+        <file src="lib/mbuiterf.c"/>
+        <file src="lib/mbuiterf.h"/>
+        <file src="lib/memrchr.c"/>
+        <file src="lib/mkfifo.c"/>
+        <file src="lib/mknod.c"/>
+        <file src="lib/modf.c"/>
+        <file src="lib/modff.c"/>
+        <file src="lib/modfl.c"/>
+        <file src="lib/nstrftime.c"/>
+        <file src="lib/omp-init.c"/>
+        <file src="lib/omp.in.h"/>
+        <file src="lib/pclose.c"/>
+        <file src="lib/popen.c"/>
+        <file src="lib/powf.c"/>
+        <file src="lib/printf.c"/>
+        <file src="lib/putenv.c"/>
+        <file src="lib/rand.c"/>
+        <file src="lib/remainder.c"/>
+        <file src="lib/remainderf.c"/>
+        <file src="lib/remainderl.c"/>
+        <file src="lib/remove.c"/>
+        <file src="lib/rewinddir.c"/>
+        <file src="lib/rint.c"/>
+        <file src="lib/rintf.c"/>
+        <file src="lib/rintl.c"/>
+        <file src="lib/round.c"/>
+        <file src="lib/roundf.c"/>
+        <file src="lib/roundl.c"/>
+        <file src="lib/scandir.c"/>
+        <file src="lib/setpayload.c"/>
+        <file src="lib/setpayloadf.c"/>
+        <file src="lib/setpayloadl.c"/>
+        <file src="lib/setpayloadsig.c"/>
+        <file src="lib/setpayloadsigf.c"/>
+        <file src="lib/setpayloadsigl.c"/>
+        <file src="lib/sf-istream.c"/>
+        <file src="lib/sf-istream.h"/>
+        <file src="lib/sfl-istream.c"/>
+        <file src="lib/sfl-istream.h"/>
+        <file src="lib/sincosl.c"/>
+        <file src="lib/sinf.c"/>
+        <file src="lib/sinhf.c"/>
+        <file src="lib/sprintf.c"/>
+        <file src="lib/sqrtf.c"/>
+        <file src="lib/sqrtl.c"/>
+        <file src="lib/strcspn.c"/>
+        <file src="lib/strftime.c"/>
+        <file src="lib/strftime.h"/>
+        <file src="lib/string-buffer-printf.c"/>
+        <file src="lib/string-buffer-reversed-printf.c"/>
+        <file src="lib/string-buffer-reversed.c"/>
+        <file src="lib/string-buffer-reversed.h"/>
+        <file src="lib/string-buffer.c"/>
+        <file src="lib/string-buffer.h"/>
+        <file src="lib/string-desc-contains.c"/>
+        <file src="lib/string-desc.c"/>
+        <file src="lib/string-desc.h"/>
+        <file src="lib/strtod.c"/>
+        <file src="lib/strtof.c"/>
+        <file src="lib/strtoimax.c"/>
+        <file src="lib/strtol.c"/>
+        <file src="lib/strtold.c"/>
+        <file src="lib/strtoll.c"/>
+        <file src="lib/strtoul.c"/>
+        <file src="lib/strtoull.c"/>
+        <file src="lib/strtoumax.c"/>
+        <file src="lib/symlink.c"/>
+        <file src="lib/szprintf.c"/>
+        <file src="lib/tanf.c"/>
+        <file src="lib/tanhf.c"/>
+        <file src="lib/tcgetsid.c"/>
+        <file src="lib/termcap.h"/>
+        <file src="lib/terminfo.h"/>
+        <file src="lib/time-internal.h"/>
+        <file src="lib/time_rz.c"/>
+        <file src="lib/timespec.c"/>
+        <file src="lib/timespec.h"/>
+        <file src="lib/timespec_get.c"/>
+        <file src="lib/timespec_getres.c"/>
+        <file src="lib/tmpdir.c"/>
+        <file src="lib/tmpdir.h"/>
+        <file src="lib/tmpfile.c"/>
+        <file src="lib/totalorder.c"/>
+        <file src="lib/totalorderf.c"/>
+        <file src="lib/totalorderl.c"/>
+        <file src="lib/totalordermag.c"/>
+        <file src="lib/totalordermagf.c"/>
+        <file src="lib/totalordermagl.c"/>
+        <file src="lib/tparm.c"/>
+        <file src="lib/tputs.c"/>
+        <file src="lib/trigl.h"/>
+        <file src="lib/trunc.c"/>
+        <file src="lib/truncf.c"/>
+        <file src="lib/truncl.c"/>
+        <file src="lib/tzset.c"/>
+        <file src="lib/utime.c"/>
+        <file src="lib/utimens.c"/>
+        <file src="lib/utimens.h"/>
+        <file src="lib/vdprintf.c"/>
+        <file src="lib/vdzprintf.c"/>
+        <file src="lib/version-etc-fsf.c"/>
+        <file src="lib/version-etc.c"/>
+        <file src="lib/version-etc.h"/>
+        <file src="lib/vfprintf.c"/>
+        <file src="lib/vfzprintf.c"/>
+        <file src="lib/vprintf.c"/>
+        <file src="lib/vsprintf.c"/>
+        <file src="lib/vszprintf.c"/>
+        <file src="lib/vzprintf.c"/>
+        <file src="lib/wcpcpy-impl.h"/>
+        <file src="lib/wcpcpy.c"/>
+        <file src="lib/wcpncpy-impl.h"/>
+        <file src="lib/wcpncpy.c"/>
+        <file src="lib/wcscasecmp-impl.h"/>
+        <file src="lib/wcscasecmp.c"/>
+        <file src="lib/wcscat-impl.h"/>
+        <file src="lib/wcscat.c"/>
+        <file src="lib/wcscmp-impl.h"/>
+        <file src="lib/wcscmp.c"/>
+        <file src="lib/wcscoll-impl.h"/>
+        <file src="lib/wcscoll.c"/>
+        <file src="lib/wcscpy-impl.h"/>
+        <file src="lib/wcscpy.c"/>
+        <file src="lib/wcscspn-impl.h"/>
+        <file src="lib/wcscspn.c"/>
+        <file src="lib/wcsdup-impl.h"/>
+        <file src="lib/wcsdup.c"/>
+        <file src="lib/wcslen-impl.h"/>
+        <file src="lib/wcslen.c"/>
+        <file src="lib/wcsncasecmp-impl.h"/>
+        <file src="lib/wcsncasecmp.c"/>
+        <file src="lib/wcsncat-impl.h"/>
+        <file src="lib/wcsncat.c"/>
+        <file src="lib/wcsncmp-impl.h"/>
+        <file src="lib/wcsncmp.c"/>
+        <file src="lib/wcsncpy-impl.h"/>
+        <file src="lib/wcsncpy.c"/>
+        <file src="lib/wcsnlen-impl.h"/>
+        <file src="lib/wcsnlen.c"/>
+        <file src="lib/wcsnrtombs-impl.h"/>
+        <file src="lib/wcsnrtombs.c"/>
+        <file src="lib/wcspbrk-impl.h"/>
+        <file src="lib/wcspbrk.c"/>
+        <file src="lib/wcsrchr-impl.h"/>
+        <file src="lib/wcsrchr.c"/>
+        <file src="lib/wcsrtombs-impl.h"/>
+        <file src="lib/wcsrtombs-state.c"/>
+        <file src="lib/wcsrtombs.c"/>
+        <file src="lib/wcsspn-impl.h"/>
+        <file src="lib/wcsspn.c"/>
+        <file src="lib/wcstok-impl.h"/>
+        <file src="lib/wcstok.c"/>
+        <file src="lib/wcsxfrm-impl.h"/>
+        <file src="lib/wcsxfrm.c"/>
+        <file src="lib/wctob.c"/>
+        <file src="lib/wmemmove-impl.h"/>
+        <file src="lib/wmemmove.c"/>
+        <file src="lib/xbinary-io.c"/>
+        <file src="lib/xbinary-io.h"/>
+        <file src="lib/zprintf.c"/>
+        <file src="tests/test-array-mergesort.c"/>
+        <file src="tests/test-bcp47.c"/>
+        <file src="tests/test-tsearch.c"/>
+        <file src="tests/unictype/test-combiningclass_byname.c"/>
+        <file src="tests/unictype/test-incb_byname.c"/>
+        <file src="tests/unictype/test-incb_name.c"/>
+        <file src="tests/unictype/test-incb_of.c"/>
+        <file src="tests/unictype/test-joininggroup_byname.c"/>
+        <file src="tests/unictype/test-joininggroup_name.c"/>
+        <file src="tests/unictype/test-joininggroup_of.c"/>
+        <file src="tests/unictype/test-joiningtype_byname.c"/>
+        <file src="tests/unictype/test-joiningtype_longname.c"/>
+        <file src="tests/unictype/test-joiningtype_name.c"/>
+        <file src="tests/unictype/test-joiningtype_of.c"/>
+        <file src="tests/uniwbrk/test-uc-wordbreaks.c"/>
+        <copyright-notice><![CDATA[
+1991-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+">
+        <file src="lib/filevercmp.c"/>
+        <file src="lib/filevercmp.h"/>
+        <copyright-notice><![CDATA[
+2008-2026 Free Software Foundation, Inc.
+2001 Anthony Towns <aj@azure.humbug.org.au>
+1995 Ian Jackson <iwj10@cus.cam.ac.uk>
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+">
+        <file src="lib/cbrtl.c"/>
+        <copyright-notice><![CDATA[
+2012-2026 Free Software Foundation, Inc.
+1984, 1991 Stephen L. Moshier
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+">
+        <file src="lib/atanl.c"/>
+        <file src="lib/logl.c"/>
+        <copyright-notice><![CDATA[
+2001 Stephen L. Moshier <moshier@na-net.ornl.gov>
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ and BSD-3-clause">
+        <file src="lib/random.c"/>
+        <copyright-notice><![CDATA[
+1995-2026 Free Software Foundation, Inc.
+1983 Regents of the University of California
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ and SunPro">
+        <file src="lib/acosl.c"/>
+        <file src="lib/asinl.c"/>
+        <file src="lib/cosl.c"/>
+        <file src="lib/sinl.c"/>
+        <file src="lib/tanl.c"/>
+        <file src="lib/trigl.c"/>
+        <copyright-notice><![CDATA[
+1999, 2003-2026 Free Software Foundation, Inc.
+1993 Sun Microsystems, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-3+ or GPL-2+">
+        <file src="etc/license-notices/LGPLv3+_or_GPLv2+"/>
+        <file src="lib/libunistring.valgrind"/>
+        <file src="lib/mini-gmp-gnulib.c"/>
+        <file src="lib/mini-gmp.c"/>
+        <file src="lib/mini-gmp.h"/>
+        <file src="lib/mini-mpq-gnulib.c"/>
+        <file src="lib/mini-mpq.c"/>
+        <file src="lib/mini-mpq.h"/>
+        <file src="lib/str-kmp.h"/>
+        <file src="lib/unigbrk.in.h"/>
+        <file src="lib/unilbrk.in.h"/>
+        <file src="lib/unimetadata/u-version.c"/>
+        <file src="lib/uniname.in.h"/>
+        <file src="lib/unistdio.in.h"/>
+        <file src="lib/uniwbrk.in.h"/>
+        <copyright-notice><![CDATA[
+1991-1997, 1999-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Unicode-3.0">
+        <file src="tests/unigbrk/GraphemeBreakTest.txt"/>
+        <file src="tests/unilbrk/LineBreakTest.txt"/>
+        <file src="tests/uniname/NameAliases.txt"/>
+        <file src="tests/uniname/UnicodeData.txt"/>
+        <file src="tests/uninorm/NormalizationTest.txt"/>
+        <file src="tests/uniwbrk/WordBreakTest.txt"/>
+        <copyright-notice><![CDATA[
+1991-2024 Unicode, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="license-text">
+        <file src="doc/COPYING.LESSERv2"/>
+        <file src="doc/COPYING.LESSERv3"/>
+        <file src="doc/COPYINGv2"/>
+        <file src="doc/COPYINGv3"/>
+        <file src="doc/agpl-3.0.texi"/>
+        <file src="doc/fdl-1.3.texi"/>
+        <file src="doc/fdl.texi"/>
+        <file src="doc/gpl-2.0.texi"/>
+        <file src="doc/gpl-3.0.texi"/>
+        <file src="doc/lgpl-2.1.texi"/>
+        <file src="doc/lgpl-3.0.texi"/>
+        <copyright-notice><![CDATA[
+1989, 1991, 1999-2002, 2007-2008 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="public-domain">
+        <file src="build-aux/epsf.tex"/>
+        <file src="etc/license-notices/public_domain"/>
+        <file src="gnulib-l10n/autoclean.sh"/>
+        <file src="gnulib-l10n/autogen.sh"/>
+        <file src="lib/alloca.c"/>
+        <file src="lib/atexit.c"/>
+        <file src="lib/dummy.c"/>
+        <file src="lib/memmove.c"/>
+        <file src="tests/test-libtextstyle-default.css"/>
+        <file src="tests/uniname/HangulSyllableNames.txt"/>
+        <file src="tests/windows-utf8.manifest"/>
+        <file src="tests/windows-utf8.rc"/>
+        <copyright-notice><![CDATA[
+2004, 2007, 2009-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="doc/install.texi"/>
+        <copyright-notice><![CDATA[
+1994-1996, 1999-2002, 2004-2017, 2020-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="gnulib-history">
+        <file src="gnulib.bundle"/>
+        <copyright-notice><![CDATA[
+Free Software Foundation, Inc. and the other copyright holders
+named in the history of the gnulib git repository
+        ]]></copyright-notice>
+    </files>
+    <files license="X11">
+        <file src="build-aux/install-sh"/>
+        <copyright-notice><![CDATA[
+1994 X Consortium
+        ]]></copyright-notice>
+    </files>
+    <files license="public-domain">
+        <file src="build-aux/mkinstalldirs"/>
+        <copyright-notice><![CDATA[
+Noah Friedman <friedman@prep.ai.mit.edu>
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-1+ with Autoconf exception">
+        <file src="m4/init-package-version.m4"/>
+        <file src="m4/version-stamp.m4"/>
+        <copyright-notice><![CDATA[
+1992-2026 Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <license handle="GPL-2"><![CDATA[
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; version 2 of the License.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+On Debian systems, the complete text of the GNU General Public License
+version 2 can be found in "/usr/share/common-licenses/GPL-2".
+    ]]></license>
+    <license handle="GPL-2+"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation; either version 2 of the License,
+or (at your option) any later version.
+
+This file is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+On Debian systems, the complete text of the GNU General Public License
+version 2 can be found in "/usr/share/common-licenses/GPL-2".
+    ]]></license>
+    <license handle="GPL-3+"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
+
+This file is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+On Debian systems, the complete text of the GNU General Public License
+version 3 can be found in "/usr/share/common-licenses/GPL-3".
+    ]]></license>
+    <license handle="GPL-1+ with Autoconf exception"><![CDATA[
+This file is free software, distributed under the terms of the GNU
+General Public License.  As a special exception to the GNU General
+Public License, this file may be distributed as part of a program
+that contains a configuration script generated by Autoconf, under
+the same distribution terms as the rest of that program.
+
+On Debian systems, the complete text of the GNU General Public License
+version 1 can be found in "/usr/share/common-licenses/GPL-1".
+    ]]></license>
+    <license handle="GPL-2+ with Autoconf exception"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation; either version 2 of the License,
+or (at your option) any later version.
+
+As a special exception to the GNU General Public License, if you
+distribute this file as part of a program that contains a
+configuration script generated by Autoconf, you may include it under
+the same distribution terms that you use for the rest of that program.
+
+(Files in m4/ word the exception as: "As a special exception to the
+GNU General Public License, this file may be distributed as part of a
+program that contains a configuration script generated by Autoconf,
+under the same distribution terms as the rest of that program.")
+
+On Debian systems, the complete text of the GNU General Public License
+version 2 can be found in "/usr/share/common-licenses/GPL-2".
+    ]]></license>
+    <license handle="GPL-3+ with Autoconf exception"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
+
+As a special exception to the GNU General Public License, if you
+distribute this file as part of a program that contains a
+configuration script generated by Autoconf, you may include it under
+the same distribution terms that you use for the rest of that program.
+
+(build-aux/config.guess and build-aux/config.sub add: "This Exception
+is an additional permission under section 7 of the GNU General Public
+License, version 3 ("GPLv3").")
+
+On Debian systems, the complete text of the GNU General Public License
+version 3 can be found in "/usr/share/common-licenses/GPL-3".
+    ]]></license>
+    <license handle="GPL-3+ with Texinfo exception"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
+
+As a special exception, when this file is read by TeX when processing
+a Texinfo source document, you may use the result without restriction.
+This Exception is an additional permission under section 7 of the GNU
+General Public License, version 3 ("GPLv3").
+
+On Debian systems, the complete text of the GNU General Public License
+version 3 can be found in "/usr/share/common-licenses/GPL-3".
+    ]]></license>
+    <license handle="LGPL-2+"><![CDATA[
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+On Debian systems, the complete text of version 2 of the license (then
+called the GNU Library General Public License) can be found in
+"/usr/share/common-licenses/LGPL-2", and of version 2.1 in
+"/usr/share/common-licenses/LGPL-2.1".
+    ]]></license>
+    <license handle="LGPL-2.1+"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as
+published by the Free Software Foundation; either version 2.1 of the
+License, or (at your option) any later version.
+
+This file is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+On Debian systems, the complete text of the GNU Lesser General Public
+License version 2.1 can be found in "/usr/share/common-licenses/LGPL-2.1".
+    ]]></license>
+    <license handle="LGPL-3+"><![CDATA[
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This file is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+On Debian systems, the complete text of the GNU Lesser General Public
+License version 3 can be found in "/usr/share/common-licenses/LGPL-3".
+    ]]></license>
+    <license handle="GFDL-NIV-1.3+"><![CDATA[
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+
+On Debian systems, the complete text of the GNU Free Documentation
+License version 1.3 can be found in "/usr/share/common-licenses/GFDL-1.3".
+    ]]></license>
+    <license handle="FSFAP"><![CDATA[
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.  This file is offered as-is,
+without any warranty.
+    ]]></license>
+    <license handle="FSFUL"><![CDATA[
+This file is free software; the Free Software Foundation
+gives unlimited permission to use, copy, distribute, and modify it.
+    ]]></license>
+    <license handle="FSFULLR"><![CDATA[
+This file is free software; the Free Software Foundation
+gives unlimited permission to copy and/or distribute it,
+with or without modifications, as long as this notice is preserved.
+This file is offered as-is, without any warranty.
+    ]]></license>
+    <license handle="public-domain"><![CDATA[
+This file is in the public domain.
+    ]]></license>
+    <license handle="license-text"><![CDATA[
+Everyone is permitted to copy and distribute verbatim copies of this
+license document, but changing it is not allowed.
+    ]]></license>
+    <license handle="BSD-3-clause"><![CDATA[
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+4. Neither the name of the University nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+    ]]></license>
+    <license handle="ISC"><![CDATA[
+Permission to use, copy, modify, and distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND INTERNET SOFTWARE CONSORTIUM DISCLAIMS
+ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL INTERNET SOFTWARE
+CONSORTIUM BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
+ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
+SOFTWARE.
+    ]]></license>
+    <license handle="SunPro"><![CDATA[
+Developed at SunPro, a Sun Microsystems, Inc. business.
+Permission to use, copy, modify, and distribute this
+software is freely granted, provided that this notice
+is preserved.
+    ]]></license>
+    <license handle="X11"><![CDATA[
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNEC-
+TION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of the X Consortium shall not
+be used in advertising or otherwise to promote the sale, use or other deal-
+ings in this Software without prior written authorization from the X Consor-
+tium.
+    ]]></license>
+    <license handle="Unicode-3.0"><![CDATA[
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of data files and any associated documentation (the "Data Files") or
+software and any associated documentation (the "Software") to deal in the
+Data Files or Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, and/or sell
+copies of the Data Files or Software, and to permit persons to whom the
+Data Files or Software are furnished to do so, provided that either (a)
+this copyright and permission notice appear with all copies of the Data
+Files or Software, or (b) this copyright and permission notice appear in
+associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF
+THIRD PARTY RIGHTS.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE
+BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES,
+OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA
+FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall
+not be used in advertising or otherwise to promote the sale, use or other
+dealings in these Data Files or Software without prior written
+authorization of the copyright holder.
+    ]]></license>
+    <license handle="gnulib-history"><![CDATA[
+Each revision of each file in the bundle is distributed under the
+license stated in that revision.  For the current revisions see the
+paragraphs above; the licenses involved are the ones listed in this
+file.  See the Comment of the gnulib.bundle paragraph for a known
+exception.
+    ]]></license>
+</copyright>

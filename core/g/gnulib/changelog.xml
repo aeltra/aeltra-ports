@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="20260704" revision="3aeltra1" upstream-version="20260704-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-23 11:50:35+03:00">
+        <changeset>
+            <li>New package, the version of Debian Forky. Debian's patch is
+            listed but not applied</li>
+            <li>gnulib-patch takes the place of Debian's
+            dh_gnulib_patch</li>
+        </changeset>
+    </release>
+</changelog>
