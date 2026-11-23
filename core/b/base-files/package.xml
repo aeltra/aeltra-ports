@@ -17,6 +17,11 @@
 
         <contents>
             <file src="/"/>
+            <!-- Special permissions are stated here, whatever the makefile
+                 of the sources sets. -->
+            <dir src="/tmp" mode="1777"/>
+            <dir src="/var/mail" mode="2775"/>
+            <dir src="/var/tmp" mode="1777"/>
         </contents>
     </package>
 
