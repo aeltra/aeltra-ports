@@ -9,7 +9,8 @@ AM_OPTS=--copy LT_OPTS=--copy ./autogen.sh
 
 # The options of Debian's rules, with these differences: no systemd, no
 # udev and no cryptsetup, which are not there, and at the end the options
-# that Debian does not have (no NLS, no bash completion).
+# that Debian does not have (no NLS, no bash completion, and the makefile
+# installs nothing setuid: the package files set those permissions).
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
@@ -39,7 +40,8 @@ $AELTRA_SOURCE_DIR/configure \
     --disable-utmpdump \
     --disable-hwclock-gplv3 \
     --disable-nls \
-    --disable-bash-completion
+    --disable-bash-completion \
+    --disable-makeinstall-setuid
 
 # During the first phase of package builds during bootstrapping, the build
 # system finds /tools/include/ncurses and adds /tools/include to the header
@@ -108,7 +110,7 @@ ln -s hexdump bin/hd
 ln -s newgrp  bin/sg
 
 # su, mount, umount and newgrp are setuid root in Debian. The package files
-# say so (mode="4755"), whatever the makefile does here.
+# say so (mode="4755").
 
 # Debian's PAM files, see package.xml.
 install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/pam.d" share/pam-configs
