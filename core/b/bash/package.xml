@@ -21,18 +21,30 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="bash-5.1.tar.xz" subdir="sources"
-                sha256sum="d5eeee4f953c09826409d572e2e8996a2140d67eb8f382ce1f3a9d23883ad696"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="aa388b373e398e17fa50aa6f5d4509ed45bd4ab371578fb0546d5642569cb075"/>
+            <file src="bash-5.3.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/b/bash/bash_5.3.orig.tar.xz"
+                sha256sum="a70de6bb41f5e192534a5a1836b1d7fad9a8d4818a6e1506d70f38441552c17a"/>
+            <file src="debian-patches-4.tar.gz" subdir="patches"
+                sha256sum="ccdec1063e39bd55783ee1dc218a93d53162c0b878ebc9b58146c985b3be5e60"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/bash51-001.diff"/>
-                <file src="patches/bash51-002.diff"/>
-                <file src="patches/bash51-003.diff"/>
-                <file src="patches/bash51-004.diff"/>
+                <file src="patches/bash53-001.diff"/>
+                <file src="patches/bash53-002.diff"/>
+                <file src="patches/bash53-003.diff"/>
+                <file src="patches/bash53-004.diff"/>
+                <file src="patches/bash53-005.diff"/>
+                <file src="patches/bash53-006.diff"/>
+                <file src="patches/bash53-007.diff"/>
+                <file src="patches/bash53-008.diff"/>
+                <file src="patches/bash53-009.diff"/>
+                <file src="patches/bash53-010.diff"/>
+                <file src="patches/bash53-011.diff"/>
+                <file src="patches/bash53-012.diff"/>
+                <file src="patches/bash53-013.diff"/>
+                <file src="patches/bash53-014.diff"/>
+                <file src="patches/bash53-015.diff"/>
                 <file src="patches/bashbug-editor.diff"/>
                 <file src="patches/deb-bash-config.diff"/>
                 <file src="patches/deb-examples.diff"/>
@@ -49,9 +61,8 @@
                 <file src="patches/exec-redirections-doc.diff"/>
                 <file src="patches/bash-aliases-repeat.diff"/>
                 <file src="patches/use-system-texi2html.diff"/>
-                <file src="patches/bzero.diff"/>
-                <file src="patches/man-macro-warnings.diff"/>
                 <file src="patches/man-vx-opts.diff"/>
+                <file src="patches/readline-need-extern-pc.diff"/>
             </patchset>
         </patches>
 
