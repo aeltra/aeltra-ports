@@ -3,12 +3,26 @@
     <prepare>
     <![CDATA[
 
+# As in Debian's rules: the build system is made from the gnulib
+# repository, which the gnulib package ships as a git bundle. The first
+# call of bootstrap checks out the commit of gnulib that bootstrap.conf
+# pins and copies nothing yet, so that gnulib-patch can apply the fixes of
+# the gnulib package to the clone before the second call uses it.
+cd "$AELTRA_SOURCE_DIR"
+git clone "$AELTRA_INSTALL_PREFIX/share/gnulib/gnulib.bundle" gnulib
+./bootstrap --gnulib-srcdir=gnulib --pull --skip-po
+(cd gnulib && "$AELTRA_INSTALL_PREFIX/bin/gnulib-patch")
+./bootstrap --gnulib-srcdir=gnulib --gen
+
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls
+    --disable-rpath \
+    --with-packager=Aeltra \
+    --disable-nls \
+    --disable-doc
 
     ]]>
     </prepare>

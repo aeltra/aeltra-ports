@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.3.8" revision="5aeltra1" upstream-version="2.3.8-5"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-23 00:14:36+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patch</li>
+            <li>Debian's sources have no configure script. As in Debian
+            it is made with the bootstrap script, from a clone of the
+            gnulib repository at the commit the sources pin</li>
+        </changeset>
+    </release>
     <release version="2.3.0" revision="5bolt1" upstream-version="2.3.0-5"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2022-04-15 16:08:21+03:00">

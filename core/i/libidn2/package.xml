@@ -15,19 +15,35 @@
 
         <xi:include href="copyright.xml"/>
 
+        <!-- Debian's sources are a snapshot of the repository. They have no
+             configure script, see rules.xml. -->
         <sources>
-            <file 
-                subdir="sources"
-                src="libidn2-2.3.0.tar.gz"
-                upstream-src="http://ftp.debian.org/debian/pool/main/libi/libidn2/libidn2_2.3.0.orig.tar.gz"
-                sha256sum="e1cb1db3d2e249a6a3eb6f0946777c2e892d5c5dc7bd91c74394fc3a01cab8b5"
-            />
+            <file src="libidn2-2.3.8.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libi/libidn2/libidn2_2.3.8.orig.tar.gz"
+                sha256sum="bbad1678d35d28e2c62e6a2577083829461402d9e47b908791c55314a5cb5e04"/>
+            <file src="debian-patches-5.tar.gz" subdir="patches"
+                sha256sum="29959bc96fa487ea97207aa3d8f1ce56991ff3be91b91fe75741c915b510e3e4"/>
         </sources>
 
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/fix-blhc.patch"/>
+            </patchset>
+        </patches>
+
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autopoint"/>
             <package name="gengetopt"/>
+            <package name="git"/>
+            <package name="gnulib"/>
+            <package name="gperf"/>
+            <package name="help2man"/>
+            <package name="libtool"/>
             <package name="libunistring-dev"/>
             <package name="pkg-config"/>
+            <package name="texinfo"/>
         </requires>
 
         <xi:include href="rules.xml"/>
