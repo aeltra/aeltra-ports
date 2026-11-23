@@ -24,7 +24,7 @@ ln -s ../share/gnulib/gnulib-tool "$BIN_DIR/gnulib-tool"
 # Our stand-in for dh_gnulib_patch and the folder with its patches, which
 # is empty until gnulib code has to be fixed.
 sed "s|@DATADIR@|$AELTRA_INSTALL_PREFIX/share|g" \
-    "$AELTRA_WORK_DIR/extra/gnulib-local/gnulib-patch" \
+    "$AELTRA_WORK_DIR/extra/gnulib-patch" \
     > "$BIN_DIR/gnulib-patch"
 chmod 0755 "$BIN_DIR/gnulib-patch"
 install -d -m 0755 "$GNULIB_DIR/aeltra/patches.d"
