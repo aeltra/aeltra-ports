@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="utmps-dev" section="libdevel">
+    <description>
+        <summary>A secure utmp/wtmp implementation (development files)</summary>
+        <p>
+        utmps is an implementation of the utmpx.h family of functions,
+        which record who is logged in. The files utmp and wtmp are only
+        written by two small daemons, which check what a program may
+        change, and the library talks to them. The C library of musl
+        has these functions as stubs that do nothing.
+        </p>
+        <p>
+        This package contains the development files. The headers are in
+        include/utmps and take the place of utmpx.h and utmp.h of the C
+        library for a program that is built with the flags that pkg-config
+        gives for libutmps.
+        </p>
+    </description>
+
+    <requires>
+        <package name="utmps-libs" version="=="/>
+        <package name="skalibs-dev"/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include/utmps"/>
+        <file src="${prefix}/lib/libutmps.a"/>
+        <file src="${prefix}/lib/libutmps.so"/>
+        <file src="${prefix}/lib/pkgconfig/libutmps.pc"/>
+    </contents>
+</package>

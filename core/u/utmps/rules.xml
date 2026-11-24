@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+# The options of Alpine's recipe. --with-include names the folder that the
+# headers of utmps themselves go to: it ends up in the flags that
+# pkg-config gives for libutmps, and that is how a program gets utmpx.h of
+# utmps in place of the one of the C library.
+cd "$AELTRA_BUILD_DIR"
+CC="${AELTRA_HOST_TYPE}-gcc" \
+./configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --sysconfdir=/etc \
+    --libexecdir="$AELTRA_INSTALL_PREFIX/libexec/utmps" \
+    --enable-shared \
+    --disable-allstatic \
+    --with-sysdeps="$AELTRA_INSTALL_PREFIX/lib/skalibs/sysdeps" \
+    --with-include="$AELTRA_INSTALL_PREFIX/include/utmps" \
+    --with-lib="$AELTRA_INSTALL_PREFIX/lib" \
+    --with-dynlib="$AELTRA_INSTALL_PREFIX/lib" \
+    --enable-pkgconfig \
+    --enable-utmp
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+    ]]>
+    </install>
+</rules>

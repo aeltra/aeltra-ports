@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <source name="utmps" repo="core" architecture-independent="false" if="(tools-build or target-build) and musl">
+        <description>
+            <summary>A secure utmp/wtmp implementation</summary>
+            <p>
+            utmps is an implementation of the utmpx.h family of functions,
+            which record who is logged in. The files utmp and wtmp are only
+            written by two small daemons, which check what a program may
+            change, and the library talks to them. The C library of musl
+            has these functions as stubs that do nothing.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <!-- Not in Debian. The release of upstream, built as in Alpine. -->
+        <sources>
+            <file src="utmps-0.1.3.4.tar.gz" subdir="sources"
+                upstream-src="https://skarnet.org/software/utmps/utmps-0.1.3.4.tar.gz"
+                sha256sum="12dcc102ad6ac81f81aecc4950733db94f35081947054b9b1473cac5c90810bc"/>
+        </sources>
+
+        <requires>
+            <package name="skalibs-dev"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="utmps.xml"/>
+    <xi:include href="utmps-libs.xml"/>
+    <xi:include href="utmps-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

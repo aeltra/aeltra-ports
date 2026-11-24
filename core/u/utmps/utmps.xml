@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="utmps" section="admin">
+    <description>
+        <summary>A secure utmp/wtmp implementation</summary>
+        <p>
+        utmps is an implementation of the utmpx.h family of functions,
+        which record who is logged in. The files utmp and wtmp are only
+        written by two small daemons, which check what a program may
+        change, and the library talks to them. The C library of musl
+        has these functions as stubs that do nothing.
+        </p>
+        <p>
+        This package contains the daemons utmps-utmpd and utmps-wtmpd and
+        the program utmps-write. Nothing starts the daemons yet.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/utmps-utmpd"/>
+        <file src="${prefix}/bin/utmps-write"/>
+        <file src="${prefix}/bin/utmps-wtmpd"/>
+    </contents>
+</package>
