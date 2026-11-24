@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+# As in Debian's rules, with these differences: no multiarch folders, and
+# the file for pkg-config is installed (--enable-pkgconfig, as in Alpine):
+# the one of utmps names libskarnet.
+cd "$AELTRA_BUILD_DIR"
+./tools/gen-deps.sh > package/deps.mak
+
+CC="${AELTRA_HOST_TYPE}-gcc" \
+./configure \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --dynlibdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --libdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --includedir="$AELTRA_INSTALL_PREFIX/include" \
+    --sysdepdir="$AELTRA_INSTALL_PREFIX/lib/skalibs/sysdeps" \
+    --disable-rpath \
+    --enable-pkgconfig
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+    ]]>
+    </install>
+</rules>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="2.16.0.0" revision="2aeltra1" upstream-version="2.16.0.0-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 08:33:12+03:00">
+        <changeset>
+            <li>New package, the version of Debian Forky, for utmps</li>
+        </changeset>
+    </release>
+</changelog>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <source name="skalibs" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Library used for building software at skarnet.org</summary>
+            <p>
+            skalibs is a package centralizing the free software / open source C
+            development files used for building all software at skarnet.org: it
+            contains essentially general-purpose libraries. You will need to install
+            skalibs if you plan to build skarnet.org software. The point is that you
+            won't have to download and compile big libraries, and care about
+            portability issues, every time you need to build a package: do it only
+            once.
+            </p>
+            <p>
+            skalibs can also be used as a sound basic start for C development. There
+            are a lot of general-purpose libraries out there; but if your main goal is
+            to produce small and secure C code with a focus on system programming,
+            skalibs might be for you.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="skalibs-2.16.0.0.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/s/skalibs/skalibs_2.16.0.0.orig.tar.gz"
+                sha256sum="5a653ff1a7f9ba31b0415e3107f8cb30c91aeb8ace3d05e860850870bc839220"/>
+        </sources>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="libskarnet2.16.xml"/>
+    <xi:include href="skalibs-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
