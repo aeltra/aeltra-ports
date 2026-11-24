@@ -41,6 +41,7 @@
         </patches>
 
         <requires>
+            <package name="libidn2-dev"/>
             <package name="cmake"/>
             <package name="libncurses-dev"/>
             <package name="libssl-dev"/>
