@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+cd "$AELTRA_SOURCE_DIR"
+autoreconf -vfi
+bh_autotools_dev_update
+
+# Only the library. Debian also builds the programs (--enable-app), which
+# need libev, jansson, c-ares and jemalloc.
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --build="$AELTRA_HOST_TYPE" \
+    --host="$AELTRA_HOST_TYPE" \
+    --disable-failmalloc \
+    --disable-silent-rules \
+    --enable-lib-only \
+    --enable-static
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make -j"$AELTRA_PARALLEL_JOBS"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+    ]]>
+    </install>
+</rules>

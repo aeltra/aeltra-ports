@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libnghttp2-dev" section="libdevel">
+    <description>
+        <summary>Library implementing HTTP/2 protocol (development files)</summary>
+        <p>
+        This is an implementation of the Hypertext Transfer Protocol version
+        2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+        library.
+        </p>
+        <p>
+        This package installs development files.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libnghttp2-14" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include/nghttp2"/>
+        <file src="${prefix}/lib/libnghttp2.a"/>
+        <file src="${prefix}/lib/libnghttp2.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
+    </contents>
+</package>

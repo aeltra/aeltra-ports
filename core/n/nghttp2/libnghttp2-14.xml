@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libnghttp2-14" section="libs">
+    <description>
+        <summary>Library implementing HTTP/2 protocol (shared library)</summary>
+        <p>
+        This is an implementation of the Hypertext Transfer Protocol version
+        2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+        library.
+        </p>
+        <p>
+        This package installs a shared library.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/lib/libnghttp2.so.*"/>
+    </contents>
+</package>

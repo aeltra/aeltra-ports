@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="nghttp2" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Library implementing HTTP/2 protocol (development files)</summary>
+            <p>
+            This is an implementation of the Hypertext Transfer Protocol version
+            2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+            library.
+            </p>
+            <p>
+            This package installs development files.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="nghttp2-1.71.0.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/n/nghttp2/nghttp2_1.71.0.orig.tar.gz"
+                sha256sum="0cdd35ecec77919b4b7b245f87fe8d2216e3d62da854eb0838c594ff058042fc"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="0f2b0e98e65e11077d70f4a9356520ebbb898989d20228c8a2d3a8d0e5f83d50"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0002-Workaround-for-963648.patch"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autotools-dev" tools-prefix=""/>
+            <package name="libtool"/>
+            <package name="pkg-config"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="libnghttp2-14.xml"/>
+    <xi:include href="libnghttp2-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
