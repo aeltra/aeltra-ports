@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="brotli" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Lossless compression algorithm and format (Python 3 version)</summary>
+            <p>
+            Brotli is a generic-purpose lossless compression algorithm
+            that compresses data using a combination of a modern variant
+            of the LZ77 algorithm, Huffman coding and 2nd order context modeling,
+            with a compression ratio comparable to the best currently available
+            general-purpose compression methods. It is similar in speed with
+            deflate but offers more dense compression.
+            </p>
+            <p>
+            This package installs a Python 3 module.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="brotli-1.2.0.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/b/brotli/brotli_1.2.0.orig.tar.gz"
+                sha256sum="eb5f7dadf215d0670665fd81566e1fe2dfdc154d983f09142de7299df4c182e6"/>
+            <file src="debian-patches-4.1.tar.gz" subdir="patches"
+                sha256sum="ef7b8f2fa68f734f23b33d773bcad522a833c30b97782ea876ee9a693a6aeb4f"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0001-disable-BROTLI_MODEL-macro-for-some-targets.patch"/>
+                <file src="patches/0002-only-use-qemu-test-wrapper-when-actually-cross-compiling.patch"/>
+                <file src="patches/0003-Detect-and-report-invalid-stream-earlier.patch"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="cmake"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="brotli.xml"/>
+    <xi:include href="libbrotli1.xml"/>
+    <xi:include href="libbrotli-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

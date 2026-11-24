@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="brotli" section="utils">
+    <description>
+        <summary>Lossless compression algorithm and format (command line utility)</summary>
+        <p>
+        Brotli is a generic-purpose lossless compression algorithm
+        that compresses data using a combination of a modern variant
+        of the LZ77 algorithm, Huffman coding and 2nd order context modeling,
+        with a compression ratio comparable to the best currently available
+        general-purpose compression methods. It is similar in speed with
+        deflate but offers more dense compression.
+        </p>
+        <p>
+        This package installs a command line utility.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin"/>
+    </contents>
+</package>

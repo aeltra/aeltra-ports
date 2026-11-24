@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libbrotli-dev" section="libdevel">
+    <description>
+        <summary>Library implementing brotli encoder and decoder (development files)</summary>
+        <p>
+        Brotli is a generic-purpose lossless compression algorithm
+        that compresses data using a combination of a modern variant
+        of the LZ77 algorithm, Huffman coding and 2nd order context modeling,
+        with a compression ratio comparable to the best currently available
+        general-purpose compression methods. It is similar in speed with
+        deflate but offers more dense compression.
+        </p>
+        <p>
+        This package installs development files.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libbrotli1" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include/brotli"/>
+        <file src="${prefix}/lib/*.a"/>
+        <file src="${prefix}/lib/*.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
+    </contents>
+</package>
