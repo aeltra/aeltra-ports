@@ -30,7 +30,6 @@
     <requires>
         <package name="libcurl4-gnutls" version="=="/>
         <package name="libbrotli-dev"/>
-        <package name="libc-ares-dev"/>
         <package name="libgnutls28-dev"/>
         <package name="libidn2-dev"/>
         <package name="libnghttp2-dev"/>

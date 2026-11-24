@@ -12,9 +12,8 @@ for TLS in openssl gnutls; do
     autoreconf -vfi
     bh_autotools_dev_update
 
-    # The options of Debian's rules, with these differences: as in Alpine
-    # names are looked up with c-ares and not with threads, and these are
-    # not there: LDAP, GSSAPI, libssh2, librtmp, HTTP/3.
+    # The options of Debian's rules, but these are not there: LDAP, GSSAPI,
+    # libssh2, HTTP/3.
     PKG_CONFIG="${AELTRA_HOST_TYPE}-pkg-config" \
     ./configure \
         --prefix="$AELTRA_INSTALL_PREFIX" \
@@ -24,9 +23,9 @@ for TLS in openssl gnutls; do
         --disable-ldap \
         --disable-ldaps \
         --disable-silent-rules \
-        --enable-ares \
         --enable-static \
         --enable-symbol-hiding \
+        --enable-threaded-resolver \
         --enable-versioned-symbols \
         --with-brotli \
         --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
@@ -36,7 +35,6 @@ for TLS in openssl gnutls; do
         --with-nghttp2 \
         --with-zstd \
         --without-gssapi \
-        --without-librtmp \
         --without-libssh \
         --without-libssh2 \
         --without-nghttp3 \
