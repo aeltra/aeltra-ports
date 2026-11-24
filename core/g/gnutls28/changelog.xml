@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.8.13" revision="1aeltra1" upstream-version="3.8.13-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 12:48:44+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patches and options, without DANE and NLS</li>
+            <li>The packages libgnutls-dane0, libgnutls-openssl27 and
+            libgnutlsxx28 are gone</li>
+            <li>Uses libidn2 in place of libidn, libunistring of the
+            system and no autogen</li>
+        </changeset>
+    </release>
     <release version="3.7.1" revision="1bolt1" upstream-version="3.7.1-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-04 19:10:59+03:00">

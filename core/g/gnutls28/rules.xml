@@ -3,28 +3,39 @@
     <prepare>
     <![CDATA[
 
+# As in Debian's rules: macros that gettext has newer ones of go away, and
+# gtkdocize is not called, gtk-doc is not there.
+cd "$AELTRA_SOURCE_DIR"
+grep -rl gettext-0.20 m4/ | xargs rm -f
+GTKDOCIZE="echo DISABLED running gtkdocize" autoreconf -vfi
+bh_autotools_dev_update
+
+# The options of Debian's rules, with these differences: no DANE, which
+# needs unbound, and no NLS. The C++ library is not built, Debian builds it
+# and leaves it out of its packages. The compression libraries and TPM are
+# not there when Debian builds the package, here they may be.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --sysconfdir=/etc \
     --enable-ld-version-script \
-    --enable-cxx \
     --enable-static \
-    --without-lzo \
-    --enable-libdane \
-    --without-tpm \
-    --disable-guile \
-    --disable-heartbeat-support \
-    --enable-openssl-compatibility \
-    --with-included-unistring \
-    --disable-silent-rules \
-    --with-unbound-root-key-file="$AELTRA_INSTALL_PREFIX/share/dns/root.key" \
-    --with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt \
-    --with-autoopts-config="$AELTRA_INSTALL_PREFIX/bin/autoopts-config" \
-    --with-packager=Bolt \
+    --disable-cxx \
+    --disable-doc \
     --disable-gtk-doc \
-    --disable-doc
+    --disable-libdane \
+    --disable-nls \
+    --disable-rpath \
+    --disable-silent-rules \
+    --disable-tests \
+    --without-brotli \
+    --without-tpm \
+    --without-tpm2 \
+    --without-zlib \
+    --without-zstd \
+    --with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt
 
     ]]>
     </prepare>

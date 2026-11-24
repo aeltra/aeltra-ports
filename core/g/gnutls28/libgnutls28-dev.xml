@@ -14,27 +14,18 @@
 
     <requires>
         <package name="libgnutls30" version="=="/>
-        <package name="libgnutls-openssl27" version="=="/>
-        <package name="libgnutlsxx28" version="=="/>
-        <package name="libgnutls-dane0" version="=="/>
-        <package name="nettle-dev"/>
         <package name="libc-dev"/>
-        <package name="zlib1g-dev"/>
-        <package name="libtasn1-6-dev"/>
+        <package name="libidn2-dev"/>
         <package name="libp11-kit-dev"/>
-        <package name="libidn11-dev" version=">= 1.31"/>
+        <package name="libtasn1-6-dev"/>
+        <package name="libunistring-dev"/>
+        <package name="nettle-dev" version=">= 3.10"/>
     </requires>
 
     <contents>
         <file src="${prefix}/include/gnutls"/>
-        <file src="${prefix}/lib/libgnutls-dane.a"/>
-        <file src="${prefix}/lib/libgnutls-dane.so"/>
-        <file src="${prefix}/lib/libgnutls-openssl.a"/>
-        <file src="${prefix}/lib/libgnutls-openssl.so"/>
         <file src="${prefix}/lib/libgnutls.a"/>
         <file src="${prefix}/lib/libgnutls.so"/>
-        <file src="${prefix}/lib/libgnutlsxx.a"/>
-        <file src="${prefix}/lib/libgnutlsxx.so"/>
         <file src="${prefix}/lib/pkgconfig"/>
     </contents>
 </package>

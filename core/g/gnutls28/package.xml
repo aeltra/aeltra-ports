@@ -29,36 +29,37 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gnutls28-3.7.1.tar.xz" subdir="sources"
-                sha256sum="3777d7963eca5e06eb315686163b7b3f5045e2baac5e54e038ace9835e5cac6f"/>
+            <file src="gnutls28-3.8.13.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/gnutls28/gnutls28_3.8.13.orig.tar.xz"
+                sha256sum="ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e"/>
             <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="b1a3d54ab8c1bba917357a938423b0b4bfe7c0ff2f3eac8405496012b221ad46"/>
+                sha256sum="c4e9c4043e59146c682c1bbdb13314039ae73485506b5836da21c52712041e35"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/14_version_gettextcat.diff"/>
-                <file src="patches/30_guile-snarf.diff"/>
-                <file src="patches/40_fix_ipv6only_testsuite_AI_ADDRCONFIG.diff"/>
+                <file src="patches/40_srptest_doubletimeout.diff"/>
+                <file src="patches/41_run_cligen_on_debian.diff"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="autogen"/>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autopoint"/>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="bison"/>
-            <package name="ca-certificates" tools-prefix=""/>
-            <package name="chrpath"/>
+            <package name="gperf"/>
             <package name="libgmp-dev"/>
-            <package name="libidn11-dev"/>
-            <package name="libopts25-dev"/>
+            <package name="libidn2-dev"/>
             <package name="libp11-kit-dev"/>
-            <package name="libssl-dev"/>
             <package name="libtasn1-6-dev"/>
-            <package name="libunbound-dev"/>
+            <package name="libtool"/>
             <package name="libunistring-dev"/>
-            <package name="nettle-dev"/>
-            <package name="openssl"/>
+            <package name="nettle-dev" version=">= 3.10"/>
             <package name="pkg-config"/>
+            <package name="python3"/>
         </requires>
 
         <xi:include href="rules.xml"/>
@@ -67,9 +68,6 @@
     <xi:include href="libgnutls28-dev.xml"/>
     <xi:include href="libgnutls30.xml"/>
     <xi:include href="gnutls-bin.xml"/>
-    <xi:include href="libgnutlsxx28.xml"/>
-    <xi:include href="libgnutls-openssl27.xml"/>
-    <xi:include href="libgnutls-dane0.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>
