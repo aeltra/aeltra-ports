@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release epoch="2" version="4.0.7" revision="1.1aeltra1" upstream-version="2:4.0.7-1.1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 10:44:06+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patches and the options of Debian's rules, without
+            systemd</li>
+            <li>The library is libproc2 now: libproc2-1 and libproc2-dev
+            take the place of libprocps8 and libprocps-dev</li>
+            <li>On musl w uses utmps, as in Alpine</li>
+        </changeset>
+    </release>
     <release epoch="2" version="3.3.17" revision="4bolt1" upstream-version="2:3.3.17-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-26 23:26:20+03:00">

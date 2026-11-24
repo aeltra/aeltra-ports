@@ -18,27 +18,32 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="procps-3.3.17.tar.xz" subdir="sources"
-                sha256sum="4518b3e7aafd34ec07d0063d250fd474999b20b200218c3ae56f5d2113f141b4"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="741d40c9817a345b8aa76d26f8fecffed205977c1177ce304daaf7fb418e86b5"/>
+            <file src="procps-4.0.7.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/p/procps/procps_4.0.7.orig.tar.xz"
+                sha256sum="36dd88bb129cbaad5c5481cddde6dd16ab533e677cf99c424f0bb63f555f7e47"/>
+            <file src="debian-patches-1.1.tar.gz" subdir="patches"
+                sha256sum="cd374af7c47ff86d519dac861c89ffa77ec04f4a088b827fcee51ec5239360e7"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/fix_checks"/>
                 <file src="patches/remove_strtod_tests"/>
-                <file src="patches/watch_hostname_max_define"/>
                 <file src="patches/disable_sched_test"/>
                 <file src="patches/uptime_test"/>
-                <file src="patches/ps_checks"/>
-                <file src="patches/pwait_rename"/>
+                <file src="patches/no-hugetlb"/>
+                <file src="patches/no-boottime"/>
+                <file src="patches/no-opath"/>
+                <file src="patches/fix-pointer-check"/>
+                <file src="patches/kill-pgrp-exit"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="libncurses-dev"/>
+            <package name="libselinux1-dev"/>
             <package name="pkg-config"/>
+            <package name="skalibs-dev" if="musl"/>
+            <package name="utmps-dev" if="musl"/>
         </requires>
 
         <xi:include href="rules.xml"/>
@@ -46,8 +51,8 @@
 
     <xi:include href="procps.xml"/>
     <xi:include href="sysctl.xml"/>
-    <xi:include href="libprocps8.xml"/>
-    <xi:include href="libprocps-dev.xml"/>
+    <xi:include href="libproc2-1.xml"/>
+    <xi:include href="libproc2-dev.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

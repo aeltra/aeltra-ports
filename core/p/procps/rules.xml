@@ -3,18 +3,33 @@
     <prepare>
     <![CDATA[
 
-cd "$AELTRA_SOURCE_DIR"
-sed -i 's@__GNU_LIBRARY__ >= 6@1@g' proc/escape.c
+# As in Alpine: on musl the programs that show who is logged in (w) use
+# utmps, see the util-linux recipe.
+if [ "$AELTRA_LIBC_NAME" = "musl" ]; then
+    UTMPS_CFLAGS="$("${AELTRA_HOST_TYPE}-pkg-config" --cflags libutmps)"
+    UTMPS_LIBS="$("${AELTRA_HOST_TYPE}-pkg-config" --libs libutmps)"
 
-# The build system prefers utmpx.h over utmp.h, but musl's utmp.h includes
-# utmpx.h.
-export ac_cv_header_utmpx_h='no'
+    export CFLAGS="${CFLAGS:--g -O2} $UTMPS_CFLAGS"
+    export LIBS="$LIBS $UTMPS_LIBS"
+fi
 
+# The options of Debian's rules, without systemd and with --disable-nls.
+# As in Debian, the configure script of the release is used and the build
+# is done in the source folder: the makefile for the translated manual
+# pages does not find them from another one.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --disable-silent-rules \
+    --enable-watch8bit \
+    --enable-colorwatch \
+    --enable-w-from \
+    --enable-skill \
+    --enable-libselinux \
+    --disable-pidof \
+    --disable-modern-top \
     --disable-nls
 
     ]]>
@@ -41,6 +56,8 @@ make DESTDIR="$AELTRA_INSTALL_DIR/procps" install
 install -d -m 0755 "$AELTRA_INSTALL_DIR/sysctl/$AELTRA_INSTALL_PREFIX/sbin"
 mv "$AELTRA_INSTALL_DIR/procps/$AELTRA_INSTALL_PREFIX/sbin/sysctl" \
    "$AELTRA_INSTALL_DIR/sysctl/$AELTRA_INSTALL_PREFIX/sbin"
+
+rm -f "$AELTRA_INSTALL_DIR/procps/$AELTRA_INSTALL_PREFIX/lib/libproc2.la"
 
     ]]>
     </install>

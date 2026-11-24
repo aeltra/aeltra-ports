@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="libprocps-dev" section="libdevel">
+<package name="libproc2-dev" section="libdevel">
     <description>
         <summary>Library for accessing process information from /proc</summary>
         <p>
@@ -9,13 +9,13 @@
     </description>
 
     <requires>
-        <package name="libprocps8" version="=="/>
+        <package name="libproc2-1" version="=="/>
     </requires>
 
     <contents subdir="procps">
         <file src="${prefix}/include"/>
-        <file src="${prefix}/lib/libprocps.a"/>
-        <file src="${prefix}/lib/libprocps.so"/>
+        <file src="${prefix}/lib/libproc2.a"/>
+        <file src="${prefix}/lib/libproc2.so"/>
         <file src="${prefix}/lib/pkgconfig"/>
     </contents>
 </package>
