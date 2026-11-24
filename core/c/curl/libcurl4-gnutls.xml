@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="libcurl3" section="libs">
+<package name="libcurl4-gnutls" section="libs">
     <description>
-        <summary>Easy-to-use client-side URL transfer library (OpenSSL flavour)</summary>
+        <summary>Easy-to-use client-side URL transfer library (GnuTLS flavour)</summary>
         <p>
         libcurl is an easy-to-use client-side URL transfer library, supporting DICT,
         FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S,
@@ -19,11 +19,11 @@
         successful companies and numerous applications.
         </p>
         <p>
-        SSL support is provided by OpenSSL.
+        SSL support is provided by GnuTLS.
         </p>
     </description>
 
-    <contents subdir="openssl">
-        <file src="${prefix}/lib/libcurl.so.*"/>
+    <contents subdir="gnutls">
+        <file src="${prefix}/lib/libcurl-gnutls.so.4*"/>
     </contents>
 </package>

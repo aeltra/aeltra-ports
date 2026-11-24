@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="8.23.0" revision="2aeltra1" upstream-version="8.23.0-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 15:14:08+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky, with
+            Debian's patches</li>
+            <li>Built against OpenSSL and GnuTLS. The variant for NSS is
+            gone, upstream no longer supports it</li>
+            <li>libcurl4 and libcurl4-gnutls take the place of libcurl3 and
+            libcurl3-gnutls, without the links for version 3</li>
+            <li>With nghttp2, libidn2, libpsl, brotli, zstd and c-ares</li>
+        </changeset>
+    </release>
     <release version="7.74.0" revision="1.1bolt1" upstream-version="7.74.0-1.1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-03-07 22:30:58+03:00">

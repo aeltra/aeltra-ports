@@ -16,10 +16,11 @@
     </description>
 
     <requires>
-        <package name="libcurl3" version="=="/>
+        <package name="libcurl4" version="=="/>
     </requires>
 
     <contents subdir="openssl">
         <file src="${prefix}/bin/curl"/>
+        <file src="${prefix}/bin/wcurl"/>
     </contents>
 </package>

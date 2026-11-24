@@ -28,12 +28,19 @@
     </description>
 
     <requires>
-        <package name="libcurl3" version="=="/>
+        <package name="libcurl4" version="=="/>
+        <package name="libbrotli-dev"/>
+        <package name="libc-ares-dev"/>
+        <package name="libssl-dev"/>
+        <package name="libidn2-dev"/>
+        <package name="libnghttp2-dev"/>
+        <package name="libpsl-dev"/>
+        <package name="libzstd-dev"/>
+        <package name="zlib1g-dev"/>
     </requires>
 
     <conflicts>
         <package name="libcurl4-gnutls-dev"/>
-        <package name="libcurl4-nss-dev"/>
     </conflicts>
 
     <contents subdir="openssl">

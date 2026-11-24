@@ -28,38 +28,40 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="curl-7.74.0.tar.gz" subdir="sources"
-                sha256sum="e56b3921eeb7a2951959c02db0912b5fcd5fdba5aca071da819e1accf338bbd7"/>
-            <file src="debian-patches-1.1.tar.gz" subdir="patches"
-                sha256sum="77dd001ac66ebdbbb9eac1c27351e56f16d44933300f06a1613ff223b5c52cd6"/>
+            <file src="curl-8.23.0.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/c/curl/curl_8.23.0.orig.tar.gz"
+                sha256sum="e3de77cfa6367083c776a26647fc9f633b538c06c3baa73d931a252ac8f72b49"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="a3b7a757bfbb27db814e2d74861d4de58e552097658ac5f50323e12cdcc6d548"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/04_workaround_as_needed_bug.patch"/>
-                <file src="patches/06_always-disable-valgrind.patch"/>
-                <file src="patches/07_do-not-disable-debug-symbols.patch"/>
-                <file src="patches/08_enable-zsh.patch"/>
+                <file src="patches/ZZZgnutls-build.patch"/>
+                <file src="patches/build-Divide-mit-krb5-gssapi-link-flags-between-LDFLAGS-a.patch"/>
                 <file src="patches/11_omit-directories-from-config.patch"/>
-                <file src="patches/12_use-python3-in-tests.patch"/>
-                <file src="patches/13_fix-man-formatting.patch"/>
-                <!--
-                <file src="patches/90_gnutls.patch"/>
-                <file src="patches/99_nss.patch"/>
-                -->
+                <file src="patches/Implement-symbol-versioning-for-CURL_GNUTLS_3.patch"/>
+                <file src="patches/disable-strictmodes-in-test-sshd.patch"/>
+                <file src="patches/pytest-timeline-check-time_queue.patch"/>
             </patchset>
         </patches>
 
         <requires>
             <package name="autoconf"/>
             <package name="automake"/>
-            <package name="ca-certificates" tools-prefix=""/>
+            <package name="autotools-dev" tools-prefix=""/>
+            <package name="libbrotli-dev"/>
+            <package name="libc-ares-dev"/>
             <package name="libgnutls28-dev"/>
-            <package name="libidn11-dev"/>
-            <package name="libnss3-dev"/>
+            <package name="libidn2-dev"/>
+            <package name="libnghttp2-dev"/>
+            <package name="libpsl-dev"/>
             <package name="libssl-dev"/>
             <package name="libtool"/>
-            <package name="python3"/>
+            <package name="libzstd-dev"/>
+            <package name="nettle-dev"/>
+            <package name="perl"/>
+            <package name="pkg-config"/>
             <package name="zlib1g-dev"/>
         </requires>
 
@@ -67,12 +69,10 @@
     </source>
 
     <xi:include href="curl.xml"/>
-    <xi:include href="libcurl3.xml"/>
-    <xi:include href="libcurl3-gnutls.xml"/>
-    <xi:include href="libcurl3-nss.xml"/>
+    <xi:include href="libcurl4.xml"/>
+    <xi:include href="libcurl4-gnutls.xml"/>
     <xi:include href="libcurl4-openssl-dev.xml"/>
     <xi:include href="libcurl4-gnutls-dev.xml"/>
-    <xi:include href="libcurl4-nss-dev.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

@@ -1,65 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rules>
-
     <prepare>
     <![CDATA[
 
-export PKG_CONFIG="$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
+# As in Debian: curl is built twice, each time from a copy of the sources.
+# Debian's patches make the library of the GnuTLS build libcurl-gnutls.
+for TLS in openssl gnutls; do
+    cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/$TLS"
 
-# duplicate source tree
-for t in openssl gnutls nss
-do
-    cp -a "$AELTRA_SOURCE_DIR" "$AELTRA_BUILD_DIR/$t"
+    cd "$AELTRA_BUILD_DIR/$TLS"
+    autoreconf -vfi
+    bh_autotools_dev_update
+
+    # The options of Debian's rules, with these differences: as in Alpine
+    # names are looked up with c-ares and not with threads, and these are
+    # not there: LDAP, GSSAPI, libssh2, librtmp, HTTP/3.
+    PKG_CONFIG="${AELTRA_HOST_TYPE}-pkg-config" \
+    ./configure \
+        --prefix="$AELTRA_INSTALL_PREFIX" \
+        --build="$AELTRA_HOST_TYPE" \
+        --host="$AELTRA_HOST_TYPE" \
+        --disable-dependency-tracking \
+        --disable-ldap \
+        --disable-ldaps \
+        --disable-silent-rules \
+        --enable-ares \
+        --enable-static \
+        --enable-symbol-hiding \
+        --enable-versioned-symbols \
+        --with-brotli \
+        --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
+        --with-ca-path=/etc/ssl/certs \
+        --with-libidn2 \
+        --with-libpsl \
+        --with-nghttp2 \
+        --with-zstd \
+        --without-gssapi \
+        --without-librtmp \
+        --without-libssh \
+        --without-libssh2 \
+        --without-nghttp3 \
+        --without-ngtcp2 \
+        --with-"$TLS"
 done
-
-# patch for non openssl builds
-patch -f -p1 -d "$AELTRA_BUILD_DIR/gnutls" -i "$AELTRA_WORK_DIR/patches/"??_gnutls.patch
-patch -f -p1 -d "$AELTRA_BUILD_DIR/nss"    -i "$AELTRA_WORK_DIR/patches/"??_gnutls.patch
-patch -f -p1 -d "$AELTRA_BUILD_DIR/nss"    -i "$AELTRA_WORK_DIR/patches/"??_nss.patch
-
-# rebuild configuration
-for t in openssl gnutls nss
-do
-    cd "$AELTRA_BUILD_DIR/$t" && autoreconf -fi
-    # HACK: We cannot safely use LD_LIBRARY_PATH inside bbox.
-    sed -i 's@export LD_LIBRARY_PATH@@g' configure
-done
-
-# run configure in all source trees
-CONFIGURE_ARGS="
-    --prefix=$AELTRA_INSTALL_PREFIX 
-    --mandir=$AELTRA_INSTALL_PREFIX/share/man
-    --host=$AELTRA_HOST_TYPE
-    --build=$AELTRA_BUILD_TYPE
-    --disable-symbol-hiding
-    --disable-silent-rules
-    --enable-versioned-symbols
-    --enable-threaded-resolver
-    --enable-ipv6
-    --with-lber-lib=lber
-    --with-gssapi=$AELTRA_INSTALL_PREFIX
-    --with-nss=$AELTRA_INSTALL_PREFIX
-    --without-libidn2
-"
-
-cd "$AELTRA_BUILD_DIR/openssl"
-./configure $CONFIGURE_ARGS \
-    --with-ca-path=/etc/ssl/certs --without-nss --without-gnutls
-
-cd "$AELTRA_BUILD_DIR/gnutls"
-./configure $CONFIGURE_ARGS \
-    --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
-    --without-ssl --without-nss --with-gnutls --without-libssh2
-
-cd "$AELTRA_BUILD_DIR/nss"
-
-# HACK: to avoid colliding with glibc's nss.h
-sed -i 's@#include <nss.h>@#include <nss/nss.h>@g' lib/vtls/nss.c
-
-LIBS="-lssl3 -lnspr4 -lplds4" CFLAGS="$CFLAGS -I$AELTRA_INSTALL_PREFIX/include/nspr -I$AELTRA_INSTALL_PREFIX/include/nss" \
-./configure $CONFIGURE_ARGS \
-    --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
-    --without-ssl --without-gnutls --with-nss --without-libssh2
 
     ]]>
     </prepare>
@@ -67,9 +50,8 @@ LIBS="-lssl3 -lnspr4 -lplds4" CFLAGS="$CFLAGS -I$AELTRA_INSTALL_PREFIX/include/n
     <build>
     <![CDATA[
 
-for t in openssl gnutls nss
-do
-    make -j"$AELTRA_PARALLEL_JOBS" -C "$AELTRA_BUILD_DIR/$t"
+for TLS in openssl gnutls; do
+    make -j"$AELTRA_PARALLEL_JOBS" -C "$AELTRA_BUILD_DIR/$TLS"
 done
 
     ]]>
@@ -78,20 +60,18 @@ done
     <install>
     <![CDATA[
 
-for t in openssl gnutls nss
-do
-    mkdir -p "$AELTRA_INSTALL_DIR/$t"
-    make -C "$AELTRA_BUILD_DIR/$t" DESTDIR="$AELTRA_INSTALL_DIR/$t" install
+for TLS in openssl gnutls; do
+    make -C "$AELTRA_BUILD_DIR/$TLS" \
+        DESTDIR="$AELTRA_INSTALL_DIR/$TLS" install
 
-    # compatibility symlinks
-    if [ "$t" = "openssl" ]; then
-        ln -s libcurl.so.4 "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl.so.3"
-    else
-        ln -s "libcurl-$t.so.4" "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl-$t.so.3"
-        ln -s "libcurl-$t.so"   "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl.so"
-        ln -s "libcurl-$t.a"    "$AELTRA_INSTALL_DIR/$t/$AELTRA_INSTALL_PREFIX/lib/libcurl.a"
-    fi
+    install -D -m 644 "$AELTRA_BUILD_DIR/$TLS/docs/libcurl/libcurl.m4" \
+        "$AELTRA_INSTALL_DIR/$TLS/$AELTRA_INSTALL_PREFIX/share/aclocal/libcurl.m4"
 done
+
+# As in Debian.
+cd "$AELTRA_INSTALL_DIR/gnutls/$AELTRA_INSTALL_PREFIX/lib"
+ln -s libcurl-gnutls.so libcurl.so
+ln -s libcurl-gnutls.a  libcurl.a
 
     ]]>
     </install>
