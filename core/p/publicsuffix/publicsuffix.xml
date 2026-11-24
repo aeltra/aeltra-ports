@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="publicsuffix" section="net">
+    <description>
+        <summary>Accurate, machine-readable list of domain name suffixes</summary>
+        <p>
+        A machine-readable list of domain name suffixes that accept public
+        registration. Each suffix represents the part of a domain name which
+        is not under the control of the individual registrant, which makes
+        the list useful for grouping cookies, deciding same-origin policies,
+        collating spam, and other activities.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/share/publicsuffix"/>
+    </contents>
+</package>

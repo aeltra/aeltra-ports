@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <source name="publicsuffix" repo="core" architecture-independent="true" if="tools-build or target-build">
+        <description>
+            <summary>Accurate, machine-readable list of domain name suffixes</summary>
+            <p>
+            A machine-readable list of domain name suffixes that accept public
+            registration. Each suffix represents the part of a domain name which
+            is not under the control of the individual registrant, which makes
+            the list useful for grouping cookies, deciding same-origin policies,
+            collating spam, and other activities.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="publicsuffix-20261007.0728.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/p/publicsuffix/publicsuffix_20261007.0728.orig.tar.gz"
+                sha256sum="0d867fab69a9ce0f8f993f0627a258fa28596c3392735b89a0defe469ea97d46"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="5b94e26373747a609f835325deae4ae6b3a0c7acc807642faad54e7a8376c927"/>
+            <file src="libpsl-0.23.3.tar.xz" subdir="libpsl"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libp/libpsl/libpsl_0.23.3.orig.tar.xz"
+                sha256sum="935ec0ddc484406d2eac3c6dd78a8768d9a0c4942606cdb9a169216a255febf2"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0001-avoid-testing-the-rules-during-package-build.patch"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="python3"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="publicsuffix.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

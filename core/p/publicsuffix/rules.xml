@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <build>
+    <![CDATA[
+
+# psl-make-dafsa is a script that comes with libpsl. The package of libpsl
+# is built after this one and needs the list, so the script is taken from
+# its sources. Debian has it in a package of its own, which is built
+# without the rest of libpsl.
+cd "$AELTRA_SOURCE_DIR"
+python3 "$AELTRA_WORK_DIR/libpsl/src/psl-make-dafsa" \
+    --input-format=psl \
+    --output-format=binary \
+    public_suffix_list.dat public_suffix_list.dafsa
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+DATA_DIR="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/publicsuffix"
+
+cd "$AELTRA_SOURCE_DIR"
+install -d -m 0755 "$DATA_DIR"
+install -m 644 public_suffix_list.dafsa public_suffix_list.dat "$DATA_DIR/"
+ln -s public_suffix_list.dat "$DATA_DIR/effective_tld_names.dat"
+
+    ]]>
+    </install>
+</rules>
