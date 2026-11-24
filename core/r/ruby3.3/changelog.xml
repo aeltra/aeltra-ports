@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.3.8" revision="2.2aeltra1" upstream-version="3.3.8-2.2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 11:49:41+03:00">
+        <changeset>
+            <li>Ruby 3.3, the version of Debian Forky, takes the place of
+            ruby2.7</li>
+            <li>The tools package is built natively, the one for the
+            target with the Ruby of the tools folder</li>
+            <li>On musl with Alpine's patch for the stack of the main
+            thread. The patches from OpenWRT and upstream are gone</li>
+        </changeset>
+    </release>
     <release version="2.7.2" revision="4bolt2" upstream-version="2.7.2-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-05-11 20:29:00+03:00">

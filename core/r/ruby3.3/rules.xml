@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+RUBY_VERSION="3.3"
+
+cd "$AELTRA_SOURCE_DIR"
+autoreconf -vfi
+bh_autotools_dev_update
+
+# The package for the tools folder is built natively, which needs no Ruby.
+# The one for the target is a cross build with the Ruby of the tools
+# folder: the Ruby it makes first would run the whole build in an emulator.
+# configure cannot run programs of the target then and gets the answers of
+# a native build from here.
+EXTRA_OPTS="--build=$AELTRA_HOST_TYPE"
+
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    EXTRA_OPTS="--build=$AELTRA_TOOLS_TYPE"
+    EXTRA_OPTS="$EXTRA_OPTS --with-baseruby=/tools/bin/ruby$RUBY_VERSION"
+
+    export rb_cv_localtime_overflow=yes
+    export ac_cv_func_memcmp_working=yes
+    export ac_cv_func_fork_works=yes
+fi
+
+# As in Alpine: configure does not see isnan and isinf, which are macros,
+# and libucontext is for processors that Ruby has no code of its own for.
+if [ "$AELTRA_LIBC_NAME" = "musl" ]; then
+    export ac_cv_func_isnan=yes
+    export ac_cv_func_isinf=yes
+    export LIBS="$LIBS -lucontext"
+fi
+
+# The options of Debian's rules, without multiarch.
+cd "$AELTRA_BUILD_DIR"
+"$AELTRA_SOURCE_DIR/configure" \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --host="$AELTRA_HOST_TYPE" \
+    --target="$AELTRA_HOST_TYPE" \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --program-suffix="$RUBY_VERSION" \
+    --with-soname=ruby-"$RUBY_VERSION" \
+    --with-sitedir="$AELTRA_INSTALL_PREFIX/local/lib/site_ruby" \
+    --with-sitearchdir="$AELTRA_INSTALL_PREFIX/local/lib/site_ruby" \
+    --enable-shared \
+    --enable-ipv6 \
+    --with-dbm-type=gdbm_compat \
+    --with-compress-debug-sections=no \
+    --disable-install-doc \
+    --disable-rpath \
+    --disable-yjit \
+    AS="${AELTRA_HOST_TYPE}-as" \
+    CC="${AELTRA_HOST_TYPE}-gcc" \
+    CXX="${AELTRA_HOST_TYPE}-g++" \
+    LD="${AELTRA_HOST_TYPE}-ld" \
+    PKG_CONFIG="${AELTRA_HOST_TYPE}-pkg-config" \
+    SHELL=/bin/sh \
+    $EXTRA_OPTS
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+make V=1 -j"$AELTRA_PARALLEL_JOBS" main
+
+# rbconfig.rb remembers the paths of the programs of the build, which
+# extensions are built with later, and the folder of the build.
+sed -i "s@$AELTRA_BUILD_DIR@BUILDDIR@g" rbconfig.rb
+
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    sed -i 's@/tools/bin@/usr/bin@g' rbconfig.rb
+fi
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+RUBY_API_VERSION="3.3.0"
+
+cd "$AELTRA_BUILD_DIR"
+make V=1 DESTDIR="$AELTRA_INSTALL_DIR" install-nodoc
+
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+
+# As in Debian: the folders that extensions of the bundled gems were built
+# in, second copies of what is below gems/*/extensions, and lock files.
+rm -rf lib/ruby/gems/"$RUBY_API_VERSION"/gems/*/ext
+find lib/ruby/gems/"$RUBY_API_VERSION"/gems \
+    '(' -name '*.so' -o -name '*.o' -o -name '*.lock' ')' -exec rm -f '{}' +
+
+# As in Debian: what programs that embed Ruby don't need.
+sed -i -e 's/^DLDFLAGS=.*/DLDFLAGS=/' -e 's/^LIBPATH=.*/LIBPATH=/' \
+    lib/pkgconfig/ruby-3.3.pc
+
+    ]]>
+    </install>
+</rules>

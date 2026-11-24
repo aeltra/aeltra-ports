@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="libruby2.7" section="libs">
+<package name="libruby3.3" section="libs">
     <description>
-        <summary>Libraries necessary to run Ruby 2.7</summary>
+        <summary>Libraries necessary to run Ruby 3.3</summary>
         <p>
         Ruby is the interpreted scripting language for quick and easy
         object-oriented programming. It has many features to process text
@@ -9,13 +9,13 @@
         straight-forward, and extensible.
         </p>
         <p>
-        This package includes the 'libruby-2.7' library, necessary to run Ruby 2.7.
-        (API version 2.7.0)
+        This package includes the 'libruby-3.3' library, necessary to run Ruby 3.3.
+        (API version 3.3.0)
         </p>
     </description>
 
     <contents>
-        <file src="${prefix}/lib/libruby-2.7.so.*"/>
+        <file src="${prefix}/lib/libruby-3.3.so.*"/>
         <file src="${prefix}/lib/ruby"/>
     </contents>
 </package>

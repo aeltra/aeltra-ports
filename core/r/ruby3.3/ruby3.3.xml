@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="ruby2.7" section="ruby">
+<package name="ruby3.3" section="ruby">
     <description>
         <summary>Interpreter of object-oriented scripting language Ruby</summary>
         <p>
@@ -9,35 +9,34 @@
         straight-forward, and extensible.
         </p>
         <p>
-        In the name of this package, `2.7' indicates the Ruby library compatibility
-        version. This package currently provides the `2.7.x' branch of Ruby.
+        In the name of this package, `3.3' indicates the Ruby library compatibility
+        version. This package currently provides the `3.3.x' branch of Ruby.
         </p>
     </description>
 
     <provides>
-        <package name="ruby2"/>
         <package name="ruby"/>
     </provides>
 
     <contents>
         <file src="${prefix}/bin"/>
         <dir src="/var/lib/gems"/>
-        <dir src="/var/lib/gems/2.7.0"/>
+        <dir src="/var/lib/gems/3.3.0"/>
     </contents>
 
     <maintainer-scripts>
         <postinst><![CDATA[
 
 if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/irb" ]; then
-    ln -sf "irb2.7" "$AELTRA_INSTALL_PREFIX/bin/irb"
+    ln -sf "irb3.3" "$AELTRA_INSTALL_PREFIX/bin/irb"
 fi
 
 if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/ruby" ]; then
-    ln -sf "ruby2.7" "$AELTRA_INSTALL_PREFIX/bin/ruby"
+    ln -sf "ruby3.3" "$AELTRA_INSTALL_PREFIX/bin/ruby"
 fi
 
 if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/gem" ]; then
-    ln -sf "gem2.7" "$AELTRA_INSTALL_PREFIX/bin/gem"
+    ln -sf "gem3.3" "$AELTRA_INSTALL_PREFIX/bin/gem"
 fi
 
         ]]></postinst>

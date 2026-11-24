@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="ruby3.3" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Interpreter of object-oriented scripting language Ruby</summary>
+            <p>
+            Ruby is the interpreted scripting language for quick and easy
+            object-oriented programming. It has many features to process text
+            files and to do system management tasks (as in perl). It is simple,
+            straight-forward, and extensible.
+            </p>
+            <p>
+            In the name of this package, `3.3' indicates the Ruby library compatibility
+            version. This package currently provides the `3.3.x' branch of Ruby.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="ruby3.3-3.3.8.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/r/ruby3.3/ruby3.3_3.3.8.orig.tar.xz"
+                sha256sum="e2e1233ad275b7623a05edf23a01192626d1da454bdfe353a28a87acd8ef015c"/>
+            <file src="debian-patches-2.2.tar.gz" subdir="patches"
+                sha256sum="308c44972ce45af5a90ff95f7a9cdc20cf54f57ca4ab6a159a67b8a8a80d0526"/>
+            <file src="alpine-patches-fa3280dc.tar.gz" subdir="patches"
+                sha256sum="63b6a9037bb1f7fa9c700c1439db3a9b9a66582fe82b7941a90485faf682ab8a"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="483e72bfb520750d446be0f9fad38517dbb5b876f02d1e5ef04c27b159f0c93c"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <!-- Debian -->
+                <file src="patches/0001-rdoc-build-reproducible-documentation.patch"/>
+                <file src="patches/0002-lib-mkmf.rb-sort-list-of-object-files-in-generated-M.patch"/>
+                <file src="patches/0003-Mark-Gemspec-reproducible-change-fixing-784225-too.patch"/>
+                <file src="patches/0004-Disable-tests-failing-on-Ubuntu-builders.patch"/>
+                <file src="patches/0005-Make-gemspecs-reproducible.patch"/>
+                <file src="patches/0006-Fix-FTBS-on-hurd.patch"/>
+                <file src="patches/0007-Port-to-kfreebsd-amd64.patch"/>
+                <file src="patches/0009-Fix-FTBFS-on-x32-misdetected-as-i386-or-amd64.patch"/>
+                <file src="patches/0011-don-t-try-to-download-stuff-in-configure.patch"/>
+                <file src="patches/ruby_default_arch.m4-don-t-require-arhitectures-to-be-kno.patch"/>
+                <file src="patches/Do-not-pass-m32-to-arm-32-bits.patch"/>
+                <file src="patches/Fix-require-calls-falling-in-autopkgtest.patch"/>
+                <file src="patches/Deduplicate-results-from-getaddrinfo.patch"/>
+                <file src="patches/test-test_bundled_ca-Skip-test-because-it-requires-i.patch"/>
+                <file src="patches/Fix-test-dlopen-for-.so-filename-with-more-than-one-digit.patch"/>
+                <file src="patches/CVE-2025-27221_1.patch"/>
+                <file src="patches/CVE-2025-27221_2.patch"/>
+                <file src="patches/skip-test_ractor-arm64.patch"/>
+                <!-- Alpine: the stack of the main thread -->
+                <file src="patches/fix-get_main_stack.patch" if="musl"/>
+                <!-- Ours -->
+                <file src="patches/libpath-env-always-empty.diff"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="autoconf"/>
+            <package name="autotools-dev" tools-prefix=""/>
+            <package name="bison"/>
+            <package name="file"/>
+            <package name="libcrypt-dev" if="glibc"/>
+            <package name="libffi-dev"/>
+            <package name="libgdbm-compat-dev"/>
+            <package name="libgdbm-dev"/>
+            <package name="libgmp-dev"/>
+            <package name="libncurses-dev"/>
+            <package name="libssl-dev"/>
+            <package name="libucontext-dev" if="musl"/>
+            <package name="libyaml-dev"/>
+            <package name="pkg-config"/>
+            <package name="ruby3.3" if="target-build"/>
+            <package name="tzdata"/>
+            <package name="zlib1g-dev"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="ruby3.3.xml"/>
+    <xi:include href="libruby3.3.xml"/>
+    <xi:include href="ruby3.3-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
