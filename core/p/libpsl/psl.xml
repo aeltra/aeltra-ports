@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="psl" section="net">
+    <description>
+        <summary>Explore the Public Suffix List</summary>
+        <p>
+        Libpsl allows checking domains against the Public Suffix List.
+        It can be used to avoid privacy-leaking 'super-cookies',
+        'super domain' certificates, for domain highlighting purposes
+        sorting domain lists by site and more.
+        </p>
+        <p>
+        Please see https://publicsuffix.org for more detailed information.
+        </p>
+        <p>
+        This package contains a commandline tool to explore the Public Suffix
+        List.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/psl"/>
+    </contents>
+</package>

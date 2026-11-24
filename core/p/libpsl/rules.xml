@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+    <prepare>
+    <![CDATA[
+
+# The options of Debian's rules, without the documentation and the tests.
+cd "$AELTRA_BUILD_DIR"
+CC="${AELTRA_HOST_TYPE}-gcc" PKG_CONFIG="${AELTRA_HOST_TYPE}-pkg-config" \
+meson setup \
+    --prefix="$AELTRA_INSTALL_PREFIX" \
+    --libdir="$AELTRA_INSTALL_PREFIX/lib" \
+    --buildtype=plain \
+    -Dbuiltin=true \
+    -Ddocs=false \
+    -Dpsl_distfile="$AELTRA_INSTALL_PREFIX/share/publicsuffix/public_suffix_list.dafsa" \
+    -Dpsl_file="$AELTRA_INSTALL_PREFIX/share/publicsuffix/public_suffix_list.dat" \
+    -Druntime=libidn2 \
+    -Dtests=false \
+    . "$AELTRA_SOURCE_DIR"
+
+    ]]>
+    </prepare>
+
+    <build>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+ninja -j"$AELTRA_PARALLEL_JOBS"
+
+    ]]>
+    </build>
+
+    <install>
+    <![CDATA[
+
+cd "$AELTRA_BUILD_DIR"
+DESTDIR="$AELTRA_INSTALL_DIR" meson install --no-rebuild
+
+    ]]>
+    </install>
+</rules>

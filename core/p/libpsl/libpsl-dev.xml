@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libpsl-dev" section="libdevel">
+    <description>
+        <summary>Library for Public Suffix List (development headers)</summary>
+        <p>
+        Libpsl allows checking domains against the Public Suffix List.
+        It can be used to avoid privacy-leaking 'super-cookies',
+        'super domain' certificates, for domain highlighting purposes
+        sorting domain lists by site and more.
+        </p>
+        <p>
+        Please see https://publicsuffix.org for more detailed information.
+        </p>
+        <p>
+        This package contains development header files and documentation for
+        developers.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libpsl5" version="=="/>
+        <package name="libidn2-dev"/>
+        <package name="libunistring-dev"/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include"/>
+        <file src="${prefix}/lib/libpsl.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
+    </contents>
+</package>

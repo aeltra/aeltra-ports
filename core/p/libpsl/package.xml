@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="libpsl" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Library for Public Suffix List (development headers)</summary>
+            <p>
+            Libpsl allows checking domains against the Public Suffix List.
+            It can be used to avoid privacy-leaking 'super-cookies',
+            'super domain' certificates, for domain highlighting purposes
+            sorting domain lists by site and more.
+            </p>
+            <p>
+            Please see https://publicsuffix.org for more detailed information.
+            </p>
+            <p>
+            This package contains development header files and documentation for
+            developers.
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="libpsl-0.23.3.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libp/libpsl/libpsl_0.23.3.orig.tar.xz"
+                sha256sum="935ec0ddc484406d2eac3c6dd78a8768d9a0c4942606cdb9a169216a255febf2"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="abb28bb8a1cac49d36d5d640154c3e956d9a78c081dd135df8db2946b60a60e6"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/0001-remove-git-submodules.patch"/>
+                <file src="patches/0002-make-psl-make-dafsa-py3-based.patch"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="libidn2-dev"/>
+            <package name="libunistring-dev"/>
+            <package name="meson"/>
+            <package name="ninja-build"/>
+            <package name="pkg-config"/>
+            <package name="publicsuffix"/>
+            <package name="python3"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="libpsl5.xml"/>
+    <xi:include href="libpsl-dev.xml"/>
+    <xi:include href="psl.xml"/>
+    <xi:include href="psl-make-dafsa.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>
