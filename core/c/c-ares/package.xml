@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
+    <source name="c-ares" repo="core" architecture-independent="false" if="tools-build or target-build">
+        <description>
+            <summary>Asynchronous name resolver - development files</summary>
+            <p>
+            c-ares is a C library that performs DNS requests and name resolution
+            asynchronously.
+            </p>
+            <p>
+            It is a fork of the library named "ares", with additional features:
+            * IPv6 support;
+            * extended cross-platform portability;
+            * 64-bit clean sources.
+            </p>
+            <p>
+            This package contains development files (headers and static libraries).
+            </p>
+        </description>
+
+        <xi:include href="copyright.xml"/>
+
+        <sources>
+            <file src="c-ares-1.34.9.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/c/c-ares/c-ares_1.34.9.orig.tar.gz"
+                sha256sum="9364b70a12eb59a06830fb488d9357f90100dff0d98b23ea3593a183d43e6f2f"/>
+            <file src="debian-patches-1.tar.gz" subdir="patches"
+                sha256sum="cbcdd69c170217e1047ee8caaf66c849d5b129f8983fb8a582dca4b414824226"/>
+        </sources>
+
+        <patches>
+            <patchset subdir="sources">
+                <file src="patches/use-debian-googletest.diff"/>
+                <file src="patches/remove-shields-from-markdown.diff"/>
+            </patchset>
+        </patches>
+
+        <requires>
+            <package name="cmake"/>
+            <package name="ninja-build"/>
+        </requires>
+
+        <xi:include href="rules.xml"/>
+    </source>
+
+    <xi:include href="libcares2.xml"/>
+    <xi:include href="libc-ares-dev.xml"/>
+
+    <xi:include href="changelog.xml"/>
+</control>

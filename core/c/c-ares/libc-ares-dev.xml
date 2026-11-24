@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libc-ares-dev" section="libdevel">
+    <description>
+        <summary>Asynchronous name resolver - development files</summary>
+        <p>
+        c-ares is a C library that performs DNS requests and name resolution
+        asynchronously.
+        </p>
+        <p>
+        It is a fork of the library named "ares", with additional features:
+        * IPv6 support;
+        * extended cross-platform portability;
+        * 64-bit clean sources.
+        </p>
+        <p>
+        This package contains development files (headers and static libraries).
+        </p>
+    </description>
+
+    <requires>
+        <package name="libcares2" version="=="/>
+    </requires>
+
+    <contents>
+        <file src="${prefix}/include"/>
+        <file src="${prefix}/lib/libcares*.a"/>
+        <file src="${prefix}/lib/libcares.so"/>
+        <file src="${prefix}/lib/cmake"/>
+        <file src="${prefix}/lib/pkgconfig"/>
+    </contents>
+</package>

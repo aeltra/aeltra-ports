@@ -1,0 +1,891 @@
+<copyright>
+    <files license="Expat">
+        <file src="*"/>
+        <copyright-notice><![CDATA[
+2023, 2024, The c-ares project and its contributors.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="CMakeLists.txt"/>
+        <file src="Makefile.Watcom"/>
+        <file src="Makefile.m32"/>
+        <file src="buildconf"/>
+        <file src="buildconf.bat"/>
+        <file src="c-ares-config.cmake.in"/>
+        <file src="configure.ac"/>
+        <file src="libcares.pc.cmake"/>
+        <file src="libcares.pc.in"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="Makefile.am"/>
+        <copyright-notice><![CDATA[
+2004-2010, Daniel Stenberg
+1998, the Massachusetts Institute of Technology.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="Makefile.dj"/>
+        <copyright-notice><![CDATA[
+Gisle Vanem <gvanem@yahoo.no>
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="Makefile.msvc"/>
+        <copyright-notice><![CDATA[
+1998, 2004-2013, 2016, Daniel Stenberg
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="Makefile.netware"/>
+        <copyright-notice><![CDATA[
+Guenter Knauf
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="aclocal.m4"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="cmake/*"/>
+        <copyright-notice><![CDATA[
+Monetra Technologies LLC
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+ with Autoconf-data exception">
+        <file src="config/*"/>
+        <copyright-notice><![CDATA[
+1996-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+ with Autoconf-data exception">
+        <file src="config/config.guess"/>
+        <file src="config/config.sub"/>
+        <copyright-notice><![CDATA[
+1992-2022, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="X11">
+        <file src="config/install-sh"/>
+        <copyright-notice><![CDATA[
+1994, X Consortium
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+ with Libtool exception">
+        <file src="config/ltmain.sh"/>
+        <copyright-notice><![CDATA[
+1996-2019, 2021, 2022, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFUL">
+        <file src="configure"/>
+        <copyright-notice><![CDATA[
+1992-1996, 1998-2017, 2020, 2021, Free Software Foundation
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/CMakeLists.txt"/>
+        <file src="docs/Makefile.am"/>
+        <file src="docs/Makefile.inc"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/adig.1"/>
+        <file src="docs/ahost.1"/>
+        <file src="docs/ares_free_data.3"/>
+        <file src="docs/ares_get_servers.3"/>
+        <file src="docs/ares_init_options.3"/>
+        <file src="docs/ares_library_cleanup.3"/>
+        <file src="docs/ares_library_init.3"/>
+        <copyright-notice><![CDATA[
+2004-2010, Daniel Stenberg
+1998, the Massachusetts Institute of Technology.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_cancel.3"/>
+        <file src="docs/ares_create_query.3"/>
+        <file src="docs/ares_destroy.3"/>
+        <file src="docs/ares_destroy_options.3"/>
+        <file src="docs/ares_expand_name.3"/>
+        <file src="docs/ares_expand_string.3"/>
+        <file src="docs/ares_fds.3"/>
+        <file src="docs/ares_free_hostent.3"/>
+        <file src="docs/ares_free_string.3"/>
+        <file src="docs/ares_freeaddrinfo.3"/>
+        <file src="docs/ares_getaddrinfo.3"/>
+        <file src="docs/ares_gethostbyaddr.3"/>
+        <file src="docs/ares_gethostbyname.3"/>
+        <file src="docs/ares_gethostbyname_file.3"/>
+        <file src="docs/ares_mkquery.3"/>
+        <file src="docs/ares_parse_a_reply.3"/>
+        <file src="docs/ares_parse_mx_reply.3"/>
+        <file src="docs/ares_parse_naptr_reply.3"/>
+        <file src="docs/ares_parse_ns_reply.3"/>
+        <file src="docs/ares_parse_ptr_reply.3"/>
+        <file src="docs/ares_parse_soa_reply.3"/>
+        <file src="docs/ares_parse_srv_reply.3"/>
+        <file src="docs/ares_parse_txt_reply.3"/>
+        <file src="docs/ares_parse_uri_reply.3"/>
+        <file src="docs/ares_process.3"/>
+        <file src="docs/ares_query.3"/>
+        <file src="docs/ares_save_options.3"/>
+        <file src="docs/ares_search.3"/>
+        <file src="docs/ares_send.3"/>
+        <file src="docs/ares_strerror.3"/>
+        <file src="docs/ares_timeout.3"/>
+        <copyright-notice><![CDATA[
+1998, 2000, the Massachusetts Institute of Technology.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_dns_class_fromstr.3"/>
+        <file src="docs/ares_dns_class_tostr.3"/>
+        <file src="docs/ares_dns_datatype_t.3"/>
+        <file src="docs/ares_dns_opcode_tostr.3"/>
+        <file src="docs/ares_dns_opt_datatype_t.3"/>
+        <file src="docs/ares_dns_opt_get_datatype.3"/>
+        <file src="docs/ares_dns_opt_get_name.3"/>
+        <file src="docs/ares_dns_rcode_tostr.3"/>
+        <file src="docs/ares_dns_rec_type_fromstr.3"/>
+        <file src="docs/ares_dns_rec_type_tostr.3"/>
+        <file src="docs/ares_dns_rr_key_datatype.3"/>
+        <file src="docs/ares_dns_rr_key_to_rec_type.3"/>
+        <file src="docs/ares_dns_rr_key_tostr.3"/>
+        <file src="docs/ares_dns_section_tostr.3"/>
+        <file src="docs/ares_dup.3"/>
+        <file src="docs/ares_get_servers_csv.3"/>
+        <file src="docs/ares_get_servers_ports.3"/>
+        <file src="docs/ares_getsock.3"/>
+        <file src="docs/ares_inet_ntop.3"/>
+        <file src="docs/ares_inet_pton.3"/>
+        <file src="docs/ares_library_initialized.3"/>
+        <file src="docs/ares_opt_param_t.3"/>
+        <file src="docs/ares_set_servers_ports.3"/>
+        <file src="docs/ares_set_servers_ports_csv.3"/>
+        <file src="docs/ares_set_socket_callback.3"/>
+        <file src="docs/ares_set_socket_configure_callback.3"/>
+        <file src="docs/ares_set_socket_functions.3"/>
+        <file src="docs/ares_set_sortlist.3"/>
+        <file src="docs/ares_svcb_param_t.3"/>
+        <file src="docs/ares_version.3"/>
+        <copyright-notice><![CDATA[
+1998, 2004-2013, 2016, Daniel Stenberg
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_getnameinfo.3"/>
+        <file src="docs/ares_parse_aaaa_reply.3"/>
+        <copyright-notice><![CDATA[
+2005, Dominick Meglio.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_library_init_android.3"/>
+        <copyright-notice><![CDATA[
+2017, 2018, John Schember
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_parse_caa_reply.3"/>
+        <copyright-notice><![CDATA[
+2020, Danny Sonnenschein <my.card.god@web.de>
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_queue.3"/>
+        <file src="docs/ares_reinit.3"/>
+        <file src="docs/ares_set_pending_write_cb.3"/>
+        <file src="docs/ares_set_server_state_callback.3"/>
+        <file src="docs/ares_threadsafety.3"/>
+        <copyright-notice><![CDATA[
+2023, 2024, the c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="docs/ares_set_local_dev.3"/>
+        <file src="docs/ares_set_local_ip4.3"/>
+        <file src="docs/ares_set_local_ip6.3"/>
+        <file src="docs/ares_set_servers.3"/>
+        <file src="docs/ares_set_servers_csv.3"/>
+        <copyright-notice><![CDATA[
+2010, Ben Greear <greearb@candelatech.com>
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="include/*"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="include/Makefile.am"/>
+        <file src="include/ares_build.h"/>
+        <file src="include/ares_version.h"/>
+        <copyright-notice><![CDATA[
+1998, 2004-2013, 2016, Daniel Stenberg
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="include/Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="include/ares.h"/>
+        <file src="include/ares_nameser.h"/>
+        <copyright-notice><![CDATA[
+2004, 2007, 2008, 2010, Daniel Stenberg
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="include/ares_dns.h"/>
+        <copyright-notice><![CDATA[
+The c-ares project and its contributors
+1998, 2000, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="include/ares_dns_record.h"/>
+        <copyright-notice><![CDATA[
+2023, 2024, Brad House
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/*"/>
+        <copyright-notice><![CDATA[
+2011, Maarten Bosmans <mkbosmans@gmail.com>
+2008, Guido U. Draheim <guidod@gmx.de>
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="m4/ares_check_user_namespace.m4"/>
+        <file src="m4/ares_check_uts_namespace.m4"/>
+        <copyright-notice><![CDATA[
+The c-ares team
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/ax_ac_append_to_file.m4"/>
+        <file src="m4/ax_ac_print_to_file.m4"/>
+        <copyright-notice><![CDATA[
+2009, Allan Caffee <allan.caffee@gmail.com>
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/ax_add_am_macro_static.m4"/>
+        <file src="m4/ax_am_macros_static.m4"/>
+        <copyright-notice><![CDATA[
+2009, Tom Howard <tomhoward@users.sf.net>
+2009, Allan Caffee <allan.caffee@gmail.com>
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/ax_check_gnu_make.m4"/>
+        <copyright-notice><![CDATA[
+2015, Enrico M. Crisostomo <enrico.m.crisostomo@gmail.com>
+2008, John Darrington <j.darrington@elvis.murdoch.edu.au>
+        ]]></copyright-notice>
+    </files>
+    <files license="LGPL-2.1+">
+        <file src="m4/ax_code_coverage.m4"/>
+        <copyright-notice><![CDATA[
+2015, 2018, Bastien ROUCARIES
+2012, Xan Lopez
+2012, Paolo Borelli
+2012, Dan Winship
+2012, Christian Persch
+2012, 2016, Philip Withnall
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+ with Autoconf-2.0~Archive exception">
+        <file src="m4/ax_compiler_vendor.m4"/>
+        <copyright-notice><![CDATA[
+2018, 2019, John Zaitseff <J.Zaitseff@zap.org.au>
+2008, Steven G. Johnson <stevenj@alum.mit.edu>
+2008, Matteo Frigo
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/ax_cxx_compile_stdcxx.m4"/>
+        <copyright-notice><![CDATA[
+2021, 2024, Jörn Heusipp <osmanx@problemloesungsmaschine.de>
+2020, Jason Merrill <jason@redhat.com>
+2019, Enji Cooper <yaneurabeya@gmail.com>
+2016, 2018, Krzesimir Nowak <qdlacz@gmail.com>
+2015, Paul Norman <penorman@mac.com>
+2015, Moritz Klammler <moritz@klammler.eu>
+2015, 2022-2024, Olly Betts
+2014, 2015, Google Inc.; contributedAlexey Sokolov <sokolov@google.com>
+2013, Roy Stogner <roystgnr@ices.utexas.edu>
+2012, Zack Weinberg <zackw@panix.com>
+2008, Benjamin Kosnik <bkoz@redhat.com>
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/ax_file_escapes.m4"/>
+        <copyright-notice><![CDATA[
+2008, Tom Howard <tomhoward@users.sf.net>
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-3+ with Autoconf-2.0~Archive exception">
+        <file src="m4/ax_pthread.m4"/>
+        <copyright-notice><![CDATA[
+2019, Marc Stevens <marc.stevens@cwi.nl>
+2011, Daniel Richard G. <skunk@iSKUNK.ORG>
+2008, Steven G. Johnson <stevenj@alum.mit.edu>
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFAP">
+        <file src="m4/ax_require_defined.m4"/>
+        <copyright-notice><![CDATA[
+2014, Mike Frysinger <vapier@gentoo.org>
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="m4/libtool.m4"/>
+        <file src="m4/ltsugar.m4"/>
+        <copyright-notice><![CDATA[
+1996-2001, 2003-2019, 2021, 2022, Free Software
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="m4/ltoptions.m4"/>
+        <file src="m4/lt~obsolete.m4"/>
+        <copyright-notice><![CDATA[
+2004, 2005, 2007-2009, 2011-2019, 2021, 2022, Free
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="m4/ltversion.m4"/>
+        <copyright-notice><![CDATA[
+2004, 2011-2019, 2021, 2022, Free Software Foundation
+        ]]></copyright-notice>
+    </files>
+    <files license="GPL-2+ with Autoconf-data exception">
+        <file src="m4/pkg.m4"/>
+        <copyright-notice><![CDATA[
+2012-2015, Dan Nicholson <dbn.lists@gmail.com>
+2004, Scott James Remnant <scott@netsplit.com>.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/*"/>
+        <copyright-notice><![CDATA[
+2023, 2024, Brad House
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/CMakeLists.txt"/>
+        <file src="src/Makefile.am"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="src/Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/CMakeLists.txt"/>
+        <file src="src/lib/Makefile.am"/>
+        <file src="src/lib/Makefile.inc"/>
+        <file src="src/lib/ares_config.h.cmake"/>
+        <file src="src/lib/ares_sysconfig_mac.c"/>
+        <file src="src/lib/config-dos.h"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_addrinfo2hostent.c"/>
+        <copyright-notice><![CDATA[
+2021, Brad House
+2019, Andrew Selivanov
+2005, Dominick Meglio
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_addrinfo_localhost.c"/>
+        <file src="src/lib/ares_destroy.c"/>
+        <file src="src/lib/ares_init.c"/>
+        <file src="src/lib/ares_library_init.c"/>
+        <file src="src/lib/ares_options.c"/>
+        <file src="src/lib/ares_private.h"/>
+        <file src="src/lib/ares_process.c"/>
+        <file src="src/lib/ares_sysconfig.c"/>
+        <file src="src/lib/ares_sysconfig_files.c"/>
+        <file src="src/lib/ares_sysconfig_win.c"/>
+        <file src="src/lib/windows_port.c"/>
+        <copyright-notice><![CDATA[
+2004, 2007, 2008, 2010, Daniel Stenberg
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_android.c"/>
+        <file src="src/lib/ares_android.h"/>
+        <copyright-notice><![CDATA[
+2017, 2018, John Schember
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_cancel.c"/>
+        <file src="src/lib/ares_data.c"/>
+        <file src="src/lib/ares_data.h"/>
+        <file src="src/lib/ares_inet_net_pton.h"/>
+        <file src="src/lib/ares_setup.h"/>
+        <file src="src/lib/cares.rc"/>
+        <file src="src/lib/config-win32.h"/>
+        <copyright-notice><![CDATA[
+1998, 2004-2013, 2016, Daniel Stenberg
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_close_sockets.c"/>
+        <file src="src/lib/ares_conn.c"/>
+        <file src="src/lib/ares_free_hostent.c"/>
+        <file src="src/lib/ares_free_string.c"/>
+        <file src="src/lib/ares_getenv.c"/>
+        <file src="src/lib/ares_getenv.h"/>
+        <file src="src/lib/ares_gethostbyaddr.c"/>
+        <file src="src/lib/ares_gethostbyname.c"/>
+        <file src="src/lib/ares_query.c"/>
+        <file src="src/lib/ares_search.c"/>
+        <file src="src/lib/ares_send.c"/>
+        <file src="src/lib/ares_socket.c"/>
+        <file src="src/lib/ares_strerror.c"/>
+        <file src="src/lib/ares_timeout.c"/>
+        <file src="src/lib/ares_version.c"/>
+        <copyright-notice><![CDATA[
+The c-ares project and its contributors
+1998, 2000, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_freeaddrinfo.c"/>
+        <copyright-notice><![CDATA[
+2019, Andrew Selivanov
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_getaddrinfo.c"/>
+        <copyright-notice><![CDATA[
+2019, Andrew Selivanov
+2017, Christian Ammer
+1998, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_getnameinfo.c"/>
+        <file src="src/lib/ares_ipv6.h"/>
+        <copyright-notice><![CDATA[
+2005, 2013, Dominick Meglio
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_parse_into_addrinfo.c"/>
+        <copyright-notice><![CDATA[
+2023, Brad House
+2019, Andrew Selivanov
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="src/lib/ares_sortaddrinfo.c"/>
+        <copyright-notice><![CDATA[
+2019, Andrew Selivanov
+2018, The Android Open Source Project
+1995-1997, and 1998, WIDE Project.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/ares_update_servers.c"/>
+        <copyright-notice><![CDATA[
+2023, Brad House
+2008, Daniel Stenberg
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/include/ares_mem.h"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/include/ares_str.h"/>
+        <copyright-notice><![CDATA[
+The c-ares project and its contributors
+1998, 2000, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat or ISC">
+        <file src="src/lib/inet_net_pton.c"/>
+        <copyright-notice><![CDATA[
+2012, Gilles Chehade <gilles@openbsd.org>
+1996, 1999, Internet Software Consortium.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat or ISC">
+        <file src="src/lib/inet_ntop.c"/>
+        <copyright-notice><![CDATA[
+2004, Internet Systems Consortium, Inc. ("ISC")
+1996-1999, Internet Software Consortium.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/legacy/ares_expand_name.c"/>
+        <file src="src/lib/legacy/ares_expand_string.c"/>
+        <file src="src/lib/legacy/ares_fds.c"/>
+        <copyright-notice><![CDATA[
+The c-ares project and its contributors
+1998, 2000, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/legacy/ares_getsock.c"/>
+        <copyright-notice><![CDATA[
+1998, 2004-2013, 2016, Daniel Stenberg
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/legacy/ares_parse_a_reply.c"/>
+        <copyright-notice><![CDATA[
+2019, Andrew Selivanov
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/legacy/ares_parse_aaaa_reply.c"/>
+        <copyright-notice><![CDATA[
+2019, Andrew Selivanov
+2005, Dominick Meglio
+1998, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/str/*"/>
+        <copyright-notice><![CDATA[
+2017, 2018, John Schember
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/str/ares_buf.c"/>
+        <copyright-notice><![CDATA[
+2023, 2024, Brad House
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/str/ares_str.c"/>
+        <copyright-notice><![CDATA[
+The c-ares project and its contributors
+1998, 2000, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="APSL-2.0">
+        <file src="src/lib/thirdparty/*"/>
+        <copyright-notice><![CDATA[
+2004-2006, 2008, 2009, 2011, Apple Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/util/ares_timeval.c"/>
+        <copyright-notice><![CDATA[
+1998, 2004-2013, 2016, Daniel Stenberg
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/lib/util/ares_uri.c"/>
+        <copyright-notice><![CDATA[
+2024, Brad house
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/tools/*"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="src/tools/Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="src/tools/adig.c"/>
+        <file src="src/tools/ahost.c"/>
+        <copyright-notice><![CDATA[
+The c-ares project and its contributors
+1998, 2000, 2011, 2013, Massachusetts Institute of Technology
+        ]]></copyright-notice>
+    </files>
+    <files license="BSD-3-clause">
+        <file src="src/tools/ares_getopt.c"/>
+        <file src="src/tools/ares_getopt.h"/>
+        <copyright-notice><![CDATA[
+1987-2001, The Regents of the University of California.
+        ]]></copyright-notice>
+    </files>
+    <files license="Expat">
+        <file src="test/*"/>
+        <copyright-notice><![CDATA[
+2024, The c-ares project and its contributors
+        ]]></copyright-notice>
+    </files>
+    <files license="FSFULLR">
+        <file src="test/Makefile.in"/>
+        <copyright-notice><![CDATA[
+1994-2021, Free Software Foundation, Inc.
+        ]]></copyright-notice>
+    </files>
+    <license handle="APSL-2.0"><![CDATA[
+This file contains Original Code and/or Modifications of Original Code
+as defined in and that are subject to the Apple Public Source License
+Version 2.0 (the 'License'). You may not use this file except in
+compliance with the License. Please obtain a copy of the License at
+http://www.opensource.apple.com/apsl/ and read it before using this
+file.
+
+The Original Code and all software distributed under the License are
+distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
+EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
+INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
+Please see the License for the specific language governing rights and
+limitations under the License.
+    ]]></license>
+    <license handle="BSD-3-clause"><![CDATA[
+The BSD License
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution. 
+
+  * Neither the name of the copyright holder nor the names of its
+    contributors may be used to endorse or promote products derived from
+    this software without specific prior written permission. 
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    ]]></license>
+    <license handle="Expat"><![CDATA[
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (including the next
+paragraph) shall be included in all copies or substantial portions of the
+Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+    ]]></license>
+    <license handle="FSFAP"><![CDATA[
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice
+and this notice are preserved. This file is offered as-is, without any
+warranty.
+    ]]></license>
+    <license handle="FSFUL"><![CDATA[
+This configure script is free software; the Free Software Foundation
+gives unlimited permission to copy, distribute and modify it.
+    ]]></license>
+    <license handle="FSFULLR"><![CDATA[
+This file is free software; the Free Software Foundation gives unlimited
+permission to copy and/or distribute it, with or without modifications,
+as long as this notice is preserved.
+    ]]></license>
+    <license handle="GPL-2+ with Autoconf-data exception"><![CDATA[
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+As a special exception to the GNU General Public License, if you
+distribute this file as part of a program that contains a
+configuration script generated by Autoconf, you may include it under
+the same distribution terms that you use for the rest of that
+program.
+    ]]></license>
+    <license handle="GPL-2+ with Libtool exception"><![CDATA[
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+GNU Libtool is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+As a special exception to the GNU General Public License,
+if you distribute this file as part of a program or library that
+is built using GNU Libtool, you may include this file under the
+same distribution terms that you use for the rest of that program.
+
+GNU Libtool is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    ]]></license>
+    <license handle="GPL-3+ with Autoconf-2.0~Archive exception"><![CDATA[
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program. If not, see <http://www.gnu.org/licenses/>.
+
+As a special exception, the respective Autoconf Macro's copyright owner
+gives unlimited permission to copy, distribute and modify the configure
+scripts that are the output of Autoconf when processing the Macro. You
+need not follow the terms of the GNU General Public License when using
+or distributing such scripts, even though portions of the text of the
+Macro appear in them. The GNU General Public License (GPL) does govern
+all other use of the material that constitutes the Autoconf Macro.
+
+This special exception to the GPL applies to versions of the Autoconf
+Macro released by the Autoconf Archive. When you make and distribute a
+modified version of the Autoconf Macro, you may extend this special
+exception to the GPL to apply to your modified version as well.
+    ]]></license>
+    <license handle="GPL-3+ with Autoconf-data exception"><![CDATA[
+This file is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+As a special exception to the GNU General Public License, if you
+distribute this file as part of a program that contains a
+configuration script generated by Autoconf, you may include it under
+the same distribution terms that you use for the rest of that
+program.  This Exception is an additional permission under section 7
+of the GNU General Public License, version 3 ("GPLv3").
+    ]]></license>
+    <license handle="ISC"><![CDATA[
+The ISC License
+
+Copyright (c) 2024 by the copyright holder
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+    ]]></license>
+    <license handle="LGPL-2.1+"><![CDATA[
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; version 2.1 of the License, or (at
+your option) any later version.
+On Debian systems, the complete text of version 2.1 of the GNU Lesser
+General Public License can be found in '/usr/share/common-licenses/LGPL-2.1'.
+    ]]></license>
+    <license handle="X11"><![CDATA[
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNEC-
+TION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of the X Consortium shall not
+be used in advertising or otherwise to promote the sale, use or other deal-
+ings in this Software without prior written authorization from the X Consor-
+tium.
+    ]]></license>
+</copyright>

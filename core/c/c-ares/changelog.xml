@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="1.34.9" revision="1aeltra1" upstream-version="1.34.9-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 15:14:08+03:00">
+        <changeset>
+            <li>New package, the version of Debian Forky, for curl</li>
+        </changeset>
+    </release>
+</changelog>
