@@ -23,6 +23,9 @@
                 sha256sum="fbd62a100ab7bb8746ba0661255c3c48185b1e9021507c624da01fbc696330ec"/>
             <file src="debian-patches-1.tar.gz" subdir="patches"
                 sha256sum="2b1b5f52c0b3a5eab39fc2b0ad26648a322ea8fbacbc3e44528bbaf3cdd50ffc"/>
+            <!-- Alpine's patch for utmps, see rules.xml. -->
+            <file src="alpine-patches-e7067b58.tar.gz" subdir="patches"
+                sha256sum="c7cbed4da8f6ab66a98089895ad98911720ad113da998e14a40139312b11f2d4"/>
             <!-- The PAM files of Debian's packaging and its profile for
                  pam-auth-update, unchanged. -->
             <file src="debian-files-1.tar.gz" subdir="extra"
@@ -41,6 +44,8 @@
                 <file src="patches/debian/login-turn-off-btmp-utmp-lastlog-writing.patch"/>
                 <file src="patches/debian/salsa-ci-skip-tests.patch"/>
                 <file src="patches/Stop-using-Linux-crypto-API-in-hardlink.patch"/>
+                <!-- Alpine -->
+                <file src="patches/utmps.patch" if="musl"/>
             </patchset>
         </patches>
 
@@ -61,6 +66,8 @@
             <package name="libsqlite3-dev"/>
             <package name="libtool"/>
             <package name="pkg-config"/>
+            <package name="skalibs-dev" if="musl"/>
+            <package name="utmps-dev" if="musl"/>
             <package name="zlib1g-dev"/>
         </requires>
 
@@ -68,15 +75,29 @@
     </source>
 
     <xi:include href="util-linux.xml"/>
-    <xi:include href="util-linux-extra.xml"/>
-    <xi:include href="bsdutils.xml"/>
-    <xi:include href="bsdextrautils.xml"/>
-    <xi:include href="eject.xml"/>
-    <xi:include href="fdisk.xml"/>
-    <xi:include href="login.xml"/>
+    <xi:include href="util-linux-misc.xml"/>
+    <xi:include href="util-linux-login.xml"/>
+    <xi:include href="agetty.xml"/>
+    <xi:include href="blkid.xml"/>
+    <xi:include href="cfdisk.xml"/>
+    <xi:include href="dmesg.xml"/>
+    <xi:include href="findmnt.xml"/>
+    <xi:include href="flock.xml"/>
+    <xi:include href="fstrim.xml"/>
+    <xi:include href="hexdump.xml"/>
+    <xi:include href="logger.xml"/>
+    <xi:include href="losetup.xml"/>
+    <xi:include href="lsblk.xml"/>
+    <xi:include href="lscpu.xml"/>
+    <xi:include href="mcookie.xml"/>
     <xi:include href="mount.xml"/>
-    <xi:include href="rfkill.xml"/>
-    <xi:include href="lastlog2.xml"/>
+    <xi:include href="partx.xml"/>
+    <xi:include href="runuser.xml"/>
+    <xi:include href="setarch.xml"/>
+    <xi:include href="setpriv.xml"/>
+    <xi:include href="sfdisk.xml"/>
+    <xi:include href="umount.xml"/>
+    <xi:include href="wipefs.xml"/>
     <xi:include href="liblastlog2-2.xml"/>
     <xi:include href="liblastlog2-dev.xml"/>
     <xi:include href="libpam-lastlog2.xml"/>

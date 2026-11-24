@@ -1,83 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package name="util-linux" section="utils">
     <description>
-        <summary>miscellaneous system utilities</summary>
+        <summary>Miscellaneous system utilities</summary>
         <p>
         This package contains a number of important utilities, most of which
         are oriented towards maintenance of your system. Some of the more
-        important utilities included in this package allow you to view kernel
-        messages, create new filesystems, view block device information,
-        interface with real time clock, etc.
+        important utilities included in this package allow you to partition
+        your hard disk, view kernel messages, and create new filesystems.
+        </p>
+        <p>
+        It has no files of its own: it requires util-linux-misc and the
+        packages with single programs. The login utils (util-linux-login)
+        are not among them.
         </p>
     </description>
 
     <requires>
-        <package name="libpam-modules"/>
-        <package name="libpam-runtime"/>
+        <package name="util-linux-misc" version="=="/>
+        <package name="agetty" version="=="/>
+        <package name="blkid" version="=="/>
+        <package name="cfdisk" version="=="/>
+        <package name="dmesg" version="=="/>
+        <package name="findmnt" version="=="/>
+        <package name="flock" version="=="/>
+        <package name="fstrim" version="=="/>
+        <package name="hexdump" version="=="/>
+        <package name="logger" version="=="/>
+        <package name="losetup" version="=="/>
+        <package name="lsblk" version="=="/>
+        <package name="lscpu" version="=="/>
+        <package name="mcookie" version="=="/>
+        <package name="mount" version="=="/>
+        <package name="partx" version="=="/>
+        <package name="runuser" version="=="/>
+        <package name="setarch" version="=="/>
+        <package name="setpriv" version="=="/>
+        <package name="sfdisk" version="=="/>
+        <package name="umount" version="=="/>
+        <package name="wipefs" version="=="/>
     </requires>
-
-    <contents>
-        <file src="/etc/pam.d/runuser"/>
-        <file src="/etc/pam.d/runuser-l"/>
-        <file src="/etc/pam.d/su"/>
-        <file src="/etc/pam.d/su-l"/>
-        <file src="${prefix}/bin/choom"/>
-        <file src="${prefix}/bin/chrt"/>
-        <file src="${prefix}/bin/dmesg"/>
-        <file src="${prefix}/bin/fallocate"/>
-        <file src="${prefix}/bin/findmnt"/>
-        <file src="${prefix}/bin/flock"/>
-        <file src="${prefix}/bin/getopt"/>
-        <file src="${prefix}/bin/hardlink"/>
-        <file src="${prefix}/bin/i386" if="x86_64"/>
-        <file src="${prefix}/bin/ionice"/>
-        <file src="${prefix}/bin/ipcmk"/>
-        <file src="${prefix}/bin/ipcrm"/>
-        <file src="${prefix}/bin/ipcs"/>
-        <file src="${prefix}/bin/linux32"/>
-        <file src="${prefix}/bin/linux64"/>
-        <file src="${prefix}/bin/logger"/>
-        <file src="${prefix}/bin/lsblk"/>
-        <file src="${prefix}/bin/lscpu"/>
-        <file src="${prefix}/bin/lsipc"/>
-        <file src="${prefix}/bin/lslocks"/>
-        <file src="${prefix}/bin/lsns"/>
-        <file src="${prefix}/bin/mcookie"/>
-        <file src="${prefix}/bin/more"/>
-        <file src="${prefix}/bin/mountpoint"/>
-        <file src="${prefix}/bin/namei"/>
-        <file src="${prefix}/bin/nsenter"/>
-        <file src="${prefix}/bin/partx"/>
-        <file src="${prefix}/bin/prlimit"/>
-        <file src="${prefix}/bin/s390" if="s390x"/>
-        <file src="${prefix}/bin/s390x" if="s390x"/>
-        <file src="${prefix}/bin/setarch"/>
-        <file src="${prefix}/bin/setpriv"/>
-        <file src="${prefix}/bin/setsid"/>
-        <file src="${prefix}/bin/setterm"/>
-        <file src="${prefix}/bin/su" mode="4755"/>
-        <file src="${prefix}/bin/taskset"/>
-        <file src="${prefix}/bin/uclampset"/>
-        <file src="${prefix}/bin/unshare"/>
-        <file src="${prefix}/bin/whereis"/>
-        <file src="${prefix}/bin/x86_64" if="x86_64"/>
-        <file src="${prefix}/sbin/agetty"/>
-        <file src="${prefix}/sbin/blkdiscard"/>
-        <file src="${prefix}/sbin/blkid"/>
-        <file src="${prefix}/sbin/blockdev"/>
-        <file src="${prefix}/sbin/findfs"/>
-        <file src="${prefix}/sbin/fsck"/>
-        <file src="${prefix}/sbin/fsfreeze"/>
-        <file src="${prefix}/sbin/fstrim"/>
-        <file src="${prefix}/sbin/getty"/>
-        <file src="${prefix}/sbin/mkfs"/>
-        <file src="${prefix}/sbin/mkswap"/>
-        <file src="${prefix}/sbin/readprofile"/>
-        <file src="${prefix}/sbin/rtcwake"/>
-        <file src="${prefix}/sbin/runuser"/>
-        <file src="${prefix}/sbin/sulogin"/>
-        <file src="${prefix}/sbin/swaplabel"/>
-        <file src="${prefix}/sbin/wipefs"/>
-        <file src="${prefix}/sbin/zramctl"/>
-    </contents>
 </package>

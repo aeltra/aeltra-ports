@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="util-linux-login" section="admin">
+    <description>
+        <summary>Login utils from util-linux</summary>
+        <p>
+        The programs of util-linux for logging in and changing the user or
+        group: lastlog2, login, lslogins, newgrp, nologin, su and sulogin,
+        with the PAM files of Debian for login and su.
+        </p>
+    </description>
+
+    <requires>
+        <package name="runuser" version="=="/>
+        <package name="libpam-modules"/>
+        <package name="libpam-runtime"/>
+    </requires>
+
+    <contents>
+        <file src="/etc/pam.d/login"/>
+        <file src="/etc/pam.d/remote"/>
+        <file src="/etc/pam.d/su"/>
+        <file src="/etc/pam.d/su-l"/>
+        <file src="${prefix}/bin/lastlog2"/>
+        <file src="${prefix}/bin/login"/>
+        <file src="${prefix}/bin/lslogins"/>
+        <file src="${prefix}/bin/newgrp" mode="4755"/>
+        <file src="${prefix}/sbin/nologin"/>
+        <file src="${prefix}/bin/su" mode="4755"/>
+        <file src="${prefix}/sbin/sulogin"/>
+    </contents>
+</package>

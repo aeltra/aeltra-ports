@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="mcookie" section="utils">
+    <description>
+        <summary>Generate random numbers for xauth from util-linux</summary>
+        <p>
+        This is one program of util-linux in a package of its own, as in
+        Alpine, so that it can be installed without the rest and takes the
+        place of the applet of busybox.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/mcookie"/>
+    </contents>
+</package>

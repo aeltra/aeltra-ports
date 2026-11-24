@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="util-linux-misc" section="utils">
+    <description>
+        <summary>Misc binaries for util-linux</summary>
+        <p>
+        The programs of util-linux that have no package of their own.
+        </p>
+    </description>
+
+    <contents>
+        <file src="${prefix}/bin/addpart"/>
+        <file src="${prefix}/bin/bits"/>
+        <file src="${prefix}/bin/blkzone"/>
+        <file src="${prefix}/bin/chcpu"/>
+        <file src="${prefix}/bin/chmem"/>
+        <file src="${prefix}/bin/choom"/>
+        <file src="${prefix}/bin/chrt"/>
+        <file src="${prefix}/bin/colcrt"/>
+        <file src="${prefix}/bin/colrm"/>
+        <file src="${prefix}/bin/column"/>
+        <file src="${prefix}/bin/copyfilerange"/>
+        <file src="${prefix}/bin/coresched"/>
+        <file src="${prefix}/bin/delpart"/>
+        <file src="${prefix}/bin/eject"/>
+        <file src="${prefix}/bin/enosys"/>
+        <file src="${prefix}/bin/exch"/>
+        <file src="${prefix}/bin/fadvise"/>
+        <file src="${prefix}/bin/fallocate"/>
+        <file src="${prefix}/bin/fincore"/>
+        <file src="${prefix}/bin/getino"/>
+        <file src="${prefix}/bin/getopt"/>
+        <file src="${prefix}/bin/hardlink"/>
+        <file src="${prefix}/bin/ionice"/>
+        <file src="${prefix}/bin/ipcmk"/>
+        <file src="${prefix}/bin/ipcrm"/>
+        <file src="${prefix}/bin/ipcs"/>
+        <file src="${prefix}/bin/irqtop"/>
+        <file src="${prefix}/bin/isosize"/>
+        <file src="${prefix}/bin/ldattach"/>
+        <file src="${prefix}/bin/look"/>
+        <file src="${prefix}/bin/lsclocks"/>
+        <file src="${prefix}/bin/lsfd"/>
+        <file src="${prefix}/bin/lsipc"/>
+        <file src="${prefix}/bin/lsirq"/>
+        <file src="${prefix}/bin/lslocks"/>
+        <file src="${prefix}/bin/lsmem"/>
+        <file src="${prefix}/bin/lsns"/>
+        <file src="${prefix}/bin/more"/>
+        <file src="${prefix}/bin/mountpoint"/>
+        <file src="${prefix}/bin/namei"/>
+        <file src="${prefix}/bin/nsenter"/>
+        <file src="${prefix}/bin/pipesz"/>
+        <file src="${prefix}/bin/prlimit"/>
+        <file src="${prefix}/bin/rename"/>
+        <file src="${prefix}/bin/renice"/>
+        <file src="${prefix}/bin/resizepart"/>
+        <file src="${prefix}/bin/rev"/>
+        <file src="${prefix}/bin/script"/>
+        <file src="${prefix}/bin/scriptlive"/>
+        <file src="${prefix}/bin/scriptreplay"/>
+        <file src="${prefix}/bin/setpgid"/>
+        <file src="${prefix}/bin/setsid"/>
+        <file src="${prefix}/bin/setterm"/>
+        <file src="${prefix}/bin/taskset"/>
+        <file src="${prefix}/bin/uclampset"/>
+        <file src="${prefix}/bin/ul"/>
+        <file src="${prefix}/bin/unshare"/>
+        <file src="${prefix}/bin/waitpid"/>
+        <file src="${prefix}/bin/wall"/>
+        <file src="${prefix}/bin/wdctl"/>
+        <file src="${prefix}/bin/whereis"/>
+        <file src="${prefix}/sbin/blkdiscard"/>
+        <file src="${prefix}/sbin/blkpr"/>
+        <file src="${prefix}/sbin/blockdev"/>
+        <file src="${prefix}/sbin/ctrlaltdel"/>
+        <file src="${prefix}/sbin/fdisk"/>
+        <file src="${prefix}/sbin/findfs"/>
+        <file src="${prefix}/sbin/fsck"/>
+        <file src="${prefix}/sbin/fsck.cramfs"/>
+        <file src="${prefix}/sbin/fsck.minix"/>
+        <file src="${prefix}/sbin/fsfreeze"/>
+        <file src="${prefix}/sbin/hwclock"/>
+        <file src="${prefix}/sbin/mkfs"/>
+        <file src="${prefix}/sbin/mkfs.bfs"/>
+        <file src="${prefix}/sbin/mkfs.cramfs"/>
+        <file src="${prefix}/sbin/mkfs.minix"/>
+        <file src="${prefix}/sbin/mkswap"/>
+        <file src="${prefix}/sbin/pivot_root"/>
+        <file src="${prefix}/sbin/readprofile"/>
+        <file src="${prefix}/sbin/rfkill"/>
+        <file src="${prefix}/sbin/rtcwake"/>
+        <file src="${prefix}/sbin/swaplabel"/>
+        <file src="${prefix}/sbin/swapoff"/>
+        <file src="${prefix}/sbin/swapon"/>
+        <file src="${prefix}/sbin/switch_root"/>
+        <file src="${prefix}/sbin/zramctl"/>
+    </contents>
+</package>

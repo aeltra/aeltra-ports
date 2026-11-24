@@ -7,12 +7,18 @@
             <li>New upstream version, the one of Debian Forky, with
             Debian's patches and the options of Debian's rules, without
             systemd, udev and cryptsetup</li>
-            <li>Packages as in Debian: util-linux, util-linux-extra,
-            bsdutils, bsdextrautils, eject, fdisk, login, rfkill,
-            lastlog2, liblastlog2-2, liblastlog2-dev and libpam-lastlog2
-            are new, with Debian's PAM files for login, su and runuser.
-            setpriv and findmnt are in util-linux</li>
-            <li>su, mount, umount and newgrp are setuid, as in Debian</li>
+            <li>The programs are packaged as in Alpine: util-linux
+            requires util-linux-misc and the packages with one program
+            each (agetty, blkid, cfdisk, dmesg, findmnt, flock, fstrim,
+            hexdump, logger, losetup, lsblk, lscpu, mcookie, mount,
+            partx, runuser, setarch, setpriv, sfdisk, umount, wipefs).
+            util-linux-login has login, su, newgrp and the like, with
+            Debian's PAM files. mount only has mount now</li>
+            <li>The libraries keep Debian's package names. New:
+            liblastlog2-2, liblastlog2-dev and libpam-lastlog2</li>
+            <li>su, mount, umount and newgrp are setuid</li>
+            <li>On musl the programs that deal with login records use
+            utmps, with Alpine's patch</li>
             <li>uuid-runtime has uuidparse and no systemd units</li>
         </changeset>
     </release>

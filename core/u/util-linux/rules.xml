@@ -7,6 +7,24 @@
 cd "$AELTRA_SOURCE_DIR"
 AM_OPTS=--copy LT_OPTS=--copy ./autogen.sh
 
+# As in Alpine: musl only has stubs for the functions of utmpx.h, the
+# programs that record or show who is logged in use utmps there (agetty,
+# wall, lslogins, su, runuser; login leaves it to PAM with Debian's
+# patches). The flags put utmpx.h of utmps in front of the one of the C
+# library. Alpine links the library statically, here the shared one is
+# used.
+if [ "$AELTRA_LIBC_NAME" = "musl" ]; then
+    UTMPS_CFLAGS="$("${AELTRA_HOST_TYPE}-pkg-config" --cflags libutmps)"
+    UTMPS_LIBS="$("${AELTRA_HOST_TYPE}-pkg-config" --libs libutmps)"
+
+    export CFLAGS="${CFLAGS:--g -O2} $UTMPS_CFLAGS"
+    export LDFLAGS="$LDFLAGS $UTMPS_LIBS"
+fi
+
+# With the prefix /usr configure puts programs into /bin and /sbin and
+# libraries into /lib unless it is told where they go. On Aeltra these are
+# links to the folders below /usr, and that is where packages install.
+#
 # The options of Debian's rules, with these differences: no systemd, no
 # udev and no cryptsetup, which are not there, and at the end the options
 # that Debian does not have (no NLS, no bash completion, and the makefile
@@ -14,6 +32,8 @@ AM_OPTS=--copy LT_OPTS=--copy ./autogen.sh
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
+    --bindir="$AELTRA_INSTALL_PREFIX/bin" \
+    --sbindir="$AELTRA_INSTALL_PREFIX/sbin" \
     --libdir="$AELTRA_INSTALL_PREFIX/lib" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
@@ -72,45 +92,28 @@ make -j"$AELTRA_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
-install -d -m 0755 $AELTRA_INSTALL_DIR/usr
-install -d -m 0755 $AELTRA_INSTALL_DIR/usr/bin
-install -d -m 0755 $AELTRA_INSTALL_DIR/usr/sbin
-install -d -m 0755 $AELTRA_INSTALL_DIR/usr/lib
-
-ln -sf usr/bin  "$AELTRA_INSTALL_DIR/bin"
-ln -sf usr/sbin "$AELTRA_INSTALL_DIR/sbin"
-
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
-rm -f "$AELTRA_INSTALL_DIR/bin"
-rm -f "$AELTRA_INSTALL_DIR/sbin"
-
-# What follows is what Debian's packaging does with the installed files
-# (rules, *.install, *.links, not-installed, debputy.manifest).
 cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
 
-# Not installed: libtool files, the static libraries other than libuuid
-# and libblkid, and three programs.
+# As in Debian: no libtool files, and no static libraries but libuuid and
+# libblkid.
 rm -f lib/*.la lib/security/*.la
 rm -f lib/libfdisk.a lib/liblastlog2.a lib/libmount.a lib/libsmartcols.a
-rm -f bin/irqtop bin/setpgid bin/uname26
 
-# These are in the program folder of users in Debian.
-for PROG in addpart blkzone chcpu delpart ldattach partx pivot_root \
-        resizepart switch_root; do
+# As in Debian, these are in the program folder of users, who don't have
+# sbin in their path. Debian moves pivot_root and switch_root too. They
+# stay in sbin, where busybox has its links for these two names: in bin
+# they would not replace the applets but be there next to them. Otherwise
+# the programs are where upstream has them and are called what upstream
+# calls them, as in Alpine (Debian: rename.ul, the links getty, hd, sg).
+for PROG in addpart blkzone chcpu delpart ldattach partx resizepart; do
     mv "sbin/$PROG" bin/
 done
 
-# rename is the one of Perl in Debian.
-mv bin/rename bin/rename.ul
-
-ln -s agetty  sbin/getty
-ln -s hexdump bin/hd
-ln -s newgrp  bin/sg
-
-# su, mount, umount and newgrp are setuid root in Debian. The package files
-# say so (mode="4755").
+# su, mount, umount and newgrp are setuid root. The package files say so
+# (mode="4755").
 
 # Debian's PAM files, see package.xml.
 install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/pam.d" share/pam-configs
