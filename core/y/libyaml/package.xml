@@ -16,12 +16,16 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libyaml-0.2.2.tar.gz" subdir="sources"
-                sha256sum="689ef3ebdecfa81f3789ccd2481acc81fc0f22f3f5c947eed95c4c0802e356b8"/>
+            <file src="libyaml-0.2.5.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/liby/libyaml/libyaml_0.2.5.orig.tar.gz"
+                sha256sum="fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e"/>
         </sources>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
             <package name="autotools-dev" tools-prefix=""/>
+            <package name="libtool"/>
         </requires>
 
         <xi:include href="rules.xml"/>

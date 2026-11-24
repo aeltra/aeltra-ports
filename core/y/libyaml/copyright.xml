@@ -2,7 +2,7 @@
     <files license="Expat">
         <file src="*"/>
         <copyright-notice><![CDATA[
-2006, Kirill Simonov <xi@resolvent.net>
+2006-2020, Kirill Simonov <xi@resolvent.net>
         ]]></copyright-notice>
         <license><![CDATA[
 Permission is hereby granted, free of charge, to any person obtaining
