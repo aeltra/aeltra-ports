@@ -14,15 +14,6 @@
         </p>
     </description>
 
-    <requires>
-        <choice>
-            <package name="adduser"/>
-        </choice>
-        <choice>
-            <package name="passwd"/>
-        </choice>
-    </requires>
-
     <contents>
         <file src="${prefix}/lib/libuuid*.so.*"/>
     </contents>
