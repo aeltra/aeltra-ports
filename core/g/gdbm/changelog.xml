@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.26" revision="1aeltra1" upstream-version="1.26-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 11:13:40+03:00">
+        <changeset>
+            <li>New upstream version, the one of Debian Forky</li>
+            <li>Files are locked with flock, as in Debian now. The old
+            recipe switched that off</li>
+            <li>Built without NLS</li>
+        </changeset>
+    </release>
     <release version="1.19" revision="2bolt1" upstream-version="1.19-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-04 17:52:09+03:00">

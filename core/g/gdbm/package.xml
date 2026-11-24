@@ -21,14 +21,21 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gdbm-1.19.tar.gz" subdir="sources"
-                sha256sum="37ed12214122b972e18a0d94995039e57748191939ef74115b1d41d8811364bc"/>
+            <file src="gdbm-1.26.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/gdbm/gdbm_1.26.orig.tar.gz"
+                sha256sum="6a24504a14de4a744103dcb936be976df6fbe88ccff26065e54c1c47946f4a5e"/>
         </sources>
 
         <requires>
-            <package name="texinfo"/>
-            <package name="libreadline-dev"/>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autopoint"/>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="bison"/>
+            <package name="flex"/>
+            <package name="libreadline-dev"/>
+            <package name="libtool"/>
+            <package name="texinfo"/>
         </requires>
 
         <xi:include href="rules.xml"/>

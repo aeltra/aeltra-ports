@@ -3,13 +3,12 @@
     <prepare>
     <![CDATA[
 
-export CFLAGS="$CFLAGS -O2 -g -Wall -D_REENTRANT"
-
 cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
-autoreconf -v -fi
+autoreconf -vfi
 
-sed -i 's@$(INSTALL) -T@$(INSTALL)@g' Makefile.in
+# As in Debian: without the time of the build in the version string.
+export CFLAGS="$CFLAGS -U__DATE__ -U__TIME__"
 
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
@@ -17,10 +16,8 @@ cd "$AELTRA_BUILD_DIR"
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --enable-libgdbm-compat \
-    finish_cmds=""
-
-echo "/* We use fcntl locking (POSIX) instead of flock (BSD) */" >> autoconf.h
-echo "#undef HAVE_FLOCK" >> autoconf.h
+    --enable-largefile \
+    --disable-nls
 
     ]]>
     </prepare>
@@ -29,7 +26,7 @@ echo "#undef HAVE_FLOCK" >> autoconf.h
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>
@@ -38,11 +35,7 @@ make
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make BINOWN="`whoami`" BINGRP="`whoami`" \
-    prefix="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX" \
-    infodir="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/info" \
-    man3dir="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/man/man3" \
-    install
+make DESTDIR="$AELTRA_INSTALL_DIR" install
 
 ln -sf ndbm.h "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/gdbm-ndbm.h"
 
