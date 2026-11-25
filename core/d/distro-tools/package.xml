@@ -19,9 +19,9 @@
         <sources>
             <file
                 subdir="sources"
-                src="distro-tools-1.18.1.tar.gz"
-                upstream-src="https://github.com/aeltra/distro-tools/archive/refs/tags/1.18.1.tar.gz"
-                sha256sum="724beb8d5735e44edf70c9ee23d6b72fa6071eda6604130a7e5a1d8b1f75a942"/>
+                src="distro-tools-1.19.2.tar.gz"
+                upstream-src="https://github.com/aeltra/distro-tools/archive/refs/tags/1.19.2.tar.gz"
+                sha256sum="5cb93b7954e63db68e9540105c2058ac12d6f464e8aa07b48d4b39dd0658c245"/>
         </sources>
 
         <requires>

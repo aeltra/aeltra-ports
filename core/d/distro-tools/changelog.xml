@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.19.2" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-25 11:29:23+03:00">
+        <changeset>
+          <li>New upstream release</li>
+          <li>aeltra-pack gives files and directories default modes unless
+              the package file states one</li>
+          <li>aeltra-pack unpacks hard links</li>
+          <li>bh_python_install keeps the current directory out of the
+              search path of Python</li>
+        </changeset>
+    </release>
     <release version="1.18.1" revision="1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2026-11-21 23:36:00+03:00">
