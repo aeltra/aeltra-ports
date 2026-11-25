@@ -23,25 +23,27 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="strace-5.10.tar.xz" subdir="sources"
-                sha256sum="fe3982ea4cd9aeb3b4ba35f6279f0b577a37175d3282be24b9a5537b56b8f01c"/>
+            <file src="strace-7.3+ds.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/s/strace/strace_7.3+ds.orig.tar.xz"
+                sha256sum="68dc776c216c095df09a8f795c6d5d2cee97dad930feef4a391c3b7866636243"/>
             <file src="debian-patches-1.tar.gz" subdir="patches"
-                sha256sum="dfcd9d974bce9fc28ccf82c31c9f62eb342d63ffae1ce7859f0ec90614ccee34"/>
+                sha256sum="dcc33e8d53128390f1a02786b00ac0c0d54cbf362aad23498cc0efd5f55eaec0"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <file src="patches/02-disable_delay_test"/>
-                <file src="patches/0006-s390-Check-infmname-with-IS_ARRAY_ZERO-too.patch"/>
                 <file src="patches/0007-XFAIL-netlink_crypto.patch"/>
                 <file src="patches/0008-XFAIL-nlattr_crypto_user_alg.patch"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="libc-dev"/>
+            <package name="autoconf"/>
+            <package name="automake"/>
             <package name="gawk"/>
-            <package name="libunwind-dev" if="!(s390x or riscv64)"/>
+            <package name="libc-dev"/>
+            <package name="libunwind-dev" if="x86_64"/>
         </requires>
 
         <xi:include href="rules.xml"/>

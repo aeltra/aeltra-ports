@@ -3,13 +3,21 @@
     <prepare>
     <![CDATA[
 
+cd "$AELTRA_SOURCE_DIR"
+
+# Debian's sources come without its packaging, configure.ac expects this
+# file of it.
+mkdir -p debian
+touch debian/changelog.in
+
+autoreconf -vfi
+
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --enable-mpers=no \
-    --disable-nls
+    --enable-mpers=no
 
     ]]>
     </prepare>

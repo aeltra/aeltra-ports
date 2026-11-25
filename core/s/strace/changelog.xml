@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="7.3+ds" revision="1aeltra1" upstream-version="7.3+ds-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 18:01:35+03:00">
+        <changeset>
+            <li>Update to the version of Debian Forky</li>
+            <li>Traces of the stack on x86_64 only, as in Debian</li>
+        </changeset>
+    </release>
     <release version="5.10" revision="1bolt1" upstream-version="5.10-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-06 22:39:19+03:00">
