@@ -28,5 +28,6 @@
         <file src="${prefix}/lib/libgmp.so"/>
         <file src="${prefix}/lib/libgmpxx.a"/>
         <file src="${prefix}/lib/libgmpxx.so"/>
+        <file src="${prefix}/lib/pkgconfig"/>
     </contents>
 </package>
