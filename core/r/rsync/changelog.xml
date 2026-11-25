@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="3.5.2+ds1" revision="2aeltra1" upstream-version="3.5.2+ds1-2"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 17:50:46+03:00">
+        <changeset>
+            <li>Update to the version of Debian Forky</li>
+            <li>Package rrsync</li>
+        </changeset>
+    </release>
     <release version="3.2.3" revision="4bolt1" upstream-version="3.2.3-4"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-05 22:33:34+03:00">

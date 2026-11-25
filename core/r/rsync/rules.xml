@@ -3,12 +3,34 @@
     <prepare>
     <![CDATA[
 
+cd "$AELTRA_SOURCE_DIR"
+
+# As in Debian, whose sources come without zlib and popt: config.status
+# expects the two folders.
+mkdir -p zlib popt
+touch zlib/dummy.in popt/dummy.in
+
+bh_autotools_dev_update
+autoreconf -vfi
+
+# rrsync is a Python script for /usr/bin/python3.
+EXTRA_OPTS=""
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    EXTRA_OPTS="--with-rrsync"
+fi
+
+# Built in the source folder, as in Debian: the Makefile runs autoconf where
+# it is.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls
+    --with-included-zlib=no \
+    --with-included-popt=no \
+    --disable-md5-asm \
+    --disable-md2man \
+    $EXTRA_OPTS
 
     ]]>
     </prepare>

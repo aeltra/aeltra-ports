@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <control xmlns:xi="http://www.w3.org/2001/XInclude">
     <defines>
-        <def name="AELTRA_BUILD_DIR" value="build"/>
+        <def name="AELTRA_BUILD_DIR" value="sources"/>
     </defines>
 
     <source name="rsync" repo="core" architecture-independent="false" if="tools-build or target-build">
@@ -26,30 +26,39 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="rsync-3.2.3.tar.gz" subdir="sources"
-                sha256sum="becc3c504ceea499f4167a260040ccf4d9f2ef9499ad5683c179a697146ce50e"/>
-            <file src="debian-patches-4.tar.gz" subdir="patches"
-                sha256sum="e1c9622e5f5b8925611c8ff7c05747d778d43f06990ae3ff442469d82ce703cc"/>
+            <file src="rsync-3.5.2+ds1.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/r/rsync/rsync_3.5.2+ds1.orig.tar.xz"
+                sha256sum="a2cc02b428f109d15b0b60d859ae74e2dcbabd23254296df5399714f74cbbdff"/>
+            <file src="debian-patches-2.tar.gz" subdir="patches"
+                sha256sum="024035761ef3136dcebfab1dcdea531a6a1835aab5f672397324c8885382db4a"/>
+            <file src="alpine-patches-257a12f6.tar.gz" subdir="patches"
+                sha256sum="c53393fd9facfd884f32cc36bb71e3138d7f1910514b70fd0ccc4779a39b231b"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
+                <!-- Debian -->
                 <file src="patches/disable_reconfigure_req.diff"/>
-                <file src="patches/skip_devices_test.patch"/>
-                <file src="patches/perl_shebang.patch"/>
-                <file src="patches/CVE-2020-14387.patch"/>
-                <file src="patches/fix_ftcbfs_configure.patch"/>
+                <file src="patches/env_shebang.patch"/>
+                <file src="patches/fix_rrsync_man_generation.patch"/>
+                <!-- Alpine -->
+                <file src="patches/syscall-skip-unsupported-symlink-chmod.patch" if="musl"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="libacl1-dev"/>
-            <package name="libpopt-dev"/>
+            <package name="libidn2-dev"/>
             <package name="liblz4-dev"/>
-            <package name="libxxhash-dev"/>
-            <package name="libzstd-dev"/>
-            <package name="zlib1g-dev"/>
+            <package name="libpopt-dev"/>
             <package name="libssl-dev"/>
+            <package name="libtool"/>
+            <package name="libxxhash-dev" version=">= 0.8"/>
+            <package name="libzstd-dev" version=">= 1.4"/>
+            <package name="zlib1g-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>
