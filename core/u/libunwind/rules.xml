@@ -53,6 +53,11 @@ SETJMP_LIB_DIR="$AELTRA_INSTALL_DIR/libunwind-setjmp/$AELTRA_INSTALL_PREFIX/lib"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR/libunwind" install
 
+# GCC has its own. On musl it looks for headers in the include folder first
+# and finds this one, which lacks types that libstdc++ needs to build. On glibc
+# this one is never found.
+rm "$AELTRA_INSTALL_DIR/libunwind/$AELTRA_INSTALL_PREFIX/include/unwind.h"
+
 install -d -m 0755 "$SETJMP_LIB_DIR/pkgconfig"
 mv "$LIB_DIR"/libunwind-setjmp.* "$SETJMP_LIB_DIR/"
 mv "$LIB_DIR/pkgconfig/libunwind-setjmp.pc" "$SETJMP_LIB_DIR/pkgconfig/"
