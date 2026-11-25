@@ -23,25 +23,32 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="popt-1.18.tar.gz" subdir="sources"
-                sha256sum="5159bc03a20b28ce363aa96765f37df99ea4d8850b1ece17d1e6ad5c24fdc5d1"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="0c2934709feebab1acb2a009233f25a461326669bdc1e08b3b6e7cae9c4946f1"/>
+            <file src="popt-1.19+dfsg.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/p/popt/popt_1.19+dfsg.orig.tar.xz"
+                sha256sum="4cd0cd2963d0c4078f65949599d97135c15ee6c09cf3a36a9a1b2753025bb06b"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="449de8d7a365e85b208fcf43fa55f07ee023246458a2609aecf6bde47c687937"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
-                <file src="patches/318833-incorrect-handling-of-leftovers-with-poptStuffArgs.patch"/>
-                <file src="patches/278402-manpage-typos.patch"/>
-                <file src="patches/356669-add-catalan-translation.patch"/>
-                <file src="patches/autoreconf-libtool.patch"/>
-                <file src="patches/autoreconf-gettext.patch"/>
-                <file src="patches/fix-test1-lt.patch"/>
+                <file src="patches/fix-reporting-of-test-failures.patch"/>
+                <file src="patches/document-flags-used-in-poptGetContext.patch"/>
+                <file src="patches/instruct-man-to-run-the-tbl-preprocessor.patch"/>
+                <file src="patches/Fix-CVE-2026-18743-buffer-overflow-s-in-poptConfigFileToS.patch"/>
+                <file src="patches/Fix-CVE-2026-18739-off-by-one-error-in-poptStuffArgs.patch"/>
+                <file src="patches/Bring-in-our-own-allocating-printf-variants.patch"/>
+                <file src="patches/Fix-a-bucketful-of-buffer-overflows-in-popt-help-printing.patch"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autopoint"/>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="gettext" version=">= 0.19.8"/>
+            <package name="libtool"/>
         </requires>
 
         <xi:include href="rules.xml"/>
