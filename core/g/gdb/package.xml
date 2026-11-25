@@ -20,50 +20,48 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="gdb-10.1.tar.xz" subdir="sources"
-                sha256sum="d9108690ec1b818d3d4b21243a550083b8b82e36db07063bd89c4f1f73f5e1e7"/>
-            <file src="debian-patches-1.7.tar.gz" subdir="patches"
-                sha256sum="97cb846438f20c111d5fbd130f6c5a090248590745b03386723ca8ad1eef1ae6"/>
-            <file src="bolt-patches-1.tar.gz" subdir="patches"
-                sha256sum="48a8442580bf859d6108d62ac1595dbc62e9bae98e03f50bee1701025812b163"/>
+            <file src="gdb-18.1.tar.xz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/g/gdb/gdb_18.1.orig.tar.xz"
+                sha256sum="ddd5627310aedbea90956a6a8774a6558eff2829750376c62b2742ffbac4e61c"/>
+            <file src="debian-patches-3.tar.gz" subdir="patches"
+                sha256sum="b9fde28a6ca0b60ac6a36acdfb83e8d7c6cd0c6d72ebc6e7e0dc0d83bd616a49"/>
+            <file src="alpine-patches-c042f67d.tar.gz" subdir="patches"
+                sha256sum="6f8c21aea0ae8a93616250c6b9a12730edc27054816a4d83177c9fdfe5ad6618"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <!-- Debian -->
-                <file src="patches/branch-updates.diff"/>
-                <file src="patches/gdb-fortran-main.patch"/>
-                <file src="patches/solve_PATH_MAX_issue.patch"/>
-                <file src="patches/gdb-6.5-bz185337-resolve-tls-without-debuginfo-v2.patch"/>
-                <file src="patches/gdb-glibc-vdso-workaround.patch"/>
                 <file src="patches/load-versioned-libcc1.patch"/>
-                <file src="patches/gdb_configure.nat.patch"/>
-                <file src="patches/struct-thread_info.patch"/>
-                <file src="patches/gdb_bsd-kvm.c.diff"/>
-                <file src="patches/2bf3b79d05bf85e41cbdcb020bd1cc424f59dd9a.diff"/>
-                <!-- Bolt -->
-                <file src="patches/mips-sgidefs.patch"/>
-                <file src="patches/mips64-abio32.diff"/>
+                <file src="patches/fix-blhc-libiberty.patch"/>
+                <file src="patches/fix-blhc-chew.patch"/>
+                <file src="patches/gfdl-dont-build-manpages.patch"/>
+                <file src="patches/cross.patch"/>
+                <file src="patches/0001-gdb-use-NT_386_TLS-regset-to-access-TLS-GDT-entries-.patch"/>
                 <!-- Alpine -->
-                <file src="patches/s390x-use-elf-gdb_fpregset_t.patch"/>
+                <file src="patches/s390x-use-elf-gdb_fpregset_t.patch" if="musl"/>
+                <file src="patches/ppc-musl.patch" if="musl"/>
+                <file src="patches/ppc-ptregs.patch" if="musl"/>
+                <file src="patches/musl-signals.patch" if="musl"/>
             </patchset>
         </patches>
 
         <requires>
-            <package name="bzip2"/>
-            <package name="autoconf"/>
-            <package name="libtool"/>
-            <package name="gettext"/>
             <package name="bison"/>
             <package name="flex"/>
-            <package name="procps"/>
-            <package name="texinfo"/>
+            <package name="gettext"/>
             <package name="libexpat1-dev"/>
+            <package name="libgmp-dev"/>
+            <package name="liblzma-dev"/>
+            <package name="libmpfr-dev"/>
             <package name="libncurses-dev"/>
             <package name="libreadline-dev"/>
-            <package name="zlib1g-dev"/>
-            <package name="liblzma-dev"/>
+            <package name="libxxhash-dev"/>
+            <package name="libzstd-dev"/>
+            <package name="pkg-config"/>
             <package name="python3-dev"/>
+            <package name="texinfo"/>
+            <package name="zlib1g-dev"/>
         </requires>
 
         <xi:include href="rules.xml"/>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="18.1" revision="3aeltra1" upstream-version="18.1-3"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 17:59:05+03:00">
+        <changeset>
+            <li>Update to the version of Debian Forky</li>
+            <li>No system root for the native debuggers, with the old ones libraries were not found</li>
+        </changeset>
+    </release>
     <release version="10.1" revision="1.7bolt1" upstream-version="10.1-1.7"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-06 22:22:27+03:00">

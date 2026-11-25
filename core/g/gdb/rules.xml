@@ -3,29 +3,50 @@
     <prepare>
     <![CDATA[
 
-if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
-    EXTRA_OPTS="--with-sysroot=/usr"
-elif [ "$AELTRA_BUILD_FOR" = "tools" ]; then
-    EXTRA_OPTS="--with-sysroot=/tools --program-prefix=${AELTRA_TARGET_TYPE}-"
-else
-    EXTRA_OPTS="--with-sysroot=/usr"
-fi
+export PKG_CONFIG="$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
+
+# As in Debian, the native debuggers have no system root and only the one of
+# the target reads the files in /etc/gdb. For the cross debugger, the target
+# is the root folder of the build box.
+case "$AELTRA_BUILD_FOR" in
+    cross-tools)
+        EXTRA_OPTS="--with-sysroot=/"
+        ;;
+    tools)
+        EXTRA_OPTS="--program-prefix=${AELTRA_TARGET_TYPE}-"
+        ;;
+    *)
+        EXTRA_OPTS="--with-system-gdbinit=/etc/gdb/gdbinit"
+        EXTRA_OPTS="$EXTRA_OPTS --with-system-gdbinit-dir=/etc/gdb/gdbinit.d"
+        ;;
+esac
 
 cd "$AELTRA_BUILD_DIR"
+CFLAGS="$CFLAGS -fPIC" \
+CXXFLAGS="$CXXFLAGS -fPIC" \
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
+    --libexecdir="$AELTRA_INSTALL_PREFIX/lib/gdb" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --target="$AELTRA_TARGET_TYPE" \
+    --disable-maintainer-mode \
     --disable-gdbtk \
     --disable-shared \
     --disable-readline \
+    --disable-sim \
+    --disable-source-highlight \
+    --enable-64-bit-bfd \
     --enable-tui \
+    --without-babeltrace \
+    --without-debuginfod \
     --without-guile \
+    --without-intel-pt \
     --with-system-readline \
     --with-expat \
     --with-system-zlib \
     --with-lzma \
+    --with-xxhash \
     --with-python="$AELTRA_INSTALL_PREFIX/bin/python3" \
     --disable-nls \
     $EXTRA_OPTS
@@ -75,12 +96,19 @@ PKG_PATH="$AELTRA_INSTALL_DIR/gdb"
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 
-for PROG in gcore gdb gdb-add-index; do
+for PROG in gcore gdb gdb-add-index gstack; do
     if [ -e "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROGRAM_PREFIX_FROM$PROG" ]; then
         mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROGRAM_PREFIX_FROM$PROG" \
             "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin/$PROGRAM_PREFIX_TO$PROG"
     fi
 done
+
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    install -d -m 0755 "$PKG_PATH/etc/gdb/gdbinit.d"
+    echo "# System-wide GDB initialization file." \
+        > "$PKG_PATH/etc/gdb/gdbinit"
+    chmod 0644 "$PKG_PATH/etc/gdb/gdbinit"
+fi
 
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/gdb-common"

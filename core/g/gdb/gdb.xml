@@ -14,6 +14,8 @@
     </requires>
 
     <contents subdir="gdb">
-        <file src="/"/>
+        <file src="${prefix}"/>
+        <file src="/etc/gdb/gdbinit" conffile="true" if="target-build"/>
+        <dir src="/etc/gdb/gdbinit.d" if="target-build"/>
     </contents>
 </package>
