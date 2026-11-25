@@ -5,6 +5,19 @@
         date="2026-11-18 22:28:18+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>
+                The programs have names with the major version (gcc-16), as
+                in Debian, in place of those with the full version. cc, c89
+                and c99 are there.
+            </li>
+            <li>ar, nm and ranlib handle the object files of LTO</li>
+            <li>
+                g++-mapper-server is in g++-16, libstdc++.modules.json in
+                libstdc++-16-dev, the LTO plugin and libcp1plugin in gcc-16,
+                the gdb scripts of libstdc++ in libstdc++6, where gdb loads
+                them. libgcc-dev requires libgcc.
+            </li>
+            <li>No path of the build in what is installed</li>
         </changeset>
     </release>
     <release version="10.2.1" revision="6bolt1" upstream-version="10.2.1-6"

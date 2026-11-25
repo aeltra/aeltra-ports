@@ -47,6 +47,11 @@
                 sha256sum="5d8b55fb006d335290926f873d17dc9f60a6e807b8a05b5aa09519765d8da7fb"/>
             <file src="musl-patches-2.tar.gz" subdir="patches"
                 sha256sum="58e7a2c01160bf714af6af6075909e3f357d74c851f31fca32eca306d6ba1a52"/>
+            <file src="aeltra-patches-1.tar.gz" subdir="patches"
+                sha256sum="64031321a4b20d045d762d4eea641d0d3e8fbe1081943c782157d4ba526c10e4"/>
+            <!-- the scripts c89 and c99 of Debian's gcc-defaults -->
+            <file src="aeltra-extra-1.tar.gz" subdir="extra"
+                sha256sum="938c24401d01cb7881ffa0950fa2bfae3aca5afd496e01d3dbac21fddd7089b1"/>
         </sources>
 
         <patches>
@@ -144,6 +149,9 @@
 
                 <!-- Alpine Linux -->
                 <file src="patches/musl-libstdc++-locale.diff"/>
+
+                <!-- Aeltra OS -->
+                <file src="patches/fixincludes-sed.diff"/>
             </patchset>
         </patches>
 
@@ -155,6 +163,7 @@
             <package name="gawk"/>
             <package name="xz-utils"/>
             <package name="zlib1g-dev"/>
+            <package name="libzstd-dev"/>
             <package name="bison"/>
             <package name="flex"/>
             <package name="gettext"/>
@@ -163,7 +172,6 @@
             <package name="libmpc-dev"/>
             <package name="libmpfr-dev"/>
             <package name="libgmp-dev"/>
-            <package name="chrpath"/>
             <package name="pkg-config"/>
         </requires>
 

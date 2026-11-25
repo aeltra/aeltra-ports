@@ -11,6 +11,8 @@
     <requires>
         <package name="gcc-16-base" version="=="
             cross-tools-prefix="tools-target-"/>
+        <!-- libgcc_s.so is a linker script, the dependency is not found -->
+        <package name="libgcc" version="==" cross-tools-prefix=""/>
     </requires>
 
     <contents subdir="libgcc-dev">

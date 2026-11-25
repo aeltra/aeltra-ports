@@ -50,11 +50,19 @@ unset CPPFLAGS
 unset CXXFLAGS
 unset LDFLAGS
 
-"$AELTRA_SOURCE_DIR/configure" \
+# GCC is built with its own flags, but without the path of the build in what
+# is installed. This is also why configure is called with a relative path.
+export CFLAGS="-g -O2 -ffile-prefix-map=$AELTRA_WORK_DIR=."
+export CXXFLAGS="$CFLAGS"
+export CFLAGS_FOR_TARGET="$CFLAGS"
+export CXXFLAGS_FOR_TARGET="$CFLAGS"
+
+../sources/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --libexecdir="$AELTRA_INSTALL_PREFIX/lib" \
     --with-default-libstdcxx-abi=new \
     --with-system-zlib \
+    --with-pkgversion="Aeltra OS" \
     --disable-multilib \
     --disable-multiarch \
     --disable-nls \
@@ -141,10 +149,20 @@ if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
     rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"lib*.so*
 fi
 
-for PROG in cpp gcov gcov-tool; do
+for PROG in cpp gcov gcov-dump gcov-tool lto-dump; do
     mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG" \
         "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_TARGET_TYPE}-${PROG}" \
         || true
+done
+
+# As in Debian, the programs have names with the major version. The one GCC
+# makes itself, with the full version, is left out.
+GCC_MAJOR="${GCC_VERSION%%.*}"
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*gcc-"$GCC_VERSION"
+
+for PROG in cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-dump gcov-tool lto-dump; do
+    ln -sf "${AELTRA_TARGET_TYPE}-${PROG}" \
+        "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_TARGET_TYPE}-${PROG}-${GCC_MAJOR}"
 done
 
 if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
@@ -166,6 +184,22 @@ if [ "$AELTRA_BUILD_FOR" = "cross-tools" -a -d "$FULL_INSTALL/$AELTRA_INSTALL_PR
     done
 fi
 
+# The compiler of the tools folder has no short names, those belong to the
+# cross compiler. Nothing in the tools folder is called cc: it would be taken
+# for the compiler of the build by what is built for the tools.
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    for PROG in c89 c99; do
+        install -m 0755 "$AELTRA_WORK_DIR/extra/$PROG-gcc" \
+            "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG-gcc"
+        ln -s "$PROG-gcc" "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG"
+    done
+
+    ln -s gcc "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/cc"
+fi
+
+# Needed by nothing: what libcc1 is loaded by is in the folder of GCC.
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/libcc1.so"
+
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/cpp-16"
 # -------------------------------------------------------------------------
@@ -174,10 +208,9 @@ install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*cpp \
+    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*"cpp-$GCC_MAJOR" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/cc1" \
-    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/liblto_plugin.so"* \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
 # -------------------------------------------------------------------------
@@ -199,6 +232,7 @@ PATH=\"$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/install-t
 export TARGET_MACHINE=\"$AELTRA_TARGET_TYPE\"
 exec fixinc.sh \"\$@\"
 " > "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin/fixincludes"
+chmod 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin/fixincludes"
 
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/g++-16"
@@ -208,10 +242,13 @@ install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*g++ \
+    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*"g++-$GCC_MAJOR" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*c++ \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/cc1plus" \
+    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/g++-mapper-server" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
 # -------------------------------------------------------------------------
@@ -229,8 +266,23 @@ mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSIO
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/"*.spec \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION" || true
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/plugin/libcc1plugin.so"* \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/liblto_plugin.so"* \
+    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/plugin/"libc[cp]1plugin.so* \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/plugin"
+
+# ar, nm and ranlib of binutils load the plugin from here to handle the object
+# files of LTO. Both compilers of the tools folder have one, the names must
+# not be the same.
+if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
+    LTO_PLUGIN="liblto_plugin-$AELTRA_TARGET_TYPE.so"
+else
+    LTO_PLUGIN="liblto_plugin.so"
+fi
+
+install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/bfd-plugins"
+ln -s "../gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/liblto_plugin.so" \
+    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/bfd-plugins/$LTO_PLUGIN"
 
 if [ "$AELTRA_BUILD_FOR" != "cross-tools" ]; then
     ln -s ../../../libcc1.so.0 \
@@ -289,7 +341,6 @@ PKG_PATH="$AELTRA_INSTALL_DIR/libstdc++-16-dev"
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/include"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib"
-install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/share/gcc/python"
 
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/include/c++" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/include"
@@ -297,15 +348,10 @@ mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/libstdc++"*.a \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/libstdc++"*.so \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib"
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/libstdc++.so".*-gdb.py \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/libstdc++.modules.json" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/libsupc++"*.a \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib"
-
-if [ "$AELTRA_BUILD_FOR" != "cross-tools" ]; then
-    mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/gcc/python/libstdcxx" \
-        "$PKG_PATH/$AELTRA_INSTALL_PREFIX/share/gcc/python"
-fi
 
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/gcc-16-plugin-dev"
@@ -318,6 +364,22 @@ mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSIO
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/libstdc++6"
 # -------------------------------------------------------------------------
+
+# gdb only loads the script with the pretty printers from here. For the target
+# of a cross compiler it is in the package of the target.
+GDB_DIR="$PKG_PATH/$AELTRA_INSTALL_PREFIX/share/gdb/auto-load/$AELTRA_INSTALL_PREFIX/lib"
+
+if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
+    rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/libstdc++.so".*-gdb.py
+    rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/gcc/python"
+else
+    install -d -m 0755 "$GDB_DIR" \
+        "$PKG_PATH/$AELTRA_INSTALL_PREFIX/share/gcc/python"
+    mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/libstdc++.so".*-gdb.py \
+        "$GDB_DIR"
+    mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/gcc/python/libstdcxx" \
+        "$PKG_PATH/$AELTRA_INSTALL_PREFIX/share/gcc/python"
+fi
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib/"libstdc++*.so.* \
@@ -335,6 +397,15 @@ if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
     install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET"
     mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET/lib" \
         "$PKG_PATH/$AELTRA_INSTALL_PREFIX/$PATH_OFFSET" || true
+fi
+
+# A cross compiler has no package of these. The libraries of its target are in
+# the packages of the target.
+if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
+    for ENTRY in fixincludes gcc-16-plugin-dev libatomic1 libcc1-0 libgcc \
+            libgomp1 libitm1 libstdc++6; do
+        rm -r "$AELTRA_INSTALL_DIR/$ENTRY"
+    done
 fi
 
     ]]>
