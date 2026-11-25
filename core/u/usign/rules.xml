@@ -23,7 +23,7 @@ cmake \
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make
+make -j"$AELTRA_PARALLEL_JOBS"
 
     ]]>
     </build>

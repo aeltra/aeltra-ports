@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <control xmlns:xi="http://www.w3.org/2001/XInclude">
+    <defines>
+        <def name="AELTRA_BUILD_DIR" value="build"/>
+    </defines>
+
     <source name="usign" repo="core" architecture-independent="false" if="tools-build or target-build">
         <description>
             <summary>Tiny signature verification tool</summary>
@@ -12,8 +16,8 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="usign-20190902.1-1.tar.gz" subdir="sources"
-                sha256sum="580a4a9a026748174cbcc7f745cc3dc2c6f716cd2a6644c600b8d80c5e9255ee"/>
+            <file src="usign-20251003.1.tar.gz" subdir="sources"
+                sha256sum="7dc3b137725c1051f4b8df7f992fd0d8e81b41b7b5446dfb9ceda12aea267a5c"/>
         </sources>
 
         <requires>

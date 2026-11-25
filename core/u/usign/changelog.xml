@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="20251003.1" revision="1" maintainer="Tobias Koch"
+        email="tobias.koch@gmail.com" date="2026-11-24 17:49:14+03:00">
+        <changeset>
+            <li>Update to the newest upstream commit (c4c72b1)</li>
+            <li>Fingerprints are always padded to 16 characters</li>
+            <li>Builds with cmake 4</li>
+        </changeset>
+    </release>
     <release version="20190902.1" revision="1" maintainer="Tobias Koch"
         email="tobias.koch@gmail.com" date="2019-10-07 21:42:00+03:00">
         <changeset>
