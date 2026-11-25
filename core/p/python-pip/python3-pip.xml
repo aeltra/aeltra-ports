@@ -18,25 +18,8 @@
     </requires>
 
     <contents subdir="python3" collect-py-cache-files="true">
+        <file src="${prefix}/bin/pip"/>
         <file src="${prefix}/bin/pip3"/>
-        <file src="${prefix}/lib/python3*/**/*"/>
+        <file src="${prefix}/lib/python3/dist-packages"/>
     </contents>
-
-    <maintainer-scripts>
-        <postinst><![CDATA[
-
-if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/pip" ]; then
-    ln -sf "pip3" "$AELTRA_INSTALL_PREFIX/bin/pip"
-fi
-
-        ]]></postinst>
-
-        <postrm><![CDATA[
-
-if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/pip" ]; then
-    rm -f "$AELTRA_INSTALL_PREFIX/bin/pip"
-fi
-
-        ]]></postrm>
-    </maintainer-scripts>
 </package>

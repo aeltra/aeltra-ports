@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="26.3+dfsg" revision="1aeltra1" upstream-version="26.3+dfsg-1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 17:50:46+03:00">
+        <changeset>
+            <li>Update to the version of Debian Forky</li>
+            <li>Build with flit_core</li>
+            <li>The package has the pip program, it is no longer a link made in the postinst script</li>
+        </changeset>
+    </release>
     <release version="20.3.4" revision="1bolt1" upstream-version="20.3.4-1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-06 22:16:24+03:00">
