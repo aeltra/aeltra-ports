@@ -7,6 +7,7 @@
             <li>Update to the version of Debian Forky</li>
             <li>Build with flit_core</li>
             <li>The package has the pip program, it is no longer a link made in the postinst script</li>
+            <li>New package python3-pip-whl with the wheel, for virtual environments</li>
         </changeset>
     </release>
     <release version="20.3.4" revision="1bolt1" upstream-version="20.3.4-1"

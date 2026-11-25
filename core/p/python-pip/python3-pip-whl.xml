@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="python3-pip-whl" section="python">
+    <description>
+        <summary>Python package installer (pip wheel)</summary>
+        <p>
+        pip is the Python package installer. It integrates with virtualenv, doesn't
+        do partial installs, can save package state for replaying, can install from
+        non-egg sources, and can install from version control repositories.
+        </p>
+        <p>
+        This is the support package for the PEP 427 wheel version of the package,
+        required for using pip inside a virtual environment.
+        </p>
+    </description>
+
+    <requires>
+        <package name="ca-certificates" tools-prefix=""/>
+    </requires>
+
+    <contents subdir="wheel">
+        <file src="${prefix}/share/python-wheels"/>
+    </contents>
+</package>

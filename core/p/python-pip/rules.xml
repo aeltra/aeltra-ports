@@ -24,6 +24,14 @@ cd "$AELTRA_SOURCE_DIR"
 mkdir -p "$AELTRA_INSTALL_DIR/python3"
 bh_python_install --install --root "$AELTRA_INSTALL_DIR/python3"
 
+# The wheel itself goes into python3-pip-whl: ensurepip, and so python3 -m
+# venv, installs pip from there. The folder has to be the one python3.14 is
+# built with (--with-wheel-pkg-dir).
+WHEEL_DIR="$AELTRA_INSTALL_DIR/wheel/$AELTRA_INSTALL_PREFIX/share/python-wheels"
+
+install -d -m 0755 "$WHEEL_DIR"
+install -m 0644 dist/pip-*-py3-none-any.whl "$WHEEL_DIR/"
+
     ]]>
     </install>
 </rules>
