@@ -16,6 +16,9 @@ if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
         Lib/ctypes/util.py
 fi
 
+# --without-ensurepip only means that "make install" does not install pip. The
+# module is there, python3 -m venv needs it. As in Debian, it takes the wheel
+# of python3-pip-whl (see the recipe of python-pip).
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
@@ -26,6 +29,7 @@ $AELTRA_SOURCE_DIR/configure \
     --enable-loadable-sqlite-extensions \
     --with-computed-gotos \
     --without-ensurepip \
+    --with-wheel-pkg-dir="$AELTRA_INSTALL_PREFIX/share/python-wheels/" \
     --with-system-expat \
     --with-system-libmpdec \
     --with-dbmliborder=gdbm \
@@ -63,6 +67,21 @@ rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/turtledemo"
 PYTHON3_CONFIG_DIR=$(
     echo "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"/lib/python3.14/config-3.14-*
 )
+
+# As in Debian (PEP 668): pip installs into virtual environments only.
+cat > "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/EXTERNALLY-MANAGED" << EOF
+[externally-managed]
+Error=To install Python packages system-wide, try aept install
+ python3-xyz, where xyz is the package you are trying to
+ install.
+
+ If you wish to install a Python package that is not part of
+ Aeltra OS, create a virtual environment using
+ python3 -m venv path/to/venv. Then use path/to/venv/bin/python
+ and path/to/venv/bin/pip. Make sure you have python3.14-venv
+ installed.
+EOF
+chmod 0644 "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/EXTERNALLY-MANAGED"
 
 cp "$AELTRA_SOURCE_DIR/Tools/i18n/pygettext.py" \
     "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/pygettext3.14"
@@ -106,6 +125,11 @@ PKG_PATH="$AELTRA_INSTALL_DIR/python3.14-venv"
 
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.14"
+
+# As in Debian, the wheel that comes with Python's sources is not packaged: it
+# is another version of pip than ours, without Debian's patches, which make pip
+# trust the certificates of the system, and with programs for Windows in it.
+rm -r "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/ensurepip/_bundled"
 
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/ensurepip" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/python3.14"

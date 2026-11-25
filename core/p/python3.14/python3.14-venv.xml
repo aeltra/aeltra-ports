@@ -12,8 +12,12 @@
         </p>
     </description>
 
+    <!-- python3-pip-whl is built after this package and needs Python to
+         build. Debian also asks for python3-setuptools-whl, but since 3.12
+         only pip is installed to a virtual environment. -->
     <requires>
         <package name="python3.14" version="=="/>
+        <package name="python3-pip-whl" version=">= 22.2"/>
     </requires>
 
     <contents subdir="python3.14-venv">

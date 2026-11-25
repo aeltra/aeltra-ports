@@ -11,6 +11,14 @@
                 Take the patch for ctypes.util.find_library on musl from
                 Alpine and apply it on musl only.
             </li>
+            <li>
+                Mark the installation as externally managed, as Debian does,
+                so that pip installs into virtual environments only.
+            </li>
+            <li>
+                Virtual environments get pip from python3-pip-whl, as in
+                Debian. The wheel of Python's sources is not packaged.
+            </li>
         </changeset>
     </release>
     <release version="3.9.1" revision="4bolt1" upstream-version="3.9.1-4"
