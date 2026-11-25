@@ -7,7 +7,11 @@ cd "$AELTRA_SOURCE_DIR"
 bh_autotools_dev_update
 autoreconf -vfi
 
+# Otherwise configure takes the first ones in the path, which are those of
+# the tools folder.
 cd "$AELTRA_BUILD_DIR"
+LIBGCRYPT_CONFIG="$AELTRA_INSTALL_PREFIX/bin/libgcrypt-config" \
+XML_CONFIG="$AELTRA_INSTALL_PREFIX/bin/xml2-config" \
 "$AELTRA_SOURCE_DIR"/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
