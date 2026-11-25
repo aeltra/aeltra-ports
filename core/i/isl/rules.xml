@@ -28,6 +28,14 @@ cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 bh_unify_lib64_with_lib "$AELTRA_INSTALL_DIR"
 
+# gdb only loads the script from here
+GDB_DIR="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/gdb/auto-load/$AELTRA_INSTALL_PREFIX/lib"
+install -d -m 0755 "$GDB_DIR"
+mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"*-gdb.py "$GDB_DIR"
+
+# a macro to build isl itself, Debian does not package it either
+rm -r "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal"
+
     ]]>
     </install>
 </rules>

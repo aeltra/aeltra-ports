@@ -5,6 +5,7 @@
         date="2026-11-18 22:25:24+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>libisl23 has the script for gdb</li>
         </changeset>
     </release>
     <release version="0.23" revision="1bolt1" upstream-version="0.23-1"
