@@ -16,7 +16,7 @@
         </p>
     </description>
 
-    <contents>
+    <contents subdir="libunwind">
         <file src="${prefix}/lib/libunwind*.so.*"/>
     </contents>
 </package>

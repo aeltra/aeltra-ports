@@ -21,7 +21,7 @@
         <package name="liblzma-dev"/>
     </requires>
 
-    <contents>
+    <contents subdir="libunwind">
         <file src="${prefix}/include/"/>
         <file src="${prefix}/lib/libunwind*.{a,so}"/>
         <file src="${prefix}/lib/pkgconfig/*.pc"/>

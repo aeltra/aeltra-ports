@@ -3,17 +3,33 @@
     <prepare>
     <![CDATA[
 
-if [ ! -f "$AELTRA_INSTALL_PREFIX/include/sys/reg.h" ]; then
-    cd "$AELTRA_SOURCE_DIR"
-    sed -i '/#include <sys\/reg.h>/d' src/coredump/_UCD_lib.h
-fi
+# As in Debian, which switches all hardening off but the checks of format
+# strings.
+EXTRA_CFLAGS="-fno-stack-protector -fno-stack-clash-protection"
+
+case "$AELTRA_HOST_TYPE" in
+    aarch64*)
+        EXTRA_CFLAGS="$EXTRA_CFLAGS -mbranch-protection=none"
+        ;;
+    i?86*|x86_64*)
+        EXTRA_CFLAGS="$EXTRA_CFLAGS -fcf-protection=none"
+        ;;
+esac
+
+cd "$AELTRA_SOURCE_DIR"
+bh_autotools_dev_update
+autoreconf -vfi
 
 cd "$AELTRA_BUILD_DIR"
+CFLAGS="$CFLAGS $EXTRA_CFLAGS" \
+CXXFLAGS="$CXXFLAGS $EXTRA_CFLAGS" \
+CPPFLAGS="$CPPFLAGS -U_FORTIFY_SOURCE" \
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
-    --disable-nls \
+    --disable-cxx-exceptions \
+    --disable-zlibdebuginfo \
     --disable-tests
 
     ]]>
@@ -31,8 +47,15 @@ make -j"$AELTRA_PARALLEL_JOBS"
     <install>
     <![CDATA[
 
+LIB_DIR="$AELTRA_INSTALL_DIR/libunwind/$AELTRA_INSTALL_PREFIX/lib"
+SETJMP_LIB_DIR="$AELTRA_INSTALL_DIR/libunwind-setjmp/$AELTRA_INSTALL_PREFIX/lib"
+
 cd "$AELTRA_BUILD_DIR"
-make DESTDIR="$AELTRA_INSTALL_DIR" install
+make DESTDIR="$AELTRA_INSTALL_DIR/libunwind" install
+
+install -d -m 0755 "$SETJMP_LIB_DIR/pkgconfig"
+mv "$LIB_DIR"/libunwind-setjmp.* "$SETJMP_LIB_DIR/"
+mv "$LIB_DIR/pkgconfig/libunwind-setjmp.pc" "$SETJMP_LIB_DIR/pkgconfig/"
 
     ]]>
     </install>

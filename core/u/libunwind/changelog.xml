@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.8.1" revision="0.4aeltra1" upstream-version="1.8.1-0.4"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-24 17:59:05+03:00">
+        <changeset>
+            <li>Update to the version of Debian Forky</li>
+            <li>New packages libunwind-setjmp0 and libunwind-setjmp0-dev</li>
+        </changeset>
+    </release>
     <release version="1.3.2" revision="2bolt1" upstream-version="1.3.2-2"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2021-04-06 23:24:26+03:00">

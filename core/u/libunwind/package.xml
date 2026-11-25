@@ -5,7 +5,7 @@
     </defines>
 
     <source name="libunwind" repo="core" architecture-independent="false"
-            if="(tools-build or target-build) and !(s390x or riscv64)">
+            if="(tools-build or target-build) and !(s390x and musl)">
         <description>
             <summary>Library to determine the call-chain of a program - development</summary>
             <p>
@@ -25,37 +25,32 @@
         <xi:include href="copyright.xml"/>
 
         <sources>
-            <file src="libunwind-1.3.2.tar.gz" subdir="sources"
-                sha256sum="0a4b5a78d8c0418dfa610245f75fa03ad45d8e5e4cc091915d2dbed34c01178e"/>
-            <file src="debian-patches-2.tar.gz" subdir="patches"
-                sha256sum="56b74acefb025a8c0c2c9eec144b42e40b6683f032e5d30af268f62b4d594771"/>
-            <file src="alpine-patches-1.tar.gz" subdir="patches"
-                sha256sum="fcfcceed96aa687bf65724a2803e0feabe10d6a48f1620a6c635e3cb91c3bfbb"/>
+            <file src="libunwind-1.8.1.tar.gz" subdir="sources"
+                upstream-src="http://ftp.debian.org/debian/pool/main/libu/libunwind/libunwind_1.8.1.orig.tar.gz"
+                sha256sum="ddf0e32dd5fafe5283198d37e4bf9decf7ba1770b6e7e006c33e6df79e6a6157"/>
+            <file src="debian-patches-0.4.tar.gz" subdir="patches"
+                sha256sum="284bf15bd7963eed2da9e6c6f95884085c5c15e1e91a1a960387a76518b55d60"/>
+            <file src="alpine-patches-1789f1e1.tar.gz" subdir="patches"
+                sha256sum="894c14cb19b1bdac05691d841c323504a2e09c38367b2437ba3663f2908f1501"/>
         </sources>
 
         <patches>
             <patchset subdir="sources">
                 <!-- Debian -->
-                <file src="patches/20140507-ppc_lib64.patch"/>
-                <file src="patches/0001-aarch64-Use-__asm__-instead-of-asm-89.patch"/>
-                <file src="patches/0001-Fix-compilation-with-fno-common.patch"/>
-                <file src="patches/0001-Link-Ltest-cxx-exceptions-with-libunwind.patch"/>
-                <file src="patches/0001-tests-Include-wait-related-headers-for-Ltest-mem-val.patch"/>
-                <file src="patches/0001-fix-compile-issue-on-SH-platform-137.patch"/>
-                <file src="patches/libunwind-1.2-coredump-regs.patch"/>
-                <file src="patches/libunwind-1.2-ia64-missing.patch"/>
-                <file src="patches/libunwind-1.2-ia64-ptrace-coredump.patch"/>
-                <file src="patches/0001-ia64-Fix-dyn_info_list.S-with-newer-binutils.patch"/>
-                <file src="patches/0001-Gia64-test-nat.c-include-signal.h-for-sigaction.patch"/>
-                <file src="patches/0001-Disable-Ltest-init-local-signal-on-ia64.patch"/>
-                <!-- Alpine Linux-->
-                <file src="patches/musl-mips-fix.patch" if="musl"/>
-                <file src="patches/ppc64-musl.patch" if="musl"/>
+                <file src="patches/0001-Fixed-miscompilation-of-unw_getcontext-on-ARM.patch"/>
+                <file src="patches/fix-arm64-build.diff"/>
+                <file src="patches/457612f470f8c0e718cdf7f14ef1ecb583f3b3a6.patch"/>
+                <!-- Alpine -->
+                <file src="patches/Remove-the-useless-endina.h-for-loongarch64.patch" if="musl"/>
             </patchset>
         </patches>
 
         <requires>
+            <package name="autoconf"/>
+            <package name="automake"/>
+            <package name="autotools-dev" tools-prefix=""/>
             <package name="liblzma-dev"/>
+            <package name="libtool"/>
         </requires>
 
         <xi:include href="rules.xml"/>
@@ -63,6 +58,8 @@
 
     <xi:include href="libunwind-dev.xml"/>
     <xi:include href="libunwind8.xml"/>
+    <xi:include href="libunwind-setjmp0-dev.xml"/>
+    <xi:include href="libunwind-setjmp0.xml"/>
 
     <xi:include href="changelog.xml"/>
 </control>

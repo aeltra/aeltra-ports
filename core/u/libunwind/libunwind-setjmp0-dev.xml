@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="libunwind-setjmp0-dev" section="libdevel">
+    <description>
+        <summary>libunwind-based non local goto - development</summary>
+        <p>
+        The unwind-setjmp library offers a libunwind-based implementation of
+        non-local gotos. This implementation is intended to be a drop-in
+        replacement for the normal, system-provided routines of the same name.
+        The main advantage of using the unwind-setjmp library is that setting
+        up a non-local goto via one of the setjmp() routines is very fast.
+        </p>
+        <p>
+        This package includes the development support files.
+        </p>
+    </description>
+
+    <requires>
+        <package name="libunwind-dev" version="=="/>
+        <package name="libunwind-setjmp0" version="=="/>
+    </requires>
+
+    <contents subdir="libunwind-setjmp">
+        <file src="${prefix}/lib/libunwind-setjmp.{a,so}"/>
+        <file src="${prefix}/lib/pkgconfig/libunwind-setjmp.pc"/>
+    </contents>
+</package>
