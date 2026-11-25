@@ -8,6 +8,10 @@
         </p>
     </description>
 
+    <requires>
+        <package name="usign"/>
+    </requires>
+
     <contents>
         <dir src="/etc/aept/usign/trustdb"/>
         <file src="${prefix}/bin/*"/>
