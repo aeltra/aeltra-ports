@@ -11,6 +11,11 @@ true
     <build>
     <![CDATA[
 
+# pkg-config is only there under the name with the system type in front.
+# Without it, setup.py takes the first xml2-config in the path, which is the
+# one of the tools folder.
+export PKG_CONFIG="${AELTRA_HOST_TYPE}-pkg-config"
+
 cd "$AELTRA_SOURCE_DIR"
 bh_python_install --build
 

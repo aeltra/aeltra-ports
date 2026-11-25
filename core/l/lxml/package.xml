@@ -45,6 +45,7 @@
             <package name="python3-installer"/>
             <package name="python3-setuptools"/>
             <package name="cython3"/>
+            <package name="pkg-config"/>
             <package name="libxml2-dev"/>
             <package name="libxslt1-dev"/>
             <package name="zlib1g-dev"/>
