@@ -5,6 +5,11 @@
         date="2026-11-18 01:00:00+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>Require libzstd-dev and pkg-config, zstd is used</li>
+            <li>
+                In the tools folder, the programs are also there without the
+                system type in front, in the folder where GCC looks for them.
+            </li>
         </changeset>
     </release>
     <release version="2.35.1" revision="7bolt1" upstream-version="2.35.1-7"

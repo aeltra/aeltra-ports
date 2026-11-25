@@ -74,6 +74,12 @@ if [ "$AELTRA_BUILD_FOR" = "tools" -o "$AELTRA_BUILD_FOR" = "target" ]; then
     done
 fi
 
+# The plugin that the cross linker has no use for. The static library of it is
+# all that is installed without shared libraries.
+if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
+    rm -r "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/bfd-plugins"
+fi
+
 PKG_BINUTILS="$AELTRA_INSTALL_DIR/binutils"
 install -d -m 0755 "$PKG_BINUTILS"
 install -d -m 0755 "$PKG_BINUTILS/$AELTRA_INSTALL_PREFIX"
@@ -86,6 +92,24 @@ install -d -m 0755 "$PKG_BINUTILS_DEV/$AELTRA_INSTALL_PREFIX"
 
 mv -v "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/"* \
     "$PKG_BINUTILS/$AELTRA_INSTALL_PREFIX/bin/"
+
+# The programs once more, without the system type in front, in a folder of their
+# own. GCC looks there for ar, nm, ranlib and strip (gcc-ar, -print-prog-name)
+# and then in the path. In the tools folder there are two sets of binutils, and
+# the short names in the path are those of the cross compiler, so each has this
+# folder, with links, as Debian's binutils for cross compilers. For the target
+# the programs in the path are the right ones, and Debian has no such folder.
+if [ "$AELTRA_BUILD_FOR" != "target" ]; then
+    TOOL_DIR="$PKG_BINUTILS/$AELTRA_INSTALL_PREFIX/$AELTRA_TARGET_TYPE/bin"
+    install -d -m 0755 "$TOOL_DIR"
+
+    for PROG in "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/$AELTRA_TARGET_TYPE/bin/"*; do
+        SHORTNAME=`basename $PROG`
+        ln -s "../../bin/${AELTRA_TARGET_TYPE}-$SHORTNAME" "$TOOL_DIR/$SHORTNAME"
+    done
+fi
+
+rm -r "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/$AELTRA_TARGET_TYPE"
 
 if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
     mv -v "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/cross-ldscripts" \

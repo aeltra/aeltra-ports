@@ -57,11 +57,12 @@
             <package name="flex"/>
             <package name="gettext"/>
             <package name="texinfo"/>
-            <package name="chrpath"/>
             <package name="python3"/>
             <package name="file"/>
             <package name="xz-utils"/>
             <package name="zlib1g-dev"/>
+            <package name="libzstd-dev"/>
+            <package name="pkg-config"/>
         </requires>
 
         <xi:include href="rules.xml"/>
