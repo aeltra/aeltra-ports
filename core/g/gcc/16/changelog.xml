@@ -5,11 +5,6 @@
         date="2026-11-18 22:28:18+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
-            <li>
-                The programs have names with the major version (gcc-16), as
-                in Debian, in place of those with the full version. cc, c89
-                and c99 are there.
-            </li>
             <li>ar, nm and ranlib handle the object files of LTO</li>
             <li>
                 g++-mapper-server is in g++-16, libstdc++.modules.json in
@@ -18,6 +13,12 @@
                 them. libgcc-dev requires libgcc.
             </li>
             <li>No path of the build in what is installed</li>
+            <li>
+                The programs have the major version in their names (gcc-16).
+                The names without it, cc, c89, c99 and the link to the LTO
+                plugin are made by maintainer scripts if they are not taken.
+            </li>
+            <li>Branch protection on aarch64, as in Debian</li>
         </changeset>
     </release>
     <release version="10.2.1" revision="6bolt1" upstream-version="10.2.1-6"

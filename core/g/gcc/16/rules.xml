@@ -57,6 +57,24 @@ export CXXFLAGS="$CFLAGS"
 export CFLAGS_FOR_TARGET="$CFLAGS"
 export CXXFLAGS_FOR_TARGET="$CFLAGS"
 
+# As in Debian, GCC and its libraries have branch protection, like everything
+# that is built with the flags of the distribution. On x86_64 --enable-cet
+# does it. A flag like this for another architecture has to be added here and
+# in aeltra-pack.
+case "$AELTRA_HOST_TYPE" in
+    aarch64-*)
+        CFLAGS="$CFLAGS -mbranch-protection=standard"
+        CXXFLAGS="$CXXFLAGS -mbranch-protection=standard"
+        ;;
+esac
+
+case "$AELTRA_TARGET_TYPE" in
+    aarch64-*)
+        CFLAGS_FOR_TARGET="$CFLAGS_FOR_TARGET -mbranch-protection=standard"
+        CXXFLAGS_FOR_TARGET="$CXXFLAGS_FOR_TARGET -mbranch-protection=standard"
+        ;;
+esac
+
 ../sources/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --libexecdir="$AELTRA_INSTALL_PREFIX/lib" \
@@ -149,33 +167,32 @@ if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
     rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"lib*.so*
 fi
 
-for PROG in cpp gcov gcov-dump gcov-tool lto-dump; do
-    mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG" \
-        "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_TARGET_TYPE}-${PROG}" \
-        || true
-done
-
-# As in Debian, the programs have names with the major version. The one GCC
-# makes itself, with the full version, is left out.
+# The programs have names with the system type and the major version. Those
+# without the version are made by the maintainer scripts. The compiler of the
+# tools folder has no names without the system type, those belong to the cross
+# compiler.
 GCC_MAJOR="${GCC_VERSION%%.*}"
-rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*gcc-"$GCC_VERSION"
+
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin" "$FULL_INSTALL/bin.orig"
+install -d -m 0755 "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin"
 
 for PROG in cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-dump gcov-tool lto-dump; do
-    ln -sf "${AELTRA_TARGET_TYPE}-${PROG}" \
+    if [ -e "$FULL_INSTALL/bin.orig/${AELTRA_TARGET_TYPE}-${PROG}" ]; then
+        BASENAME="${AELTRA_TARGET_TYPE}-${PROG}"
+    else
+        BASENAME="$PROG"
+    fi
+
+    cp -a "$FULL_INSTALL/bin.orig/$BASENAME" \
         "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_TARGET_TYPE}-${PROG}-${GCC_MAJOR}"
+
+    if [ "$AELTRA_BUILD_FOR" != "tools" ]; then
+        ln -s "${AELTRA_TARGET_TYPE}-${PROG}-${GCC_MAJOR}" \
+            "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${PROG}-${GCC_MAJOR}"
+    fi
 done
 
-if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
-    rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_TARGET_TYPE}-${AELTRA_TARGET_TYPE}-"*
-else
-    for PROG in "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/${AELTRA_TARGET_TYPE}-"*; do
-        BASENAME=`basename $PROG`
-        SHORTNAME=`echo $BASENAME | sed "s/${AELTRA_TARGET_TYPE}-//g"`
-
-        ln -sf "$BASENAME" \
-            "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$SHORTNAME"
-    done
-fi
+rm -r "$FULL_INSTALL/bin.orig"
 
 if [ "$AELTRA_BUILD_FOR" = "cross-tools" -a -d "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$AELTRA_TARGET_TYPE" ]; then
     find "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$AELTRA_TARGET_TYPE" -type l -a -name "*.so" | while read LINK; do
@@ -184,17 +201,15 @@ if [ "$AELTRA_BUILD_FOR" = "cross-tools" -a -d "$FULL_INSTALL/$AELTRA_INSTALL_PR
     done
 fi
 
-# The compiler of the tools folder has no short names, those belong to the
-# cross compiler. Nothing in the tools folder is called cc: it would be taken
-# for the compiler of the build by what is built for the tools.
+# Nothing in the tools folder is called cc: it would be taken for the compiler
+# of the build by what is built for the tools.
 if [ "$AELTRA_BUILD_FOR" = "target" ]; then
     for PROG in c89 c99; do
         install -m 0755 "$AELTRA_WORK_DIR/extra/$PROG-gcc" \
-            "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG-gcc"
-        ln -s "$PROG-gcc" "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG"
+            "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG-gcc-$GCC_MAJOR"
+        sed -i "s/^exec gcc /exec gcc-$GCC_MAJOR /" \
+            "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/$PROG-gcc-$GCC_MAJOR"
     done
-
-    ln -s gcc "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/cc"
 fi
 
 # Needed by nothing: what libcc1 is loaded by is in the folder of GCC.
@@ -207,8 +222,7 @@ PKG_PATH="$AELTRA_INSTALL_DIR/cpp-16"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*cpp \
-    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*"cpp-$GCC_MAJOR" \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*"cpp-$GCC_MAJOR" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/cc1" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
@@ -241,10 +255,7 @@ PKG_PATH="$AELTRA_INSTALL_DIR/g++-16"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
 
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*g++ \
-    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*"g++-$GCC_MAJOR" \
-    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
-mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*c++ \
+mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*"g++-$GCC_MAJOR" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/bin"
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/cc1plus" \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION"
@@ -271,18 +282,9 @@ mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSIO
 mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/plugin/"libc[cp]1plugin.so* \
     "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/plugin"
 
-# ar, nm and ranlib of binutils load the plugin from here to handle the object
-# files of LTO. Both compilers of the tools folder have one, the names must
-# not be the same.
-if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
-    LTO_PLUGIN="liblto_plugin-$AELTRA_TARGET_TYPE.so"
-else
-    LTO_PLUGIN="liblto_plugin.so"
-fi
-
+# ar, nm and ranlib of binutils load the LTO plugin from here. The link to it
+# is made by the maintainer scripts.
 install -d -m 0755 "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/bfd-plugins"
-ln -s "../gcc/$AELTRA_TARGET_TYPE/$GCC_VERSION/liblto_plugin.so" \
-    "$PKG_PATH/$AELTRA_INSTALL_PREFIX/lib/bfd-plugins/$LTO_PLUGIN"
 
 if [ "$AELTRA_BUILD_FOR" != "cross-tools" ]; then
     ln -s ../../../libcc1.so.0 \

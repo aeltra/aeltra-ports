@@ -24,4 +24,37 @@
     <contents subdir="cpp-16">
         <file src="/"/>
     </contents>
+
+    <maintainer-scripts>
+        <postinst><![CDATA[
+
+BIN="$AELTRA_INSTALL_PREFIX/bin"
+
+# Another version may have been there first. What has no system type in the
+# name is not for the compiler of the tools folder.
+for PROG in cpp; do
+    if [ ! -e "$BIN/$AELTRA_TARGET_TYPE-$PROG" ]; then
+        ln -sf "$AELTRA_TARGET_TYPE-$PROG-16" "$BIN/$AELTRA_TARGET_TYPE-$PROG"
+    fi
+    if [ -e "$BIN/$PROG-16" ] && [ ! -e "$BIN/$PROG" ]; then
+        ln -sf "$PROG-16" "$BIN/$PROG"
+    fi
+done
+
+        ]]></postinst>
+
+        <postrm><![CDATA[
+
+BIN="$AELTRA_INSTALL_PREFIX/bin"
+
+for PROG in cpp; do
+    for LINK in "$AELTRA_TARGET_TYPE-$PROG" "$PROG"; do
+        if [ ! -e "$BIN/$LINK" ]; then
+            rm -f "$BIN/$LINK"
+        fi
+    done
+done
+
+        ]]></postrm>
+    </maintainer-scripts>
 </package>
