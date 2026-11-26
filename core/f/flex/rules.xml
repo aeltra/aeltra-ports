@@ -6,12 +6,14 @@
 cd "$AELTRA_SOURCE_DIR"
 autoreconf -vfi
 
+# flex looks for m4 in the path when it runs.
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --disable-nls \
     --build="$AELTRA_BUILD_TYPE" \
-    --host="$AELTRA_HOST_TYPE"
+    --host="$AELTRA_HOST_TYPE" \
+    M4="m4"
 
 # HACK: Make sure rpl_{m,re}alloc are explictly declared.
 sed -i \

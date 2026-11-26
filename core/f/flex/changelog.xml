@@ -5,6 +5,7 @@
         date="2026-11-19 20:19:53+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>flex does not call the m4 of the tools folder</li>
         </changeset>
     </release>
     <release version="2.6.4" revision="8bolt1" upstream-version="2.6.4-8"
