@@ -13,13 +13,15 @@ echo '@setfilename bison.info' > doc/bison.texi
 autoreconf -vfi
 bh_autotools_dev_update
 
+# bison looks for m4 in the path when it runs.
 cd "$AELTRA_BUILD_DIR"
 "$AELTRA_SOURCE_DIR/configure" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
     --disable-nls \
-    --disable-silent-rules
+    --disable-silent-rules \
+    M4="m4"
 
     ]]>
     </prepare>
