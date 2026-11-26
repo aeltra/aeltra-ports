@@ -12,6 +12,7 @@
                 interface is not built.
             </li>
             <li>Build with NLS and package the info files.</li>
+            <li>texindex does not call the awk of the tools folder</li>
         </changeset>
     </release>
     <release version="6.7.0.dfsg.2" revision="6bolt1" upstream-version="6.7.0.dfsg.2-6"

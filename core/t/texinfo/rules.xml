@@ -12,10 +12,11 @@ export PERL_EXT_LDFLAGS="$LDFLAGS"
 # The Perl of the prefix: configure takes the first one in the path
 # otherwise, which is the one of the tools folder also when building for
 # the target. Its compiler settings are then used for the extensions and
-# its path ends up in the scripts.
+# its path ends up in the scripts. texindex calls awk by the name in TI_AWK.
 AWK="awk" \
 "./configure" \
     PERL="$AELTRA_INSTALL_PREFIX/bin/perl" \
+    TI_AWK="awk" \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
