@@ -30,6 +30,10 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
+# bashbug mails a report with the compiler flags of the build, which have its
+# folder in them. Debian ships it, Aeltra does not.
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bashbug"
+
 # As in Debian, the Makefile for the loadable builtins has no folder of the
 # build in it. What is in the tools folder is looked for in the path.
 sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
