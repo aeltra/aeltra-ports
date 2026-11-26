@@ -47,6 +47,9 @@ make DESTDIR="$AELTRA_INSTALL_DIR" install
 rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/awk" 
 rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gawk-"*
 
+sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gawkbug"
+
     ]]>
     </install>
 </rules>

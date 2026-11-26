@@ -6,6 +6,7 @@
         <changeset>
             <li>Update to the version of Debian forky</li>
             <li>Ships the profile.d scripts that set AWKPATH and AWKLIBPATH</li>
+            <li>No folder of the build in gawkbug</li>
         </changeset>
     </release>
     <release epoch="1" version="5.1.0" revision="1bolt1" upstream-version="1:5.1.0-1"
