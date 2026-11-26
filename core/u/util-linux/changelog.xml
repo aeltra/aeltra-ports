@@ -20,6 +20,8 @@
             <li>On musl the programs that deal with login records use
             utmps, with Alpine's patch</li>
             <li>uuid-runtime has uuidparse and no systemd units</li>
+            <li>Ship the setarch links of the tools machine</li>
+            <li>Ship the setarch links on powerpc64le</li>
         </changeset>
     </release>
     <release version="2.36.1" revision="7bolt1" upstream-version="2.36.1-7"

@@ -14,9 +14,19 @@
         <file src="${prefix}/bin/linux32"/>
         <file src="${prefix}/bin/linux64"/>
         <file src="${prefix}/bin/uname26"/>
-        <file src="${prefix}/bin/i386" if="x86_64"/>
-        <file src="${prefix}/bin/x86_64" if="x86_64"/>
-        <file src="${prefix}/bin/s390" if="s390x"/>
-        <file src="${prefix}/bin/s390x" if="s390x"/>
+        <file src="${prefix}/bin/i386"
+            if="(target-build and x86_64) or (tools-build and tools-x86_64)"/>
+        <file src="${prefix}/bin/x86_64"
+            if="(target-build and x86_64) or (tools-build and tools-x86_64)"/>
+        <file src="${prefix}/bin/ppc"
+            if="(target-build and powerpc64le) or (tools-build and tools-powerpc64le)"/>
+        <file src="${prefix}/bin/ppc32"
+            if="(target-build and powerpc64le) or (tools-build and tools-powerpc64le)"/>
+        <file src="${prefix}/bin/ppc64"
+            if="(target-build and powerpc64le) or (tools-build and tools-powerpc64le)"/>
+        <file src="${prefix}/bin/s390"
+            if="(target-build and s390x) or (tools-build and tools-s390x)"/>
+        <file src="${prefix}/bin/s390x"
+            if="(target-build and s390x) or (tools-build and tools-s390x)"/>
     </contents>
 </package>
