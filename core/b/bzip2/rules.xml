@@ -30,6 +30,9 @@ make -j"$AELTRA_PARALLEL_JOBS" \
 cd "$AELTRA_BUILD_DIR"
 make PREFIX="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX" install
 
+# The manual pages, in PREFIX/man.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/man"
+
 ln -sf bzdiff "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzcmp"
 ln -sf bzgrep "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzegrep"
 ln -sf bzgrep "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/bzfgrep"

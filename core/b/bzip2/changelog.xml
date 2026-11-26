@@ -6,6 +6,7 @@
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>Build with the compiler flags of the distribution</li>
+            <li>Drop manual pages</li>
         </changeset>
     </release>
     <release version="1.0.8" revision="4bolt1" upstream-version="1.0.8-4"
