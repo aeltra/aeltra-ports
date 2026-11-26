@@ -10,6 +10,7 @@
                 Build with the configure script of the release, without the
                 bootstrap script and autoreconf.
             </li>
+            <li>Drop share/aclocal/README</li>
         </changeset>
     </release>
     <release epoch="1" version="1.16.3" revision="2bolt1" upstream-version="1:1.16.3-2"

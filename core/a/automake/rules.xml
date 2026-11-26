@@ -39,6 +39,9 @@ rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/aclocal"
 ln -sf automake-1.19 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/automake"
 ln -sf aclocal-1.19 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/aclocal"
 
+# The folder stays, it is where other packages put their macros.
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/aclocal/README"
+
     ]]>
     </install>
 </rules>
