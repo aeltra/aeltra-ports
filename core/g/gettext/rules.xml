@@ -37,6 +37,14 @@ make -j"$AELTRA_PARALLEL_JOBS" USEJAVA=0
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
+# The libraries that only the programs of gettext use, as in Debian: no files
+# to link against them.
+FULL_PREFIX="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+rm -f "$FULL_PREFIX/lib/libgettextlib.so" "$FULL_PREFIX/lib/libgettextlib.a"
+rm -f "$FULL_PREFIX/lib/libgettextsrc.so" "$FULL_PREFIX/lib/libgettextsrc.a"
+rm -f "$FULL_PREFIX/lib/libtextstyle.so" "$FULL_PREFIX/lib/libtextstyle.a"
+rm -rf "$FULL_PREFIX/include/textstyle" "$FULL_PREFIX/include/textstyle.h"
+
     ]]>
     </install>
 </rules>

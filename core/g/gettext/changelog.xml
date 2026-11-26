@@ -9,6 +9,7 @@
                 The build system is no longer regenerated, Debian's patches
                 do not touch it. Build without glib and with OpenMP.
             </li>
+            <li>Drop development files of the internal libraries</li>
         </changeset>
     </release>
     <release version="0.21" revision="4bolt1" upstream-version="0.21-4"
