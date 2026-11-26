@@ -23,5 +23,6 @@
         <file src="${prefix}/include/attr"/>
         <file src="${prefix}/lib/libattr.a"/>
         <file src="${prefix}/lib/libattr.so"/>
+        <file src="${prefix}/lib/pkgconfig/libattr.pc"/>
     </contents>
 </package>

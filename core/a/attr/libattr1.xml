@@ -10,5 +10,6 @@
 
     <contents>
         <file src="${prefix}/lib/libattr.so.*"/>
+        <file src="/etc/xattr.conf" conffile="true" if="target-build"/>
     </contents>
 </package>
