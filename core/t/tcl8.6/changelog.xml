@@ -7,6 +7,7 @@
             <li>Upgrade to version 8.6.18+dfsg-2 from Debian forky.</li>
             <li>Regenerate the configure script, as Debian does.</li>
             <li>Package tcl8.6.pc and tcl8.6.m4.</li>
+            <li>No folder of the build in tclConfig.sh</li>
         </changeset>
     </release>
     <release version="8.6.11+dfsg" revision="1bolt1" upstream-version="8.6.11+dfsg-1"

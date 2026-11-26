@@ -73,6 +73,8 @@ cp unix/*.h "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/tcl8.6/tcl-priva
 cp compat/*.h "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/tcl8.6/tcl-private/compat"
 cp libtommath/*.h "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/tcl8.6/tcl-private/libtommath"
 
+sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"tcl*Config.sh
 mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/"tcl*Config.sh \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/tcl8.6"
 mv "$AELTRA_SOURCE_DIR/unix/libtcl8.6.a" \
