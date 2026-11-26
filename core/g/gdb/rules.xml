@@ -7,10 +7,13 @@ export PKG_CONFIG="$AELTRA_INSTALL_PREFIX/bin/${AELTRA_HOST_TYPE}-pkg-config"
 
 # As in Debian, the native debuggers have no system root and only the one of
 # the target reads the files in /etc/gdb. For the cross debugger, the target
-# is the root folder of the build box.
+# is the root folder of the build box. It looks for the debug symbols of the
+# target in /usr/lib/debug, not in lib/debug of its prefix, the sysroot is
+# not put in front of it when looking a file up by its build ID.
 case "$AELTRA_BUILD_FOR" in
     cross-tools)
         EXTRA_OPTS="--with-sysroot=/"
+        EXTRA_OPTS="$EXTRA_OPTS --with-separate-debug-dir=/usr/lib/debug"
         ;;
     tools)
         EXTRA_OPTS="--program-prefix=${AELTRA_TARGET_TYPE}-"
@@ -90,6 +93,18 @@ find "$FULL_INSTALL" -name "*.la" -exec rm '{}' \;
 rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/info"
 rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/share/man"
 
+# The headers and static libraries of bfd, opcodes, ctf and sframe, which come
+# with the sources of gdb. Debian has them in binutils-dev.
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/include/"*.h
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/"*.a
+
+# gdbserver is packaged for the target only, and the cross debugger takes the
+# files of gdb-common from tools-gdb-common.
+if [ "$AELTRA_BUILD_FOR" != "target" ]; then
+    rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*gdbserver
+    rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib"
+fi
+
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/gdb"
 # -------------------------------------------------------------------------
@@ -120,6 +135,10 @@ for SUBDIR in share include; do
     mv "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/$SUBDIR" \
         "$PKG_PATH/$AELTRA_INSTALL_PREFIX/"
 done
+
+if [ "$AELTRA_BUILD_FOR" = "cross-tools" ]; then
+    rm -fr "$PKG_PATH"
+fi
 
 # -------------------------------------------------------------------------
 PKG_PATH="$AELTRA_INSTALL_DIR/gdbserver"

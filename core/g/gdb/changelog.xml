@@ -6,6 +6,8 @@
         <changeset>
             <li>Update to the version of Debian Forky</li>
             <li>No system root for the native debuggers, with the old ones libraries were not found</li>
+            <li>Cross debugger: look for debug symbols in /usr/lib/debug</li>
+            <li>Drop the bundled bfd, opcodes, ctf and sframe files</li>
         </changeset>
     </release>
     <release version="10.1" revision="1.7bolt1" upstream-version="10.1-1.7"
