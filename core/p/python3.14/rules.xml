@@ -79,6 +79,13 @@ sed -i -f "$AELTRA_WORK_DIR/sysconfig.sed" \
 make DESTDIR="$FULL_INSTALL" install
 
 rm -f  "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*idle*
+
+# The links without the version are made by the postinst of the packages, as
+# python3-defaults of Debian would ship them. Debian has no libpython3.so.
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/pydoc3"
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/python3"
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/python3-config"
+rm -f "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/libpython3.so"
 rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/idlelib"
 rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/turtledemo"
 

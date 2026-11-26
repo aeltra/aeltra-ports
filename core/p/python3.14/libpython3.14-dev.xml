@@ -29,4 +29,22 @@
     <contents subdir="libpython3.14-dev">
         <file src="/"/>
     </contents>
+
+    <maintainer-scripts>
+        <postinst><![CDATA[
+
+if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/python3-config" ]; then
+    ln -sf "python3.14-config" "$AELTRA_INSTALL_PREFIX/bin/python3-config"
+fi
+
+        ]]></postinst>
+
+        <postrm><![CDATA[
+
+if [ ! -e "$AELTRA_INSTALL_PREFIX/bin/python3-config" ]; then
+    rm -f "$AELTRA_INSTALL_PREFIX/bin/python3-config"
+fi
+
+        ]]></postrm>
+    </maintainer-scripts>
 </package>

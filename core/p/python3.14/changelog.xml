@@ -23,6 +23,8 @@
                 What extensions are built with has nothing of the build and, on
                 the target, of the tools folder in it
             </li>
+            <li>Create pydoc3 and python3-config links in postinst</li>
+            <li>Drop libpython3.so</li>
         </changeset>
     </release>
     <release version="3.9.1" revision="4bolt1" upstream-version="3.9.1-4"
