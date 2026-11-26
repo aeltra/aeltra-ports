@@ -5,6 +5,7 @@
         date="2026-11-19 21:36:25+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>Ship libacl.pc in libacl1-dev</li>
         </changeset>
     </release>
     <release version="2.2.53" revision="10bolt1" upstream-version="2.2.53-10"

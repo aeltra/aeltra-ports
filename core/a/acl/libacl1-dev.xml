@@ -18,5 +18,6 @@
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libacl.a"/>
         <file src="${prefix}/lib/libacl.so"/>
+        <file src="${prefix}/lib/pkgconfig/libacl.pc"/>
     </contents>
 </package>
