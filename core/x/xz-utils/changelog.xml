@@ -5,6 +5,7 @@
         date="2026-11-19 21:25:06+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>Ship the lzma compatibility links</li>
         </changeset>
     </release>
     <release version="5.2.5" revision="1.0bolt1" upstream-version="5.2.5-1.0"
