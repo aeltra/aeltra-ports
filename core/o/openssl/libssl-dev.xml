@@ -23,6 +23,7 @@
         <file src="${prefix}/lib/libcrypto.so"/>
         <file src="${prefix}/lib/libssl.a"/>
         <file src="${prefix}/lib/libssl.so"/>
+        <file src="${prefix}/lib/cmake/OpenSSL"/>
         <file src="${prefix}/lib/pkgconfig"/>
     </contents>
 </package>

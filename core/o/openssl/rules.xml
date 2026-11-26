@@ -66,6 +66,11 @@ done
 
 chmod 0700 "$AELTRA_INSTALL_DIR/etc/ssl/private"
 
+# Debian ships neither the copies of the configuration nor the list of the
+# logs of Certificate Transparency.
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/ssl/"*.dist
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/ssl/ct_log_list.cnf"
+
     ]]>
     </install>
 </rules>
