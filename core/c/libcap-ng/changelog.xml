@@ -5,6 +5,7 @@
         date="2026-11-19 20:08:26+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>Ship bash completion in libcap-ng-utils</li>
         </changeset>
     </release>
     <release version="0.7.9" revision="2.2bolt1" upstream-version="0.7.9-2.2"

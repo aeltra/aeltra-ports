@@ -23,5 +23,6 @@
 
     <contents>
         <file src="${prefix}/bin/*"/>
+        <file src="${prefix}/share/bash-completion/completions/*"/>
     </contents>
 </package>
