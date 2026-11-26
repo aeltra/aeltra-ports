@@ -12,6 +12,9 @@
             mpicalc, as in Debian. They were in libgcrypt20-dev</li>
             <li>libgcrypt20-dev has libgcrypt.pc</li>
             <li>The transitional package libgcrypt11-dev is gone</li>
+            <li>
+                libgcrypt-config does not call the grep of the tools folder
+            </li>
         </changeset>
     </release>
     <release version="1.8.7" revision="2bolt1" upstream-version="1.8.7-2"

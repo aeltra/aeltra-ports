@@ -7,6 +7,8 @@
 # again outside of upstream's git repository calls the version
 # "1.12.4-unknown" and a beta (autogen.sh --find-version), which Debian
 # patches away.
+#
+# libgcrypt-config calls grep by the names given here.
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
@@ -17,7 +19,9 @@ $AELTRA_SOURCE_DIR/configure \
     --disable-asm \
     --disable-doc \
     --enable-shared \
-    --enable-static
+    --enable-static \
+    GREP="grep" \
+    FGREP="grep -F"
 
     ]]>
     </prepare>
