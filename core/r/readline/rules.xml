@@ -51,6 +51,9 @@ make SHLIB_LIBS="-ltinfo" DESTDIR="$AELTRA_INSTALL_DIR" install
 install -m 0755 "$AELTRA_BUILD_DIR/examples/rlfe/rlfe" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/"
 
+# The examples, Debian has them in the documentation.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/readline"
+
     ]]>
     </install>
 </rules>

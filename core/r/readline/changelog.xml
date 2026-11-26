@@ -5,6 +5,7 @@
         date="2026-11-19 21:19:49+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>Ship the .pc files in libreadline-dev, drop the examples</li>
         </changeset>
     </release>
     <release version="8.1" revision="1bolt1" upstream-version="8.1-1"
