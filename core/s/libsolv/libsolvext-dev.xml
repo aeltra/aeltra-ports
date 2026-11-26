@@ -44,5 +44,6 @@
         <file src="${prefix}/include/solv/solv_xfopen.h"/>
         <file src="${prefix}/include/solv/tools_util.h"/>
         <file src="${prefix}/lib/libsolvext.{so,a}"/>
+        <file src="${prefix}/lib/pkgconfig/libsolvext.pc"/>
     </contents>
 </package>

@@ -8,6 +8,7 @@
             <li>Built with Debian's options, with zstd, but without the RPM
                 database and without the Perl and Python bindings.</li>
             <li>The fopencookie patches are gone, musl has the function.</li>
+            <li>Ship libsolvext.pc in libsolvext-dev.</li>
         </changeset>
     </release>
     <release version="0.7.17" revision="1bolt1" upstream-version="0.7.17-1"
