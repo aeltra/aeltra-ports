@@ -30,8 +30,8 @@
                 sha256sum="ece6201b5cb489c2c033921dccf1ee90a3357efa7f4d51ebe5d2a7a2d5bdcc05"/>
             <file src="alpine-patches-1.tar.gz" subdir="patches"
                 sha256sum="f2caa605fb05c4980d3fbdd8679e19c4187b73b5a30c935bace801d59210262b"/>
-            <file src="aeltra-patches-5.tar.gz" subdir="patches"
-                sha256sum="e46471eaccee59da234bc79272f3dd9255c1532d209e6b8502dcf1938d4e574a"/>
+            <file src="aeltra-patches-6.tar.gz" subdir="patches"
+                sha256sum="e6c704949faa70cd0294a2ec27eb4b3ece863051d70b3a8d1892deb9ab432c0c"/>
         </sources>
 
         <patches>

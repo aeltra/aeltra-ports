@@ -14,8 +14,9 @@ if [ "$AELTRA_INSTALL_PREFIX" = "/tools" ]; then
     # to avoid collision with the target musl linker config
     sed -i 's@/etc/ld-musl-@/etc/ld-musl-tools-@g' ldso/dynlink.c
 
-    # this is the magic redirection patch
-    patch -p1 < "$AELTRA_WORK_DIR/patches/bbox-redirect-bin-sh.patch"
+    # Programs called from /usr/bin run from /tools/bin when there is a
+    # native build of the same program (see the patch).
+    patch -p1 < "$AELTRA_WORK_DIR/patches/exec-redirect.patch"
 
 fi
 
