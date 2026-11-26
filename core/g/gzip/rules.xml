@@ -10,11 +10,13 @@ if [ "`bh_os_bits $AELTRA_HOST_TYPE`" = "32" ]; then
     export TIME_T_32_BIT_OK=yes
 fi
 
+# As in Debian: zgrep calls grep by this name.
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_BUILD_TYPE" \
-    --host="$AELTRA_HOST_TYPE"
+    --host="$AELTRA_HOST_TYPE" \
+    GREP="grep"
 
     ]]>
     </prepare>

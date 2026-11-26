@@ -5,6 +5,7 @@
         date="2026-11-19 21:31:55+03:00">
         <changeset>
             <li>Import new version from Debian Forky</li>
+            <li>zgrep does not call the grep of the tools folder</li>
         </changeset>
     </release>
     <release version="1.10" revision="2bolt1" upstream-version="1.10-2"
