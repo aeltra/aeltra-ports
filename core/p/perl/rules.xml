@@ -21,12 +21,6 @@ export BUILD_BZIP2=0
 export BZIP2_INCLUDE="$AELTRA_INSTALL_PREFIX/include"
 export BZIP2_LIB="$AELTRA_INSTALL_PREFIX/lib"
 
-if [ "$AELTRA_BUILD_FOR" = "target" ]; then
-    SYSROOT="/"
-else
-    SYSROOT="/tools"
-fi
-
 ###############################################################################
 # Configure duplicate source trees for shared and static build
 ###############################################################################
@@ -36,19 +30,23 @@ for variant in shared static; do
     if [ "$variant" = "shared" ]; then
         OPTS="-Duseshrplib -Dlibperl=libperl.so.$FULL_VERSION -Dplibpth=$AELTRA_INSTALL_PREFIX/lib"
     fi
+    if [ "$AELTRA_BUILD_FOR" = "tools" ]; then
+        OPTS="$OPTS -Dsysroot=/tools"
+    fi
 
     ###########################################################################
     # Run configuration script
     ###########################################################################
     cd "$AELTRA_BUILD_DIR/$variant"
+    cp "$AELTRA_WORK_DIR/extra/config.over" .
     ./Configure \
         -Dusethreads                                                    \
         -Duselargefiles                                                 \
-        -Dccflags=""                                                    \
+        -Dccflags="$CPPFLAGS $CFLAGS"                                     \
+        -Dldflags="$LDFLAGS"                                              \
+        -Dlddlflags="-shared $LDFLAGS"                                    \
         -Dcccdlflags="-fPIC"                                            \
         -Darchname="$AELTRA_HOST_TYPE"                                    \
-        -Dtargetarch="$AELTRA_HOST_TYPE"                                  \
-        -Dsysroot="$SYSROOT"                                            \
         -Dcc="${AELTRA_HOST_TYPE}-gcc"                                    \
         -Dcpp="${AELTRA_HOST_TYPE}-cpp"                                   \
         -Dld="${AELTRA_HOST_TYPE}-gcc"                                    \
@@ -77,13 +75,6 @@ for variant in shared static; do
         -Doptimize="-O2"                                                \
         $OPTS -des
 done
-
-###############################################################################
-# Disable rpath, libperl will be moved to $AELTRA_INSTALL_PREFIX/lib
-###############################################################################
-
-sed -i "/^CCDLFLAGS/{s/-Wl,-rpath,\$AELTRA_INSTALL_PREFIX[^ ]\+//g}" \
-	$AELTRA_BUILD_DIR/shared/Makefile
 
     ]]>
     </prepare>
@@ -157,6 +148,12 @@ chmod 644 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/libperl.so.$FULL_VERSI
 # Copy the static library
 ###############################################################################
 cp -va "$AELTRA_BUILD_DIR/static/libperl.a" "$AELTRA_INSTALL_DIR$AELTRA_INSTALL_PREFIX/lib/"
+
+###############################################################################
+# Extensions are built with the compiler flags of perl, but not in this folder
+###############################################################################
+sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/perl/$MAJOR_MINOR/Config_heavy.pl"
 
 ###############################################################################
 # Fix permissions

@@ -23,8 +23,8 @@
                 sha256sum="82e0dcddac1dd15c4078c969628533f587a31f4e229824763cbd84ab4db628e1"/>
             <file src="debian-patches-3.tar.gz" subdir="patches"
                 sha256sum="e5d22a548981d5999333c8b636c35e7e8e689912ab73fb494db8d224afab64c5"/>
-            <file src="aeltra-files-1.tar.gz" subdir="extra"
-                sha256sum="a25056b97db0298aaa69cc8f7f230625088d7df556038ade7df8866df222bd86"/>
+            <file src="aeltra-files-2.tar.gz" subdir="extra"
+                sha256sum="f13a0f58253adc3b5ec3b99f02881f2811dea2fc432113d7ce9186d80fb531c3"/>
         </sources>
 
         <patches>

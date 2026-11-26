@@ -11,6 +11,15 @@
             <li>The Configure answers for the perl of the tools folder come
             as a file of their own, with the script that generates
             them</li>
+            <li>
+                Build with the compiler flags of the distribution, also the
+                extensions of other packages
+            </li>
+            <li>
+                What Configure finds out about the machine of the build and
+                about the tools folder is not recorded (config.over, based on
+                Debian's). The architecture name has the architecture in it.
+            </li>
         </changeset>
     </release>
     <release version="5.32.1" revision="2bolt1" upstream-version="5.32.1-2"
