@@ -7,6 +7,7 @@
             <li>Import new version from Debian Forky</li>
             <li>Adapt to the new configure script (autosetup), autoconf and
             libtool are no longer needed</li>
+            <li>lemon takes its template from the prefix</li>
         </changeset>
     </release>
     <release version="3.34.1" revision="1bolt1" upstream-version="3.34.1-1"

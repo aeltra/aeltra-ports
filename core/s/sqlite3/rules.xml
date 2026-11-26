@@ -65,10 +65,10 @@ cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
 install -d "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/lemon"
-install -m 0664 "$AELTRA_SOURCE_DIR/tool/lempar.c" \
+install -m 0644 "$AELTRA_SOURCE_DIR/tool/lempar.c" \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/lemon/"
-install -m 0775 sqldiff "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
-install -m 0775 lemon "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
+install -m 0755 sqldiff "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
+install -m 0755 lemon "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin"
 
     ]]>
     </install>
