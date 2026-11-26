@@ -14,6 +14,11 @@
                 libtool and libtoolize, they are looked up when the scripts
                 run.
             </li>
+            <li>
+                The script libtool needs nothing of the tools folder and has
+                nothing of the folders of GCC in it. It knows gcc, cc, g++ and
+                c++ by these names.
+            </li>
         </changeset>
     </release>
     <release version="2.4.6" revision="15bolt1" upstream-version="2.4.6-15"

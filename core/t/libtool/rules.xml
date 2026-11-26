@@ -10,13 +10,20 @@ cd "$AELTRA_SOURCE_DIR"
 LIBTOOLIZE="true" autoreconf -vfi
 bh_autotools_dev_update
 
+# The script libtool has the names of the programs in it, without a folder
+# they are looked for in the path. With --enable-cxx-stdlib it lets g++ find
+# its own libraries and object files, Debian edits the script to that end.
 cd "$AELTRA_BUILD_DIR"
 $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    --enable-cxx-stdlib \
     GREP="grep" \
-    SED="sed"
+    SED="sed" \
+    LD="${AELTRA_HOST_TYPE}-ld" \
+    NM="${AELTRA_HOST_TYPE}-nm -B" \
+    ac_cv_path_lt_DD="dd"
 
     ]]>
     </prepare>
@@ -35,6 +42,45 @@ make -j"$AELTRA_PARALLEL_JOBS"
 
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
+
+LIBTOOL="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/libtool"
+
+sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
+    "$LIBTOOL"
+
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    # Nothing of the compiler that built this, which is the one of the tools
+    # folder.
+    sed -i 's@^sys_lib_search_path_spec=.*@sys_lib_search_path_spec="/lib /usr/lib"@' \
+        "$LIBTOOL"
+
+    # As in Debian, libtool knows the compilers by their short names, with tags
+    # of their own. Debian's tag for C only has the names of the compiler, but
+    # libtool goes through the tags in order and what the one before has set
+    # stays. No library was linked, and nothing said so.
+    for PROG in gcc cc; do
+        TAG="BIN`echo $PROG | tr a-z A-Z`"
+
+        echo
+        sed -n '/^# ### BEGIN LIBTOOL CONFIG$/,/^# ### END LIBTOOL CONFIG$/p' "$LIBTOOL" | \
+            sed -e "s/LIBTOOL CONFIG/LIBTOOL TAG CONFIG: $TAG/" \
+                -e "s/${AELTRA_HOST_TYPE}-gcc/$PROG/g"
+    done > "$AELTRA_BUILD_DIR/tags"
+
+    for PROG in g++ c++; do
+        TAG="BIN`echo $PROG | tr a-z+ A-ZX`"
+
+        echo
+        sed -n '/^# ### BEGIN LIBTOOL TAG CONFIG: CXX$/,/^# ### END LIBTOOL TAG CONFIG: CXX$/p' "$LIBTOOL" | \
+            sed -e "s/CONFIG: CXX/CONFIG: $TAG/" \
+                -e "s/${AELTRA_HOST_TYPE}-g++/$PROG/g"
+    done >> "$AELTRA_BUILD_DIR/tags"
+
+    cat "$AELTRA_BUILD_DIR/tags" >> "$LIBTOOL"
+
+    sed -i "s/^available_tags='\(.*[^ ]\) *'/available_tags='\1 BINGCC BINCC BINGXX BINCXX'/" \
+        "$LIBTOOL"
+fi
 
     ]]>
     </install>
