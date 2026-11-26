@@ -10,6 +10,7 @@
             built</li>
             <li>Build requirements without glib, m4 and texinfo, with
             pkg-config, which finds ncurses</li>
+            <li>Ship the pinentry link in pinentry-curses</li>
         </changeset>
     </release>
     <release version="1.1.0" revision="4bolt1" upstream-version="1.1.0-4"

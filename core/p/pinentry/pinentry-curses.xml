@@ -23,6 +23,7 @@
     </description>
 
     <contents>
+        <file src="${prefix}/bin/pinentry"/>
         <file src="${prefix}/bin/pinentry-curses"/>
     </contents>
 </package>
