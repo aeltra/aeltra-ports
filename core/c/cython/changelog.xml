@@ -7,6 +7,7 @@
             <li>Update to version 3.1.6+dfsg-4 from Debian forky.</li>
             <li>The programs are cython, cythonize and cygdb, as in Debian, the names ending in 3 are gone.</li>
             <li>No manual pages and no documentation.</li>
+            <li>cython3 requires python3</li>
         </changeset>
     </release>
     <release version="0.29.21" revision="3bolt1" upstream-version="0.29.21-3"
