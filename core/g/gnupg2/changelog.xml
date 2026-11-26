@@ -16,6 +16,7 @@
             gone</li>
             <li>gpg-agent calls pinentry-curses unless it is configured
             otherwise</li>
+            <li>Drop the SKS keyserver certificate</li>
         </changeset>
     </release>
     <release version="2.2.20" revision="1bolt1" upstream-version="2.2.20-1"

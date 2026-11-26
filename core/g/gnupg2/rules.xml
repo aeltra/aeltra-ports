@@ -49,6 +49,10 @@ make DESTDIR="$AELTRA_INSTALL_DIR" install
 # Only the tests use it.
 rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/bin/gpgscm"
 
+# The certificate of the pool of SKS keyservers, which is gone. Debian does
+# not ship it either.
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/gnupg/sks-keyservers.netCA.pem"
+
 install -d -m 0755 "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/gnupg2"
 ln -sf ../gnupg/gpg-preset-passphrase \
     "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/gnupg2/gpg-preset-passphrase"
