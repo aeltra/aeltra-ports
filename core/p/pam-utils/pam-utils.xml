@@ -26,7 +26,6 @@
         <file src="${prefix}/sbin/"/>
         <file src="${prefix}/share/pam/"/>
         <file src="${prefix}/share/pam-configs/"/>
-        <file src="${prefix}/share/man/"/>
     </contents>
 
     <maintainer-scripts>

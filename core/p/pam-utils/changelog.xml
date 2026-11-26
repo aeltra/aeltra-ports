@@ -7,6 +7,7 @@
             <li>New upstream release</li>
             <li>pam-auth-update no longer insists on being run by root,
             packages are also installed by a user into a build root</li>
+            <li>The manual pages are not packaged</li>
         </changeset>
     </release>
     <release version="1.0.0" revision="1"
