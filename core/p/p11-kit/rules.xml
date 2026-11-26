@@ -44,6 +44,11 @@ make DESTDIR="$AELTRA_INSTALL_DIR" install
 cd "$AELTRA_INSTALL_DIR"
 find . -name "*.la" -exec rm '{}' ';'
 
+# An example of the configuration, and the script that Debian has among the
+# examples of the documentation.
+rm -f "$AELTRA_INSTALL_DIR/etc/pkcs11/pkcs11.conf.example"
+rm -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/libexec/p11-kit/trust-extract-compat"
+
     ]]>
     </install>
 </rules>

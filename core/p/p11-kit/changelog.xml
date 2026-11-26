@@ -11,6 +11,7 @@
             Debian</li>
             <li>The configuration is looked for in /etc/pkcs11 and no
             longer in /usr/etc/pkcs11</li>
+            <li>Drop pkcs11.conf.example and trust-extract-compat</li>
         </changeset>
     </release>
     <release version="0.23.22" revision="1bolt1" upstream-version="0.23.22-1"
