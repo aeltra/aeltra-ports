@@ -23,6 +23,9 @@ bh_python_install --build
 cd "$AELTRA_SOURCE_DIR"
 bh_python_install --install --root "$AELTRA_INSTALL_DIR"
 
+# For "meson install" through pkexec, there is no polkit.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/polkit-1"
+
     ]]>
     </install>
 </rules>

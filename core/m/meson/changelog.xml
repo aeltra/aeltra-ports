@@ -9,6 +9,7 @@
                 Build a wheel and install it. Require python3-setuptools in
                 place of python3-pkg-resources, as Debian does.
             </li>
+            <li>Drop the polkit policy</li>
         </changeset>
     </release>
     <release version="0.56.2" revision="1bolt1" upstream-version="0.56.2-1"
