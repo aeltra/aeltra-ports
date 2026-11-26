@@ -12,7 +12,14 @@ true
     <![CDATA[
 
 cd "$AELTRA_BUILD_DIR"
-make CC="${AELTRA_HOST_TYPE}-gcc" -j"$AELTRA_PARALLEL_JOBS"
+
+# The Makefile sets its own flags. Those of Debian's recipe, without
+# _FILE_OFFSET_BITS files of more than 2 GiB can't be read on 32 bit systems.
+make -j"$AELTRA_PARALLEL_JOBS" \
+    CC="${AELTRA_HOST_TYPE}-gcc" \
+    CFLAGS="$CFLAGS -Wall -Winline" \
+    CPPFLAGS="$CPPFLAGS -D_REENTRANT -D_FILE_OFFSET_BITS=64" \
+    LDFLAGS="$LDFLAGS"
 
     ]]>
     </build>
