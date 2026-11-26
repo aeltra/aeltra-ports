@@ -62,6 +62,9 @@ for TLS in openssl gnutls; do
     make -C "$AELTRA_BUILD_DIR/$TLS" \
         DESTDIR="$AELTRA_INSTALL_DIR/$TLS" install
 
+    sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
+        "$AELTRA_INSTALL_DIR/$TLS/$AELTRA_INSTALL_PREFIX/bin/curl-config"
+
     install -D -m 644 "$AELTRA_BUILD_DIR/$TLS/docs/libcurl/libcurl.m4" \
         "$AELTRA_INSTALL_DIR/$TLS/$AELTRA_INSTALL_PREFIX/share/aclocal/libcurl.m4"
 done

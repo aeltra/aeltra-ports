@@ -11,6 +11,7 @@
             <li>libcurl4 and libcurl4-gnutls take the place of libcurl3 and
             libcurl3-gnutls, without the links for version 3</li>
             <li>With nghttp2, libidn2, libpsl, brotli and zstd</li>
+            <li>No folder of the build in curl-config</li>
         </changeset>
     </release>
     <release version="7.74.0" revision="1.1bolt1" upstream-version="7.74.0-1.1"
