@@ -40,6 +40,10 @@ cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 bh_unify_lib64_with_lib "$AELTRA_INSTALL_DIR"
 
+# As in Debian: the compiler flags are in gmp.h.
+sed -i "s,$AELTRA_WORK_DIR,BUILDPATH,g" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/include/gmp.h"
+
     ]]>
     </install>
 </rules>

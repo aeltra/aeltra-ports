@@ -6,6 +6,7 @@
         <changeset>
             <li>Import new version from Debian Forky</li>
             <li>libgmp-dev has gmp.pc and gmpxx.pc</li>
+            <li>No folder of the build in gmp.h</li>
         </changeset>
     </release>
     <release epoch="2" version="6.2.1+dfsg" revision="1bolt1" upstream-version="2:6.2.1+dfsg-1"
