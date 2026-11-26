@@ -19,6 +19,10 @@
                 Virtual environments get pip from python3-pip-whl, as in
                 Debian. The wheel of Python's sources is not packaged.
             </li>
+            <li>
+                What extensions are built with has nothing of the build and, on
+                the target, of the tools folder in it
+            </li>
         </changeset>
     </release>
     <release version="3.9.1" revision="4bolt1" upstream-version="3.9.1-4"

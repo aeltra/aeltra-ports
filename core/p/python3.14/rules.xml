@@ -24,6 +24,7 @@ $AELTRA_SOURCE_DIR/configure \
     --prefix="$AELTRA_INSTALL_PREFIX" \
     --build="$AELTRA_HOST_TYPE" \
     --host="$AELTRA_HOST_TYPE" \
+    CXX="${AELTRA_HOST_TYPE}-g++" \
     --enable-shared \
     --enable-ipv6 \
     --enable-loadable-sqlite-extensions \
@@ -58,6 +59,23 @@ FULL_INSTALL="$AELTRA_INSTALL_DIR/all"
 
 cd "$AELTRA_BUILD_DIR"
 
+# What extensions are built with later has nothing of the build and, on the
+# target, of the tools folder in it. Debian does some of this. The files from
+# which Python code and its byte code are installed are edited here, the
+# Makefile is needed as it is and edited afterwards.
+cat > "$AELTRA_WORK_DIR/sysconfig.sed" << EOF
+s@-ffile-prefix-map=[^ '"]* *@@g
+s@LD_LIBRARY_PATH=$AELTRA_BUILD_DIR@@g
+s@$AELTRA_WORK_DIR@BUILDPATH@g
+EOF
+
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    echo "s@/tools/bin/@@g" >> "$AELTRA_WORK_DIR/sysconfig.sed"
+fi
+
+sed -i -f "$AELTRA_WORK_DIR/sysconfig.sed" \
+    "`cat pybuilddir.txt`"/_sysconfigdata_*.py "`cat pybuilddir.txt`"/*.json
+
 make DESTDIR="$FULL_INSTALL" install
 
 rm -f  "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/"*idle*
@@ -67,6 +85,10 @@ rm -fr "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/turtledemo"
 PYTHON3_CONFIG_DIR=$(
     echo "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX"/lib/python3.14/config-3.14-*
 )
+
+sed -i -f "$AELTRA_WORK_DIR/sysconfig.sed" \
+    "$PYTHON3_CONFIG_DIR/Makefile" "$PYTHON3_CONFIG_DIR/config.c" \
+    "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/bin/python3.14-config"
 
 # As in Debian (PEP 668): pip installs into virtual environments only.
 cat > "$FULL_INSTALL/$AELTRA_INSTALL_PREFIX/lib/python3.14/EXTERNALLY-MANAGED" << EOF
