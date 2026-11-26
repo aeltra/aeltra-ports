@@ -6,6 +6,10 @@
         <changeset>
             <li>New upstream version, the one of Debian Forky, with
             Debian's patches (5.3.15)</li>
+            <li>
+                Nothing of the build and of the tools folder in the Makefile
+                for loadable builtins
+            </li>
         </changeset>
     </release>
     <release version="5.1" revision="2bolt1" upstream-version="5.1-2"

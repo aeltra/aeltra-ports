@@ -30,6 +30,19 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
+# As in Debian, the Makefile for the loadable builtins has no folder of the
+# build in it. What is in the tools folder is looked for in the path.
+sed -i "s@-ffile-prefix-map=[^ \"']* *@@g" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/bash/Makefile.inc"
+sed -i -e 's@^BUILD_DIR = .*@BUILD_DIR = /path/to/build-dir@' \
+    -e "s@$AELTRA_SOURCE_DIR@/path/to/source-dir@g" \
+    "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/bash/Makefile.inc"
+
+if [ "$AELTRA_BUILD_FOR" = "target" ]; then
+    sed -i 's@/tools/bin/@@g' \
+        "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/bash/Makefile.inc"
+fi
+
     ]]>
     </install>
 </rules>
