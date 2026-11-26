@@ -119,10 +119,26 @@ cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo" && rm -f $BADTERM
 for f in $LIBTERMINFOFILES; do
     dir="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/terminfo/$(dirname $f)"
     mkdir -p "$dir"
-    if [ -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo/$f" ]; then
+    if [ -f "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo/$f" ] || \
+            [ -L "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo/$f" ]; then
         mv "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo/$f" "$dir"
     fi
 done
+
+# Links that are left in share/terminfo and lead to a moved entry (ansis to
+# cons25, vt200 to vt220) point to it in lib/terminfo.
+cd "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/terminfo"
+find . -type l | while read -r link; do
+    if [ -e "$link" ]; then
+        continue
+    fi
+    name="$(basename "$(readlink "$link")")"
+    entry="$(printf '%.1s' "$name")/$name"
+    if [ -e "../../lib/terminfo/$entry" ]; then
+        ln -sfn "../../../lib/terminfo/$entry" "$link"
+    fi
+done
+cd -
 
 # Create an empty /etc/terminfo for the sysadmin.
 mkdir -p "$AELTRA_INSTALL_DIR/etc/terminfo"
