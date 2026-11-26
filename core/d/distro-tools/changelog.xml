@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="1.20.0" revision="1"
+        maintainer="Tobias Koch" email="tobias.koch@gmail.com"
+        date="2026-11-26 09:31:59+03:00">
+        <changeset>
+          <li>New upstream release</li>
+          <li>aeltra-pack strips static libraries, warns about installed
+              files in no package, links that lead nowhere and text files
+              with the folder of the build in them, and stops if files for
+              the target need the tools</li>
+          <li>aeltra-pack stops if objdump, objcopy, strip or patch fail,
+              and the rules no longer come through standard input</li>
+          <li>Maintainer scripts have AELTRA_TARGET_TYPE</li>
+          <li>The compiler flags map the work folder of a build</li>
+          <li>Faster: libmagic is only asked about ELF files, packages are
+              compressed with as many threads as the build runs jobs</li>
+        </changeset>
+    </release>
     <release version="1.19.2" revision="1"
         maintainer="Tobias Koch" email="tobias.koch@gmail.com"
         date="2026-11-25 11:29:23+03:00">
