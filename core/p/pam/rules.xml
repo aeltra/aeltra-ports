@@ -51,6 +51,10 @@ install -m 644 "$AELTRA_WORK_DIR/extra/etc/pam.conf" \
 install -m 644 "$AELTRA_WORK_DIR/extra/etc/pam.d/other" \
     "$AELTRA_INSTALL_DIR/etc/pam.d/"
 
+# No systemd. Debian does not ship the example of /etc/environment either.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/lib/systemd"
+rm -f "$AELTRA_INSTALL_DIR/etc/environment"
+
 cd "$AELTRA_INSTALL_DIR"
 
     ]]>

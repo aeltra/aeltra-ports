@@ -10,6 +10,7 @@
             upstream fixes that are part of this release</li>
             <li>No Berkeley DB, pam_userdb is not built</li>
             <li>Built without NLS</li>
+            <li>Drop the systemd unit and /etc/environment</li>
         </changeset>
     </release>
     <release version="1.4.0" revision="4bolt1" upstream-version="1.4.0-4"
