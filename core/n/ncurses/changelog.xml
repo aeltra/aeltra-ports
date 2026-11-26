@@ -10,6 +10,7 @@
             <li>Take over Debian's hardening options: ignore the terminfo
             environment in setuid programs, no root access to private
             terminfo files</li>
+            <li>No folder of the build in curses.h</li>
         </changeset>
     </release>
     <release version="6.2+20201114" revision="2bolt1" upstream-version="6.2+20201114-2"

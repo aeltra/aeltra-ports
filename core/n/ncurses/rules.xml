@@ -55,13 +55,14 @@ CONFAGS_WCHAR="
 export cf_cv_type_of_bool=unsigned char
 export cf_cv_working_poll=yes
 
+# configure is called with a relative path because it ends up in curses.h.
 cd "$AELTRA_BUILD_DIR"
 mkdir -p curses6 && cd curses6
-"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFARGS_NARROW
+../../sources/configure $CONFARGS $CONFARGS_NARROW
 
 cd "$AELTRA_BUILD_DIR"
 mkdir -p curses6w && cd curses6w
-"$AELTRA_SOURCE_DIR/configure" $CONFARGS $CONFAGS_WCHAR
+../../sources/configure $CONFARGS $CONFAGS_WCHAR
 
     ]]>
     </prepare>
