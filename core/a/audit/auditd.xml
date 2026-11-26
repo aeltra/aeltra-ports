@@ -28,6 +28,7 @@
         <file src="${prefix}/sbin/aureport"/>
         <file src="${prefix}/sbin/ausearch"/>
         <file src="${prefix}/share/audit-rules"/>
+        <file src="${prefix}/share/bash-completion/completions/audit"/>
 
         <dir src="/etc/audit" mode="0750"/>
         <dir src="/etc/audit/plugins.d" mode="0750"/>

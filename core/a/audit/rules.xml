@@ -44,6 +44,19 @@ install -d -m 0755 "$AELTRA_INSTALL_DIR/etc/audit/rules.d"
 install -m 0640 "$AELTRA_SOURCE_DIR/rules/10-base-config.rules" \
     "$AELTRA_INSTALL_DIR/etc/audit/rules.d/audit.rules"
 
+# No systemd, and no actions for the old service command of SysV init.
+FULL_PREFIX="$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX"
+rm -rf "$FULL_PREFIX/lib/systemd" "$FULL_PREFIX/lib/tmpfiles.d"
+rm -rf "$FULL_PREFIX/libexec/initscripts"
+
+# The completions for bash where Debian has them.
+if [ -f "$AELTRA_INSTALL_DIR/etc/bash_completion.d/audit.bash_completion" ]; then
+    install -d -m 0755 "$FULL_PREFIX/share/bash-completion/completions"
+    mv "$AELTRA_INSTALL_DIR/etc/bash_completion.d/audit.bash_completion" \
+        "$FULL_PREFIX/share/bash-completion/completions/audit"
+    rmdir "$AELTRA_INSTALL_DIR/etc/bash_completion.d"
+fi
+
     ]]>
     </install>
 </rules>
