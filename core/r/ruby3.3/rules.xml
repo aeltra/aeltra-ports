@@ -70,8 +70,10 @@ cd "$AELTRA_BUILD_DIR"
 make V=1 -j"$AELTRA_PARALLEL_JOBS" main
 
 # rbconfig.rb remembers the paths of the programs of the build, which
-# extensions are built with later, and the folder of the build.
-sed -i "s@$AELTRA_BUILD_DIR@BUILDDIR@g" rbconfig.rb
+# extensions are built with later, and the folder of the build, also in the
+# compiler flags (-ffile-prefix-map, as for Python).
+sed -i -e "s@-ffile-prefix-map=[^ '\"]* *@@g" -e "s@$AELTRA_BUILD_DIR@BUILDDIR@g" \
+    rbconfig.rb
 
 if [ "$AELTRA_BUILD_FOR" = "target" ]; then
     sed -i 's@/tools/bin@/usr/bin@g' rbconfig.rb

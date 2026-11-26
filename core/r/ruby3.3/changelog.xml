@@ -10,6 +10,7 @@
             target with the Ruby of the tools folder</li>
             <li>On musl with Alpine's patch for the stack of the main
             thread. The patches from OpenWRT and upstream are gone</li>
+            <li>Strip -ffile-prefix-map from rbconfig.rb</li>
         </changeset>
     </release>
     <release version="2.7.2" revision="4bolt2" upstream-version="2.7.2-4"
