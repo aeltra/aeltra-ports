@@ -10,6 +10,8 @@
                 rhash, jsoncpp, cppdap and others) and OpenSSL.</li>
             <li>cmake-data is part of cmake, as in Debian.</li>
             <li>No documentation and no manual pages, they need Sphinx.</li>
+            <li>Ship the contents of share/cmake-*</li>
+            <li>Ship bash completion and Vim files, drop the Emacs mode</li>
         </changeset>
     </release>
     <release version="3.18.4" revision="2bolt1" upstream-version="3.18.4-2"

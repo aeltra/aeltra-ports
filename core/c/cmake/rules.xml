@@ -42,6 +42,9 @@ make -j"$AELTRA_PARALLEL_JOBS"
 cd "$AELTRA_BUILD_DIR"
 make DESTDIR="$AELTRA_INSTALL_DIR" install
 
+# Debian has the mode for Emacs in a package of its own.
+rm -rf "$AELTRA_INSTALL_DIR/$AELTRA_INSTALL_PREFIX/share/emacs"
+
     ]]>
     </install>
 </rules>

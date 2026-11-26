@@ -18,6 +18,8 @@
         <file src="${prefix}/bin/cpack"/>
         <file src="${prefix}/bin/ctest"/>
         <file src="${prefix}/share/aclocal"/>
-        <file src="${prefix}/share/cmake-*"/>
+        <file src="${prefix}/share/bash-completion/completions/*"/>
+        <file src="${prefix}/share/cmake-*/**/*"/>
+        <file src="${prefix}/share/vim/vimfiles"/>
     </contents>
 </package>
