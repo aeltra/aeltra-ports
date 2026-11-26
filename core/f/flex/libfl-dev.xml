@@ -24,5 +24,6 @@
     <contents>
         <file src="${prefix}/include"/>
         <file src="${prefix}/lib/libfl*.{so,a}*"/>
+        <file src="${prefix}/lib/pkgconfig/libfl.pc"/>
     </contents>
 </package>
